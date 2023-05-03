@@ -1,0 +1,20 @@
+export const rishi=[
+  "Surya", 
+  "Brahma", 
+  "Vyasa", 
+  "Vashistha", 
+  "Kashyapa", 
+  "Atri", 
+  "Parasara", 
+  "Narada", 
+  "Garga", 
+  "Mareechi", 
+  "Manu", 
+  "Angira", 
+  "Romasa", 
+  "Pulastya", 
+  "Chyavana", 
+  "Yavana", 
+  "Bhrigu", 
+  "Saunaka"
+]
