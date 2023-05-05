@@ -2,7 +2,7 @@ import { subscribe } from 'diagnostics_channel';
 import { GenIcon } from 'react-icons';
 import { RightMenu } from './RightMenu';
 import { LeftMenu } from './LeftMenu';
-import { FaAccusoft, FaCircleNotch, FaHome, FaRegGrinBeamSweat, FaServicestack, FaSpaceShuttle, FaTerminal, FaThemeco, FaUnlink, FaUserCircle } from 'react-icons/fa';
+import { FaAccusoft, FaCircleNotch, FaHome, FaListAlt, FaRegGrinBeamSweat, FaServicestack, FaSpaceShuttle, FaTerminal, FaThemeco, FaUnlink, FaUserCircle } from 'react-icons/fa';
 import { MiddleBar } from './MiddleBar';
 
 import { useState } from 'react';
@@ -66,6 +66,12 @@ export const tm = [
         icon: <FaRegGrinBeamSweat/>,
         image: "",
         link: "/#gems"
+      },
+      {
+        label: "Yantra",
+        icon: <FaListAlt/>,
+        image: "",
+        link: "/#yantra"
       },
     ]
   },

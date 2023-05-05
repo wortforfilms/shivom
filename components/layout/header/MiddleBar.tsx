@@ -12,13 +12,13 @@ export const MiddleBar = () => {
   const ref = useRef<any>(null);
   useOnClickOutside(ref, () => setSubOpen(null));
 
-  return <div className=' flex flex-row gap-2  justify-between w-[90vw] '>
+  return <div className=' flex flex-row gap-2 text-md  justify-between w-[90vw] '>
 
     {tm.map((me, index) => {
       return <motion.div key={index} 
       
 
-      className='text-white hover:underline cursor-pointer text-xs m-auto'
+      className='text-white hover:underline cursor-pointer text-sm m-auto'
         onClick={() => {
           if (!me.sub) {
             router.push(me.link, '', { scroll: true });
@@ -33,7 +33,7 @@ export const MiddleBar = () => {
               return <div key={index} className='flex flex-row gap-4 p-2 hover:underline'
                 onClick={() => {
                   router.push(sub.link, '', { scroll: true });
-                  setSubOpen(false);
+                  setSubOpen(null);
                 }}
               >
                 <div>{sub.icon}</div>

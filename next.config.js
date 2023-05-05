@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images:{
+    domains:["cloudflare-ipfs.com"]
+  },
 
   env: {
     NEXT_PUBLIC_SUPABASE_ANON_KEY:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94cmF4a2hvbmtzdmxydnB3c25jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMwODU3OTgsImV4cCI6MTk5ODY2MTc5OH0.B1pDbnkhyJVPt3WwIvkAdLr1YUVgM9QhmvAX65r4Lfo",

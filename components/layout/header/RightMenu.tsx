@@ -9,13 +9,13 @@ const right = [
     label: "Register",
     icon: <FaRegistered/>,
     image: "",
-    link: "/#register"
+    link: "/auth/register"
   },
   {
     label: "Login",
     icon: <FaUserCircle/>,
     image: "",
-    link: "/#login"
+    link: "/auth/login"
   }
 ];
 export const RightMenu = () => {

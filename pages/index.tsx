@@ -1,13 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { useRouter } from 'next/router'
 import { InputForm } from '../components/form/InputForm'
-import {
-  FacebookShareCount
-} from 'next-share'
-
 import { SocialBar } from '../components/layout/SocialBar'
-import MessageHome from '@/components/messaging'
 
 import { AboutUs } from '../components/landing/AboutUs'
 import { Technology } from '@/components/landing/Technology'
@@ -21,6 +15,8 @@ import { Symbols } from '../components/landing/Symbols'
 import { Zodiacs, zods } from '@/components/landing/Zodiacs'
 import { ProductForm } from '@/components/form/ProductForm'
 import { Questions } from '@/components/landing/Questions'
+import { useState } from 'react'
+import { Testemonials } from '@/components/landing/Testemonial'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -35,30 +31,7 @@ export default function Home() {
       <div className='h-12'></div>
 {/* <BirthForm/> */}
 <ProductForm/>
-      <div className='w-full bg-white p-2 flex flex-row overflow-auto'>
-
-<Image 
-src="/img/tshirt/13.png"
-alt="tshirt"
-width={100}
-height={100}
-className='w-96'
-/>
-<Image 
-src="/img/gems/37.jpeg"
-alt="tshirt"
-width={100}
-height={100}
-className='w-96'
-/>
-<Image 
-src="/img/gems/38.jpeg"
-alt="tshirt"
-width={100}
-height={100}
-className='w-96'
-/>
-</div>
+<ProductList/>
 {/* <MessageHome/> */}
 <Symbols/>
     <div className='text-xl flex flex-row flex-wrap text-center justify-between overflow-hidden p-2'>
@@ -66,6 +39,7 @@ className='w-96'
       </div>
 <Zodiacs/>
 <Questions/>
+<Testemonials/>
      <AboutUs/>
     <Technology/>
    <Planets/>
@@ -115,3 +89,65 @@ const BirthForm=()=>{
 //         </div>
 // }
 
+const ProductList=()=>{
+
+  const [product_list,setPL]=useState<any>([
+    {
+      product_type:"t-shirt",
+      product_title:"Cosmic T-shirts",
+      product_description:"T-shirt for empovering your cosmos with mystical enrgies.",
+      product_specification:"Dosh nivaran tshirts",
+      product_price:"599.99",
+      cureency:"INR",
+      product_rating:"4.5",
+      product_images:["/img/tshirt/13.png"]
+    },
+    {
+      product_type:"gems",
+      product_title:"Navgrah Ear Rings",
+      product_description:"Jewells for empovering your cosmos with mystical enrgies.",
+      product_specification:"Dosh nivaran gems",
+      product_price:"25500.00",
+      cureency:"INR",
+      product_rating:"4.5",
+      product_images:["/img/gems/37.jpeg"]
+    },
+    {
+      product_type:"gems",
+      product_title:"Graha Rings",
+      product_description:"Rings with mystical energies.",
+      product_specification:"Dosh nivaran gems",
+      product_price:"5500.00",
+      cureency:"INR",
+      product_rating:"4.5",
+      product_images:["/img/gems/38.jpeg"]
+    }
+  ])
+
+  return <div>
+          <div className='w-full  p-2 flex flex-row gap-2 overflow-auto'>
+
+{
+  product_list.map((product:any,index:number)=>{
+    return <div key={index} className='bg-white p-4 flex flex-col justify-between'>
+      <div>Rating: {product.product_rating}</div>
+<Image 
+src={product.product_images[0]}
+alt="tshirt"
+width={100}
+height={100}
+className='w-96'
+/>
+<div className='text-md font-bold py-4'>{product.product_title}</div>
+<div className='text-md font-thin py-4'>{product.product_description}</div>
+<div className='flex flex-row justify-between'>
+<div className='text-md font-bold py-4'>INR. {product.product_price}</div>
+<div className='bg-blue-500 text-white m-auto font-bold p-4 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '>Add to Cart</div>
+</div>
+    </div>
+  })
+}
+
+</div>
+  </div>
+}

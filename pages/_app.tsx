@@ -7,7 +7,9 @@ import { Copyright } from '@/components/landing/Copyright'
 export default function App({ Component, pageProps }: AppProps) {
   return <>
 <TopBar/>
+
   <Component {...pageProps} />
+
 <Footer/>
 <Copyright/>
   </>

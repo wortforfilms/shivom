@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
-import { FaBahai, FaCartArrowDown, FaHome, FaServicestack, FaShippingFast, FaSuperpowers, FaTerminal } from 'react-icons/fa';
+import { FaAddressCard, FaBahai, FaCartArrowDown, FaFileContract, FaHome, FaServicestack, FaShippingFast, FaSuperpowers, FaTerminal } from 'react-icons/fa';
 
 
 
@@ -49,6 +49,12 @@ const left = [
     icon: <FaShippingFast/>,
     image: "",
     link: "/#shipping"
+  },
+  {
+    label: "Contact Us",
+    icon: <FaAddressCard/>,
+    image: "",
+    link: "/#contactus"
   }
 ];
 
