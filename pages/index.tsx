@@ -17,7 +17,9 @@ import { ProductForm } from '@/components/form/ProductForm'
 import { Questions } from '@/components/landing/Questions'
 import { useState } from 'react'
 import { Testemonials } from '@/components/landing/Testemonial'
-
+import { FaChartArea, FaFileAudio, FaMicrophoneSlash, FaVideo } from 'react-icons/fa'
+import {FiPhoneCall} from 'react-icons/fi'
+import {BsFillChatFill} from 'react-icons/bs'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,6 +35,7 @@ export default function Home() {
 <ProductForm/>
 <ProductList/>
 {/* <MessageHome/> */}
+<Communication/>
 <Symbols/>
     <div className='text-xl flex flex-row flex-wrap text-center justify-between overflow-hidden p-2'>
     ⋆｡°✩⋆｡°✩🌏⋆｡°✩💫⋆｡°✩⋆｡°✩⋆｡°✩☄️⋆｡°✩⋆｡°✩⋆｡°✩🌟⋆｡°✩⋆｡°✩🌏⋆｡°✩⋆｡°✩🪐⋆｡°✩⋆｡°✩⋆｡°✩🚀⋆｡°✩⋆｡°✩⋆｡°✩
@@ -149,5 +152,46 @@ className='w-96'
 }
 
 </div>
+  </div>
+}
+
+const Communication=()=>{
+  return <div className='flex flex-col bg-white shadow-lg w-full mb-12 mt-12'>
+    <div className='p-4 text-3xl font-bold text-center text-gray-600'>Communicate with experts in the way you like!!</div>
+<div className='flex flex-row gap-4 justify-around  w-full p-12 bg-white'>
+
+    {
+      [
+        {name:'Text',icon:<BsFillChatFill/>},
+        {name:'Audio',icon:<FiPhoneCall/>},
+        {name:'Video',icon:<FaVideo/>}
+        
+        
+      ].map((mes,index)=>{
+        return <div key={index} className='flex flex-col gap-2'>
+          <div className='text-3xl m-auto  rounded-full w-16 h-16 bg-yellow-300 p-4 shadow-lg '>{mes.icon}</div>
+          <div className=' text-center text-xl font-thin p-2'>{mes.name}</div>
+          </div>
+      })
+    }
+    </div>
+
+    <div className='flex flex-row gap-4 justify-around  w-full p-12 bg-white'>
+
+    {
+      [
+        {name:'Astrology',icon:<BsFillChatFill/>},
+        {name:'Numerology',icon:<FiPhoneCall/>},
+        {name:'Vastu',icon:<FaVideo/>}
+        
+        
+      ].map((mes,index)=>{
+        return <div key={index} className='flex flex-col gap-2'>
+          {/* <div className='text-3xl m-auto  rounded-full w-16 h-16 bg-yellow-300 p-4 shadow-lg '>{mes.icon}</div> */}
+          <div className=' text-center text-xl bg-black text-white font-bold p-2'>{mes.name}</div>
+          </div>
+      })
+    }
+    </div>
   </div>
 }
