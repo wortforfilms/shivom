@@ -3,8 +3,8 @@ import { Dosh } from '@/data/dosh';
 
 export const Doshas = () => {
   const router = useRouter();
-  return <>
-    <h2 id="dosh" className='text-3xl  p-8 font-bold'>Dosh</h2>
+  return <div id="dosh">
+    <h2  className='text-3xl mt-12 text-center p-8 font-bold'>Dosh</h2>
     <div className='flex flex-row flex-wrap gap-2'>
 
       {Object.values(Dosh).map((nak, index) => {
@@ -19,5 +19,5 @@ export const Doshas = () => {
           {nak}</div>;
       })}
     </div>
-  </>;
+  </div>;
 };

@@ -1,6 +1,5 @@
 export const InputForm = () => {
   return <div >
-
 <form onSubmit={()=>{
   console.log('data in form')
 }}
