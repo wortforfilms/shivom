@@ -46,3 +46,60 @@ export const process1=[
 "Review the output data from the system, which will provide the positions of the planets relative to Earth at the time of birth. The positions may be given in terms of longitude, latitude, and distance from Earth.",
 "Use this data to calculate the gravitational force exerted by each planet on Earth at the time of birth, as described in the previous answer.",
 ]
+
+export const values=[
+{"Clarity in life":"Shivom AstroAI Advance Science helps users gain clarity in life by providing personalized advice and astrological guidance. "},
+{"Decision making":"It uses the power of data science, AI and NLP technology to give users an in-depth understanding of their life, from a holistic perspective. "},
+{"Improvement in life":"Through its personalized advice and astrological guidance, users can gain insights into their life and make better decisions for their future. "},
+{"Peace":"It also provides users with helpful tips and advice on how to improve their lives and achieve peace of mind. "},
+{"Personal questions":"Additionally, users can ask questions to AstroAI experts and receive personalized answers to their personal questions. "},
+{"A new perspective":"Lastly, AstroAI provides users with a new perspective that helps them make better decisions and leads to success and fulfillment in life."},
+]
+
+export const vd=[
+
+"Shivom AstroAI Advance Science is an innovative technology that helps users gain clarity in life, make decisions, improve their lives, find peace, and get answers to personal questions with a new perspective. Through this technology, users can access the ancient Vedic sciences, Ayurveda, and Astrology to gain insight into their past and current life situations, potential future outcomes, and gain a deeper understanding of their life purpose.",
+
+"This technology can help users gain clarity in life through the use of astrology, which helps to identify the current influences and karmic patterns that are affecting their lives. Astrology can provide insights into the past, present, and future, helping users understand their life path, the influences that are currently at play, and the potential outcomes of their decisions.",
+
+"Shivom AstroAI Advance Science can also help users make better decisions by providing them with a new perspective on their situation. This technology can provide insights into the various astrological influences that could be at play in the user’s life, as well as the potential outcomes of different decisions. This can help users to make more informed decisions, as they have a better understanding of the potential risks and rewards associated with each decision.",
+
+"Shivom AstroAI Advance Science can also help users improve their lives by providing them with guidance and insight into the various aspects that could be influencing their life. This technology can provide the user with an understanding of how their current life path is unfolding, how their decisions are impacting their life, and what changes may be necessary to move forward.",
+
+"Shivom AstroAI Advance Science can also help users find peace by providing them with an understanding of the various influences at play in their life and how these influences can be used to bring about balance and harmony. This technology can provide the user with an understanding of their current situation, as well as how to move forward in a positive direction.",
+
+"Shivom AstroAI Advance Science can also help users find answers to personal questions with a new perspective. This technology can provide the user with an understanding of the various influences at play in their life, as well as how their decisions could potentially impact the outcome. This can help users gain a deeper understanding of their life purpose and how to navigate their current situation.",
+]
+
+
+// Astrology is just a finger pointing at reality
+// Learn more about your destiny
+// We know astronomy in astrology
+// 
+// "General consultation"
+// "Personal life advice"
+// "Annual forecast"
+// "Work, career, finance"
+// "Forecast of future events"
+// "Current life situation"
+
+
+// MOODS & EMOTIONS
+// INTELECT & COMMUNICATION
+// LOVE & PLEASURE
+// IMAGINATION
+// BASIC IDENTITIES
+// FIRST IMPRESSIONS
+// SEX & AGGRESSION
+// SENSE OF RESPONSIBILITY
+// PHILOSOPHIES OF LIFE
+
+
+// buy tokens to use in application
+// 
+
+// अद्यतनी	f.	adyatanI	aorist[gramm.]	
+// ऊर्ध्ववात	m.	UrdhvavAta	updraft[meteor.]	
+// आतञ्च{तञ्च्}	m.	AtaJca[taJc]	clot[contract/shrink]	
+// उपमा	f.	upamA	similarity[comparison]	
+// कनीनकामण्डल	n.	kanInakAmaNDala	iris[eye]

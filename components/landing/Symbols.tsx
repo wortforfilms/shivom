@@ -26,8 +26,8 @@ export const Symbols = () => {
         <div className='m-auto text-xs'>
           {ss.label}
         </div>
-      </div>;
+      </div>
     })}
-  </div>;
+  </div>
 
 };

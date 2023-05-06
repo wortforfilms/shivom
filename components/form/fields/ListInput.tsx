@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ListInput = (props: any) => {
+export const ListInput = (props: any) => {
   const { label, type, options, id, message, setValue } = props;
   const [list, setList] = useState<any>([]);
   return <div className='p-2 bg-white'>
@@ -16,6 +16,6 @@ const ListInput = (props: any) => {
         return <div key={index} className="w-full">{li}</div>;
       })}
     </div>
-  </div>;
+  </div>
 
-};
+}

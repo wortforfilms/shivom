@@ -69,6 +69,7 @@ const router=useRouter()
 
 
   return <div ref={lfRef}>
+<div className='flex flex-row gap-2'>
 
     <Image
       src="/appimages/ios/64.png"
@@ -80,6 +81,8 @@ const router=useRouter()
         setlfOpen(!lf_open)
       }}
       />
+      <div className='m-auto hidden sm:block font-extrabold text-white'>SHIVOM</div>
+      </div>
 
 {lf_open &&
       lf && <motion.div
@@ -103,3 +106,41 @@ const router=useRouter()
       </motion.div>}
   </div>;
 };
+
+
+// Astro is the mathematics of your life
+
+// Vastu Shastra Face Reading Birth Genral Matrimony
+
+//Contact Our Expert Astrologers
+// "Know Your Zodiac Sign"
+// "We Think About Reflections On The Wisdom From The Planets"
+// "Our Newsletter"
+// "Get Your Daily Horoscope, Daily Lovescope and Daily Tarot Directly In Your Inbox"
+
+
+// 
+export const counts=[
+{
+  label:"Qualified Astrologers",
+  count:565
+},
+{
+  label:"Success Horoscope",
+  count:200
+},
+{
+  label:"Offices Worldwide",
+  count:300
+},
+
+  
+
+  
+
+  "Trust By Million Clients",
+
+  "Year's Experience",
+
+  "Type Of Horoscopes",
+]

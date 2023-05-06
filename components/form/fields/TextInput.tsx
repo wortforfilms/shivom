@@ -1,7 +1,16 @@
 const TextInput = (props: any) => {
-  const { label, type, id, message } = props;
+  const { setState, state, fl, register } = props;
   return <div className='p-2 bg-white'>
-    <label>{label}</label><br />
-    <input className='bg-gray-300 p-2 w-full' id={id} type={"text"} placeholder={message} />
+    <label>{fl.label}</label><br />
+    <input 
+    className='bg-gray-300 p-2 w-full' 
+    {...register(`${fl.name}`)} 
+    type={"text"} 
+    placeholder={fl.message} 
+    defaultValue={fl.value?fl.value:state}
+    onChange={(e:any)=>{
+      setState(e.target.value);
+    }}
+    />
   </div>;
 };
