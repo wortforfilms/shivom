@@ -6,6 +6,7 @@ import { MiddleBar } from './MiddleBar';
 import { useState } from 'react';
 import { LeftPanel } from '@/components/panel/left_panel';
 import { RightPanel } from '@/components/panel/right_panel';
+import { Cart } from './Cart';
 
 
 
@@ -23,13 +24,10 @@ export const TopBar = () => {
     {right && <RightPanel/>}
    <LeftMenu/>
    <MiddleBar/>
+<Cart/>
    <RightMenu/>
   </nav>;
 };
 
 
 
-// type categories tags title description specifications technicals 
-// light chemical
-// physics chemistry biology
-// 

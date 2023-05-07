@@ -56,11 +56,14 @@ export const zods = [
 export const Zodiacs = () => {
   return <div className="flex flex-col sm:flex-row bg-white p-4">
     <Image
-    src="/img/astrology-circle-orance-dots.png"
-    alt=""
+    // src="/img/astrology-circle-orance-dots.png"
+    src="/img/astrological_chart.png"
+    alt="astro chart"
     width={100}
     height={100}
-    className="w-2/3 h-full shadow-lg rounded-full m-auto"
+    priority
+
+    className="w-full h-full rounded-full m-auto"
     />
 <div className='flex flex-row gap-4 flex-wrap justify-around m-auto'>
 

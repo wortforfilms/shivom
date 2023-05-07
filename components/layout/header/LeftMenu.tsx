@@ -68,7 +68,7 @@ const router=useRouter()
 
 
 
-  return <div ref={lfRef}>
+  return <div ref={lfRef} className='ml-2'>
 <div className='flex flex-row gap-2'>
 
     <Image
@@ -81,13 +81,13 @@ const router=useRouter()
         setlfOpen(!lf_open)
       }}
       />
-      <div className='m-auto hidden sm:block font-extrabold text-white'>SHIVOM</div>
+      <div className='m-auto hidden sm:block font-extrabold text-white'>शिवOM</div>
       </div>
 
 {lf_open &&
       lf && <motion.div
         animate={{ opacity: [0, 1], x: [10, 0] }}
-        className='absolute h-100 w-48 mt-1 p-2 shadow-lg ml-0 rounded-lg bg-white'>{
+        className='absolute h-[100vh] w-56 mt-1  shadow-lg ml-0  bg-white'>{
           lf.map((l, index) => {
           return <div key={index} className='text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer flex flex-row gap-4'
           onClick={()=>{

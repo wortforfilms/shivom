@@ -1,6 +1,6 @@
 
 import Message from '@/components/Message'
-import MessageInput from '@/components/messaging/messageInput'
+import MessageInput from '@/components/communication/messaging/messageInput'
 import { useRouter } from 'next/router'
 import { useStore, addMessage } from '@/lib/Store'
 import { useContext, useEffect, useRef } from 'react'

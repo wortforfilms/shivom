@@ -27,6 +27,7 @@ export const RightMenu = () => {
 const router=useRouter()
 
   return <div ref={rfRef} className='bg-white p-1  rounded-full h-10   w-10 -mt-1'>
+ 
     <FaUserCircle size={32} className={`text-center ${!rf_open ? "" : "text-blue-500"} cursor-pointer mb-2`}
       onClick={() => {
         setrfOpen(!rf_open);

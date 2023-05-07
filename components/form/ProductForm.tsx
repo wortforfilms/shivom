@@ -4,7 +4,7 @@ export const ProductForm = () => {
   return <div className="flex flex-col sm:flex-row gap-2">
         <video muted autoPlay controls={false} loop
             
-            className=" z-10 w-full sm:w-96  p-2 mt-8
+            className=" z-10 w-full w-full sm:w-96  p-0 sm:p-2 mt-8
               min-w-96 min-h-full max-w-none mb-8"
             >
                 
