@@ -4,10 +4,10 @@ import Image from "next/image"
 
 export const Testemonials=()=>{
 
-  return <div className="flex flex-row overflow-x-scroll w-full  gap-2 ">
+  return <div className="flex flex-row w-[100vw] overflow-x-scroll   gap-2 ">
     {
       testemonials.map((moon,index)=>{
-        return <div key={index} className="flex flex-col gap-4 w-full sm:w-96 bg-white h-100 justify-between  rounded-lg shadow-lg p-2">
+        return <div key={index} className="flex flex-col gap-4 w-96 h-auto bg-white   rounded-lg shadow-lg p-2">
           <div className="text-md p-4">{moon}</div>
           <div className="w-24 h-24 bg-yellow-300  rounded-full m-auto">
             {/* <Image src={faker.image.avatar()} alt="" width={100} height={100} className="rounded-full"/> */}
@@ -20,3 +20,10 @@ export const Testemonials=()=>{
   </div>
 
 }
+
+
+// houses 12
+// planets 9
+// nakshatra  27
+// sunsign 12
+

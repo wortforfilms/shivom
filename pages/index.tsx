@@ -33,17 +33,7 @@ export default function Home() {
 {/* <BirthForm/> */}
 <ProductForm/>
 <ProductList/>
-<div className='p-4 bg-white rounded-lg'>
-  <h1 className='text-3xl p-2 font-extrabold'>
-    Refill your {"SMJ"}
-    </h1>
-    {
-      [{count:10,amount:200}].map((sr,index)=>{
-        return <div key={index}>{sr.count}</div>
-      })
-    }
-    <div>Add zri</div>
-</div>
+<Kosh/>
 {/* <MessageHome/> */}
 <Communication/>
 <Symbols/>
@@ -87,3 +77,47 @@ const BirthForm=()=>{
 
 
 
+const Kosh=()=>{
+  return <div className='p-2 bg-white shadow-lg'>
+  <h1 className='text-3xl p-2 font-extrabold'>
+    Refill your {"OMBox"}
+    </h1>
+    <div className='flex flex-row gap-4'>
+
+    {
+      [
+        {count:10,amount:200, discount:5},
+        {count:50,amount:1000,},
+        {count:100,amount:2000}       
+      ].map((sr,index)=>{
+        return <div key={index} className='bg-gray-300 rounded-t-lg p-2 shadow-lg  '>
+          <div className='text-xl font-bold p-2'>Add {sr.count}</div>
+          
+          <div>Pay {"INR"} {sr.amount}</div>
+          </div>
+      })
+    }
+    </div>
+    <div>
+      {[{total:"499",last_use:"9",last_deposite:"20"}].map((det,index)=>{
+        return <div key={index} className='p-4 bg-pink-500 text-white '>
+          <div>TOTAL: {det.total}</div>
+          <div>LAST USED: {det.last_use}</div>
+          <div>LAST REFIL: {det.last_deposite}</div>        
+          </div>
+      })}
+    </div>
+    <div className='p-2 font-bold mt-4'>Orders:</div>
+    <div className='p-1 flex flex-col gap-2'>
+      {
+        [
+          {amount:"5",paid_to:"palmistry",use:"session"},
+          {amount:"50",paid_to:"Tshirt",use:"purchase"}
+        
+        ].map((his,index)=>{
+          return <div key={index} className='bg-gray-100 p-2 text-xs'>{index+1}. {his.amount} lakshmi user for {his.use} of {his.paid_to}</div>
+        })
+      }
+    </div>
+</div>
+}

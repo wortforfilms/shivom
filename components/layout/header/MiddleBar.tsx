@@ -111,7 +111,7 @@ export const tm = [
       {
         label: "Astrology",
         icon: <FaListAlt />,
-        image: "",
+        image: "🌌",
         link: "/#astrology"
       },
       {
@@ -141,7 +141,7 @@ export const tm = [
       {
         label: "Vastu",
         icon: <FaListAlt />,
-        image: "",
+        image: "🌁",
         link: "/#vastu"
       },
     ]
@@ -155,7 +155,7 @@ export const tm = [
 // capital ¿?/÷
 // 
 
-export const  Cat= {
+export const Cat = {
   label: "Catalogue",
   icon: <FaUserCircle />,
   image: "",
@@ -225,7 +225,7 @@ export const MiddleBar = () => {
     {tm.map((me, index) => {
       return <motion.div key={index}
 
-// id={`${me.label.toLowerCase()}`}
+        // id={`${me.label.toLowerCase()}`}
         className='text-white hover:underline cursor-pointer text-sm m-auto'
         onClick={() => {
           if (!me.sub) {
@@ -255,7 +255,21 @@ export const MiddleBar = () => {
 
 
 // mantra in brahmi
-// 
+
+
+// abcdefghijklmnopqrstuvwxyz
+
+// å∫∂´ƒ©˙ˆ∆¬˚µ˜øπœ®†¨√∑≈¥
+//  /* ıÇ´˝ */
+
+// /* ıÇ´˝ */
+// ÔÒ
+// ÔÒÂ˜∏Œ‰Íˇ¨◊„˛Á¸
+
+// knowledge\\
+// ˚kK
+// cache kangha krupaNa kadA kachChhA
+
 
 
 // family 
