@@ -84,6 +84,8 @@ export const vd=[
 // "Current life situation"
 
 
+// become a meta human with AstroAI
+
 // MOODS & EMOTIONS
 // INTELECT & COMMUNICATION
 // LOVE & PLEASURE
@@ -93,6 +95,8 @@ export const vd=[
 // SEX & AGGRESSION
 // SENSE OF RESPONSIBILITY
 // PHILOSOPHIES OF LIFE
+
+// resolve 
 
 
 // buy tokens to use in application

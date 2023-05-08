@@ -4,19 +4,29 @@ import { TopBar } from '@/components/layout/header/TopBar'
 import { Footer } from '@/components/layout/Footer'
 import { Copyright } from '@/components/landing/Copyright'
 import ErrorBoundary from '@/util/boundary'
+import { Provider } from 'react-redux'
+import { wrapper } from '@/store/store'
+import { useState } from 'react'
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, ...rest }: AppProps) {
+  const {store,props}=wrapper.useWrappedStore(rest)
+  const [loading, setLoading] = useState(false);
+  
   return <>
   <ErrorBoundary>
+<Provider store={store}>
 
 <TopBar/>
 
-  <Component {...pageProps} />
+<Component {...props.pageProps} />
+
 
 <Footer/>
 <Copyright/>
+</Provider>
   </ErrorBoundary>
   </>
 }
 
 
+export default wrapper.withRedux(App)

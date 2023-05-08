@@ -62,7 +62,7 @@ export const Zodiacs = () => {
     width={100}
     height={100}
     priority
-
+quality={100}
     className="w-full h-full rounded-full m-auto"
     />
 <div className='flex flex-row gap-4 flex-wrap justify-around m-auto'>
