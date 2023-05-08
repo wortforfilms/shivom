@@ -20,6 +20,7 @@ import { FaChartArea, FaFileAudio, FaMicrophoneSlash } from 'react-icons/fa'
 import { Communication } from '../components/communication/Communication'
 import { ProductList } from '../components/catalogue/ProductList'
 import { Kosh } from '../components/Kosh'
+import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -51,11 +52,39 @@ export default function Home() {
 <Doshas/>
 <Process/>
       <SocialBar/>
+      <Team/>
     </main>
   )
 }
 
+const Team=()=>{
+  
+  const [admins,setAdmins]=useState<any>([
+    {
+      name:"",
+      type:"",
+      designation:"",
+      equity:"",
+      image:""
+    }
+  ])
+  const [directors,setDirectors]=useState<any>([
+    {
+      name:"",
+      type:"",
+      designation:"",
+      equity:"",
+      image:"",
+      authorized_by:[""]
+    }
+  ])
+  const [team,setTeam]=useState<any>([])
+  const [contributers,setContributers]=useState<any>([])
 
+  return <div>
+
+  </div>
+}
 
 const BirthForm=()=>{
   return       <div className='w-full flex flex-col sm:flex-row gap-2 bg-white p-2 justify-around'>

@@ -1,7 +1,7 @@
-import { Origin, Horoscope } from "circular-natal-horoscope-js";
+// import { Origin, Horoscope } from "circular-natal-horoscope-js";
 
 
-const customOrbs = {
+export const customOrbs = {
   conjunction: 8,
   opposition: 8,
   trine: 8,
@@ -15,14 +15,14 @@ const customOrbs = {
 };
 
 
-export const horoscope = new Horoscope({
-  origin: new Origin({}),
-  houseSystem: "whole-sign",
-  zodiac: "tropical",
-  aspectPoints: ['bodies', 'points', 'angles'],
-  aspectWithPoints: ['bodies', 'points', 'angles'],
-  aspectTypes: ["major", "minor"],
-  customOrbs: customOrbs,
-  language: 'en'
-});
+// export const horoscope = new Horoscope({
+//   origin: new Origin({}),
+//   houseSystem: "whole-sign",
+//   zodiac: "tropical",
+//   aspectPoints: ['bodies', 'points', 'angles'],
+//   aspectWithPoints: ['bodies', 'points', 'angles'],
+//   aspectTypes: ["major", "minor"],
+//   customOrbs: customOrbs,
+//   language: 'en'
+// });
 
