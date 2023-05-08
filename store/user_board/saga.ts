@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import { supabase } from "@/util/supabase";
+
 import * as actions from './type'
 
 
