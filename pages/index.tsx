@@ -1,26 +1,32 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import Image from 'next/image'
 import { InputForm } from '../components/form/InputForm'
 import { SocialBar } from '../components/layout/SocialBar'
 
-import { AboutUs } from '../components/landing/AboutUs'
-import { Technology } from '@/components/landing/Technology'
-import { Planets } from '@/components/landing/Planets'
-import { Nakshatras } from '@/components/landing/Nakshatras'
 import { Doshas } from '@/components/landing/Doshas'
+import { Nakshatras } from '@/components/landing/Nakshatras'
+import { Planets } from '@/components/landing/Planets'
 import { Process } from '@/components/landing/Process'
+import { Technology } from '@/components/landing/Technology'
+import { AboutUs } from '../components/landing/AboutUs'
 // import FancyCarousel from 'react-fancy-circular-carousel'
 // import 'react-fancy-circular-carousel/FancyCarousel.css';
-import { Symbols } from '../components/landing/Symbols'
-import { Zodiacs, zods } from '@/components/landing/Zodiacs'
 import { ProductForm } from '@/components/form/ProductForm'
 import { Questions } from '@/components/landing/Questions'
 import { Testemonials } from '@/components/landing/Testemonial'
-import { FaChartArea, FaFileAudio, FaMicrophoneSlash } from 'react-icons/fa'
-import { Communication } from '../components/communication/Communication'
-import { ProductList } from '../components/catalogue/ProductList'
-import { Kosh } from '../components/Kosh'
+import { Zodiacs } from '@/components/landing/Zodiacs'
 import { useState } from 'react'
+import { Kosh } from '../components/Kosh'
+import { ProductList } from '../components/catalogue/ProductList'
+import { Communication } from '../components/communication/Communication'
+import { Symbols } from '../components/landing/Symbols'
+import { Placeholder } from '@/canvas'
+import CubeApp from '@/canvas/cube'
+import MApp from '@/canvas/model'
+import { BsPlayCircleFill } from 'react-icons/bs'
+import { FaGamepad } from 'react-icons/fa'
+import { Game0 } from '../components/games/Game0'
+import { Game } from '../components/games/Game'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,7 +41,12 @@ export default function Home() {
 {/* <BirthForm/> */}
 <ProductForm/>
 <ProductList/>
+{/* <Placeholder/> */}
+<CubeApp/>
+<MApp/>
 <Kosh/>
+<Game/>
+<Game0/>
 {/* <MessageHome/> */}
 <Communication/>
 <Symbols/>
@@ -61,9 +72,9 @@ const Team=()=>{
   
   const [admins,setAdmins]=useState<any>([
     {
-      name:"",
-      type:"",
-      designation:"",
+      name:"Hemant Kumar Dixit",
+      type:"super",
+      designation:"CEO,CTO,CCO",
       equity:"",
       image:""
     }
@@ -76,13 +87,44 @@ const Team=()=>{
       equity:"",
       image:"",
       authorized_by:[""]
+    },
+    {
+      name:"",
+      type:"",
+      designation:"",
+      equity:"",
+      image:"",
+      authorized_by:[""]
+    },
+    {
+      name:"",
+      type:"",
+      designation:"",
+      equity:"",
+      image:"",
+      authorized_by:[""]
     }
   ])
-  const [team,setTeam]=useState<any>([])
+  const [team,setTeam]=useState<any>([
+
+
+  ])
   const [contributers,setContributers]=useState<any>([])
 
   return <div>
-
+    <div>Admins</div>
+    <div>{
+      admins.map((adm:any,index:number)=>{
+        return <div key={index}>{adm.name}</div>
+      })
+      }</div>
+He She They<br/>
+We Us I
+You üU¨ÆÚ
+::: 1818 1839 1947 
+//\\ 2014 2023 2076
+:::: 
+{/* // transaction {creative} */}
   </div>
 }
 

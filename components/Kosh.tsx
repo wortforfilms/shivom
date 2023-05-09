@@ -103,7 +103,7 @@ export const Kosh = () => {
     <div className="w-80 h-auto  bg-white p-2">
       {
         [{data:"",freinds:"",chats:"",kosh:""}].map((u,index)=>{
-return <div>{u.data}{u.chats}{u.freinds}{u.kosh}</div>
+return <div key={index}>{u.data}{u.chats}{u.freinds}{u.kosh}</div>
         })
       }
     </div>
