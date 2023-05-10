@@ -16,7 +16,7 @@ export const ProductForm = () => {
               />
               Your browser does not support the video tag.
             </video>
-<form onSubmit={()=>{
+{/* <form onSubmit={()=>{
   console.log('data in form')
 }}
 className='p-2 text-xs shadow-lg flex w-full sm:w-80 flex-col gap-4 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
@@ -49,7 +49,7 @@ className='p-2 text-xs shadow-lg flex w-full sm:w-80 flex-col gap-4 bg-white rou
     <div className='bg-pink-500 text-white p-2 text-center rounded-lg shadow-lg hover:bg-blue-500 cursor-pointer'>
       Register Product
       </div>
-</form>
+</form> */}
 
 
   </div>;

@@ -51,7 +51,7 @@ const CubeApp = () => {
           gl.setClearColor("#252934");
         }}
       >
-        <Stats />
+        {/* <Stats /> */}
         <OrbitControls />
         <Suspense fallback={null}>
           <Scene />

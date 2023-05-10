@@ -1,13 +1,25 @@
 import { useState } from "react";
 import QRCode from "react-qr-code";
+import Image from "next/image"
 
-export const Kosh = () => {
+export const Kosh = (props:any) => {
 
   const [recharges, setRecharges] = useState<any>([
     { count: 10, amount: 200, discount: 5 },
     { count: 50, amount: 1000, },
     { count: 100, amount: 2000 }
   ])
+
+  type Auth ={
+    authenticated:boolean
+  }
+// सिद्धि biddya वीर्य {} {}
+// माता धरा 
+// and AkAra
+// shiv paarvatI शिव पार्वती 
+// हनुमान :: {""}
+  // const ['','जय हनुमान ज्ञान गुण सागर ']=उसेस्टते()
+  const [kosh_kotwaala,setKoshKotwAla]=useState<Auth>()
   const [kosh, setKosh] = useState<any>([{ total: "499", last_use: "9", last_deposite: "20" }])
   const [orders, setOrders] = useState<any>([
     { amount: "5", paid_to: "palmistry", use: "session" },
@@ -25,6 +37,19 @@ export const Kosh = () => {
 
   const [transact, setTransact] = useState({ amount: "", from: "", to: "", for: "" })
 
+  const [model,setModel]=useState()
+  const [your,setYour]=useState('all')
+  // const [idea,]=useState()
+
+// चैट gpt ७८६ ::: । ।। ॰॰॰ विद्या 
+// स्तर स्टार 
+// स्टोरी 
+// 
+
+// css:{}
+// ब्लाइंड:{}
+// गोल्ड:स्वर्ण 
+//  
   return <div className="flex flex-row flex-wrap gap-2">
       
     <div className='p-2 w-96 bg-white shadow-lg'>
@@ -101,16 +126,50 @@ export const Kosh = () => {
       <div className="text-3xl m-auto text-center p-4 font-bold upperrcase">Scan to pay</div>
     </div>
     <div className="w-80 h-auto  bg-white p-2">
+    <Image
+
+
+src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
+alt="coins"
+width={100}
+height={100}
+className='m-auto w-full h-auto'
+
+/>
+      <div>दिव</div> 
+
+
+
+
+  
+      <textarea 
+      rows={5} 
+      id="product"
+      placeholder="I am here. you have found traces of our signals¿? sets {oc}{कि क इ ई ऐ ए के कई }"
+      />
       {
         [{data:"",freinds:"",chats:"",kosh:""}].map((u,index)=>{
 return <div key={index}>{u.data}{u.chats}{u.freinds}{u.kosh}</div>
         })
       }
+      {/* <दिव्या/> */}
     </div>
 
   </div>
 };
 
+// keygen: ()={}
+// faker_random : ()=>{}
+// random_fakeerr : sai baba
+// vidyA bhramana 
+// bharamaNa
+// society for society
+//  {"which society does you belive in"}
+// {"lie"}
+// {"et","ter"}
+// {"co":"pu"}
+// {"comp":"u":"ter"}
+//  
 
 // create typescript based detailed order invoice payment system.
 

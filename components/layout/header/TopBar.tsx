@@ -7,12 +7,14 @@ import { useState } from 'react';
 import { LeftPanel } from '@/components/panel/left_panel';
 import { RightPanel } from '@/components/panel/right_panel';
 import { Cart } from './Cart';
+import { useSelector } from 'react-redux';
 
 
 
 
-export const TopBar = () => {
-
+export const TopBar = (props:any) => {
+  const {initialReduxState}=props
+const earth:typeof initialReduxState=useSelector(state=>state)
   const [left,setLeft]=useState(false)
   const [right,setRight]=useState(false)
 
@@ -23,8 +25,9 @@ export const TopBar = () => {
     {left && <LeftPanel/>}
     {right && <RightPanel/>}
    <LeftMenu/>
-   <MiddleBar/>
-<Cart/>
+  {earth?.auth?.authenticated ?<Cart/>: <MiddleBar/>
+
+}
    <RightMenu/>
   </nav>;
 };

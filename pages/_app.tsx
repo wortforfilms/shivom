@@ -6,7 +6,7 @@ import { Copyright } from '@/components/landing/Copyright'
 import ErrorBoundary from '@/util/boundary'
 import { Provider } from 'react-redux'
 import { wrapper } from '@/store/store'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 
 function App({ Component, ...rest }: AppProps) {
   const {store,props}=wrapper.useWrappedStore(rest)
@@ -15,6 +15,7 @@ function App({ Component, ...rest }: AppProps) {
   return <>
   <ErrorBoundary>
 <Provider store={store}>
+<Suspense >
 
 <TopBar/>
 
@@ -22,6 +23,7 @@ function App({ Component, ...rest }: AppProps) {
 
 
 <Footer/>
+</Suspense>
 <Copyright/>
 </Provider>
   </ErrorBoundary>

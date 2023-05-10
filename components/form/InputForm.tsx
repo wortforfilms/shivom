@@ -3,8 +3,34 @@ export const InputForm = () => {
 <form onSubmit={()=>{
   console.log('data in form')
 }}
-className='p-2 shadow-lg flex flex-col gap-4 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
+className='p-2 shadow-lg flex flex-row flex-wrap gap-4 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
 >
+
+  {/* <Form state={register}/> */}
+
+  <div className='p-2 bg-white'>
+      <label>Enter First Name</label><br />
+      <input className='bg-gray-300 p-2' type="text" />
+    </div>
+    <div className='p-2 bg-white'>
+      <label>Enter Middle Name</label><br />
+      <input className='bg-gray-300 p-2' type="text" />
+    </div>
+    <div className='p-2 bg-white'>
+      <label>Enter Last Name</label><br />
+      <input className='bg-gray-300 p-2' type="text" />
+    </div>
+    <div className='p-2 bg-white'>
+      <label>Enter Email</label><br />
+      <input className='bg-gray-300 p-2' type="email" />
+    </div>
+    <div className='p-2 bg-white'>
+      <label>Enter Phone</label><br />
+      <input className='bg-gray-300 p-2' type="email" />
+    </div>
+    <div>
+
+    </div>
     <div className='p-2 bg-white'>
       <label>Enter Date of  Birth</label><br />
       <input className='bg-gray-300 p-2' type="date" />
@@ -24,3 +50,12 @@ className='p-2 shadow-lg flex flex-col gap-4 bg-white rounded-lg ring-2 ring-gra
 </form>
   </div>;
 };
+
+
+// Some recent entries:
+// विशेषपरिसंख्या	f.	vizeSaparisaMkhyA	compilation[list]	
+// भौतिकपदार्थ	m.	bhautikapadArtha	body[material object]	
+// यद्वा...यदिवा{वा}	conj.	yadvA...yadivA[vA]	if...orif[or]	
+// संयोजयति{सम्- युज्}	verb caus.	saMyojayati[sam- yuj]	spread[paint]	
+// याम	m.	yAma	coordinates[math.]
+// {}
