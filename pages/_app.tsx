@@ -15,7 +15,7 @@ function App({ Component, ...rest }: AppProps) {
   return <>
   <ErrorBoundary>
 <Provider store={store}>
-<Suspense >
+<Suspense fallback={<div className='bg-gray-300 m-auto'>Loading...</div>}>
 
 <TopBar/>
 

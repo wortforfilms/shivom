@@ -2,6 +2,7 @@ import { supabase } from "@/lib/Store"
 import { range } from "@/util/createRange"
 import { faker } from "@faker-js/faker"
 import { Kosh } from "../Kosh"
+import { useState } from "react"
 
 const game_history=[
   {created_at:"",expired_at:"",gameid:"",winner:"", deposited_amount:"", depositors:[], withdraws:[],koshika:[],players:[],initiator:[], },
@@ -133,8 +134,43 @@ const create_game_lakshmi_kreeda=async()=>{
 // localdb
 // 
 
-export const List=()=>{
+export const List=(props:any)=>{
+
+  const [games,setGames]=useState<any>([
+    {
+      region:["",""],
+      district:"",
+      sector:"",
+      country:"",
+      state:"",
+      god:"",
+      dog:"",
+      bhai:"",
+      ro:"",
+      country_gods:"",
+      country_godesses:""
+    }
+  ])
+
+  //  poll star
+  // dhruv static
+  // static constalation
+  // milkyway g-al-ax-y
+  // ear t-h
+  // Ti->TI
+  // eh=>aic
+  // energy ai 
+
+
+
   return <div>
+
+    <div>Games Board</div>
+    {
+      games.map(()=>{
+
+      })
+    }
     <div>Watchers</div>
     <div>
       {
@@ -146,6 +182,8 @@ export const List=()=>{
         })
       }
     </div>
+
+
   </div>
 }
 

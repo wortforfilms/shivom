@@ -220,13 +220,13 @@ export const MiddleBar = () => {
   const ref = useRef<any>(null);
   useOnClickOutside(ref, () => setSubOpen(null));
 
-  return <div className='ml-4 flex flex-row gap-2 text-md  justify-between w-[90vw] '>
+  return <div className='ml-4 flex flex-row gap-2 text-md   justify-between w-[90vw] '>
 
     {tm.map((me, index) => {
       return <motion.div key={index}
 
         // id={`${me.label.toLowerCase()}`}
-        className='text-white hover:underline cursor-pointer text-sm m-auto'
+        className='text-white hover:underline cursor-pointer text-xs sm:text-sm m-auto'
         onClick={() => {
           if (!me.sub) {
             router.push(me.link, '', { scroll: true });

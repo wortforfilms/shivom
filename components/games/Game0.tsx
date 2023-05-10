@@ -99,3 +99,11 @@ export const Game0 = () => {
       className='text-3xl text-center mt-12 mb-12 cursor-pointer m-autp w-full bg-gray-300 rounded-lg shadow-lg'>PAY  INR 20.00 or 2TLP's  to PARTICIPATE</motion.div>
   </div>;
 };
+
+
+// ssr 
+// cycle steps 
+// local supabase 
+// c 0 o 0 
+// reformulate with higgs boson in brahmi
+// 

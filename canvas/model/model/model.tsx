@@ -79,3 +79,6 @@ const Model = () => {
 };
 
 export default Model;
+
+// eslint hint el LALa kotwAla
+// 

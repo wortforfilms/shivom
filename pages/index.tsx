@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
-import { InputForm } from '../components/form/InputForm'
 import { SocialBar } from '../components/layout/SocialBar'
 
 import { Doshas } from '@/components/landing/Doshas'
@@ -11,7 +10,7 @@ import { Technology } from '@/components/landing/Technology'
 import { AboutUs } from '../components/landing/AboutUs'
 // import FancyCarousel from 'react-fancy-circular-carousel'
 // import 'react-fancy-circular-carousel/FancyCarousel.css';
-import { ProductForm } from '@/components/form/ProductForm'
+import { ProductForm } from '@/components/form/forms/product/ProductForm'
 import { Questions } from '@/components/landing/Questions'
 import { Testemonials } from '@/components/landing/Testemonial'
 import { Zodiacs } from '@/components/landing/Zodiacs'
@@ -26,6 +25,9 @@ import MApp from '@/canvas/model'
 
 import { Game } from '../components/games/Game'
 import { useRouter } from 'next/router'
+import { BirthForm } from '../components/form/forms/auth/BirthForm'
+import { Brahmi } from '@/components/classes/brahmi'
+import { LoginForm } from '@/components/form/forms/auth/Loginx'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -51,7 +53,7 @@ const router=useRouter()
       className={`flex min-h-screen  flex-col items-center justify-between p-4 ${inter.className}`}
     >
       <div className='h-12'></div>
-      <div className='flex flex-col sm:flex-row gap-4 flex-wrap'>
+      <div className='flex flex-row sm:flex-row gap-4 flex-wrap'>
 
       {
         [
@@ -61,7 +63,7 @@ const router=useRouter()
           {emoji:"🛠️🔔",label:"Services",icon:"",image:"",link:""},
           {emoji:"🎮🎲",label:"Games",icon:"",image:"",link:"/#games"},
           // {emoji:"🔱🪔⚜☥⚜️☪𓁭",label:"Vedic Classes",icon:"",image:"",link:""},
-          {emoji:"🔱☪𓁭",label:"Vedic Classes",icon:"",image:"",link:""},
+          {emoji:"🔱☪𓁭",label:"Vedic Classes",icon:"",image:"",link:"/#vedic_classes"},
           {emoji:"🧿𓁭📿",label:"Boards",icon:"",image:"",link:"",seat_conditions:""},
           // {emoji:"🧿𓁭🎬👨‍💼🎦🎞️🏛️🛕🔺♦️🔼",label:"Boards",icon:"",image:"",link:"",seat_conditions:""},
           // {emoji:"🎮🎲",label:"Vedic Programming Classes",icon:"",image:"",link:""},
@@ -78,9 +80,14 @@ const router=useRouter()
         })
       }
       </div>
-      <div className='flex flex-row gap-2 jistify-around'>
-
+      <div className='flex flex-col sm:flex-row gap-2 jistify-around'>
+<div className='flex flex-col gap-2'>
 <BirthForm/>
+<LoginForm/></div>
+<div className='' id="games">
+
+<Game/>
+</div>
 <ProductForm/>
       </div>
 <div className='' id="ecommerce">
@@ -95,10 +102,7 @@ const router=useRouter()
 <CubeApp/>
 <MApp/>
 <Kosh/>
-<div className='' id="games">
 
-<Game/>
-</div>
 {/* <Game0/> */}
 {/* <MessageHome/> */}
 <div id="astrology"></div>
@@ -108,6 +112,7 @@ const router=useRouter()
     ⋆｡°✩⋆｡°✩🌏⋆｡°✩💫⋆｡°✩⋆｡°✩⋆｡°✩☄️⋆｡°✩⋆｡°✩⋆｡°✩🌟⋆｡°✩⋆｡°✩🌏⋆｡°✩⋆｡°✩🪐⋆｡°✩⋆｡°✩⋆｡°✩🚀⋆｡°✩⋆｡°✩⋆｡°✩
       </div>
 <Zodiacs/>
+<Brahmi/>
 <Questions/>
 <Testemonials/>
      <AboutUs/>
@@ -121,6 +126,18 @@ const router=useRouter()
     </main>
   )
 }
+
+
+// register
+
+// watch
+// play
+
+// audience
+// TOD:""
+// how when who what 
+// 
+
 
 const Team=()=>{
   
@@ -218,26 +235,5 @@ const LocalWorker=()=>{
 
   }
 }
-
-const BirthForm=()=>{
-  return       <div className='w-full mt-12 flex flex-col sm:flex-row gap-2 p-2 justify-around'>
-
-  {/* <Image
-    src="/gg.png"
-    alt="GG race Logo"
-    className="dark:invert w-full rotate-90 sm:w-80 max-w-3xl h-100  bg-white  rounded-lg"
-    width={100}
-    height={100}
-    priority
-
-  /> */}
-  {/* <div className='w-48 h-48 bg-yellow-300 rounded-lg shadow-lg'>
-
-  </div> */}
-<InputForm/>
-</div>
-}
-// delhi, localhost:3001/api/location/{string}
-
 
 

@@ -3,30 +3,16 @@ export const InputForm = () => {
 <form onSubmit={()=>{
   console.log('data in form')
 }}
-className='p-2 shadow-lg flex flex-row flex-wrap gap-4 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
+className='p-2 shadow-lg flex flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
 >
 
-  {/* <Form state={register}/> */}
-
-  <div className='p-2 bg-white'>
-      <label>Enter First Name</label><br />
-      <input className='bg-gray-300 p-2' type="text" />
-    </div>
-    <div className='p-2 bg-white'>
-      <label>Enter Middle Name</label><br />
-      <input className='bg-gray-300 p-2' type="text" />
-    </div>
-    <div className='p-2 bg-white'>
-      <label>Enter Last Name</label><br />
-      <input className='bg-gray-300 p-2' type="text" />
-    </div>
     <div className='p-2 bg-white'>
       <label>Enter Email</label><br />
       <input className='bg-gray-300 p-2' type="email" />
     </div>
     <div className='p-2 bg-white'>
       <label>Enter Phone</label><br />
-      <input className='bg-gray-300 p-2' type="email" />
+      <input className='bg-gray-300 p-2' type="tel" />
     </div>
     <div>
 

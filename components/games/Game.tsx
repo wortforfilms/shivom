@@ -11,22 +11,37 @@ import { Awaiter } from './Awaiter';
 import { Gameplay } from './Gameplay';
 import { Disclaimers } from './disclaimers';
 import { useRouter } from 'next/router';
+import { supabase } from '@/lib/Store';
+import { useSelector } from 'react-redux';
+import Login from '@/pages/auth/login';
 
 // sh4om
 // sh{iv}om
 // ß˙{ˆ√}øµ
 // Í ◊ Â
 // 
+
+const start_lakshmi_kreedA=()=>{
+// date time
+// 
+// characters
+// language
+// dialogues
+// players
+// watchers
+// admins
+// watch:{}
+// number_of_players:69
+// 
+// game_id: game_type: started_at: closing_at: min: max: players: winner:
+// 
+
+
+}
+
+
 export const Game = () => {
-  const [result, setToss] = useState({
-    res: faker.helpers.arrayElement([0, 1])
-  });
-  const [results, setResults] = useState();
-  const [players, setPlayers] = useState<any>(null);
-  const [amount, setAmount] = useState(0);
-  const [value, setValue] = useState(0);
-  const [user_choice, setUserChoice] = useState<any>('');
-  const [sequence, setSequence] = useState([1, 5, 10, 20]);
+
   const [timer, setTimer] = useState<any>(0);
   const [game,setGame]=useState<any>([
     { label: "Lakshmi", img: "/img/lakshmi-71suHVXlGHL._UL1500_2000x.webp" },
@@ -46,7 +61,7 @@ export const Game = () => {
   // group {}
   // board
 const router=useRouter()
-  return <div className='w-full  flex flex-row flex-wrap  justify-start  p-2 min-h-[80vh] h-full mt-8 shadow-lg'>
+  return <div className='w-full  flex flex-row flex-wrap  justify-around  p-2 min-h-[80vh] h-full mt-8 shadow-lg'>
    <Scene >
 
    {/* <div className='text-center p-2'>बुद्धिकल्पितसमाज</div> */}
@@ -89,20 +104,49 @@ const router=useRouter()
      className='m-auto w-full h-auto'
   /></div>
    </Scene>
+
+
 <Scene>
+<Gameplay game={game}/>
+</Scene>
+
+
+<Scene>
+<DataPolicy/>
+</Scene>
+
+<Scene>
+  <Disclaimers game={game}/>
+</Scene>
+  <div>
+  </div>
+  </div>
+
+};
+
+const Play=(props:any)=>{
+  const {game, setStep, timer}=props
+  const [result, setToss] = useState({
+    res: faker.helpers.arrayElement([0, 1])
+  });
+  const [results, setResults] = useState();
+  const [players, setPlayers] = useState<any>(null);
+  const [amount, setAmount] = useState(0);
+  const [value, setValue] = useState(0);
+  const [user_choice, setUserChoice] = useState<any>('');
+  const [sequence, setSequence] = useState([1, 5, 10, 20]);
+  return <>
+  <AScene>
 
 <ToDo/>
-</Scene>
-
-<Scene>
+</AScene>
+<AScene>
   <List/>
-  </Scene>
-<Scene>
-
+  </AScene>
+<AScene>
   <Awaiter game={game}/>
-</Scene>
-<Scene>
-
+</AScene>
+<AScene>
    <div className='h-96'>
     <div className='p-2 text-3xl font-extrabold'>LakshmiKreedA</div>
     <div className='flex flex-row justify-between p-2'>
@@ -167,33 +211,48 @@ const router=useRouter()
       className='text-xl text-center mt-2 mb-4 p-2 cursor-pointer m-autp w-full bg-gray-600 text-white rounded-lg shadow-lg'>RESET
       </motion.div>}
   </div>
-</Scene>
+</AScene>
 
-<Scene>
+<AScene>
  <Transaction value={value} setStep={setStep}/>
-</Scene>
-
-<Scene>
-<Gameplay game={game}/>
-</Scene>
-<Scene>
-
-
-<DataPolicy/>
-</Scene>
-<Scene>
-  <Disclaimers game={game}/>
-</Scene>
-  <div></div>
-  </div>
-
-};
+</AScene>
+  </>
+}
 
 const Scene=(props:any)=>{
   const{children}=props
   return <div className='w-80 h-[80vh] p-1 bg-white m-1 flex flex-col overflow-scroll'>
     {children}
   </div>
+}
+
+const AScene=(props:any)=>{
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state)
+  const [human,setHuman]=useState(false)
+
+  useEffect(()=>{
+    if(earth?.auth?.authenticated){
+      setHuman(true)
+    } else {
+setHuman(false)
+    }
+
+  },[earth?.auth])
+  const{children}=props
+
+  if(human){
+
+    
+    return <div className='w-80 h-[80vh] p-1 bg-white m-1 flex flex-col overflow-scroll'>
+    
+    {children}
+  </div>
+  } else {
+
+    
+    return <></>
+  }
 }
 
 
@@ -220,6 +279,8 @@ const Transaction=(props:any)=>{
 }
 
 
+
+
 const ToDo=(props:any)=>{
   const [todo,setToDo]=useState([
     {
@@ -230,20 +291,30 @@ const ToDo=(props:any)=>{
   ])
 
   const [task,setTask]=useState<any>('')
+
+  const create_task=async(todo:string,user_id:number)=>{
+    const {data,error}=await supabase.from('todos').insert([{
+      task:todo,
+      user_id:user_id
+    }])
+    return {data,error}
+  }
+
   return <div>
     <form className='flex flex-row justify-between mt-4 mb-4 gap-2 p-2 bg-gray-200 rounded-lg shadow-lg'>
-     
       <input type="text" placeholder='Enter task' className='w-full h-10 p-1' onChange={(e:any)=>{
         setTask(e.target.value)
       }}/>
 
       <div
       onClick={()=>{
-        setToDo((td:any)=>[{task:task,status:"inline",completed:false},...td])
+        create_task(task,1).then(res=>{
+          setToDo(res.data)
+        })
       }}><BsPlusCircle className='text-3xl m-auto'/></div>
     </form>
     {
-      todo.map((td,index)=>{
+      todo && todo.map((td,index)=>{
         return <div key={index} className='flex flex-row justify-between'>
           <div className='uppercase w-full grow'>
             {td.task} 
@@ -288,7 +359,21 @@ const ToDo=(props:any)=>{
   </div>
 }
 
+// bear
+// bull
 
+// 36 koti
+// gods of world
+// 
+
+// information in markets
+
+// bheda chAl aries
+// 
+const GameStatus=(props:any)=>{
+  const {status}=props
+  return <div >{status}</div>
+}
 
 const DataPolicy=()=>{
   const dt=[
@@ -328,4 +413,22 @@ const ObjectList=(props:any)=>{
       })
     }
   </div>
+}
+
+
+const TrillionTargetPrediction=()=>{
+  const [date,setDate]=useState()
+  const [pdeposites,setPDeposites]=useState()
+  const [target,setTarget]=useState(1000000000000)
+  // 10,000 cr. 
+  const [min,setMin]=useState()
+  const [course_strructure,setCourseStructure]=useState({
+    digital_certificates:[{level:0,cost:0},{level:1,cost:99},{level:2,cost:999}]
+  })
+  const [scounts,setScouts]=useState()
+
+  return <div>
+    <div></div>
+  </div>
+
 }

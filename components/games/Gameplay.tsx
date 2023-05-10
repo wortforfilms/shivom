@@ -59,3 +59,21 @@ export const Gameplay = (props: any) => {
 };
 
 // pst ipe
+
+// bhAshA badle bhAgya
+// let is be a book 
+// introduction to brahmi INR. 499
+// learn brahmi INR. 999
+// skill in brahmi INR 2999 
+// advanced brahmi INR. 4999
+// brahmi: dictionary
+
+// prakrut aur nlp INR. 9999
+// {10*price*{currency}}
+// {choice:{}}
+
+// i18
+
+// en.(#route.tag.value)
+// brahmi {}
+// 

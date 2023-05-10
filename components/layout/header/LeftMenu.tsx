@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
+import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 import { FaAddressCard, FaBahai, FaCartArrowDown, FaFileContract, FaHome, FaServicestack, FaShippingFast, FaSuperpowers, FaTerminal } from 'react-icons/fa';
 
 
@@ -51,6 +52,12 @@ const left = [
     link: "/#shipping"
   },
   {
+    label: "Upgrade",
+    icon: <BsFillArrowUpRightCircleFill/>,
+    image: "",
+    link: "/#upgrade"
+  },
+  {
     label: "Contact Us",
     icon: <FaAddressCard/>,
     image: "",
@@ -69,19 +76,23 @@ const router=useRouter()
 
 
   return <div ref={lfRef} className='ml-2'>
-<div className='flex flex-row gap-2'>
+<div className='flex flex-row '
+   onClick={()=>{
+    setlfOpen(!lf_open)
+  }}
+>
 
-    <Image
-      src="/appimages/ios/64.png"
-      alt="applogo"
-      className={`w-10 h-10 -mt-1  ${!lf_open?"bg-white":"bg-blue-500"} rounded-full`}
-      width={100}
-      height={100} 
-      onClick={()=>{
-        setlfOpen(!lf_open)
-      }}
-      />
-      <div className='m-auto hidden sm:block font-extrabold text-white'>शिवOM</div>
+ 
+      <div className='m-auto hidden sm:block font-extrabold text-white'><div>
+        SH
+        </div>
+        </div>
+        <div className='text-black  m-auto'>IV</div> 
+        <Image             src={"/img/om-71gQJPwz8gL._UL1500_2000x.webp"}
+
+      width={100} height={100}
+      className='w-10 h-10 rounded-full -mt-1'
+ alt="shiv om" id='ShivAum Top'/>
       </div>
 
 {lf_open &&
@@ -118,8 +129,16 @@ const router=useRouter()
 // "Our Newsletter"
 // "Get Your Daily Horoscope, Daily Lovescope and Daily Tarot Directly In Your Inbox"
 
-
-// 
+// Kosh :{tk}{yantra}{mantra}
+// Cash Delivery Fee:{}
+// {patra}:{patta}
+// {leaf-let}-{earn cost}
+// {produce}-{''}
+// {commodity}-{new-commodity}
+// {view}-{subscription}
+// {big:data}
+// {bid:view}
+// {insuarnce:service}
 export const counts=[
 {
   label:"Qualified Astrologers",
