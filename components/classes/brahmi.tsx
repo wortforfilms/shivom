@@ -287,13 +287,13 @@ export const Brahmi = () => {
   }, []);
 
   return (
-    <div id="vedic_classes" className="flex flex-row overflow-y-scroll w-full mt-4 gap-2">
+    <div id="vedic_classes" className="flex flex-row flex-wrap overflow-y-scroll w-full mt-4 gap-2">
       {br &&
         br.map((letter:any, index:number) => {
           return (
             <div
               key={index}
-              className="text-center w-full mb-4 bg-white flex flex-col flex-wrap mx-auto p-4 rounded-lg shadow-xl"
+              className="text-center w-56 mb-4 bg-white flex flex-col flex-wrap mx-auto p-4 rounded-lg shadow-xl"
             >
               {index + 1}
               <LetterMatter letter={letter} />

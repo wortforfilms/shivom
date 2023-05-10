@@ -103,9 +103,6 @@ const select_paksh=async(user_id:number,game_id:number,paksh:boolean,amount:numb
 // future brahmi jobs
 // skills from brahmi
 
-const game_play=[
-  // range(0,)
-]
 
 
 // three distributing 1by1
@@ -135,7 +132,6 @@ const create_game_lakshmi_kreeda=async()=>{
 // 
 
 export const List=(props:any)=>{
-
   const [games,setGames]=useState<any>([
     {
       region:["",""],
@@ -146,7 +142,7 @@ export const List=(props:any)=>{
       god:"",
       dog:"",
       bhai:"",
-      ro:"",
+      roM:"",
       country_gods:"",
       country_godesses:""
     }
