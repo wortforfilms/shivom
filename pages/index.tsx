@@ -34,6 +34,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 
+
+// CD C|D Ç ∂
+// codewhisper 
+// listen to whisper
+// 
 // link #
 // 
 export default function Home() {
@@ -47,72 +52,57 @@ export default function Home() {
     }
   ])
 
+  const [section,setSection]=useState(null)
+
 const router=useRouter()
   return (
     <main
       className={`flex min-h-screen  flex-col items-center justify-between p-4 ${inter.className}`}
     >
       <div className='h-12'></div>
-      <div className='flex flex-row sm:flex-row gap-4 flex-wrap'>
-
-      {
-        [
-          {emoji:"🚀🔭",label:"Astronomy",icon:"",image:"",link:"/#astronomy"},
-          {emoji:"🪐💫",label:"Astrology",icon:"",image:"",link:"/#astrology"},
-          {emoji:"💫🛍️",label:"Ecommerce",icon:"",image:"",link:"/#ecommerce"},
-          {emoji:"🛠️🔔",label:"Services",icon:"",image:"",link:""},
-          {emoji:"🎮🎲",label:"Games",icon:"",image:"",link:"/#games"},
-          // {emoji:"🔱🪔⚜☥⚜️☪𓁭",label:"Vedic Classes",icon:"",image:"",link:""},
-          {emoji:"🔱☪𓁭",label:"Vedic Classes",icon:"",image:"",link:"/#vedic_classes"},
-          {emoji:"🧿𓁭📿",label:"Boards",icon:"",image:"",link:"",seat_conditions:""},
-          // {emoji:"🧿𓁭🎬👨‍💼🎦🎞️🏛️🛕🔺♦️🔼",label:"Boards",icon:"",image:"",link:"",seat_conditions:""},
-          // {emoji:"🎮🎲",label:"Vedic Programming Classes",icon:"",image:"",link:""},
-          
-        ].map((section,index)=>{
-          return <div key={index} 
-          onClick={()=>{
-            router.push(section.link)
-          }}
-          className='text-xl cursor-pointer hover:bg-yellow-300 font-bold bg-white shadow-lg rounded-lg w-100 h-24 m-auto p-4'>
-            <div className='text-3xl m-auto text-center'>{section.emoji}</div>
-            <div  className='font-thin'>{section.label}</div>
-            </div>
-        })
-      }
-      </div>
+      {/* {section} */}
+      <HeaderButtons setSection={setSection} section={section}/>
       <div className='flex flex-col sm:flex-row gap-2 jistify-around'>
-<div className='flex flex-col gap-2'>
+{/* <div className='flex flex-col gap-2'>
 <BirthForm/>
-<LoginForm/></div>
-<div className='' id="games">
+<LoginForm/></div> */}
+{/* <div className='' id="games">
 
 <Game/>
-</div>
-<ProductForm/>
+</div> */}
+{!section && <ProductForm/>}
       </div>
-<div className='' id="ecommerce">
+{section==="ecommerce" && <div className='mt-12' id="ecommerce">
 
 <ProductList/>
-</div>
+</div>}
 
 {/* {jyotirling:panchjanya:devi} */}
 {/* test  account */}
 {/* ÷¿A */}
 {/* <Placeholder/> */}
-<CubeApp/>
-<MApp/>
-<Kosh/>
+{/* <CubeApp/> */}
+{/* <Kosh/> */}
 
 {/* <Game0/> */}
 {/* <MessageHome/> */}
-<div id="astrology"></div>
-<Communication/>
+{/* <div id="astrology"></div> */}
+{section==="astrology" && <Communication/>}
+{section==="astronomy" && <>
 <Symbols/>
     <div id="astronomy" className='text-xl flex flex-row flex-wrap text-center justify-between overflow-hidden p-2'>
     ⋆｡°✩⋆｡°✩🌏⋆｡°✩💫⋆｡°✩⋆｡°✩⋆｡°✩☄️⋆｡°✩⋆｡°✩⋆｡°✩🌟⋆｡°✩⋆｡°✩🌏⋆｡°✩⋆｡°✩🪐⋆｡°✩⋆｡°✩⋆｡°✩🚀⋆｡°✩⋆｡°✩⋆｡°✩
       </div>
 <Zodiacs/>
+</>
+}
+
+{section==="vedic_classes" && <>
+<MApp/>
 <Brahmi/>
+</>}
+
+
 <Questions/>
 <Testemonials/>
      <AboutUs/>
@@ -138,6 +128,39 @@ const router=useRouter()
 // how when who what 
 // 
 
+export const HeaderButtons=(props:any)=>{
+  const {setSection, section:sec}=props
+
+  const router=useRouter()
+  return <div className='flex flex-row flex-wrap gap-2'>
+
+  {
+    [
+      {emoji:"🚀🔭",label:"Astronomy",icon:"",image:"",link:"/#astronomy",tag:"astronomy"},
+      {emoji:"🪐💫",label:"Astrology",icon:"",image:"",link:"/#astrology",tag:"astrology"},
+      {emoji:"💫🛍️",label:"Ecommerce",icon:"",image:"",link:"/#ecommerce",tag:"ecommerce"},
+      {emoji:"🛠️🔔",label:"Services",icon:"",image:"",link:"",tag:"services"},
+      {emoji:"🎮🎲",label:"Games",icon:"",image:"",link:"/#games",tag:"games"},
+      // {emoji:"🔱🪔⚜☥⚜️☪𓁭",label:"Vedic Classes",icon:"",image:"",link:"",tag:""},
+      {emoji:"🔱☪𓁭",label:"Vedic Classes",icon:"",image:"",link:"/#vedic_classes",tag:"vedic_classes"},
+      {emoji:"🧿𓁭📿",label:"Boards",icon:"",image:"",link:"",seat_conditions:"",tag:"boards"},
+      // {emoji:"🧿𓁭🎬👨‍💼🎦🎞️🏛️🛕🔺♦️🔼",label:"Boards",icon:"",image:"",link:"",seat_conditions:""},
+      // {emoji:"🎮🎲",label:"Vedic Programming Classes",icon:"",image:"",link:""},
+      
+    ].map((section,index)=>{
+      return <div key={index} 
+      onClick={()=>{
+        // router.push(section.link)
+        setSection(section.tag)
+      }}
+      className={`text-xl cursor-pointer ${sec===section.tag?"bg-gray-300":"bg-white"} hover:bg-yellow-300 font-bold  shadow-lg rounded-lg w-100 h-24 m-auto p-4`}>
+        <div className='text-3xl m-auto text-center'>{section.emoji}</div>
+        <div  className='font-thin'>{section.label}</div>
+        </div>
+    })
+  }
+  </div>
+}
 
 const Team=()=>{
   

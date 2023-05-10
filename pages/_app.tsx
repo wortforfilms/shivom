@@ -7,6 +7,7 @@ import ErrorBoundary from '@/util/boundary'
 import { Provider } from 'react-redux'
 import { wrapper } from '@/store/store'
 import { Suspense, useState } from 'react'
+import { HeaderButtons } from '.'
 
 function App({ Component, ...rest }: AppProps) {
   const {store,props}=wrapper.useWrappedStore(rest)
@@ -16,10 +17,11 @@ function App({ Component, ...rest }: AppProps) {
   <ErrorBoundary>
 <Provider store={store}>
 <Suspense fallback={<div className='bg-gray-300 m-auto'>Loading...</div>}>
-
 <TopBar/>
 
+
 <Component {...props.pageProps} />
+
 
 
 <Footer/>

@@ -12,25 +12,23 @@ export const InputForm = () => {
 <form onSubmit={()=>{
   console.log('data in form')
 }}
-className='p-2 shadow-lg flex flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
+className='p-2 shadow-lg flex flex-col sm:flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
 >
 
-    <div className='p-2 bg-white'>
+    <div className='p-2 w-full bg-white'>
       <label>Enter Email/Phone</label><br />
-      <input className='bg-gray-300 p-2' type="text" />
+      <input className='bg-gray-300 p-2 w-full' type="text" />
     </div>
-    <div className='p-2 bg-white'>
+    <div className='p-2 w-full bg-white'>
       <label>Enter Password</label><br />
-      <input className='bg-gray-300 p-2' type="password" />
+      <input className='bg-gray-300 p-2 w-full' type="password" />
     </div>
-    <div>
-
-    </div>
-   
-
-    <div className='bg-pink-500 m-auto text-white p-2 text-center rounded-lg shadow-lg hover:bg-blue-500 cursor-pointer'>
+    <div className='bg-pink-500 m-auto text-white w-full p-2 text-center rounded-lg shadow-lg hover:bg-blue-500 cursor-pointer'>
       Login
       </div>
+
+   
+
 </form>
   </div>;
 };

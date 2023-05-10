@@ -14,12 +14,49 @@ import { useRouter } from 'next/router';
 import { supabase } from '@/lib/Store';
 import { useSelector } from 'react-redux';
 import Login from '@/pages/auth/login';
+import { range } from 'd3';
 
 // sh4om
 // sh{iv}om
 // ß˙{ˆ√}øµ
 // Í ◊ Â
+// mp<=>st
 // 
+const create_natives=()=>{
+  const sages=range(0,69).map((str)=>{
+    return {
+      name:"",
+      symbol:"",
+      department:"",
+      role:["sages"],
+      gender:"",
+      date_of_birth:"",
+      time_of_birth:"",
+      followers:[],
+      following:[],
+      conversation:[],
+      sound:[],
+      profile_image:[]
+    }
+  })
+
+  const saptrishi=range(0,6).map((str)=>{
+    return {
+      // name:sapt,
+      symbol:"",
+      department:"",
+      role:["sages"],
+      gender:"",
+      date_of_birth:"",
+      time_of_birth:"",
+      followers:[],
+      following:[],
+      conversation:[],
+      sound:[],
+      profile_image:[]
+    }
+  })
+}
 
 const start_lakshmi_kreedA=()=>{
 // date time
@@ -40,15 +77,18 @@ const start_lakshmi_kreedA=()=>{
 }
 
 
-export const Game = () => {
-
+export const Game = (props:any) => {
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state) 
   const [timer, setTimer] = useState<any>(0);
   const [game,setGame]=useState<any>([
     { label: "Lakshmi", img: "/img/lakshmi-71suHVXlGHL._UL1500_2000x.webp" },
     { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
   ])
-  useEffect(() => {
 
+
+
+  useEffect(() => {
     setInterval(() => {
       setTimer(new Date().getMilliseconds() + 6000);
     }, 6000);
@@ -61,7 +101,7 @@ export const Game = () => {
   // group {}
   // board
 const router=useRouter()
-  return <div className='w-full  flex flex-row flex-wrap  justify-around  p-2 min-h-[80vh] h-full mt-8 shadow-lg'>
+  return <div className='w-full  flex flex-row flex-wrap  justify-around  p-2 min-h-[80vh] h-[90vh] mt-2 shadow-lg'>
    <Scene >
 
    {/* <div className='text-center p-2'>बुद्धिकल्पितसमाज</div> */}
@@ -85,11 +125,15 @@ const router=useRouter()
     {icon:<FaGamepad/>,label:"gameplay"}].map((but,index)=>{
       return <div key={index} >
         <div className='text-xs text-center uppercase  p-2'>{but.label}</div>
-        
         <motion.div 
         whileHover={{scale:1.1}}
         onClick={()=>{
-          router.push(`/#${but.label}`)
+          if(earth?.auth?.authenticated){
+
+            router.push(`/#${but.label}`)
+          } else {
+            router.push('/auth/login')
+          }
         }}
         className='ring-4 cursor-pointer rounded-full w-100 p-2 ring-blue-800 border-4 text-5xl border-sky-500'>{but.icon}</motion.div></div>
     })}
@@ -106,7 +150,7 @@ const router=useRouter()
    </Scene>
 
 
-<Scene>
+{/* <Scene>
 <Gameplay game={game}/>
 </Scene>
 
@@ -117,7 +161,7 @@ const router=useRouter()
 
 <Scene>
   <Disclaimers game={game}/>
-</Scene>
+</Scene> */}
   <div>
   </div>
   </div>
@@ -221,7 +265,7 @@ const Play=(props:any)=>{
 
 const Scene=(props:any)=>{
   const{children}=props
-  return <div className='w-80 h-[80vh] p-1 bg-white m-1 flex flex-col overflow-scroll'>
+  return <div className='w-full sm:w-80 h-[90vh] p-1 bg-white m-1 flex flex-col overflow-scroll'>
     {children}
   </div>
 }
@@ -254,7 +298,6 @@ setHuman(false)
     return <></>
   }
 }
-
 
 const Transaction=(props:any)=>{
   const {value, setStep}=props
@@ -432,3 +475,4 @@ const TrillionTargetPrediction=()=>{
   </div>
 
 }
+
