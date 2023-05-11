@@ -1,8 +1,8 @@
-import { TitleCard } from '@/display/card/TitleCard'
+// import { TitleCard } from '@/display/card/TitleCard'
 import { signout } from '@/store/auth/action'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { LinkButton } from '../advertise'
+// import { LinkButton } from '../advertise'
 import { reset_profile } from '@/store/profile/action'
 import { reset_subscription } from '@/store/subscription/action'
 import { reset_projects } from '@/store/project/action'
@@ -29,11 +29,11 @@ const dispatch=useDispatch()
   
   return (
     <div className='m-auto w-full p-4'>     
-      <TitleCard
+      {/* <TitleCard
       heading="Successfully logged out!!!"
       description="Thankyou for using The Line Producer.. Keep creating.."
       />
-      <LinkButton text="Goto Home" link="/"/>
+      <LinkButton text="Goto Home" link="/"/> */}
       </div>
   )
 }

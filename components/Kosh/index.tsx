@@ -1,10 +1,14 @@
 import { useState } from "react";
-import QRCode from "react-qr-code";
 import Image from "next/image"
+import { ShiftShaper } from "./ShiftShaper";
+import { Cart } from "./Cart";
+import { ManikYantra } from "./ManikYantra";
+import { SwarnGranthi } from "./SwarnGranthi";
 
 export const Kosh = (props:any) => {
 
   const [recharges, setRecharges] = useState<any>([
+    { count: 1, amount: 20, discount: 5 },
     { count: 10, amount: 200, discount: 5 },
     { count: 50, amount: 1000, },
     { count: 100, amount: 2000 }
@@ -20,7 +24,9 @@ export const Kosh = (props:any) => {
 // हनुमान :: {""}
   // const ['','जय हनुमान ज्ञान गुण सागर ']=उसेस्टते()
   const [kosh_kotwaala,setKoshKotwAla]=useState<Auth>()
+
   const [kosh, setKosh] = useState<any>([{ total: "499", last_use: "9", last_deposite: "20" }])
+  
   const [orders, setOrders] = useState<any>([
     { amount: "5", paid_to: "palmistry", use: "session" },
     { amount: "50", paid_to: "Tshirt", use: "purchase" },
@@ -36,8 +42,9 @@ export const Kosh = (props:any) => {
   ])
 
   const [transact, setTransact] = useState({ amount: "", from: "", to: "", for: "" })
-
   const [model,setModel]=useState()
+  const [step,setStep]=useState<string>('')
+  const [rechargeAmount,setRechargeAmount]=useState<number>(0)
   const [your,setYour]=useState('all')
   // const [idea,]=useState()
 
@@ -50,113 +57,39 @@ export const Kosh = (props:any) => {
 // ब्लाइंड:{}
 // गोल्ड:स्वर्ण 
 //  
-  return <div className="flex flex-row flex-wrap gap-2">
-      
-    <div className='p-2 w-96 bg-white shadow-lg'>
-      <h1 className='text-3xl p-2 mb-12 font-extrabold'>
-        ShivOm Cart
-      </h1>
-   
+  return <div className="flex flex-row p-4 bg-white mt-8 flex-wrap gap-2">
     
-      <div className='p-2 font-bold mt-4'>Items:</div>
-      <div className='p-1 flex flex-col gap-2'>
-        {cart.map((item: any, index: number) => {
-          return <div key={index} className='bg-gray-100 p-2 text-xs flex  flex-row justify-between'>
-            <div>
-              {index + 1}. 
-              </div>
-            <div>
-              {item.item_name} 
-              </div>
-            <div>
-              {item.price} 
-              </div>
-            <div>
-              {item.quantity}
-              </div>
-              <div>
-              {item.quantity * item.price}
-              </div>
-            
-            </div>;
-        })}
-      </div>
-      <div className="mt-4 mb-4 ">
-        {kosh.map((det: any, index: number) => {
-          return <div key={index} className='p-4 flex flex-col gap-2 text-right text-xs font-bold rounded-lg text-sky-700 '>
-            <div>TOTAL: {det.total}</div>
-            <div>Taxes: {det.last_use}</div>
-            <div>Grand Total: {det.last_deposite}</div>
-          </div>;
-        })}
-      </div>
-    </div>
-    <div className='p-2 bg-white shadow-lg'>
-      <h1 className='text-3xl p-2 mb-12 font-extrabold'>
-        Refill your {"OMBox"}
-      </h1>
-      <div className='flex flex-row gap-4'>
+    <div onClick={()=>{
+      setStep("")
+    }}>Back</div>
+    {step!=="shift" && <div className="w-1/2">
 
-        {recharges.map((sr: any, index: number) => {
-          return <div key={index} className='bg-gray-300 rounded-lg p-2   '>
-            <div className='text-sm font-bold p-2 text-center'>Add {sr.count}</div>
-
-            <div className='text-xs '>Pay {"INR"} {sr.amount}</div>
-          </div>;
-        })}
-      </div>
-      <div className="mt-4 mb-4 ">
-        {kosh.map((det: any, index: number) => {
-          return <div key={index} className='p-4 flex flex-col gap-2 text-xs bg-sky-500 rounded-lg text-white '>
-            <div>TOTAL: {det.total}</div>
-            <div>LAST USED: {det.last_use}</div>
-            <div>LAST REFIL: {det.last_deposite}</div>
-          </div>;
-        })}
-      </div>
-      <div className='p-2 font-bold mt-4'>Orders:</div>
-      <div className='p-1 flex flex-col gap-2'>
-        {orders.map((his: any, index: number) => {
-          return <div key={index} className='bg-gray-100 p-2 text-xs'>{index + 1}. {his.amount} lakshmi user for {his.use} of {his.paid_to}</div>;
-        })}
-      </div>
-    </div>
-    <div className="w-80 h-auto  bg-white p-2">
-      <QRCode value="/hkd" className="m-auto" />
-      <div className="text-3xl m-auto text-center p-4 font-bold upperrcase">Scan to pay</div>
-    </div>
-    <div className="w-80 h-auto  bg-white p-2">
-    <Image
-
-
+       <Image
 src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
 alt="coins"
 width={100}
 height={100}
-className='m-auto w-full h-auto'
+className='m-auto w-full   h-auto'
 
 />
-      <div>दिव</div> 
+</div>}
+  {step==="cart" && <Cart cart={cart} kosh={kosh} setStep={setStep}/>}
 
+   {step==="" && <SwarnGranthi setStep={setStep} setAmount={setRechargeAmount} recharges={recharges} kosh={kosh} orders={orders}/>}
 
+  {step==="shift" && <ShiftShaper amount={rechargeAmount}/>}
 
-
-  
-      <textarea 
-      rows={5} 
-      id="product"
-      placeholder="I am here. you have found traces of our signals¿? sets {oc}{कि क इ ई ऐ ए के कई }"
-      />
-      {
-        [{data:"",freinds:"",chats:"",kosh:""}].map((u,index)=>{
-return <div key={index}>{u.data}{u.chats}{u.freinds}{u.kosh}</div>
-        })
-      }
-      {/* <दिव्या/> */}
-    </div>
+  {step==="manik" &&  <ManikYantra/>}
 
   </div>
+
+
 };
+
+
+// channel user group
+// @//user_id,contact_id,idom
+// 
 
 // keygen: ()={}
 // faker_random : ()=>{}
@@ -282,3 +215,7 @@ function processPayment(orderInvoice: OrderInvoice): void {
       break;
   }
 }
+
+
+
+

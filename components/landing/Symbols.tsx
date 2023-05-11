@@ -15,6 +15,15 @@ export const Symbols = () => {
         label: "hindu"
       },
       {
+        sign:"🕋",
+        label:"muslim"
+
+      },
+      {
+        sign:"☬",
+        label:'sikh'
+      },
+      {
         sign: "✡️",
         label: "jew"
       },

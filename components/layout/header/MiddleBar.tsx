@@ -1,9 +1,11 @@
 import useOnClickOutside from '@/hook/useOnClickOutside';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
-import { FaAccusoft, FaCircleNotch, FaHome, FaListAlt, FaRegGrinBeamSweat, FaServicestack, FaSpaceShuttle, FaTerminal, FaThemeco, FaUnlink, FaUserCircle } from 'react-icons/fa';
+import { FaAccusoft, FaCircleNotch, FaHome, FaListAlt, FaRegGrinBeamSweat, FaSearchengin, FaServicestack, FaSpaceShuttle, FaTerminal, FaThemeco, FaUnlink, FaUserCircle } from 'react-icons/fa';
 
 import { motion } from 'framer-motion';
+import { BsSearchHeart } from 'react-icons/bs';
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 export const tm = [
   {
@@ -13,7 +15,7 @@ export const tm = [
     link: "/"
   },
   {
-    label: "About Us",
+    label: "AboutUs",
     icon: <FaAccusoft />,
     image: "",
     link: "/#concept",
@@ -45,107 +47,107 @@ export const tm = [
     ]
   },
 
-  {
-    label: "Catalogue",
-    icon: <FaUserCircle />,
-    image: "",
-    link: "/#catalogue",
-    sub: [
-      {
-        label: "Tshirt",
-        icon: <FaCircleNotch />,
-        image: "👕👚",
-        link: "/#tshirt"
-      },
-      {
-        label: "Gems",
-        icon: <FaRegGrinBeamSweat />,
-        image: "💎",
-        link: "/#gems"
-      },
-      ,
-      {
-        label: "Rings",
-        icon: <FaRegGrinBeamSweat />,
-        image: "💍",
-        link: "/#rings"
-      },
-      {
-        label: "Yantra",
-        icon: <FaListAlt />,
-        image: "🔱♱🕉✝🕊",
-        link: "/#yantra"
-      },
-      {
-        label: "Pooja",
-        icon: <FaListAlt />,
-        image: "🛕⛩️",
-        link: "/#pooja"
-      },
-      {
-        label: "Prasad",
-        icon: <FaListAlt />,
-        image: "👼",
-        link: "/#prasad"
-      },
-      {
-        label: "Books",
-        icon: <FaListAlt />,
-        image: "🪔☪🧿𓁭📚",
-        link: "/#books"
-      },
-      {
-        label: "Accessories",
-        icon: <FaListAlt />,
-        image: "Brahmi🧶🪡🪢 shivom-fiber",
-        link: "/#accesories"
-      },
-    ]
-  },
-  {
-    label: "Services",
-    icon: <FaServicestack />,
-    image: "",
-    link: "/#service",
-    sub: [
-      {
-        label: "Astrology",
-        icon: <FaListAlt />,
-        image: "🌌",
-        link: "/#astrology"
-      },
-      {
-        label: "Numerology",
-        icon: <FaListAlt />,
-        image: "",
-        link: "/#numerology"
-      },
-      {
-        label: "Horoscopes",
-        icon: <FaListAlt />,
-        image: "",
-        link: "/#horoscopes"
-      },
-      {
-        label: "Tarot",
-        icon: <FaListAlt />,
-        image: "",
-        link: "/#tarot"
-      },
-      {
-        label: "Palmistry",
-        icon: <FaListAlt />,
-        image: "",
-        link: "/#palmistry"
-      },
-      {
-        label: "Vastu",
-        icon: <FaListAlt />,
-        image: "🌁",
-        link: "/#vastu"
-      },
-    ]
-  }
+  // {
+  //   label: "Catalogue",
+  //   icon: <FaUserCircle />,
+  //   image: "",
+  //   link: "/#catalogue",
+  //   sub: [
+  //     {
+  //       label: "Tshirt",
+  //       icon: <FaCircleNotch />,
+  //       image: "👕👚",
+  //       link: "/#tshirt"
+  //     },
+  //     {
+  //       label: "Gems",
+  //       icon: <FaRegGrinBeamSweat />,
+  //       image: "💎",
+  //       link: "/#gems"
+  //     },
+  //     ,
+  //     {
+  //       label: "Rings",
+  //       icon: <FaRegGrinBeamSweat />,
+  //       image: "💍",
+  //       link: "/#rings"
+  //     },
+  //     {
+  //       label: "Yantra",
+  //       icon: <FaListAlt />,
+  //       image: "🔱♱🕉✝🕊",
+  //       link: "/#yantra"
+  //     },
+  //     {
+  //       label: "Pooja",
+  //       icon: <FaListAlt />,
+  //       image: "🛕⛩️",
+  //       link: "/#pooja"
+  //     },
+  //     {
+  //       label: "Prasad",
+  //       icon: <FaListAlt />,
+  //       image: "👼",
+  //       link: "/#prasad"
+  //     },
+  //     {
+  //       label: "Books",
+  //       icon: <FaListAlt />,
+  //       image: "🪔☪🧿𓁭📚",
+  //       link: "/#books"
+  //     },
+  //     {
+  //       label: "Accessories",
+  //       icon: <FaListAlt />,
+  //       image: "Brahmi🧶🪡🪢 shivom-fiber",
+  //       link: "/#accesories"
+  //     },
+  //   ]
+  // },
+  // {
+  //   label: "Services",
+  //   icon: <FaServicestack />,
+  //   image: "",
+  //   link: "/#service",
+  //   sub: [
+  //     {
+  //       label: "Astrology",
+  //       icon: <FaListAlt />,
+  //       image: "🌌",
+  //       link: "/#astrology"
+  //     },
+  //     {
+  //       label: "Numerology",
+  //       icon: <FaListAlt />,
+  //       image: "",
+  //       link: "/#numerology"
+  //     },
+  //     {
+  //       label: "Horoscopes",
+  //       icon: <FaListAlt />,
+  //       image: "",
+  //       link: "/#horoscopes"
+  //     },
+  //     {
+  //       label: "Tarot",
+  //       icon: <FaListAlt />,
+  //       image: "",
+  //       link: "/#tarot"
+  //     },
+  //     {
+  //       label: "Palmistry",
+  //       icon: <FaListAlt />,
+  //       image: "",
+  //       link: "/#palmistry"
+  //     },
+  //     {
+  //       label: "Vastu",
+  //       icon: <FaListAlt />,
+  //       image: "🌁",
+  //       link: "/#vastu"
+  //     },
+  //   ]
+  // }
 ]
 
 // cat a_log_u_e
@@ -216,17 +218,18 @@ export const MiddleBar = () => {
 
   const router = useRouter();
   const [sub_open, setSubOpen] = useState<any>(null);
-
+const [search,setSearch]=useState(false)
   const ref = useRef<any>(null);
   useOnClickOutside(ref, () => setSubOpen(null));
 
   return <div className='ml-4 flex flex-row gap-2 text-md   justify-between w-[90vw] '>
 
+   {!search? <>
     {tm.map((me, index) => {
       return <motion.div key={index}
 
         // id={`${me.label.toLowerCase()}`}
-        className='text-white hover:underline cursor-pointer text-xs sm:text-sm m-auto'
+        className='text-white hover:underline cursor-pointer text-xs sm:text-sm m-auto w-auto '
         onClick={() => {
           if (!me.sub) {
             router.push(me.link, '', { scroll: true });
@@ -248,8 +251,29 @@ export const MiddleBar = () => {
                 <div>{sub.label}</div></div>;
             })}
           </div>}
-      </motion.div>;
+      </motion.div>
     })}
+    <BsSearchHeart className='text-5xl font-bold text-white p-2 -mt-2 -ml4'
+    onClick={()=>{
+      setSearch(true)
+    }}
+    />
+    </>:
+
+    <div className='w-[96%] h-12 flex flex-row justify-between' ><input type="search" 
+    placeholder='Search here' className='w-full rounded-lg -ml-1 p-2 h-8 '/>
+      <FaSearchengin className='text-5xl m-auto font-bold text-white p-2 -mt-2 -ml4'
+    onClick={()=>{
+      // setSearch(false)
+      console.log("first search")
+    }}
+    />
+    <AiFillCloseCircle className='text-5xl m-auto font-bold text-white p-2 -mt-2 -ml4'
+    onClick={()=>{
+      setSearch(false)
+    }}
+    />
+    </div>}
   </div>;
 };
 

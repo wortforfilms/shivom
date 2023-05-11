@@ -304,6 +304,19 @@ export const Brahmi = () => {
   );
 };
 
+// pukAr
+// mere desh ki dharateE earth Ee´´ 
+// leaflet brahmi braahmi brAhmi 
+// prakrut NLP
+// prakruta 
+// {""}-{""}
+// Natural Language Processing 
+// version on hand 
+// on jelly {} find Indian Jelly Fishes
+// gum
+// clue glue 
+// 
+
 export const LetterMatter = (props:any) => {
   const { letter } = props;
   const [matter, setMatter] = useState("");

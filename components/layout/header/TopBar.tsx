@@ -10,8 +10,6 @@ import { Cart } from './Cart';
 import { useSelector } from 'react-redux';
 
 
-
-
 export const TopBar = (props:any) => {
   const {initialReduxState}=props
 const earth:typeof initialReduxState=useSelector(state=>state)
@@ -29,6 +27,7 @@ const earth:typeof initialReduxState=useSelector(state=>state)
 
 }
    <RightMenu/>
+   
   </nav>;
 };
 

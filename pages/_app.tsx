@@ -7,7 +7,7 @@ import ErrorBoundary from '@/util/boundary'
 import { Provider } from 'react-redux'
 import { wrapper } from '@/store/store'
 import { Suspense, useState } from 'react'
-import { HeaderButtons } from '.'
+import { HeaderButtons } from '../components/layout/HeaderButtons'
 
 function App({ Component, ...rest }: AppProps) {
   const {store,props}=wrapper.useWrappedStore(rest)

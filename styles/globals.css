@@ -27,7 +27,46 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  h1 {
+    @apply text-2xl mt-2 mb-2 font-bold;
+  }
+  h2 {
+    @apply text-xl mt-2 mb-2 font-bold;
+  }
+  h3 {
+    @apply text-lg mt-2 mb-2 font-bold;
+  }
+  h4 {
+    @apply mt-2 mb-2 text-sm ;
+  }
+  h5 {
+    @apply text-xs font-thin;
+  }
+  h6 {
+    @apply text-xs font-bold;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
 
+  li {
+    @apply list-disc ml-4;
+  }
+
+  .scene-el {
+    @apply text-red-500
+  }
+
+  button.is_active {
+    background: rgb(215, 12, 12);
+    padding: 2px 3px;
+    border-radius: 2px;
+  }
+}
 
 
 
