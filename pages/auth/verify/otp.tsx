@@ -87,6 +87,12 @@ onChange={()=>{
   {state==='Verified' && <MessageActionCard messages={["OTP Successfully Verfied..","You have successfully verified OTP!!"]} action_text="Continue with profile!!!" action={goto_profile}/>} */}
 
     <div className="rounded-lg p-2 shadow-lg">
+// telecommunication 
+// hanumAn :: h_anu_mAAna
+// primary difference : Open Camera to log 
+// {}-{}-{}:::{}-{}
+// listner::: brahmi prakrut
+// {}:{}:{}
 
     </div>
 </div>

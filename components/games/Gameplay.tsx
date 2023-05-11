@@ -14,6 +14,7 @@ export const Gameplay = (props: any) => {
     "The winnings are distributed to the winners in proportion to the amount they placed, after deducting the commission and tax.",
     "Users can withdraw their winnings to their registered accounts immediately after the game is over.",
   ];
+  // VTTCue
   return <div className='mt-8 mb-8' id="gameplay">
     <div className='text-xl font-bold p2'>Lakshmi Kreeda Game Play</div>
     <div className='flex flex-col gap-2'>
@@ -59,7 +60,18 @@ export const Gameplay = (props: any) => {
 };
 
 // pst ipe
-
+// 1000000000000 $ eval
+// 1000000000000 ›$¢ 
+// target 10000
+// target (10)3£###£‹
+// gum {}
+// lazy suspense
+// -> control 
+// =><= {zen}
+//  // authenticated 
+// 3D{}-{camera}
+// brahmiBBprakrutR:
+// 
 // bhAshA badle bhAgya
 // let is be a book 
 // introduction to brahmi INR. 499
