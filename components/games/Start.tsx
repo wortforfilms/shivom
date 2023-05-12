@@ -34,7 +34,7 @@ export const Start = (props: any) => {
               onClick={() => {
                 if (earth?.auth?.authenticated) {
 
-                  router.push(`/kreedA/lakshmi/${but.label}`);
+                  router.push(`/kreedA`);
                 } else {
                   router.push('/auth/login');
                 }

@@ -2,20 +2,7 @@ import { AddCartButtonAlpha } from '@/util/cart/AddCartButton';
 import Image from 'next/image';
 import { useState } from 'react';
 
-// const Rounded=()=>{
-//   return <div className='p-8 mt-24'>
-//   <FancyCarousel 
-//         images={zods.map(i=>i.sign)} 
-//         carouselRadius={300}
-//         peripheralImageRadius={50}
-//         centralImageRadius={100}
-//         focusElementStyling={{border: '2px solid #ba4949'}}
-//         autoRotateTime={3}
-//         borderWidth={4}
-//         borderHexColor={'1c364f'}
-//         />
-//         </div>
-// }
+
 export const ProductList = () => {
 
   const [product_list, setPL] = useState<any>([
@@ -82,6 +69,7 @@ export const ProductList = () => {
     </div>
   </div>;
 };
+
 
 
 

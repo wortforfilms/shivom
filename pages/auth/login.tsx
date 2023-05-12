@@ -2,9 +2,13 @@ import CubeApp from "@/canvas/cube"
 import { LoginForm } from "@/components/form/forms/auth/Loginx"
 import { Gameplay } from "@/components/games/Gameplay"
 import { motion } from "framer-motion"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
-const Login =()=>{
+const Login =(props:any)=>{
+
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state)
 
   const [u,setU]=useState({})
   const [uc,setUc]=useState<any>({})
@@ -79,10 +83,7 @@ const Login =()=>{
 // supabase
 // 
     if(typeof window!==undefined){
-   
-      // const umd = navigator.mediaDevices.getUserMedia({video: true})
-      // console.log(umd)
-      // setUc(umd)
+
       getVideo()
     }
   
@@ -126,17 +127,29 @@ const Login =()=>{
   }, [
     // third
   ])
-  // canvas video camerA
-  // aware location 
-  // {not a bot}
-  // {kyc}
-  // camerA::: 
-  // init scan 
+
+  const router=useRouter()
+  useEffect(() => {
+    let mount=true
+    if(mount){
+      if(!earth?.auth?.authenticated){
+return
+      } else{
+router.back()
+      }
+    }
+  
+    return () => {
+      mount=false
+    }
+  }, [earth?.auth])
+  
+
   const videoRef = useRef<any>(null);
   // 
   return <div className="p-4">
     <LoginForm/>
-    {/* //neck python bhujang */}
+
 
     <motion.div drag className="rounded-full  overflow-hidden ">
 
@@ -204,6 +217,7 @@ export function useUserMedia(requestedMedia:any) {
 }
 
 import React, { useRef } from 'react';
+import { useSelector } from "react-redux"
 
 
 const CAPTURE_OPTIONS = {

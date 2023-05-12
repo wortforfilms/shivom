@@ -18,7 +18,7 @@ export const InputForm = () => {
 <form onSubmit={()=>{
   console.log('data in form')
 }}
-className='absolute p-2 shadow-lg flex flex-col sm:flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
+className=' p-2 shadow-lg flex flex-col sm:flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
 >
 
     <div className='p-2 w-full bg-white'>
