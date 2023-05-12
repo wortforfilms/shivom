@@ -1,3 +1,4 @@
+import { AddCartButtonAlpha } from '@/util/cart/AddCartButton';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -54,6 +55,11 @@ export const ProductList = () => {
     <div className='w-full  p-2 flex flex-col sm:flex-row gap-2 overflow-auto'>
 
       {product_list.map((product: any, index: number) => {
+        const _item={
+          id:index,
+           title:product.product_title,
+            images:product.product_images, pr_type:"physical goods", data:"data", variance:[{price:product.product_price}]
+        }
         return <div key={index} className='bg-white p-4 flex flex-col justify-between'>
           <div>Rating: {product.product_rating}</div>
           <Image
@@ -66,7 +72,9 @@ export const ProductList = () => {
           <div className='text-md font-thin py-4'>{product.product_description}</div>
           <div className='flex flex-col sm:flex-row gap-8  p-1 m-auto rounded-lg justify-between'>
             <div className='text-md text-center font-bold py-4'>INR. {product.product_price}</div>
-            <div className='bg-blue-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '>Add to Cart</div>
+            <div className='bg-blue-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '>Add to Cart
+            {/* <AddCartButtonAlpha item={_item}/> */}
+            </div>
           </div>
         </div>;
       })}

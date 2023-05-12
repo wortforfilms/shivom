@@ -91,7 +91,7 @@ const router=useRouter()
         <Image             src={"/img/om-71gQJPwz8gL._UL1500_2000x.webp"}
 
       width={100} height={100}
-      className='w-12 h-10 rounded-full -mt-1'
+      className='w-10  sm:w-10 h-10 rounded-full -mt-1'
  alt="shiv om" id='ShivAum Top'/>
       </div>
 

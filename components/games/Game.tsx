@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { faker } from '@faker-js/faker';
 import { AM } from './AM';
 import QRCode from 'react-qr-code';
-import { BsHouseAdd, BsPlayCircleFill, BsPlus, BsPlusCircle } from 'react-icons/bs';
-import { FaGamepad, FaTasks } from 'react-icons/fa';
+import { BsHouseAdd, BsPlus, BsPlusCircle } from 'react-icons/bs';
+import { FaTasks } from 'react-icons/fa';
 import { List } from './List';
 import { Awaiter } from './Awaiter';
 import { Gameplay } from './Gameplay';
@@ -15,6 +15,7 @@ import { supabase } from '@/lib/Store';
 import { useSelector } from 'react-redux';
 import Login from '@/pages/auth/login';
 import { range } from 'd3';
+import { Start } from './Start';
 
 // sh4om
 // sh{iv}om
@@ -76,6 +77,17 @@ const start_lakshmi_kreedA=()=>{
 
 }
 
+// natrAja
+// nature
+// ure
+// im
+// sh47hs
+// 
+
+
+const calender=()=>{
+  return <div></div>
+}
 
 export const Game = (props:any) => {
   const {initialReduxState}=props
@@ -85,6 +97,8 @@ export const Game = (props:any) => {
     { label: "Lakshmi", img: "/img/lakshmi-71suHVXlGHL._UL1500_2000x.webp" },
     { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
   ])
+
+
 
 
 
@@ -101,59 +115,12 @@ export const Game = (props:any) => {
   // group {}
   // board
 const router=useRouter()
-  return <div className='w-full  flex flex-row flex-wrap  justify-around  p-2 min-h-[80vh] h-[90vh] mt-2 shadow-lg'>
-   <Scene >
+  return <div className='w-full h-full  flex flex-row flex-wrap  justify-around  p-2 min-h-[80vh] h-[90vh] mt-2 shadow-lg'>
+  
+{step===0 && <Start game={game} router={router} earth={earth} />}
 
-   {/* <div className='text-center p-2'>बुद्धिकल्पितसमाज</div> */}
-   <div className='p-2 text-3xl text-center font-extrabold'>LakshmiKreedA</div>
-   <div className='p-2 text-3xl text-center font-extrabold'>लक्ष्मी क्रीड़ा</div>
-{/* <div className='flex flex-col sm:flex-row'> */}
-
-   <div className='w-2/3 m-auto h-[90vh]'>
-  <Image
-
-     src={game[0].img}
-     alt="coins"
-     width={100}
-     height={100}
-     className='m-auto w-full h-auto'
-  /></div>
-  <div className='w-2/3 m-auto h-[90vh]'>
-    <div className='flex flex-row gap-4 mb-4 text-7xl justify-around'>
-
-    {[{icon:<BsPlayCircleFill/>, label:"play"},
-    
-    {icon:<FaGamepad/>,label:"gameplay"}].map((but,index)=>{
-      return <div key={index} >
-        <div className='text-xs text-center uppercase  p-2'>{but.label}</div>
-        <motion.div 
-        whileHover={{scale:1.1}}
-        onClick={()=>{
-          if(earth?.auth?.authenticated){
-
-            router.push(`/#${but.label}`)
-          } else {
-            router.push('/auth/login')
-          }
-        }}
-        className='ring-4 cursor-pointer rounded-full w-100 p-2 ring-blue-800 border-4 text-5xl border-sky-500'>{but.icon}</motion.div></div>
-    })}
-
-    </div>
-  <Image
-
-     src={game[1].img}
-     alt="coins"
-     width={100}
-     height={100}
-     className='m-auto w-full h-auto'
-  /></div>
-{/* </div> */}
-
-   </Scene>
-
-
-{/* <Scene>
+{step===1 && <Play game={game} setStep={setStep} timer={timer}/>}
+<Scene>
 <Gameplay game={game}/>
 </Scene>
 
@@ -164,75 +131,12 @@ const router=useRouter()
 
 <Scene>
   <Disclaimers game={game}/>
-</Scene> */}
+</Scene>
   <div>
   </div>
   </div>
 
 };
-
-export const GameBanner=(props:any)=>{
-  const {initialReduxState}=props
-  const earth:typeof initialReduxState=useSelector(state=>state) 
-  const [timer, setTimer] = useState<any>(0);
-  const router=useRouter()
-  const [game,setGame]=useState<any>([
-    { label: "Lakshmi", img: "/img/lakshmi-71suHVXlGHL._UL1500_2000x.webp" },
-    { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
-  ])
-
-  return    <div className='bg-white w-full h-[70vh] mt-8' >
-
-  {/* <div className='text-center p-2'>बुद्धिकल्पितसमाज</div> */}
-  <div className='p-2 text-3xl text-center font-extrabold'>LakshmiKreedA</div>
-  <div className='p-2 text-3xl text-center font-extrabold'>लक्ष्मी क्रीड़ा</div>
-<div className='flex flex-col sm:flex-row w-full '>
-
-  <div className='w-1/3 m-auto h-[90vh]'>
- <Image
-
-    src={game[0].img}
-    alt="coins"
-    width={100}
-    height={100}
-    className='m-auto w-full h-auto'
- /></div>
-<div className='flex flex-row gap-4 mb-4 text-7xl justify-around'>
-
-{[{icon:<BsPlayCircleFill/>, label:"play"},
-
-{icon:<FaGamepad/>,label:"gameplay"}].map((but,index)=>{
-  return <div key={index} >
-    <div className='text-xs text-center uppercase  p-2'>{but.label}</div>
-    <motion.div 
-    whileHover={{scale:1.1}}
-    onClick={()=>{
-      if(earth?.auth?.authenticated){
-
-        router.push(`/#${but.label}`)
-      } else {
-        router.push('/auth/login')
-      }
-    }}
-    className='ring-4 cursor-pointer rounded-full w-100 p-2 ring-blue-800 border-4 text-5xl border-sky-500'>{but.icon}</motion.div></div>
-})}
-
-</div>
-
- <div className='w-1/3 m-auto h-[90vh]'>
-   
- <Image
-
-    src={game[1].img}
-    alt="coins"
-    width={100}
-    height={100}
-    className='m-auto w-full h-auto'
- /></div>
-</div>
-
-  </div>
-}
 
 const Play=(props:any)=>{
   const {game, setStep, timer}=props
@@ -329,7 +233,7 @@ const Play=(props:any)=>{
   </>
 }
 
-const Scene=(props:any)=>{
+export const Scene=(props:any)=>{
   const{children}=props
   return <div className='w-full sm:w-80 h-[90vh] p-1 bg-white m-1 flex flex-col overflow-scroll'>
     {children}

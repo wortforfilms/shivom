@@ -1,0 +1,69 @@
+import Image from 'next/image';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { BsPlayCircleFill } from 'react-icons/bs';
+import { FaGamepad } from 'react-icons/fa';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+
+
+export const GameBanner = (props: any) => {
+  const { initialReduxState } = props;
+  const earth: typeof initialReduxState = useSelector(state => state);
+  const [timer, setTimer] = useState<any>(0);
+  const router = useRouter();
+  const [game, setGame] = useState<any>([
+    { label: "Lakshmi", img: "/img/lakshmi-71suHVXlGHL._UL1500_2000x.webp" },
+    { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
+  ]);
+
+  return <div className='bg-white w-full h-[70vh] mt-8'>
+
+    {/* <div className='text-center p-2'>बुद्धिकल्पितसमाज</div> */}
+    <div className='p-2 text-3xl text-center font-extrabold'>LakshmiKreedA</div>
+    <div className='p-2 text-3xl text-center font-extrabold'>लक्ष्मी क्रीड़ा</div>
+    <div className='flex flex-col sm:flex-row w-full '>
+
+      <div className='w-1/3 m-auto h-[90vh]'>
+        <Image
+
+          src={game[0].img}
+          alt="coins"
+          width={100}
+          height={100}
+          className='m-auto w-full h-auto' /></div>
+      <div className='flex flex-row gap-4 mb-4 text-7xl justify-around'>
+
+        {[{ icon: <BsPlayCircleFill />, label: "play" },
+
+        { icon: <FaGamepad />, label: "gameplay" }].map((but, index) => {
+          return <div key={index}>
+            <div className='text-xs text-center uppercase  p-2'>{but.label}</div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              onClick={() => {
+                if (earth?.auth?.authenticated) {
+
+                  router.push(`/#${but.label}`);
+                } else {
+                  router.push('/auth/login');
+                }
+              }}
+              className='ring-4 cursor-pointer rounded-full w-100 p-2 ring-blue-800 border-4 text-5xl border-sky-500'>{but.icon}</motion.div></div>;
+        })}
+
+      </div>
+
+      <div className='w-1/3 m-auto h-[90vh]'>
+
+        <Image
+
+          src={game[1].img}
+          alt="coins"
+          width={100}
+          height={100}
+          className='m-auto w-full h-auto' /></div>
+    </div>
+
+  </div>;
+};

@@ -1,21 +1,63 @@
+import { IconLabel } from '@/lib/calender';
+import { useRouter } from 'next/router';
+import { BiCalendar, BiHome } from 'react-icons/bi';
 import { BsCart, BsWallet } from 'react-icons/bs';
+import { FaWallet } from 'react-icons/fa';
+import { FiHome } from 'react-icons/fi';
 
 export const Cart = () => {
-
+const router=useRouter()
   // transaction order catalogue distribution logistic 
   // {}-{}-{}
   // ::: {} ::: subscript
   const services=[
     {
-label:"",
-icon:""
+label:"Home",
+icon:<BiHome/>,
+link:"/"
     },
     {
-      label:"",
-      icon:""
+      label:"Calendar",
+      icon:<BiCalendar/>,
+      link:"/calender"
+    },  {
+      label:"Kosh",
+      icon:<FaWallet/>,
+      link:"/kosh"
+    },  {
+      label:"Cart",
+      icon:<BsCart/>,
+      link:"/cart"
     }
   ]
   return <div className=' px-8 w-48 flex flex-row gap-8'>
+
+    {
+      services.map((ss,index)=>{
+        return <div key={index}><IconLabel si={ss}/></div>
+      })
+    }
+    {/* <div  className='relative'>
+
+<FiHome 
+size={32} 
+className={`text-center  text-white text-xl  cursor-pointer `}
+  onClick={() => {
+    console.log("first wallet")
+    router.push('/')
+  }} 
+  />
+
+  </div> */}
+  {/* <div  className='relative'>
+
+<BiCalendar size={32} className={`text-center  text-white text-xl  cursor-pointer `}
+  onClick={() => {
+    console.log("first wallet")
+    router.push('/calender')
+  }} />
+
+  </div>
     <div  className='relative'>
 
     <BsWallet size={32} className={`text-center  text-white text-xl  cursor-pointer `}
@@ -35,7 +77,7 @@ icon:""
       <div className='absolute top-0 ml-4 font-bold text-[8px] text-white text-center text-xs -mt-1 rounded-full w-auto px-2 h-4 ring-2 ring-white bg-green-600'>
         80000
       </div>
-      </div>
+      </div> */}
   </div>;
 };
 

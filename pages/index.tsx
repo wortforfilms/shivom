@@ -22,7 +22,8 @@ import { Symbols } from '../components/landing/Symbols'
 import CubeApp from '@/canvas/cube'
 import MApp from '@/canvas/model'
 
-import { Game, GameBanner } from '../components/games/Game'
+import { Game } from '../components/games/Game'
+import { GameBanner } from '@/components/games/GameBanner'
 import { useRouter } from 'next/router'
 import { BirthForm } from '../components/form/forms/auth/BirthForm'
 import { Brahmi } from '@/components/classes/brahmi'
@@ -30,6 +31,8 @@ import { LoginForm } from '@/components/form/forms/auth/Loginx'
 import { HeaderButtons } from '../components/layout/HeaderButtons'
 import { Team } from '../components/list/Team'
 import { motion } from 'framer-motion'
+import { InitializeResult } from '@supabase/supabase-js'
+import { useSelector } from 'react-redux'
 
 
 const inter = Inter({ subsets: ['cyrillic'] })
@@ -49,7 +52,9 @@ const inter = Inter({ subsets: ['cyrillic'] })
 // 
 // link #
 // 
-export default function Home() {
+export default function Home(props:any) {
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state)
 
   const [classes,setClasses]=useState([
     {tod:"Vedic Higgs Boson",product:[
@@ -99,7 +104,9 @@ w-full
 {/* <Placeholder/> */}
 {/* <CubeApp/> */}
 {/* <Kosh/> */}
-{section==="games" && <GameBanner/>}
+{section==="games" && <>
+{!earth.auth.authenticated ?<GameBanner/>:<Game/>}
+</>}
 {/* <Game0/> */}
 {/* <MessageHome/> */}
 {/* <div id="astrology"></div> */}

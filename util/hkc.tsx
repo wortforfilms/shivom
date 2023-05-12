@@ -1,5 +1,25 @@
 
 // First, we need to declare a class to represent our Astro Chart. 
+export const snake = (str: any) => {
+  const s = str && `${str}`?.replaceAll("_", " ")
+    .split(" ")
+    .map((st: string, index: number) => {
+      return `${st.slice(0, 1).toUpperCase()}${st.slice(1)} `;
+    });
+  return s;
+};
+
+
+export const paraFirst = (str: any) => {
+  const s = str?.slice(0,1).toUpperCase()
+  const b=str?.slice(1)
+    
+  const i=`${s}${b} `
+      return i;
+    
+
+};
+
 class AstroCh {
   // We'll need to declare some fields to store data
   public planets: Planet[]
