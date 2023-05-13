@@ -1,6 +1,7 @@
 // import { onlyUnique } from "../../middleware/withAuth";
-import { onlyUnique } from "@/util/filter";
+// import { onlyUnique } from "@/utils/filter";
 import { supabase } from "@/lib/Store";
+import { onlyUnique } from "@/util/unique";
 
 export const update_profile_pic = async (data: any, id: string) => {
   const { data: profile, error } = await supabase

@@ -4,14 +4,20 @@ import Head from "next/head";
 import Gyroscope from "./Gyroscope";
 import Compass from "./Compass";
 
+// type DeviceOrientationEvent = {
+//   absolute:boolean
+//   alpha:number
+//   // webkitCompassHeading:number
+// }
+
 export default function GyroHome() {
   const [heading, setHeading] = useState<any>(0);
 
-  const handleOrientationChange = (event: DeviceOrientationEvent) => {
+  const handleOrientationChange = (event: any) => {
     if (event.absolute) {
       setHeading(event.alpha);
-    } else if (event.webkitCompassHeading) {
-      setHeading(event.webkitCompassHeading);
+    } else if (event?.webkitCompassHeading) {
+      setHeading(event?.webkitCompassHeading);
     }
   };
 

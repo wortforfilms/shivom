@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { ItemCard } from "./ItemCard";
-import { onlyUnique } from "../filter";
+import { onlyUnique } from "@/util/unique";
 
 const UserShorts = (props: any) => {
   const { items } = props;
