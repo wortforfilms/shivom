@@ -4,6 +4,7 @@
 import Calender from "@/lib/calender"
 import { useSelector } from "react-redux"
 import Gyroscope from '@/components/tool/gyroscrope'
+import GyroHome from "@/components/tool"
 
 const CalenderView=(props:any)=>{
   const {initialReduxState}=props
@@ -13,6 +14,7 @@ const CalenderView=(props:any)=>{
     <Gyroscope onUpdate={(up:any)=>{
       console.log("first",up)
     }}/>
+    <GyroHome/>
     <Calender earth={earth}/>
   </div>
 }

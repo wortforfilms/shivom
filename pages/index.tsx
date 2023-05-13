@@ -130,19 +130,7 @@ className='relative w-full'
 
 {section==="boards" && <Team/>}
 {section==="kosha" && <Kosh/>}
-{ section==="services" && <div className='text-xl font-bold uppercase mt-12'>
-  
-  education<br/>
-  advance sciences<br/>
-  artificial intelligence<br/>
-  yantra tanra mantra<br/>
-  fincare<br/>
-  healthcare<br/>
-  eldercare<br/>
-  consultations<br/>
-  research<br/>
-
-  </div>}
+{ section==="services" && <Services/>}
 <Questions/>
 <Testemonials/>
      <AboutUs/>
@@ -157,6 +145,22 @@ className='relative w-full'
 }
 
 
+
+const Services=()=>{
+  return <div className='text-xl font-bold uppercase mt-12'>
+  
+  education<br/>
+  advance sciences<br/>
+  artificial intelligence<br/>
+  yantra tanra mantra<br/>
+  fincare<br/>
+  healthcare<br/>
+  eldercare<br/>
+  consultations<br/>
+  research<br/>
+
+  </div>
+}
 // successfull_invite :100
 // unlock : 100bronze
 // NFT:""

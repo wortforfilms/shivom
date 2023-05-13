@@ -1,0 +1,23 @@
+.gyroscope-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.gyroscope-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gyroscope-label {
+  margin-right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* .gyroscope-value {
+} */
