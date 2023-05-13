@@ -3,9 +3,26 @@ import { motion } from 'framer-motion';
 import { BsPlayCircleFill } from 'react-icons/bs';
 import { FaGamepad } from 'react-icons/fa';
 import { Scene } from './Game';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export const Start = (props: any) => {
-  const { game, router, earth } = props;
+  // const { game, router, earth } = props;
+
+  const { initialReduxState } = props
+  const earth: typeof initialReduxState = useSelector(state => state)
+  const [timer, setTimer] = useState<any>(0);
+  const [game, setGame] = useState<any>([
+    { label: "Lakshmi", img: "/img/lakshmi-71suHVXlGHL._UL1500_2000x.webp" },
+    { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
+  ])
+
+
+
+
+  const router = useRouter()
+
   return <Scene>
 
     <div className='text-center p-2'>बुद्धिकल्पितसमाज</div>

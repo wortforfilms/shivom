@@ -19,12 +19,12 @@ export const GameBanner = (props: any) => {
 
   return <div className='bg-white w-full h-[70vh] mt-8'>
 
-    {/* <div className='text-center p-2'>बुद्धिकल्पितसमाज</div> */}
+    <div className='text-center p-2'>बुद्धिकल्पितसमाज</div>
     <div className='p-2 text-3xl text-center font-extrabold'>LakshmiKreedA</div>
     <div className='p-2 text-3xl text-center font-extrabold'>लक्ष्मी क्रीड़ा</div>
-    <div className='flex flex-col sm:flex-row w-full '>
+    <div className='flex flex-col w-full '>
 
-      <div className='w-1/3 m-auto h-[90vh]'>
+      <div className='w-1/3 m-auto h-100'>
         <Image
 
           src={game[0].img}
@@ -32,7 +32,7 @@ export const GameBanner = (props: any) => {
           width={100}
           height={100}
           className='m-auto w-full h-auto' /></div>
-      <div className='flex flex-row gap-4 mb-4 text-7xl justify-around'>
+      <div className='flex w-1/3 flex-col gap-4 mb-4 text-7xl justify-around m-auto'>
 
         {[{ icon: <BsPlayCircleFill />, label: "play" },
 
@@ -44,12 +44,12 @@ export const GameBanner = (props: any) => {
               onClick={() => {
                 if (earth?.auth?.authenticated) {
 
-                  router.push(`/#${but.label}`);
+                  router.push(`/kreedA`);
                 } else {
                   router.push('/auth/login');
                 }
               }}
-              className='ring-4 cursor-pointer rounded-full w-100 p-2 ring-blue-800 border-4 text-5xl border-sky-500'>{but.icon}</motion.div></div>;
+              className='ring-2 cursor-pointer rounded-full m-auto  p-2 ring-blue-800 border-4 text-5xl border-sky-500'>{but.icon}</motion.div></div>;
         })}
 
       </div>

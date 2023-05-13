@@ -33,6 +33,8 @@ import { Team } from '../components/list/Team'
 import { motion } from 'framer-motion'
 import { InitializeResult } from '@supabase/supabase-js'
 import { useSelector } from 'react-redux'
+import { Start } from '@/components/games/Start'
+import Image from 'next/image'
 
 
 const inter = Inter({ subsets: ['cyrillic'] })
@@ -70,7 +72,7 @@ export default function Home(props:any) {
 const router=useRouter()
   return (
     <main
-      className={` flex min-h-screen  flex-col p-2 
+      className={` flex min-h-screen  flex-col justify-around p-2 
 w-full
       `}
     >
@@ -81,42 +83,43 @@ w-full
       }}
       drag className='absolute bottom-16 text-3xl -mb-12 right-2 -ml-12 ring-2 ring-pink-800 shadow-lg bg-white rounded-full p-2'>💝 Support Us</motion.div>
       <div className='h-12'></div>
-      {/* {section} */}
+
       <HeaderButtons setSection={setSection} section={section}/>
       <div className='flex flex-col sm:flex-row gap-2 jistify-around'>
-{/* <div className='flex flex-col gap-2'>
-<BirthForm/>
-<LoginForm/></div> */}
-{/* <div className='' id="games">
 
-<Game/>
-</div> */}
-{!section && <ProductForm/>}
+{!section && <div className='flex flex-row gap-4'>
+  <ProductForm/>
+  <GameBanner/>
+
+</div>}
       </div>
 {section==="ecommerce" && <div className='mt-12' id="ecommerce">
 
 <ProductList/>
 </div>}
 
-{/* {jyotirling:panchjanya:devi} */}
-{/* test  account */}
-{/* ÷¿A */}
-{/* <Placeholder/> */}
-{/* <CubeApp/> */}
-{/* <Kosh/> */}
+
 {section==="games" && <>
 {!earth.auth.authenticated ?<GameBanner/>:<Game/>}
 </>}
-{/* <Game0/> */}
-{/* <MessageHome/> */}
-{/* <div id="astrology"></div> */}
+
 {section==="astrology" && <Communication/>}
+
 {section==="astronomy" && <>
+
+
+      <div className='mt-8'>
+<Zodiacs/>
+<Image 
+src="/book/cover1.jpg" alt="" width={100} height={100}
+className='relative w-full'
+/>
 <Symbols/>
     <div id="astronomy" className='text-xl flex flex-row flex-wrap text-center justify-between overflow-hidden p-2'>
     ⋆｡°✩⋆｡°✩🌏⋆｡°✩💫⋆｡°✩⋆｡°✩⋆｡°✩☄️⋆｡°✩⋆｡°✩⋆｡°✩🌟⋆｡°✩⋆｡°✩🌏⋆｡°✩⋆｡°✩🪐⋆｡°✩⋆｡°✩⋆｡°✩🚀⋆｡°✩⋆｡°✩⋆｡°✩
       </div>
-<Zodiacs/>
+<div className='text-xl sm:text-7xl -bottom-24 m-auto absolute font-extrabold p-4 text-white'>QUESTION OF INDIA TO INDIAN</div>
+</div>
 </>
 }
 
@@ -175,10 +178,15 @@ const LocalWorker=()=>{
   // {""}
   const get_sanskrit=async()=>{
     book:""
-
-
   }
 }
+
+
+// प्रसृति,सृ.	f.	prasRti,sR.	gillgi.gl.[liquid measure]	
+// शायिका	f.	zAyikA	berth[Rly.]	
+// अधिकारत्यागंकरोति{कृ}	verb 8	adhikAratyAgaMkaroti[kR]	stepdownfromauthority,giveuprights[pol.]	
+// निक्षेप-लेखा	f.	nikSepa-lekhA	depositaccount[Com.]	
+// वाहक-प्रतिभूति	f.	vAhaka-pratibhUti	bearersecurity[Com.]	
 
 
 // accident of groom new bride fathers-in-law 

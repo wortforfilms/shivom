@@ -222,7 +222,7 @@ const [search,setSearch]=useState(false)
   const ref = useRef<any>(null);
   useOnClickOutside(ref, () => setSubOpen(null));
 
-  return <div className='ml-4 flex flex-row gap-2 text-md   justify-between w-[90vw] '>
+  return <div className='sm:ml-4 flex flex-row gap-2 text-md   justify-between w-[90vw] '>
 
    {!search? <>
     {tm.map((me, index) => {

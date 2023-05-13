@@ -2,7 +2,7 @@
 // import { Day } from "@/factory/events/calender/Day"
 // import { Month, MonthViewPost } from "@/factory/events/calender/Month"
 import { supabase } from "@/lib/Store"
-// import { supabase } from "@/util/supabase"
+// import { supabase } from "@/lib/Store"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 

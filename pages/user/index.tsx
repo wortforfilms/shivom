@@ -1,3 +1,4 @@
+import MessageHome from "@/components/communication/messaging"
 import { useState } from "react"
 
 const User=()=>{
@@ -17,7 +18,9 @@ const [deposite,setDeposite]=useState()
     Channel:
     Static_on_Books:
     Book:
-
+<MessageHome/>
 
   </div>
 }
+
+export default User

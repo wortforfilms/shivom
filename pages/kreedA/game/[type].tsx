@@ -1,36 +1,56 @@
 import { Game } from "@/components/games/Game"
 import { Gameplay } from "@/components/games/Gameplay"
-import { GamesHeaderButtons } from "@/components/games/GamesHeaderButtons"
+import { GamesHeaderButtons, SelectedGamesHeaderButtons } from "@/components/games/GamesHeaderButtons"
 import { supabase } from "@/lib/Store"
 import { range } from "@/util/createRange"
+import { nFormatter } from "@/util/numberFormatter/nFormatter"
 import { faker } from "@faker-js/faker"
-import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+import moment from "moment"
+import { useRouter } from "next/router"
+// import { useEffect, useState } from "react"
+import { MdOutlineResetTv } from "react-icons/md"
+import QRCode from "react-qr-code"
 
 
-// 196.9 trillion
-// per year
-// list :: country :: currency  :: 
-// test not a bot
-// choose languages
-// devnAgary Georgean cryptlic 
-// brahmi prakrut
-// right left
-// {rAtri bhrAtA}
-//  {yAtri}
-// 
+import { useState, useEffect } from 'react';
 
-const create_game=async(type:any,amount:any)=>{
-  const {data,error}=await supabase.from('games').insert([{
-    type:type,
-    amount: amount,
-    expiring_at:"",
-    //kai lAsh
-    // {energy {}-{} }
-    // 
+const Timer = (props:any) => {
+    const {initialMinute = 0,initialSeconds = 0} = props;
+    const [ minutes, setMinutes ] = useState(initialMinute);
+    const [seconds, setSeconds ] =  useState(initialSeconds);
+    useEffect(()=>{
+    let myInterval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            }
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(myInterval)
+                } else {
+                    setMinutes(minutes - 1);
+                    setSeconds(59);
+                }
+            } 
+        }, 1000)
+        return ()=> {
+            clearInterval(myInterval);
+          };
+    });
 
-  }])
-  
+    return (
+        <div className="p-4 text-7xl text-white bg-black">
+        { minutes === 0 && seconds === 0
+            ? null
+            : <h1> {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+        }
+        </div>
+    )
 }
+
+
+
+
 const Lakshmi=()=>{
   const [stage,setStage]=useState(0)
   const [games,setGames]=useState<any>([])
@@ -38,11 +58,10 @@ const Lakshmi=()=>{
   const [tag,setTag]=useState<any>('')
   const [view,setView]=useState<any>('ghome')
 
-
+const [currrent_minute,setCurrentM]=useState(new Date().getMinutes())
+const [currrent_second,setSecond]=useState(new Date().getSeconds())
   useEffect(()=>{
-    // jarA
-    // zArA
-    //  sangh ghati t 
+    
   },[])
 
   const users= range(0,69).map((str)=>{
@@ -56,29 +75,62 @@ const Lakshmi=()=>{
 
 
     const nu=faker.datatype.number({min:3,max:69})
-
-// {}-{}-{}
-// show category 
-// show list
-// show play
-// show-live
-// show help
-// show user-board
-// show admin-board
-
-// {}-{}-{}-{}-{}
-// _|_|_|_|_
-// .....
-// kalp_vruksh
-// kamdhenu
-// nandi
+    4
 
 
-  return <div>
+    // let now = moment();
+    // let timeDiff = moment(now).utcOffset(120).endOf('hour') - now;
+    
+    // let dur = moment.duration(timeDiff);
+    
+    // console.log(`${dur.hours()} hrs ${dur.minutes()} min ${dur.seconds()} sec until midnight.`);
+
+
+
+    const now = new Date().getTime();
+const futureDate = new Date('27 Jan 2023 16:40:00').getTime();
+
+const timeleft = futureDate - now;
+
+const days    = Math.floor( timeleft / (1000 * 60 * 60 * 24));
+const hours   = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+
+// mungA heerA pannA ratna renukA
+
+//  <-->
+
+const [yantra,setYantra]=useState([
+  {type:'copper', ra:[],price:10},
+  {type:'silver', ra:[],price:100},
+  {type:'gold', ra:[],price:10000},
+  {type:'platinum', ra:[],price:1000000},
+  {type:'diamond', ra:[],price:10000000},
+  {type:'knownium', ra:[],price:'100D∂'},
+  {type:'unknownium', ra:[],price:'10K˚'},
+])
+
+
+// 00:00:00
+const [time_remailing,setTimeRemainning]=useState<any>(null)
+const router=useRouter()
+const {type}=router.query
+const [game_s,setGameS]=useState([{ emoji: "🎲", label: "active", icon: "", image: "", link: "/#active", tag: "active" },
+{ emoji: "🧿", label: "await", icon: "", image: "", link: "/#await", tag: "await" }])
+  return <div className="min-h-[90vh]">
     <div className="h-12"></div>
-    <div className="p-4">
-      <GamesHeaderButtons setSection={setView} section={view}/>
+    <div className="p-4 flex flex-row">
+      <SelectedGamesHeaderButtons setSection={setView} section={view} selected_game={type}/>
+      <motion.div className="text-7xl p-2 rounded-lg shadow-lg bg-white"
+      onClick={()=>{
+        // setGame(null)
+        router.back()
+      }}
+      ><MdOutlineResetTv/></motion.div>
     </div>
+    <Timer/>
 {/* {view} */}
    {view==="ghome" && <div className="flex flex-row  flex-wrap justify-around gap-4 p-4">
       {
@@ -87,29 +139,56 @@ const Lakshmi=()=>{
           {label:"Lakshmi", icon:"𓁧", image:"",cycle:"",duration:"Hourly"},
           {label:"SaptRishi", icon:"✨", image:"",cycle:"",duration:"Daily"},
           {label:"NavGrah", icon:"🪐", image:"",cycle:"",duration:"Weekly"},
-          {label:"Nakzatra", icon:"🌌", image:"",cycle:"",duration:"Monthly"},
-      ].map((ver,index)=>{
-        return <div key={index} className="rounded-lg text-center m-auto uppercase shadow-lg w-32 h-100 bg-white p-2">
+          {label:"Nakzatra", icon:"🌌", image:"",cycle:"",duration:"Monthly"} ].filter(i=>i.label===type).map((ver,index)=>{
+        return <div key={index} className="rounded-lg text-center m-auto uppercase shadow-lg w-100 h-100 bg-white p-2">
           <div className="text-7xl p-2">{ver.icon}</div>
           <div>{ver.label} </div>
           <div className="text-xs font-bold p-1">{ver.duration}</div>
           <div>
             <div className="text-xs text-yellow-700 p-2">Lastest winner: </div>
             {
-             faker.datatype.number({min:99,max:9999999})
+             nFormatter(faker.datatype.number({min:99,max:9999999}))
             }</div>
+    <div className="p-4 bg-white"><QRCode  value={"/sku"}/>
+      <div>Scan to play</div>
+      </div>
 
-<div className="text-xs text-yellow-700 p-2">Current Box: </div>
-            {
-             faker.datatype.number({min:99,max:999999})
-            }
-      <div className="p-2 bg-green-500 rounded-lg mt-8 mb-4 shadow-lg">PLAY NOW</div>
+      <div className="p-2 bg-green-500 rounded-lg mt-8 mb-4 shadow-lg bg-gradient-to-r from-red-800 via-yellow-300 to-yellow-500 ring-4 ring-orange-300 p-4 shadow-lg">Use 1 Omnium</div>
           </div>
       })
       }
+      <div className="bg-white p-2">
+      <div className="flex flex-row gap-12">
+     { game_s.slice(1,2).map((game_state,index)=>{
+          return <div key={index} className="text-7xl rounded-lg p-2 bg-white w-24">
+            <h5 className="text-2xl font-extrabold">
+              {game_state.label}
+              </h5>
+            <div className="ring-2 ring-white shadow-xl rounded-full">{game_state.emoji}</div>
+            </div>
+         })}</div>
+<Stats label="Time Remaining:" value={`${hours}:${minutes}:${seconds}`} />
+<Stats label="Current Bucket:" value={nFormatter(faker.datatype.number({min:99,max:999999}))} />
+<Stats label="Active View:" value={nFormatter(faker.datatype.number({min:99,max:999999}))} />
+<Stats label="Players" value={nFormatter(faker.datatype.number({min:99,max:9999}))} />
+</div>
+  
+    </div>}
+
+    {view==="list" && <div className=" flex flex-col flex-wrap text-xs gap-2 p-2 w-full">
+    
+      {
+        "Users"
+      }
+      {
+        "Players"
+      }
+      {
+        "Winners"
+      }
     </div>}
     
-   {view==="list" && <div className=" flex flex-col flex-wrap text-xs gap-2 p-2 w-full">
+   {view==="winners" && <div className=" flex flex-col flex-wrap text-xs gap-2 p-2 w-full">
       {
         range(0,24).map((str,index)=>{
           return <div key={index} >
@@ -149,10 +228,21 @@ const Lakshmi=()=>{
       view==="help" && <div className="p-4"><Gameplay></Gameplay></div>
     }
     {/* {stage===0 && <div><Game stage={stage} setStage={setStage}/></div>} */}
-
+{/* <Tree/> */}
   </div>
 }
 
+// wssfe
+// pixel on canvas
+// create canvas 
+// notes
+// {}-{}
+// game : current_games:[] games_results:[]
+// 10 Trillion Treasure
+// ticket :{}
+// bid:[]
+// 1,00,000 diamonds
+// 10Cr   
 export default Lakshmi
 
 const Tree=(props:any)=>{
@@ -186,4 +276,15 @@ const Tree=(props:any)=>{
     }).length
     }</div>
 </div>
+}
+
+
+const Stats=(props:any)=>{
+  const {label,value}=props
+  return <div className="text-xs  p-2">
+  <div className="text-3xl font-bold">{label} </div>
+            <div className="text-yellow-700 text-7xl font-extrabold">
+              {value}
+            </div>
+            </div>
 }

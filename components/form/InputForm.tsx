@@ -9,6 +9,7 @@ export const InputForm = () => {
   const {handleSubmit,register}=useForm()
 const u_register=(data:any)=>{
   console.log(data)
+  
 }
   return <div >
 <form onSubmit={handleSubmit(u_register)}

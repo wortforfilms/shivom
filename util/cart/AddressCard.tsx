@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 // import { FormCreator } from "../formCreator";
 // import { address_form, yup_address_form } from "@/constant/form/address";
-import { get_addresses_by_user } from "../../q/r/s/address.";
-import { Form } from "@/display/forms";
+import { get_addresses_by_user } from "@/q/r/s/address.";
+// import { Form } from "@/display/forms";
+// uph
+// audio :: 
 import { address_form, yup_address_form } from "./address";
 
 
@@ -29,7 +31,7 @@ export const AddressCard = (props: any) => {
 
           setStep("address selected");
         })
-        .catch((error) => console.log(error));
+        .catch((error:any) => console.log(error));
     }
 
     return () => {
@@ -56,14 +58,14 @@ export const AddressCard = (props: any) => {
       >
         Add new address
       </div>
-      {new__ && (
+      {/* {new__ && (
         <Form
           state={{label:"",fields:address_form}}
           validationSchema={yup_address_form}
           name="Shorts delivery Address"
           SetNew={setNew}
           setIs={setIs} />
-      )}
+      )} */}
     </div>
   );
 };
@@ -151,7 +153,7 @@ setInventoryAddress,
       >
         Add new address
       </div>
-      {new__ && (
+      {/* {new__ && (
         <Form
           state={{label:"Address",fields:address_form}}
           validationSchema={yup_address_form}
@@ -159,7 +161,7 @@ setInventoryAddress,
           setParent={setNew}
           setStep={setStep}
            />
-      )}
+      )} */}
     </div>
   );
 };

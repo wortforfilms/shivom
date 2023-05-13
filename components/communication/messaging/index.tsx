@@ -24,7 +24,7 @@ const MessageHome = () => {
   }
 
   return (
-    <div className="w-full h-full flex justify-center items-center p-4 bg-gray-300">
+    <div className="w-full h-full bg-sky-500 flex justify-center items-center p-4 bg-gray-300">
       <div className="w-full sm:w-1/2 xl:w-1/3">
         <form className="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg bg-white">
           <div className="mb-4">

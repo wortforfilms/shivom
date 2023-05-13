@@ -3,8 +3,11 @@ import { FaVideo } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
 import { BsFillChatFill } from 'react-icons/bs';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 export const Communication = () => {
+
+  const router=useRouter()
   return <div className='flex flex-col bg-white shadow-lg w-full mb-12 mt-12'>
     <div className='p-4 text-3xl font-bold text-center text-gray-600'>Communicate with experts in the way you like!!</div>
     <div className='flex flex-col sm:flex-row gap-2'>
@@ -37,12 +40,15 @@ export const Communication = () => {
         className='w-72 h-auto m-auto' />
     </div>
 
+    <div className='absolute bg-pink-500 top-56 text-white p-4 roudned-lg'>Starting at INR. 20.00 per minute</div>
+
     <div className='flex flex-row flex-wrap gap-4 justify-around  w-full p-12 bg-white'>
 
       {[
         { name: 'Astrology', 
         icon: <BsFillChatFill />,
-        image:""
+        image:"",
+
        },
        { name: 'Numerology', icon: <FiPhoneCall />,
        image:""
@@ -63,7 +69,15 @@ export const Communication = () => {
       ].map((mes, index) => {
         return <div key={index} className='flex flex-col gap-2'>
           {/* <div className='text-3xl m-auto  rounded-full w-16 h-16 bg-yellow-300 p-4 shadow-lg '>{mes.icon}</div> */}
-          <div className=' text-center text-xl bg-black text-white font-bold p-2'>{mes.name}</div>
+          <motion.div 
+          whileHover={{scale:.95}}
+
+          onClick={()=>{
+            router.push(`/log/${mes.name.toLowerCase()}`)
+          }}
+          className='hover:bg-sky-800 cursor-pointer  text-center text-xl bg-black text-white font-bold p-2'
+          
+          >{mes.name}</motion.div>
         </div>;
       })}
     </div>

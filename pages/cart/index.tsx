@@ -104,6 +104,7 @@ const Cart = (props:any) => {
         deliveryAddressId={deliveryAddressId}
       />
 
+<Device/>
 
     </div>
   </Container>
@@ -206,6 +207,15 @@ const CartEx = (props:any) => {
   );
 };
 
+const Device=()=>{
+  return <div className="p-4 w-56 bg-gray-300 rounded-lg shadow-lg">
+
+Increase your sales<br/>
+    Register your product<br/>
+    Starts as low as INR.99.00 p.m.<br/>
+<UPIApp amount={999}/>
+  </div>
+}
 // tamil pirates// 
 // 
 

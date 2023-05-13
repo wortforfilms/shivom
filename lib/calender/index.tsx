@@ -18,10 +18,12 @@ import { motion } from "framer-motion"
 
 
 const Calender=(props:any)=>{
+  // const {earth}=props
   const {initialReduxState}=props
   const earth:typeof initialReduxState=useSelector(state=>state)
   // const [view,setView]=useState<any>('select_year')
 const [current,setCurrent]=useState<any>(0)
+// const [earth,setEarth]=useState({})
   
   const dispatch=useDispatch()
 
@@ -56,9 +58,8 @@ const [current,setCurrent]=useState<any>(0)
     </>
   }
 
-  return <div className="flex flex-row gap-4">
+  return <div className="flex flex-row h-[80vh] gap-4">
     {current}
-
  <Viewer/>
     
 
@@ -112,6 +113,11 @@ const [current,setCurrent]=useState<any>(0)
 }
 
 export default Calender
+
+// ghadi pal belA
+// ghantA hour ghanti tuhar 
+// ghatanA 3--–—±>2->1
+// 
 
 export const IconLabel=(props:any)=>{
   const {si}=props

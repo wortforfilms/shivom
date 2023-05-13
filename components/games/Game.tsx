@@ -237,6 +237,13 @@ export const Scene = (props: any) => {
   </div>
 }
 
+export const Banner = (props: any) => {
+  const { children } = props
+  return <div className='w-full sm:w-80 h-[90vh] p-1 bg-white m-1 flex flex-col overflow-scroll'>
+    {children}
+  </div>
+}
+
 export const AScene = (props: any) => {
   const { initialReduxState } = props
   const earth: typeof initialReduxState = useSelector(state => state)

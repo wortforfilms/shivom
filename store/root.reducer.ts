@@ -15,6 +15,8 @@ import { userBoardReducer } from "./user_board/reducer";
 import { messagingReducer } from "./messaging/reducer";
 import { openingsReducer } from "./openings/reducer";
 import { _walletReducer } from "./wallet/reducer";
+import games from '../components/games/slice'
+import calender from "@/lib/calender/slice";
 // import localize from '@/factory/stuct/localize/slice'
 // import thoughts from '@/factory/stuct/thoughts/slice'
 // import timeline from '@/factory/stuct/timeline/slice/timeSlice'
@@ -57,6 +59,7 @@ const rootReducer = combineReducers({
   messaging: messagingReducer,
   openings:openingsReducer,
   wallet:_walletReducer,
+  games,
   // localize,
   // thoughts,
   // timeline,
@@ -65,7 +68,7 @@ const rootReducer = combineReducers({
   // content,
   // event,
   // countrymap,
-  // calender
+  calender
 
 })
 

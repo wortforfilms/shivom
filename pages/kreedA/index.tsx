@@ -3,8 +3,12 @@ import { Gameplay } from "@/components/games/Gameplay"
 import { GamesHeaderButtons } from "@/components/games/GamesHeaderButtons"
 import { supabase } from "@/lib/Store"
 import { range } from "@/util/createRange"
+import { nFormatter } from "@/util/numberFormatter/nFormatter"
 import { faker } from "@faker-js/faker"
+import { motion } from "framer-motion"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import { MdOutlineResetTv } from "react-icons/md"
 
 
 // 196.9 trillion
@@ -81,25 +85,20 @@ const[category,setCategory]=useState([
 // kalp_vruksh
 // kamdhenu
 // nandi
+const router=useRouter()
 
-
-  return <div className="p-4">
+  return <div className="p-4   min-h-[90vh]">
     <div className="h-12"></div>
-    <div className="p-4">
+    <div className="p-4 flex flex-row">
       <GamesHeaderButtons setSection={setView} section={view} selected_game={game}/>
+     {game && <motion.div className="text-7xl p-2 rounded-lg shadow-lg bg-white"
+      onClick={()=>{
+        setGame(null)
+      }}
+      ><MdOutlineResetTv/></motion.div>}
     </div>
-    {/* <h3>
-      {current_skew}<br/>
-      </h3>
-    <h3>
-      {24-current_skew}<br/>
-      </h3>
-    <h3>
-      {60-remainig}<br/>
-      </h3> */}
 
-
-   {view==="ghome" && !game && <div className="flex flex-row  flex-wrap justify-around gap-4 p-4">
+   {view==="ghome" && !game && <div className="flex flex-row  flex-wrap justify-start gap-4 p-4">
       {
         category.map((ver,index)=>{
         return <div key={index} className="rounded-lg text-center m-auto uppercase shadow-lg w-56 h-100 bg-white p-2">
@@ -108,17 +107,18 @@ const[category,setCategory]=useState([
           <div className="text-xs font-bold p-1">{ver.duration}</div>
           <div>
             <div className="text-xs text-yellow-700 p-2">Lastest winner: </div>
-            {
-             faker.datatype.number({min:99,max:9999999})
-            }</div>
+            <h1>{
+             nFormatter(faker.datatype.number({min:99,max:9999999}))
+            }</h1></div>
 
 <div className="text-xs text-yellow-700 p-2">Current Box: </div>
             {
-             faker.datatype.number({min:99,max:999999})
+             nFormatter(faker.datatype.number({min:99,max:999999}))
             }
       <div className="p-2 bg-green-500 rounded-lg mt-8 mb-4 shadow-lg"
       onClick={()=>{
         setGame(ver.label)
+        router.push(`/kreedA/game/${ver.label}`)
       }}
       >PLAY NOW</div>
           </div>
@@ -127,39 +127,12 @@ const[category,setCategory]=useState([
     </div>}
 
     
-    
-   {view==="list" && <div className=" flex flex-col flex-wrap text-xs gap-2 p-2 w-full">
-      {
-        range(0,24).map((str,index)=>{
-          return <div key={index} >
-            <Tree str={str} users={users} nu={nu}/>
-          </div>
-        })
-      }
-    </div>}
 
-
-
-    {
-      view==="active" && <div>
-        <div>AgnibANa</div>
-        {
-          category && category.map((gm:any,index:number)=>{
-            return <div key={index} >
-
-              {gm.label}<br/>
-              expiring in:{"02:50"}
-              
-              </div>
-          })
-        }
-      </div>
-    }
 
     {
       view==="help" && <div><Gameplay></Gameplay></div>
     }
-    {/* {stage===0 && <div><Game stage={stage} setStage={setStage}/></div>} */}
+
 
   </div>
 }
