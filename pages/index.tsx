@@ -87,7 +87,7 @@ w-full
       <HeaderButtons setSection={setSection} section={section}/>
       <div className='flex flex-col sm:flex-row gap-2 jistify-around'>
 
-{!section && <div className='flex flex-row gap-4'>
+{!section && <div className='flex flex-col sm:flex-row gap-4'>
   <ProductForm/>
   <GameBanner/>
 

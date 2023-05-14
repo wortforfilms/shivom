@@ -54,7 +54,7 @@ export const GameBanner = (props: any) => {
 
       </div>
 
-      <div className='w-1/3 m-auto h-[90vh]'>
+      {/* <div className='w-1/3 m-auto h-[90vh]'>
 
         <Image
 
@@ -62,7 +62,7 @@ export const GameBanner = (props: any) => {
           alt="coins"
           width={100}
           height={100}
-          className='m-auto w-full h-auto' /></div>
+          className='m-auto w-full h-auto' /></div> */}
     </div>
 
   </div>;
