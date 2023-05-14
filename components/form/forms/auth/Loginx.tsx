@@ -1,12 +1,13 @@
 import { login_success } from "@/store/auth/action";
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 export const LoginForm = () => {
-  return <div className='w-full mt-12 flex flex-col sm:flex-row gap-2 p-2 justify-around'>
+  return <motion.div  drag className='w-full ml-12 mt-12 flex flex-col sm:flex-row gap-2 p-2 justify-around'>
 
     <InputForm />
-  </div>;
+  </motion.div>;
 };
 
 
@@ -18,7 +19,7 @@ export const InputForm = () => {
 <form onSubmit={()=>{
   console.log('data in form')
 }}
-className=' p-2 shadow-lg flex flex-col sm:flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
+className=' p-2 shadow-lg flex flex-col scale-75 sm:flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
 >
 
     <div className='p-2 w-full bg-white'>

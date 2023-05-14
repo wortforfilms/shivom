@@ -58,7 +58,7 @@ const [current,setCurrent]=useState<any>(0)
     </>
   }
 
-  return <div className="flex flex-row h-[80vh] gap-4">
+  return <div className="flex flex-col p-4 h-[80vh] gap-4">
     {current}
  <Viewer/>
     
@@ -146,3 +146,33 @@ export const IconLabel=(props:any)=>{
                   className="absolute z-100 m-auto bg-pink-500 mt-24 p-1 rounded-lg">{si.label}</motion.div>}
     </motion.div>
   }
+
+
+
+  export const IconLabelH=(props:any)=>{
+    const {si}=props
+      const router=useRouter()
+    
+      const [hovered,setHovered]=useState(false)
+    
+      return <motion.div
+      whileHover={{scale:.95}}
+      onHoverStart={()=>setHovered(true)}
+      onHoverEnd={()=>setHovered(false)}
+      whileTap={{scale:1.05}}
+         className="relative p-1 z-50 flex flex-row  hover:rounded-full hover:text-white"
+                    onClick={() => {
+                      router.push(si.link);
+                    }}
+                  >
+                    <div 
+                    // size={32} 
+                    className={`text-center  text-white text-3xl  cursor-pointer `}>
+                    {/* // className="text-2xl hover:bg-pink-500 rounded-full p-2 w-10 h-10 "> */}
+                      {si.icon}
+                      </div>
+                    {hovered && <motion.div 
+                    animate={{x:[-10,0], opacity:[0,1]}}
+                    className="absolute z-100 m-auto left-32 bg-pink-500 mt-2 p-1 rounded-lg">{si.label}</motion.div>}
+      </motion.div>
+    }

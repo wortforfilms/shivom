@@ -4,6 +4,31 @@ import { useState } from "react"
 import { FaResearchgate } from "react-icons/fa"
 import { ReadableStream } from "stream/web"
 
+
+const Vrat=()=>{
+  // दीक्षितव्रत
+  // indirAåA/*  */avrat
+  // rajiv rahul kul ek 
+  // rAjIva gAndhI 
+  // rjvagndh
+  // rajya pAritoSh pAritosikA
+  // pole north ::: {}-{}
+  // 
+  // {}-{}-{}
+  return <div>
+    Trillion Laxmi YantrA 
+    Trillion HanumAn Mantra 
+    Trillion Devi Tantra
+    Trillion kAlakalA : Tantra
+<div>10 Trillion Dollar Indian Company</div>
+shivom
+allbvegan
+brAnd
+TLP
+work:RashtraCharitra
+
+  </div> 
+}
 const Support=()=>{
 
   const [donations, setDnations] = useState<any>([

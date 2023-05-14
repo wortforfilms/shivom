@@ -11,9 +11,9 @@ const CalenderView=(props:any)=>{
   const earth:typeof initialReduxState=useSelector(state=>state)
   return <div>
     <div className="h-24"></div>
-    <Gyroscope onUpdate={(up:any)=>{
+    {/* <Gyroscope onUpdate={(up:any)=>{
       console.log("first",up)
-    }}/>
+    }}/> */}
     <GyroHome/>
     <Calender earth={earth}/>
   </div>

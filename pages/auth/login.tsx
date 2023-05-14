@@ -144,31 +144,52 @@ router.back()
     }
   }, [earth?.auth])
   
+// background
+//  foreground
+// lightsource
+// lense flair 
+// new source
+// view new
+// n->view
+// canvas-=> detect language in screen 
+// canvas-. 
+// create canvas 
+// galaxy canvas 
+// room -> conch
+// 
 
   const videoRef = useRef<any>(null);
   // 
-  return <div className="p-4">
+  return <div className="p-4 h-[100vh] w-full bg-blue-900">
+    <motion.div className="rounded-full h-72 absolute w-72 p-2 bg-black shadow-lg">
+      <div>
+        nbc //cbc // 
+      </div>
+    </motion.div>
+    <motion.div drag className="absolute w-56 z-50 p-2">
+
     <LoginForm/>
 
+    </motion.div>
 
-    <motion.div drag className="rounded-full  overflow-hidden ">
+    {/* <motion.div className="  overflow-hidden ">
 
     <video  
     ref={videoRef}
     autoPlay
-    className="w-32 h-auto bg-blue-700 rounnded-full p-2 ring-2 ring-yellow-500">
+    className="w-full h-auto bg-blue-700  p-2 ring-2 ring-yellow-500">
   <source src={uc} />
 
 </video>
-</motion.div>
+</motion.div> */}
 
-{/* <CubeApp/> */}
+<CubeApp/>
 
 <motion.div drag className="fixed text-7xl rounded-full ring-4 ring-gray-300 shadow-xl shadow-pink-500 p-4  top-12 bg-white">
 💝
 </motion.div>
  
-      <Gameplay/>
+      {/* <Gameplay/> */}
   
     </div>
 
@@ -225,19 +246,4 @@ const CAPTURE_OPTIONS = {
     video: { facingMode: "environment" },
 };
 
-function Camera() {
-  const videoRef = useRef<any>();
-  const mediaStream = useUserMedia(CAPTURE_OPTIONS);
 
-  if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
-    videoRef.current.srcObject = mediaStream;
-  }
-
-  function handleCanPlay() {
-    videoRef.current.play();
-  }
-
-  return (
-    <video ref={videoRef} onCanPlay={handleCanPlay} autoPlay playsInline muted />
-  );
-}

@@ -30,54 +30,14 @@ link:"/"
       link:"/cart"
     }
   ]
-  return <div className=' px-8 w-48 flex flex-row gap-8'>
+  return <div className=' px-8 w-100 flex flex-row gap-4 sm:gap-8'>
 
     {
       services.map((ss,index)=>{
         return <div key={index}><IconLabel si={ss}/></div>
       })
     }
-    {/* <div  className='relative'>
 
-<FiHome 
-size={32} 
-className={`text-center  text-white text-xl  cursor-pointer `}
-  onClick={() => {
-    console.log("first wallet")
-    router.push('/')
-  }} 
-  />
-
-  </div> */}
-  {/* <div  className='relative'>
-
-<BiCalendar size={32} className={`text-center  text-white text-xl  cursor-pointer `}
-  onClick={() => {
-    console.log("first wallet")
-    router.push('/calender')
-  }} />
-
-  </div>
-    <div  className='relative'>
-
-    <BsWallet size={32} className={`text-center  text-white text-xl  cursor-pointer `}
-      onClick={() => {
-        console.log("first wallet")
-      }} />
-      <div className='absolute top-0 ml-4 font-bold text-[8px] text-white text-center text-xs -mt-1 rounded-full w-auto px-2 h-4 ring-2 ring-white bg-green-600'>
-        80
-      </div>
-      </div>
-      <div className='relative '>
-
-    <BsCart size={32} className={`text-center text-white  text-xl  cursor-pointer `}
-      onClick={() => {
-        console.log("first cart")
-      }} />
-      <div className='absolute top-0 ml-4 font-bold text-[8px] text-white text-center text-xs -mt-1 rounded-full w-auto px-2 h-4 ring-2 ring-white bg-green-600'>
-        80000
-      </div>
-      </div> */}
   </div>;
 };
 

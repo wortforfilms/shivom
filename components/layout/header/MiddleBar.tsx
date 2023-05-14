@@ -6,6 +6,7 @@ import { FaAccusoft, FaCircleNotch, FaHome, FaListAlt, FaRegGrinBeamSweat, FaSea
 import { motion } from 'framer-motion';
 import { BsSearchHeart } from 'react-icons/bs';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { IconLabel, IconLabelH } from '@/lib/calender';
 
 export const tm = [
   {
@@ -150,6 +151,8 @@ export const tm = [
   // }
 ]
 
+
+
 // cat a_log_u_e
 // energy 
 // life
@@ -218,74 +221,85 @@ export const MiddleBar = () => {
 
   const router = useRouter();
   const [sub_open, setSubOpen] = useState<any>(null);
-const [search,setSearch]=useState(false)
+  const [search, setSearch] = useState(false)
   const ref = useRef<any>(null);
   useOnClickOutside(ref, () => setSubOpen(null));
 
-  return <div className='sm:ml-4 flex flex-row gap-2 text-md   justify-between w-[90vw] '>
+  return <div className='sm:ml-4 flex flex-row gap-2 text-md   justify-between w-100 sm:w-[90vw] '>
 
-   {!search? <>
-    {tm.map((me, index) => {
-      return <motion.div key={index}
+    {!search ? <>
+      {tm.map((me, index) => {
+        return <motion.div key={index}
 
-        // id={`${me.label.toLowerCase()}`}
-        className='text-white hover:underline cursor-pointer text-xs sm:text-sm m-auto w-auto '
+          // id={`${me.label.toLowerCase()}`}
+          className='text-white hover:underline cursor-pointer text-xs sm:text-sm m-auto w-auto '
+          onClick={() => {
+            if (!me.sub) {
+              router.push(me.link, '', { scroll: true });
+            } else {
+              setSubOpen(me.link);
+            }
+          }}
+        >{me.label}
+          {me?.sub && sub_open && sub_open === me.link &&
+            <div ref={ref} className='absolute w-auto h-100 mt-4 px-2 rounded-lg bg-black shadow-lg text-gray-800'>
+              {me.sub.map((sub: any, index) => {
+                return <div key={index} className='flex flex-row gap-4 p-2 hover:underline'
+                  onClick={() => {
+                    router.push(sub.link, '', { scroll: true });
+                    setSubOpen(null);
+                  }}
+                >
+                  <IconLabelH si={sub}/>
+                  {/* <div>{sub.image ? sub.image : sub.icon}</div>
+                  <div>{sub.label}</div> */}
+                  </div>;
+              })}
+            </div>}
+        </motion.div>
+      })}
+      <BsSearchHeart className='text-5xl font-bold text-white p-2 -mt-2 -ml4'
         onClick={() => {
-          if (!me.sub) {
-            router.push(me.link, '', { scroll: true });
-          } else {
-            setSubOpen(me.link);
-          }
+          setSearch(true)
         }}
-      >{me.label}
-        {me?.sub && sub_open && sub_open === me.link &&
-          <div ref={ref} className='absolute w-auto h-100 mt-4 px-2 rounded-lg bg-white shadow-lg text-gray-800'>
-            {me.sub.map((sub: any, index) => {
-              return <div key={index} className='flex flex-row gap-4 p-2 hover:underline'
-                onClick={() => {
-                  router.push(sub.link, '', { scroll: true });
-                  setSubOpen(null);
-                }}
-              >
-                <div>{sub.image ? sub.image : sub.icon}</div>
-                <div>{sub.label}</div></div>;
-            })}
-          </div>}
-      </motion.div>
-    })}
-    <BsSearchHeart className='text-5xl font-bold text-white p-2 -mt-2 -ml4'
-    onClick={()=>{
-      setSearch(true)
-    }}
-    />
-    </>:
+      />
+    </> :
 
-    <div className='w-[96%] h-12 flex flex-row justify-between' ><input type="search" 
-    placeholder='Search here' className='w-full rounded-lg -ml-1 p-2 h-8 '/>
-      <FaSearchengin className='text-5xl m-auto font-bold text-white p-2 -mt-2 -ml4'
-    onClick={()=>{
-      // setSearch(false)
-      console.log("first search")
-    }}
-    />
-    <AiFillCloseCircle className='text-5xl m-auto font-bold text-white p-2 -mt-2 -ml4'
-    onClick={()=>{
-      setSearch(false)
-    }}
-    />
-    </div>}
+      <div className='w-[96%] h-12 flex flex-row justify-between' ><input type="search"
+        placeholder='Search here' className='w-full rounded-lg -ml-1 p-2 h-8 ' />
+        <FaSearchengin className='text-5xl m-auto font-bold text-white p-2 -mt-2 -ml4'
+          onClick={() => {
+            // setSearch(false)
+            console.log("first search")
+          }}
+        />
+        <AiFillCloseCircle className='text-5xl m-auto font-bold text-white p-2 -mt-2 -ml4'
+          onClick={() => {
+            setSearch(false)
+          }}
+        />
+      </div>}
   </div>;
 };
 
-
 // mantra in brahmi
-
-
 // abcdefghijklmnopqrstuvwxyz
 
 // å∫∂´ƒ©˙ˆ∆¬˚µ˜øπœ®†¨√∑≈¥
 //  /* ıÇ´˝ */
 
+
+// ??// µÂMm uÜ¨ å/* aA */ 
+// mµÂM
+// y¥ÁY
+// ß¨˜ µøø˜
+// {}“‘“’[]
+// birth star 
+// death star
+// ®†˙ ∂´å∂ 
+// ∂´å†˙ > ∫ˆ®†˙
+// ı‰ˇ ˇ
+// 
 // /* ıÇ´˝ */
 // ÔÒ
 // ÔÒÂ˜∏Œ‰Íˇ¨◊„˛Á¸

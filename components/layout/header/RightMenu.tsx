@@ -1,4 +1,5 @@
 import useOnClickOutside from '@/hook/useOnClickOutside';
+import { IconLabel } from '@/lib/calender';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
@@ -84,7 +85,6 @@ const router=useRouter()
             router.push(l.link)
           }}
           >
-            
             <div className='text-gray-600  text-2xl rounded-full p-1'>
               {l.icon}
               </div>
@@ -117,3 +117,13 @@ const router=useRouter()
 // {}-{}
 // 
 // 
+
+// https://roamingclicks.com/
+// view/
+// ivWFhFIFsULptK3gpd5IKBXMlbjqJVtZvWr4BddtreteRA?
+// c=33347
+// &pid=4826
+// &site=352272.501559
+// _2482b17d
+// -3da8-45dd-b028-
+// f8c83caaa6d2

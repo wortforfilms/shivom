@@ -18,7 +18,7 @@ const Gyroscope = () => {
   };
 
   return (
-    <div className="gyroscope-container">
+    <div className="gyroscope-container flex flex-row gap-2 text-xs">
       <div className="gyroscope-data">
         <div className="gyroscope-label">X:</div>
         <div className="gyroscope-value">{gyroscopeData.x.toFixed(2)}</div>
