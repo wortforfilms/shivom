@@ -251,8 +251,6 @@ export const MiddleBar = () => {
                   }}
                 >
                   <IconLabelH si={sub}/>
-                  {/* <div>{sub.image ? sub.image : sub.icon}</div>
-                  <div>{sub.label}</div> */}
                   </div>;
               })}
             </div>}
@@ -265,7 +263,7 @@ export const MiddleBar = () => {
       />
     </> :
 
-      <div className='w-[96%] h-12 flex flex-row justify-between' ><input type="search"
+      <div className='w-[96%] h-12 ml-2 flex flex-row justify-between' ><input type="search"
         placeholder='Search here' className='w-full rounded-lg -ml-1 p-2 h-8 ' />
         <FaSearchengin className='text-5xl m-auto font-bold text-white p-2 -mt-2 -ml4'
           onClick={() => {
