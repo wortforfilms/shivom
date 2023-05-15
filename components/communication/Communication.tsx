@@ -12,7 +12,7 @@ export const Communication = () => {
     <div className='p-4 text-3xl font-bold text-center text-gray-600'>Communicate with experts in the way you like!!</div>
     <div className='flex flex-col sm:flex-row gap-2'>
 
-      <div className='flex flex-row gap-4 -mt-12 sm:mt-0 w-1/2 p-12 bg-white'>
+      <div className='flex flex-row gap-4 -mt-12 sm:mt-0 w-1/2 p-12 '>
 
         {[
           { name: 'Text', icon: <BsFillChatFill /> },
@@ -83,6 +83,9 @@ export const Communication = () => {
     </div>
   </div>;
 };
+
+// promp guides to celestial moments and movements
+//  
 
 
 // todo :: calculate value oil

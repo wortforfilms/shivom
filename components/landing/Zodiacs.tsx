@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { useRouter } from "next/router";
 export const zods = [
   {
     sign: "♈",
@@ -54,6 +55,9 @@ export const zods = [
   }
 ];
 export const Zodiacs = () => {
+
+  const router=useRouter()
+
   return <div className="flex flex-col sm:flex-row bg-white p-4">
     <Image
     // src="/img/astrology-circle-orance-dots.png"
@@ -68,7 +72,11 @@ quality={100}
 <div className='flex flex-row gap-4 flex-wrap justify-around m-auto'>
 
     {zods.map((ss, index) => {
-      return <div key={index} className='flex flex-col gap-2 justify-start bg-white p-2 rounded-lg '>
+      return <div key={index} className='flex flex-col gap-2 justify-start bg-white p-2 rounded-lg '
+      onClick={()=>{
+        router.push(`/galaxy/rashi/${ss.label}`)
+      }}
+      >
         <div className='text-5xl p-2'>
           {ss.sign}
         </div>

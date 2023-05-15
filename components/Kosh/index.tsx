@@ -4,6 +4,8 @@ import { ShiftShaper } from "./ShiftShaper";
 import { Cart } from "./Cart";
 import { ManikYantra } from "./ManikYantra";
 import { SwarnGranthi } from "./SwarnGranthi";
+import { BsBack } from "react-icons/bs";
+import { FaBackward } from "react-icons/fa";
 
 export const Kosh = (props:any) => {
 
@@ -59,9 +61,9 @@ export const Kosh = (props:any) => {
 //  
   return <div className="flex flex-row p-4 bg-white mt-8 flex-wrap gap-2">
     
-    <div onClick={()=>{
+   {step!=="" && <div onClick={()=>{
       setStep("")
-    }}>Back</div>
+    }}><FaBackward/></div>}
     {step!=="shift" && <div className="w-1/2">
 
        <Image

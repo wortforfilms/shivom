@@ -76,12 +76,7 @@ const router=useRouter()
 w-full
       `}
     >
-      <motion.div 
-      whileHover={{scale:.95}}
-      onClick={()=>{
-        router.push('/supportus')
-      }}
-      drag className='absolute bottom-16 text-3xl -mb-12 right-2 -ml-12 ring-2 ring-pink-800 shadow-lg bg-white rounded-full p-2'>💝 Support Us</motion.div>
+
       <div className='h-12'></div>
 
       <HeaderButtons setSection={setSection} section={section}/>

@@ -43,7 +43,7 @@ export const Gameplay = (props: any) => {
         }
           {index===1 && 
           <Image
-            src={"/img/om-71gQJPwz8gL._UL1500_2000x.webp"}
+            src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
             alt="coins"
             width={100}
             height={100} 

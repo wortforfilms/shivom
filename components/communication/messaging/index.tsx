@@ -78,3 +78,22 @@ const MessageHome = () => {
 }
 
 export default MessageHome
+
+
+// learn from specialists
+// classes ["online","live"]
+// ∂å†´ /* ˇ´ */ BC ∫cCÇ
+// cent item scent 
+// scene T  S hirt
+// pocket & heart
+// body & heart
+// :; Yantra 
+// birth chart
+// time samay dhArA 
+// †ˆµ´ˇÂ´ mSilentM
+// hiss -> lan1 lan2 nnnnnnnnnnnnn >>>>>SSSSS
+// cricket noice ThShhhhh RRRRR
+// 10 Trillion Company he said
+// øµ om Ânothing
+// ¥yÁY oøO A Big Anything
+// Samay Yantra

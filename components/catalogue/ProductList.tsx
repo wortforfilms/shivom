@@ -12,30 +12,51 @@ export const ProductList = () => {
       product_description: "T-shirt for empovering your cosmos with mystical enrgies.",
       product_specification: "Dosh nivaran tshirts",
       product_price: "510.00",
-      cureency: "INR",
+      curency: "INR",
       product_rating: "4.5",
       product_images: ["/img/tshirt/13.png"]
     },
     {
-      product_type: "gems",
+      product_type: "gem",
       product_title: "Navgrah Ear Rings",
       product_description: "Jewells for empovering your cosmos with mystical enrgies.",
       product_specification: "Dosh nivaran gems",
       product_price: "25600.00",
-      cureency: "INR",
+      curency: "INR",
       product_rating: "4.5",
       product_images: ["/img/gems/37.jpeg"]
     },
     {
-      product_type: "gems",
+      product_type: "gem",
       product_title: "Graha Rings",
       product_description: "Rings with mystical energies.",
       product_specification: "Dosh nivaran gems",
       product_price: "7890.00",
-      cureency: "INR",
+      curency: "INR",
       product_rating: "4.5",
       product_images: ["/img/gems/38.jpeg"]
-    }
+    },
+    {
+      product_type: "yantra",
+      product_title: "Doshmukti Yantra",
+      product_description: "Rings with mystical energies balancers.",
+      product_specification: "Dosh nivaran yantra",
+      product_price: "999.00",
+      curency: "INR",
+      product_rating: "4.5",
+      product_images: ["/img/gems/03.jpeg"]
+    },
+    {
+      product_type: "gem",
+      product_title: "Ennhancer Dixiom Gem",
+      product_description: "Rings with mystical energies enhancer.",
+      product_specification: "Laxmi pradanak yantra",
+      product_price: "4999.00",
+      curency: "INR",
+      product_rating: "4.5",
+      product_images: ["/img/gems/21.jpeg"]
+    },
+
   ]);
 
   return <div>
@@ -54,7 +75,7 @@ export const ProductList = () => {
             alt="tshirt"
             width={100}
             height={100}
-            className='w-96' />
+            className='w-96 invert' />
           <div className='text-md font-bold py-4'>{product.product_title}</div>
           <div className='text-md font-thin py-4'>{product.product_description}</div>
           <div className='flex flex-col sm:flex-row gap-8  p-1 m-auto rounded-lg justify-between'>
