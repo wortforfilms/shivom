@@ -6,9 +6,17 @@ import { ManikYantra } from "./ManikYantra";
 import { SwarnGranthi } from "./SwarnGranthi";
 import { BsBack } from "react-icons/bs";
 import { FaBackward } from "react-icons/fa";
+import { supabase } from "@/lib/Store";
+
+
+export const get_user_kosh=async(userId:any)=>{
+  const {data,error}=await supabase.from("").select('*').eq('swami', userId)
+  return {data,error}
+}
+
+
 
 export const Kosh = (props:any) => {
-
   const [recharges, setRecharges] = useState<any>([
     { count: 1, amount: 20, discount: 5 },
     { count: 10, amount: 200, discount: 5 },
@@ -229,3 +237,16 @@ function processPayment(orderInvoice: OrderInvoice): void {
 
 
 
+// sh pu
+
+// flow er
+// flow sound 
+// r->l
+// => 
+
+// register
+// login 
+// board
+// products
+// games
+// 

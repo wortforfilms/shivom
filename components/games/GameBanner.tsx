@@ -5,6 +5,8 @@ import { BsPlayCircleFill } from 'react-icons/bs';
 import { FaGamepad } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
+import { LabelButton } from '@/pages/cart';
+import { IconLabel } from '@/lib/calender';
 
 
 export const GameBanner = (props: any) => {
@@ -17,44 +19,26 @@ export const GameBanner = (props: any) => {
     { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
   ]);
 
-  return <div className='bg-white w-full h-[70vh] mt-8'>
+  return <div className='bg-white w-96 m-auto h-[80vh] overflow-hidden mt-8'>
 
     <div className='text-center p-2'>बुद्धिकल्पितसमाज</div>
     <div className='p-2 text-3xl text-center font-extrabold'>LakshmiKreedA</div>
     <div className='p-2 text-3xl text-center font-extrabold'>लक्ष्मी क्रीड़ा</div>
-    <div className='flex flex-col w-full '>
+    <div className='flex flex-col sm:flex-row w-full mt-8 h-80 justify-around bg-white'>
 
-      <div className='w-1/3 m-auto h-100'>
+      <div className='w-full sm:w-1/3  '>
         <Image
 
           src={game[0].img}
           alt="coins"
           width={100}
           height={100}
-          className='m-auto w-full h-auto' /></div>
-      <div className='flex w-1/3 flex-col gap-4 mb-4 text-7xl justify-around m-auto'>
+          className='m-auto w-48 h-auto' />
+          </div>
 
-        {[{ icon: <BsPlayCircleFill />, label: "play" },
 
-        { icon: <FaGamepad />, label: "gameplay" }].map((but, index) => {
-          return <div key={index}>
-            <div className='text-xs text-center uppercase  p-2'>{but.label}</div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              onClick={() => {
-                if (earth?.auth?.authenticated) {
 
-                  router.push(`/kreedA`);
-                } else {
-                  router.push('/auth/login');
-                }
-              }}
-              className='ring-2 cursor-pointer rounded-full m-auto  p-2 ring-blue-800 border-4 text-5xl border-sky-500'>{but.icon}</motion.div></div>;
-        })}
-
-      </div>
-
-      {/* <div className='w-1/3 m-auto h-[90vh]'>
+      <div className='w-48 m-auto h-[90vh]'>
 
         <Image
 
@@ -62,7 +46,7 @@ export const GameBanner = (props: any) => {
           alt="coins"
           width={100}
           height={100}
-          className='m-auto w-full h-auto' /></div> */}
+          className='m-auto w-full h-auto' /></div>
     </div>
 
   </div>;
