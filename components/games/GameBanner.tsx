@@ -7,6 +7,10 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { LabelButton } from '@/pages/cart';
 import { IconLabel } from '@/lib/calender';
+import { BiPlayCircle } from 'react-icons/bi';
+import { MdGamepad, MdGames } from 'react-icons/md';
+import { GrGamepad } from 'react-icons/gr';
+import { supabase } from '@/lib/Store';
 
 
 export const GameBanner = (props: any) => {
@@ -24,9 +28,9 @@ export const GameBanner = (props: any) => {
     <div className='text-center p-2'>बुद्धिकल्पितसमाज</div>
     <div className='p-2 text-3xl text-center font-extrabold'>LakshmiKreedA</div>
     <div className='p-2 text-3xl text-center font-extrabold'>लक्ष्मी क्रीड़ा</div>
-    <div className='flex flex-col sm:flex-row w-full mt-8 h-80 justify-around bg-white'>
+    <div className='flex flex-col sm:flex-col w-fullm-auto gap-2 mt-8 h-80 justify-around bg-white'>
 
-      <div className='w-full sm:w-1/3  '>
+      <div className='w-full m-auto sm:w-1/3  '>
         <Image
 
           src={game[0].img}
@@ -36,8 +40,7 @@ export const GameBanner = (props: any) => {
           className='m-auto w-48 h-auto' />
           </div>
 
-
-
+<GameBar game={game}/>
       <div className='w-48 m-auto h-[90vh]'>
 
         <Image
@@ -51,3 +54,20 @@ export const GameBanner = (props: any) => {
 
   </div>;
 };
+
+
+const GameBar=(props:any)=>{
+  const {game}=props
+  return  <div className='flex flex-col sm:flex-row w-full m-auto gap-2 mt-8 mb-8 justify-around bg-white'>
+<div><BiPlayCircle className='text-7xl rouded-full m-auto shadow-lg rounded-full ring-4 ring-red-600 border-2 border-white'/></div>
+<div><MdGamepad className='text-7xl rouded-full m-auto shadow-lg rounded-full ring-4 ring-green-600 border-2 border-white'/></div>
+<div><GrGamepad className='text-7xl rouded-full m-auto shadow-lg rounded-full ring-4 ring-blue-600 border-2 border-white'/></div>
+
+</div>
+}
+
+
+const create_soch=async(pmt:any)=>{
+  const {data,error}=await supabase.from("vichAr").select('*').eq('pmt',pmt)
+  return {data,error}
+}

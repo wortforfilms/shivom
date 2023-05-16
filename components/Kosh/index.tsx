@@ -83,8 +83,15 @@ className='m-auto w-72   h-auto'
 
 />
 </div>}
-  {/* {step==="cart" && <Cart cart={cart} kosh={kosh} setStep={setStep}/>} */}
 
+{[
+  {label:"",type:"",value:""},
+  {label:"",type:"",value:""},
+  {label:"",type:"",value:""}
+  ].map((c,index)=>{
+    return <div key={index}>{c.label}</div>
+  })}
+  {/* {step==="cart" && <Cart cart={cart} kosh={kosh} setStep={setStep}/>} */}
    {step==="" && <SwarnGranthi setStep={setStep} setAmount={setRechargeAmount} recharges={recharges} kosh={koshy} />}
 
   {step==="shift" && <ShiftShaper amount={rechargeAmount}/>}

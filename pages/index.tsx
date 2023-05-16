@@ -19,65 +19,32 @@ import { ProductList } from '../components/catalogue/ProductList'
 import { Communication } from '../components/communication/Communication'
 import { Symbols } from '../components/landing/Symbols'
 
-import CubeApp from '@/canvas/cube'
 import MApp from '@/canvas/model'
 
 import { Game } from '../components/games/Game'
 import { GameBanner } from '@/components/games/GameBanner'
-import { useRouter } from 'next/router'
-import { BirthForm } from '../components/form/forms/auth/BirthForm'
+
 import { Brahmi } from '@/components/classes/brahmi'
-import { LoginForm } from '@/components/form/forms/auth/Loginx'
+
 import { HeaderButtons } from '../components/layout/HeaderButtons'
 import { Team } from '../components/list/Team'
-import { motion } from 'framer-motion'
-import { InitializeResult } from '@supabase/supabase-js'
+
 import { useSelector } from 'react-redux'
-import { Start } from '@/components/games/Start'
+
 import Image from 'next/image'
-import shortid from 'shortid'
-import { supabase } from '@/lib/Store'
-
-const inter = Inter({ subsets: ['cyrillic'] })
-
-
-// "cyrillic" | "cyrillic-ext" | "greek" | "greek-ext" | "latin" | "latin-ext" | "vietnamese"
-
-// 
-
-// universal language system :: devnaagari 
-// 
-
-
-// CD C|D Ç ∂
-// codewhisper 
-// listen to whisper
-// 
-// link #
-// 
 
 
 export default function Home(props:any) {
   const {initialReduxState}=props
   const earth:typeof initialReduxState=useSelector(state=>state)
 
-  const [classes,setClasses]=useState([
-    {tod:"Vedic Higgs Boson",product:[
-      {books:[]}
-    ]},
-    {
 
-    }
-  ])
 
   const [section,setSection]=useState(null)
 
-const router=useRouter()
+
   return (
-    <main
-      className={` flex min-h-screen  flex-col justify-around p-2 
-w-full
-      `}
+    <main className={`flex min-h-screen  flex-col justify-around p-2 w-full`}
     >
 
       <div className='h-12'></div>
@@ -159,64 +126,6 @@ const Services=()=>{
 
   </div>
 }
-// successfull_invite :100
-// unlock : 100bronze
-// NFT:""
-// app:"token"
-// balancesheet: "expense"
-// 1trillion:::{}
-// race
-// games_list
-// choose from country list
-// call local native
-// 
-
-const LocalWorker=()=>{
-
-  // work :: complete :: dictionary :: sphere :: plane 
-  // 56 / 2 
-  // 28 / 7*4
-  // {"every bet gain"}
-  // {""}
-  const get_sanskrit=async()=>{
-    book:""
-  }
-}
 
 
-// प्रसृति,सृ.	f.	prasRti,sR.	gillgi.gl.[liquid measure]	
-// शायिका	f.	zAyikA	berth[Rly.]	
-// अधिकारत्यागंकरोति{कृ}	verb 8	adhikAratyAgaMkaroti[kR]	stepdownfromauthority,giveuprights[pol.]	
-// निक्षेप-लेखा	f.	nikSepa-lekhA	depositaccount[Com.]	
-// वाहक-प्रतिभूति	f.	vAhaka-pratibhUti	bearersecurity[Com.]	
-
-
-// accident of groom new bride fathers-in-law 
-// {}-{}-{}
-// {}-{}-{}
-// 
-
-// {}-{}-{}
-// {}-{}-{}
-
-// {}-{}-{}
-// _[]-{}-()-90
-// _906_
-// _60()9_
-// __689__
-// ()
-// {-({[.|.|.]})-}
-// -{|.|}-
-// _|_
-// ++/|++
-// 
-
-// {}-{}-{}
-// {}-{}-{}
-// {}-{}-{}
-
-// {}-{}-{}
-// {}-{}-{}
-
-// {}-{}-{}
 
