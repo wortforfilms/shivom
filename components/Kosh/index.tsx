@@ -27,7 +27,7 @@ export const Kosh = (props:any) => {
   // const ['','जय हनुमान ज्ञान गुण सागर ']=उसेस्टते()
   const [kosh_kotwaala,setKoshKotwAla]=useState<Auth>()
 
-  const [kosh, setKosh] = useState<any>([{ total: "499", last_use: "9", last_deposite: "20" }])
+  const [koshy, setKosh] = useState<any>([{ total: "499", last_use: "9", last_deposite: "20" }])
   
   const [orders, setOrders] = useState<any>([
     { amount: "5", paid_to: "palmistry", use: "session" },
@@ -71,22 +71,30 @@ src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
 alt="coins"
 width={100}
 height={100}
-className='m-auto w-full   h-auto'
+className='m-auto w-72   h-auto'
 
 />
 </div>}
-  {step==="cart" && <Cart cart={cart} kosh={kosh} setStep={setStep}/>}
+  {/* {step==="cart" && <Cart cart={cart} kosh={kosh} setStep={setStep}/>} */}
 
-   {step==="" && <SwarnGranthi setStep={setStep} setAmount={setRechargeAmount} recharges={recharges} kosh={kosh} orders={orders}/>}
+   {step==="" && <SwarnGranthi setStep={setStep} setAmount={setRechargeAmount} recharges={recharges} kosh={koshy} />}
 
   {step==="shift" && <ShiftShaper amount={rechargeAmount}/>}
 
-  {step==="manik" &&  <ManikYantra/>}
+  {/* {step==="manik" &&  <ManikYantra/>} */}
 
   </div>
 
 
 };
+
+
+// local <> cloud
+// user tokens
+// activity
+// clock
+// []-{}
+// 
 
 
 // channel user group

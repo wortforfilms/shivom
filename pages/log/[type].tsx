@@ -5,6 +5,10 @@ import { useRouter } from "next/router"
 import { BsArrowBarLeft, BsBack } from "react-icons/bs"
 const LogY=(props:any)=>{
 
+
+  //  astro skill
+  //  
+
   const router=useRouter()
   const {type}=router.query
 

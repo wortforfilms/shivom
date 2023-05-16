@@ -288,3 +288,44 @@ const Stats=(props:any)=>{
             </div>
             </div>
 }
+
+
+
+// Some recent entries:
+// नृत्यक्रीडा	f.	nRtyakrIDA	ball[dance event]	
+// गवल	m.	gavala	bison[Zool.]	
+// उपार्जितआय	m.	upArjitaAya	accruedincome[Com.]	
+// शतिमान	n.	zatimAna	centimeter[length]	
+// हिंसारम्भ	m.	hiMsArambha	aggression[first strike]
+
+// cent i meter
+// gaj meter eye
+// truthy {-} know your inchi tape
+// master measure
+
+// input hindi  english
+
+
+// Found 3 entries
+// Your results for choTika:
+// छोटिक	n.	choTika	player	
+// चोटिका	f.	coTikA	petticoat	
+// छोटिका	f.	choTikA	snappingthethumbandforefinger
+
+// stop haw 
+// play ui 
+// 
+
+// Found 11 entries
+// Your results for petticoat:
+// चोटी	f.	coTI	petticoat	
+// चोटिका	f.	coTikA	petticoat	
+// प्रोथ	m.	protha	petticoat	
+// पटवास	m.	paTavAsa	petticoat	
+// कुम्बा	f.	kumbA	thickpetticoat	
+// अर्धोरुक	n.	ardhoruka	shortpetticoat	
+// चण्डातक	n.	caNDAtaka	shortpetticoat	
+// चलनक	n.	calanaka	shortpetticoat	
+// नीवि	f.	nIvi	kindofskirtorpetticoat	
+// शाट	m.	zATa	kindofskirtorpetticoat	
+// कौशेय	n.	kauzeya	silkpetticoatortrousers

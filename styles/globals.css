@@ -72,7 +72,7 @@ body {
 
 .gyroscope-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
@@ -142,5 +142,5 @@ body {
   height: 50%;
   background-color: #ff0000;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: -2;
 }

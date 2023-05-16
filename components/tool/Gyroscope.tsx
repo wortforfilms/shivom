@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 // import "./Gyroscope.css";
 
-const Gyroscope = () => {
-  const [gyroscopeData, setGyroscopeData] = useState<any>({ x: 0, y: 0, z: 0 });
+const Gyroscope = (props:any) => {
+  const {gyroscopeData,setGyroscopeData}=props
 
   useEffect(() => {
     if (window.DeviceOrientationEvent) {

@@ -35,7 +35,8 @@ import { InitializeResult } from '@supabase/supabase-js'
 import { useSelector } from 'react-redux'
 import { Start } from '@/components/games/Start'
 import Image from 'next/image'
-
+import shortid from 'shortid'
+import { supabase } from '@/lib/Store'
 
 const inter = Inter({ subsets: ['cyrillic'] })
 
@@ -54,6 +55,8 @@ const inter = Inter({ subsets: ['cyrillic'] })
 // 
 // link #
 // 
+
+
 export default function Home(props:any) {
   const {initialReduxState}=props
   const earth:typeof initialReduxState=useSelector(state=>state)

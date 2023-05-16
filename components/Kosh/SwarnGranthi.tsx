@@ -5,12 +5,12 @@
 // औद्भिदीय	adj.	audbhidIya	botanical[relating to botany]	
 // उद्भवद्विवरण	n.	udbhavadvivaraNa	pop-updescription[computer]
 export const SwarnGranthi = (props: any) => {
-  const { recharges, kosh, orders, setStep, setAmount } = props;
+  const { recharges, kosh,  setStep, setAmount } = props;
   return <div className='p-2 bg-white '>
     <h1 className='text-3xl p-2 mb-12 font-extrabold'>
       Activate your {"DixOm"}
     </h1>
-    <div className='flex flex-row gap-4 m-auto'>
+    {/* <div className='flex flex-row gap-4 m-auto'>
 
       {recharges.map((sr: any, index: number) => {
         return <div key={index} className='bg-gray-300 rounded-lg p-2   '
@@ -24,8 +24,8 @@ export const SwarnGranthi = (props: any) => {
           <div className='text-xs '>Pay {"INR"} {sr.amount}</div>
         </div>;
       })}
-    </div>
-    <div className="mt-4 mb-4 m-auto flex flex-row  ">
+    </div> */}
+    {/* <div className="mt-4 mb-4 m-auto flex flex-row  ">
       {kosh.map((det: any, index: number) => {
         return <div key={index} className='p-4 flex flex-row gap-2 text-xl text-sky-800 rounded-lg  '>
           <div><Stats label={"TOTAL"} stat={det.total}/></div>
@@ -33,7 +33,7 @@ export const SwarnGranthi = (props: any) => {
           <div>LAST REFIL: {det.last_deposite}</div>
         </div>;
       })}
-    </div>
+    </div> */}
     {/* <div className='p-2 font-bold mt-4'>Orders:</div> */}
     {/* <div className='p-1 flex flex-col gap-2'>
       {orders.map((his: any, index: number) => {

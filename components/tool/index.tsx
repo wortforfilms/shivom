@@ -51,6 +51,12 @@ export default function GyroHome() {
     });
   };
 
+  useEffect(()=>{
+    // handleOrientationChange()
+  },[])
+
+  const [gyroscopeData, setGyroscopeData] = useState<any>({ x: 0, y: 0, z: 0 });
+
   return (
     <div className={"container"}>
       <Head>
@@ -64,10 +70,10 @@ export default function GyroHome() {
 
         <h1 className={"title text-xs"}>Gyroscope and Compass App</h1>
         <div className={"gyroscopeContainer"}>
-          <Gyroscope />
+          <Gyroscope gyroscopeData={gyroscopeData} setGyroscopeData={setGyroscopeData}/>
         </div>
         <div className="compassContainer">
-          <Compass heading={heading} />
+          <Compass heading={heading} gyroscopeData={gyroscopeData} />
         </div>
 
         {/* <CelestialChart latitude={latitude} longitude={longitude} /> */}

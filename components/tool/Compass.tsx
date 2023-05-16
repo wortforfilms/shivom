@@ -4,17 +4,22 @@ interface CompassProps {
   heading: number;
 }
 
-const Compass = ({ heading }: CompassProps) => {
-  const [transform, setTransform] = useState("rotate(0deg)");
+const Compass = (props:any) => {
+  const { heading , gyroscopeData:any}=props
+  const [transform, setTransform] = useState("rotate(30deg)");
 
   useEffect(() => {
     setTransform(`rotate(${heading}deg)`);
   }, [heading]);
 
   return (
-    <div className="compass-container">
-      <div className="compass-rose"></div>
-      <div className="compass-direction" style={{ transform }}>
+    <div className="compass-container ">
+      <div className="compass-rose   z-20" 
+      // style={{transform: transform}}
+      ></div>
+      <div className="compass-direction " 
+      style={{ transform }}
+      >
         <div className="compass-north"></div>
       </div>
     </div>
