@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image"
 import { ShiftShaper } from "./ShiftShaper";
 import { Cart } from "./Cart";
@@ -7,6 +7,9 @@ import { SwarnGranthi } from "./SwarnGranthi";
 import { BsBack } from "react-icons/bs";
 import { FaBackward } from "react-icons/fa";
 import { supabase } from "@/lib/Store";
+import { useSelect } from "@react-three/drei";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 
 export const get_user_kosh=async(userId:any)=>{
@@ -17,11 +20,14 @@ export const get_user_kosh=async(userId:any)=>{
 
 
 export const Kosh = (props:any) => {
+
+  const {initialReduxState}=props
+  const  earth: typeof initialReduxState=useSelector(state=>state)
   const [recharges, setRecharges] = useState<any>([
-    { count: 1, amount: 20, discount: 5 },
-    { count: 10, amount: 200, discount: 5 },
-    { count: 50, amount: 1000, },
-    { count: 100, amount: 2000 }
+    { count: 1, amount: 10,   name:"iron", image:"",icon:""},
+    { count: 10, amount: 100,   name:"broze", image:"",icon:""},
+    { count: 50, amount: 500,  name:"silver", image:"",icon:""},
+    { count: 100, amount: 1000, name:"gold", image:"",icon:"" }
   ])
 
   type Auth ={
@@ -35,7 +41,7 @@ export const Kosh = (props:any) => {
   // const ['','जय हनुमान ज्ञान गुण सागर ']=उसेस्टते()
   const [kosh_kotwaala,setKoshKotwAla]=useState<Auth>()
 
-  const [koshy, setKosh] = useState<any>([{ total: "499", last_use: "9", last_deposite: "20" }])
+  const [koshy, setKosh] = useState<any>([{ total: "0", last_use: "9", last_deposite: "20" }])
   
   const [orders, setOrders] = useState<any>([
     { amount: "5", paid_to: "palmistry", use: "session" },
@@ -57,6 +63,14 @@ export const Kosh = (props:any) => {
   const [rechargeAmount,setRechargeAmount]=useState<number>(0)
   const [your,setYour]=useState('all')
   // const [idea,]=useState()
+const router=useRouter()
+  useEffect(()=>{
+    if(earth?.auth?.authenticated){
+      return 
+    } else {
+      router.push('/auth/login')
+    }
+  },[])
 
 // चैट gpt ७८६ ::: । ।। ॰॰॰ विद्या 
 // स्तर स्टार 
@@ -84,13 +98,7 @@ className='m-auto w-72   h-auto'
 />
 </div>}
 
-{[
-  {label:"",type:"",value:""},
-  {label:"",type:"",value:""},
-  {label:"",type:"",value:""}
-  ].map((c,index)=>{
-    return <div key={index}>{c.label}</div>
-  })}
+
   {/* {step==="cart" && <Cart cart={cart} kosh={kosh} setStep={setStep}/>} */}
    {step==="" && <SwarnGranthi setStep={setStep} setAmount={setRechargeAmount} recharges={recharges} kosh={koshy} />}
 

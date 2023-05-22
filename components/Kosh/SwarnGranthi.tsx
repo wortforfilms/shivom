@@ -20,7 +20,6 @@ export const SwarnGranthi = (props: any) => {
         }}
         >
           <div className='text-sm font-bold p-2 text-center'>Add {sr.count}</div>
-
           <div className='text-xs '>Pay {"INR"} {sr.amount}</div>
         </div>;
       })}

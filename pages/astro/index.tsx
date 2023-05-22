@@ -1,8 +1,8 @@
-import { BirthForm } from "@/components/form/forms/auth/BirthForm"
+import { UserRegistrationForm } from "@/components/form/forms/auth/RegistrationForm"
 
 const Astro=()=>{
   return <div>
-    <BirthForm/>
+    <UserRegistrationForm/>
   </div>
 }
 

@@ -32,15 +32,18 @@ import { Team } from '../components/list/Team'
 import { useSelector } from 'react-redux'
 
 import Image from 'next/image'
-
-
-export default function Home(props:any) {
-  const {initialReduxState}=props
-  const earth:typeof initialReduxState=useSelector(state=>state)
+import { useRouter } from 'next/router'
 
 
 
-  const [section,setSection]=useState(null)
+export default function Home(props: any) {
+  const { initialReduxState } = props
+  const earth: typeof initialReduxState = useSelector(state => state)
+
+
+
+  const [section, setSection] = useState(null)
+
 
 
   return (
@@ -49,83 +52,104 @@ export default function Home(props:any) {
 
       <div className='h-12'></div>
 
-      <HeaderButtons setSection={setSection} section={section}/>
-      <div className='flex flex-col sm:flex-row gap-2 jistify-around'>
+      <HeaderButtons setSection={setSection} section={section} />
+      <div className='flex flex-col sm:flex-row gap-2 '>
 
-{!section && <div className='flex flex-col sm:flex-row gap-4'>
-  <ProductForm/>
-  <GameBanner/>
+        {!section && <div className='flex flex-col sm:flex-row justify-around gap-4'>
+          <ProductForm />
+          <GameBanner />
 
-</div>}
+        </div>}
       </div>
-{section==="ecommerce" && <div className='mt-12' id="ecommerce">
+      {section === "ecommerce" && <div className='mt-12' id="ecommerce">
 
-<ProductList/>
-</div>}
-
-
-{section==="games" && <>
-{!earth.auth.authenticated ?<GameBanner/>:<Game/>}
-</>}
-
-{section==="astrology" && <Communication/>}
-
-{section==="astronomy" && <>
+        <ProductList />
+      </div>}
 
 
-      <div className='mt-8'>
-<Zodiacs/>
-<Image 
-src="/book/cover1.jpg" alt="" width={100} height={100}
-className='relative w-full'
-/>
-<Symbols/>
-    <div id="astronomy" className='text-xl flex flex-row flex-wrap text-center justify-between overflow-hidden p-2'>
-    ⋆｡°✩⋆｡°✩🌏⋆｡°✩💫⋆｡°✩⋆｡°✩⋆｡°✩☄️⋆｡°✩⋆｡°✩⋆｡°✩🌟⋆｡°✩⋆｡°✩🌏⋆｡°✩⋆｡°✩🪐⋆｡°✩⋆｡°✩⋆｡°✩🚀⋆｡°✩⋆｡°✩⋆｡°✩
-      </div>
-<div className='text-xl sm:text-7xl -bottom-24 m-auto absolute font-extrabold p-4 text-white'>QUESTION OF INDIA TO INDIAN</div>
-</div>
-</>
-}
+      {section === "games" && <>
+        {!earth.auth.authenticated ? <GameBanner /> : <Game />}
+      </>}
 
-{section==="vedic_classes" && <>
-<MApp/>
-<Brahmi/>
-</>}
+      {section === "astrology" && <Communication />}
 
-{section==="boards" && <Team/>}
-{section==="kosha" && <Kosh/>}
-{ section==="services" && <Services/>}
-<Questions/>
-<Testemonials/>
-     <AboutUs/>
-    <Technology/>
-   <Planets/>
-<Nakshatras/>
-<Doshas/>
-<Process/>
-      <SocialBar/>
+      {section === "astronomy" && <>
+
+
+        <div className='mt-8'>
+          <Zodiacs />
+          {/* <Image
+            src="/book/cover1.jpg" alt="" width={100} height={100}
+            className='relative w-full'
+          />
+          <Symbols />
+          <div id="astronomy" className='text-xl flex flex-row flex-wrap text-center justify-between overflow-hidden p-2'>
+            ⋆｡°✩⋆｡°✩🌏⋆｡°✩💫⋆｡°✩⋆｡°✩⋆｡°✩☄️⋆｡°✩⋆｡°✩⋆｡°✩🌟⋆｡°✩⋆｡°✩🌏⋆｡°✩⋆｡°✩🪐⋆｡°✩⋆｡°✩⋆｡°✩🚀⋆｡°✩⋆｡°✩⋆｡°✩
+          </div>
+          <div className='text-xl sm:text-7xl -bottom-24 m-auto absolute font-extrabold p-4 text-white'>QUESTION OF INDIA TO INDIAN</div> */}
+        </div>
+      </>
+      }
+
+      {section === "vedic_classes" && <>
+        <MApp />
+        <Brahmi />
+      </>}
+
+      {section === "boards" && <Team />}
+      {section === "kosha" && <Kosh />}
+      {section === "services" && <Services />}
+      <Questions />
+      <Testemonials />
+      <AboutUs />
+      <Technology />
+      <Planets />
+      <Nakshatras />
+      <Doshas />
+      <Process />
+      <SocialBar />
     </main>
   )
 }
 
 
 
-const Services=()=>{
+export  const Services = () => {
+
+  const [services,setServices]=useState([
+    {label:"education",description:'',link:"",image:""},
+    {label:"mantra(software)",description:'',link:"",image:""},
+    {label:"yantra(hardware)",description:'',link:"",image:""},
+    {label:"tantra(I.O.T.)",description:'',link:"",image:""},
+    {label:"advance sciences",description:'',link:"",image:""},
+    {label:"artificial intelligence",description:'',link:"",image:""},
+    {label:"healthcare",description:'',link:"",image:""},
+    {label:"eldercare",description:'',link:"",image:""},
+    {label:"consultations",description:'',link:"",image:""},
+    {label:"research",description:'',link:"",image:""}
+  ])
+
+  const router=useRouter()
   return <div className='text-xl font-bold uppercase mt-12'>
-  
-  education<br/>
-  advance sciences<br/>
-  artificial intelligence<br/>
-  yantra tanra mantra<br/>
-  fincare<br/>
-  healthcare<br/>
-  eldercare<br/>
-  consultations<br/>
-  research<br/>
+
+    {
+      services.map((ser,index)=>{
+        return <div key={index} className='p-2 cursor-pointer hover:text-green-500 hover:underline'
+        onClick={()=>{
+          router.push(`/services/${ser.label}`)
+        }}
+        >{ser.label}</div>
+})
+    }
 
   </div>
 }
 
+// create content animation 
+// tool auth role_selector {[user, customer,vender,supplier,logistic,researcher,developer,admin]} 
 
+// ss-> transfer 
+// posts leasons[free,paid,premium]
+// pay -=> x=.>˘≥
+// moon =>  
 

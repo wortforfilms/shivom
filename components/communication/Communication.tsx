@@ -40,7 +40,7 @@ export const Communication = () => {
         className='w-72 h-auto m-auto' />
     </div>
 
-    <div className='absolute bg-pink-500 top-96 sm:top-72 text-white p-4 roudned-lg'>Starting at INR. 20.00 per minute</div>
+    <div className='absolute bg-pink-500 top-96 sm:top-56 text-white p-4 roudned-lg'>Starting at INR. 20.00 per minute</div>
 
     <div className='flex flex-row flex-wrap gap-4 -mt-8 sm:mt-0 justify-around  w-full p-12 bg-white'>
 

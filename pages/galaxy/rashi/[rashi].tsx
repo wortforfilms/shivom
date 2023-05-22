@@ -1,4 +1,6 @@
 import { useRouter } from "next/router"
+import NakApp from "."
+
 
 const Constalation=()=>{
   const router=useRouter()
@@ -16,6 +18,8 @@ const Constalation=()=>{
   return <div>
     <div className="h-24"></div>
 {rashi}
+
+<NakApp/>
   </div>
 }
 

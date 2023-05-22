@@ -16,9 +16,9 @@ export const Doshas = () => {
           <a className='font-bold text-gray-600 text-md'>
             {Object.keys(Dosh)[index]}:
           </a>
-          <a className='px-2 font-thin'>
+          <div className='px-2 font-thin'>
             {nak}
-            </a>
+            </div>
           </div>;
       })}
     </div>

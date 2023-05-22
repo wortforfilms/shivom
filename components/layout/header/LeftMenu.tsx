@@ -19,49 +19,49 @@ const left = [
     label: "About Us",
     icon: <FaBahai/>,
     image: "",
-    link: "/#aboutus"
+    link: "/docs/aboutus"
   },
   {
     label: "Catalogue",
     icon: <FaCartArrowDown/>,
     image: "",
-    link: "/#catalogue"
+    link: "/docs/catalogue"
   },
   {
     label: "Services",
     icon: <FaServicestack/>,
     image: "",
-    link: "/#services"
+    link: "/docs/services"
   },
   {
     label: "Support",
     icon: <FaSuperpowers/>,
     image: "",
-    link: "/#support"
+    link: "/docs/support"
   },
   {
     label: "Terms",
     icon: <FaTerminal/>,
     image: "",
-    link: "/#terms"
+    link: "/docs/terms"
   },
   {
     label: "Shipping",
     icon: <FaShippingFast/>,
     image: "",
-    link: "/#shipping"
+    link: "/docs/shipping"
   },
   {
     label: "Upgrade",
     icon: <BsFillArrowUpRightCircleFill/>,
     image: "",
-    link: "/#upgrade"
+    link: "/docs/upgrade"
   },
   {
     label: "Contact Us",
     icon: <FaAddressCard/>,
     image: "",
-    link: "/#contactus"
+    link: "/docs/contactus"
   }
 ];
 
@@ -88,7 +88,8 @@ const router=useRouter()
         </div>
         </div>
         <div className='text-black hidden sm:block m-auto'>IV</div> 
-        <Image             src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
+        <Image 
+        src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
 
       width={100} height={100}
       className='w-12  sm:w-10 h-10 rounded-full -mt-1'
@@ -103,6 +104,7 @@ const router=useRouter()
           return <div key={index} className='text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer flex flex-row gap-4'
           onClick={()=>{
             router.push(l.link)
+            setlfOpen(false)
           }}
           >
             <div className='text-gray-600  text-2xl rounded-full p-1'>

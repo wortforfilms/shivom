@@ -1,5 +1,4 @@
 const TimeInput = (props: any) => {
-
     const { setState, state, fl, register } = props;
   return <div className='p-2 bg-white'>
     <label>{fl.label}</label><br />

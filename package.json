@@ -11,6 +11,7 @@
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "@hapi/iron": "^7.0.1",
+    "@hookform/resolvers": "^3.1.0",
     "@pmndrs/branding": "^0.0.8",
     "@react-three/drei": "^9.66.6",
     "@react-three/fiber": "^8.13.0",

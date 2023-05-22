@@ -4,18 +4,95 @@ import { TopBar } from '@/components/layout/header/TopBar'
 import { Footer } from '@/components/layout/Footer'
 import { Copyright } from '@/components/landing/Copyright'
 import ErrorBoundary from '@/util/boundary'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import { wrapper } from '@/store/store'
-import { Suspense, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { HeaderButtons } from '../components/layout/HeaderButtons'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { Router, useRouter } from 'next/router'
+import { update_device, update_device_size } from '@/store/device/action'
+import { supabase } from '@/lib/Store'
+import shortid from 'shortid'
+import { create_device } from '@/q/c/devic'
 
 function App({ Component, ...rest }: AppProps) {
   const {store,props}=wrapper.useWrappedStore(rest)
   const [loading, setLoading] = useState(false);
   const router=useRouter()
+
+  Router.events.on("routeChangeStart", (url) => {
+    setLoading(true);
+  });
+  Router.events.on("routeChangeComplete", (url) => {
+    setLoading(false);
+  });
+
+  const appRef=useRef<any>()
+  // const size = useDimensions(appRef)
+
+  const  dispatch=useDispatch()
+
+  useEffect(()=>{
+    let mount=true
+    const update_size=(size:any)=>{
+      dispatch(update_device_size(size))
+    }
+      if(mount){
+        update_size({width:appRef.current.offsetWidth,height:appRef.current.offsetHeight})
+      }
+      return ()=>{mount=false}
+    },[dispatch])
+  
+    useEffect(() => {
+      let mount=true
+      if(mount){
+        const tantra=localStorage.getItem('युक्ति')
+        if(tantra){
+          const update_device=async()=>{
+            const {data,error}=await supabase.from('युक्ति').update([{
+              status:"Online",
+            }]).eq('id',tantra)
+          }
+        } else {
+          const i_c=shortid.generate()
+          const trans_device=async()=>{
+            const {data,error}=await supabase.from('युक्ति').insert([{
+              ice: i_c,
+              ice_status:"Initiated",
+              ice_eci:[{
+                base:"mac",
+                os:"",
+                arch:"",
+                location:[],
+                orientation:[],
+                ip:{}
+              }]
+
+            }]) 
+            return {data,error}
+          }
+
+          trans_device().then((res)=>{
+            // dispatch(create_device(data))
+            if(res && res.data){
+              localStorage.setItem('युक्ति',res.data.ice)
+              dispatch(update_device(res.data))
+            }
+
+            console.log(res,'device data')
+          })
+        }
+      }
+    
+      return () => {
+        mount=false
+      }
+    }, [])
+    
+
   return <>
+    <div ref={appRef} className='text-gray-700'>
+
   <ErrorBoundary>
 <Provider store={store}>
 <Suspense fallback={<div className='bg-gray-300 m-auto'>Loading...</div>}>
@@ -36,6 +113,7 @@ function App({ Component, ...rest }: AppProps) {
 <Copyright/>
 </Provider>
   </ErrorBoundary>
+  </div>
   </>
 }
 
