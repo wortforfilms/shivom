@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 export const brahmi = () => {
   
@@ -286,6 +287,8 @@ export const Brahmi = () => {
     };
   }, []);
 
+  const router=useRouter()
+
   return (
     <div id="vedic_classes" className="flex flex-row flex-wrap overflow-y-scroll w-full mt-4 gap-2">
       {br &&
@@ -294,6 +297,9 @@ export const Brahmi = () => {
             <div
               key={index}
               className="text-center w-56 mb-4 bg-white flex flex-col flex-wrap mx-auto p-4 rounded-lg shadow-xl"
+              onClick={()=>{
+                router.push(`/engine/letter/${letter[2]}`)
+              }}
             >
               {index + 1}
               <LetterMatter letter={letter} />
@@ -326,7 +332,7 @@ export const LetterMatter = (props:any) => {
   const [matter4, setMatter4] = useState("");
 
   return (
-    <div className="text-center w-full mb-4 bg-white flex flex-col flex-wrap mx-auto p-4 rounded-lg shadow-xl">
+    <div className="text-center w-full mb-4 bg-white hover:bg-orange-500 hover:text-white cursor-pointer flex flex-col flex-wrap mx-auto p-4 rounded-lg shadow-xl">
       <div>
         {/* <iframe  src="https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=&srlimit=20&srsearch={letter}"/> */}
       </div>

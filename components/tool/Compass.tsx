@@ -14,11 +14,11 @@ const Compass = (props:any) => {
 
   return (
     <div className="compass-container ">
-      <div className="compass-rose   z-20" 
+      <div className="compass-rose  z-20" 
       // style={{transform: transform}}
       ></div>
-      <div className="compass-direction " 
-      style={{ transform }}
+      <div className={`compass-direction rotate-[${heading}deg]`} 
+      // style={{ transform }}
       >
         <div className="compass-north"></div>
       </div>

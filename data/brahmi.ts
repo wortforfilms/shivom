@@ -1,4 +1,4 @@
-const BrahmiSound=[
+export  const BrahmiSound=[
 {symbol:"𑀅",  sound:"a",  description:`Represents the vowel sound "a" in various ancient Indian languages. It is composed of a single horizontal stroke.`},
 {symbol:"𑀆",  sound:"aa",  description:`Represents the long vowel sound "aa" in various ancient Indian languages. It is composed of two horizontal strokes.`},
 {symbol:"𑀇",  sound:"i",  description:`Represents the vowel sound "i" in various ancient Indian languages. It is composed of a vertical line with a dot above it.`},

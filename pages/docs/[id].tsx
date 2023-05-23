@@ -5,7 +5,8 @@ import Support from "../supportus"
 import Shipping from "./shipping"
 import Terms from "./terms"
 import ContactUs from "./contactUs"
-import { Services } from ".."
+import Services from "../services"
+
 
 const Doc=()=>{
 const router=useRouter()
@@ -20,7 +21,6 @@ const router=useRouter()
     {id==="shipping" && <Shipping/>}
     {id==="contactus" && <ContactUs/>}
     {id==="upgrade" && <Upgrade/>}
-
   </div>
 }
 
