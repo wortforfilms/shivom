@@ -57,7 +57,7 @@ export default function Home(props: any) {
       <HeaderButtons setSection={setSection} section={section} />
       <div className='flex flex-col sm:flex-row gap-2 '>
 
-        {!section && <div className='flex flex-col sm:flex-row justify-around gap-4'>
+        {!section && <div className='flex flex-col sm:flex-row w-full justify-around gap-4'>
           <ProductForm />
           <GameBanner />
 

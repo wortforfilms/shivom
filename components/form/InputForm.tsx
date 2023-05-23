@@ -240,6 +240,7 @@ const product_schema_messages = [
   "Product Precautions is required",
   "Product Inventory Address is required",
 ]
+
 const product_schema = yup.object().shape({
   product_type: yup.string().min(3).max(30).required(product_schema_messages[0]),
   product_category: yup.string().min(3).max(30).required(product_schema_messages[1]),

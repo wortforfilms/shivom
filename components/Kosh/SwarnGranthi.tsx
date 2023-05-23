@@ -6,11 +6,11 @@
 // उद्भवद्विवरण	n.	udbhavadvivaraNa	pop-updescription[computer]
 export const SwarnGranthi = (props: any) => {
   const { recharges, kosh,  setStep, setAmount } = props;
-  return <div className='p-2 bg-white '>
+  return <div className='p-2 bg-white m-auto'>
     <h1 className='text-3xl p-2 mb-12 font-extrabold'>
       Activate your {"DixOm"}
     </h1>
-    <div className='flex flex-row gap-4 m-auto'>
+    <div className='flex flex-row flex-wrap gap-4 m-auto'>
 
       {recharges.map((sr: any, index: number) => {
         return <div key={index} className='bg-gray-300 rounded-lg p-2   '
@@ -19,8 +19,8 @@ export const SwarnGranthi = (props: any) => {
           setAmount(sr.amount)
         }}
         >
-          <div className='text-sm font-bold p-2 text-center'>Add {sr.count}</div>
-          <div className='text-xs '>Pay {"INR"} {sr.amount}</div>
+          <div className='text-sm font-bold p-2 text-center'>Deposit {sr.count}</div>
+          <div className='text-xs text-center'>Pay {"INR"} {sr.amount}</div>
         </div>;
       })}
     </div> 

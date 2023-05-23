@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
-import Image from "next/image"
-import { ShiftShaper } from "./ShiftShaper";
-import { Cart } from "./Cart";
-import { ManikYantra } from "./ManikYantra";
-import { SwarnGranthi } from "./SwarnGranthi";
-import { BsBack } from "react-icons/bs";
-import { FaBackward } from "react-icons/fa";
 import { supabase } from "@/lib/Store";
-import { useSelect } from "@react-three/drei";
-import { useSelector } from "react-redux";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { FaBackward } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { ShiftShaper } from "./ShiftShaper";
+import { SwarnGranthi } from "./SwarnGranthi";
 
 
 export const get_user_kosh=async(userId:any)=>{
@@ -86,7 +82,7 @@ const router=useRouter()
    {step!=="" && <div onClick={()=>{
       setStep("")
     }}><FaBackward/></div>}
-    {step!=="shift" && <div className="w-1/2">
+    {step!=="shift" && <div className="w-1/2 m-auto">
 
        <Image
 src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
@@ -106,11 +102,80 @@ className='m-auto w-72   h-auto'
 
   {/* {step==="manik" &&  <ManikYantra/>} */}
 
+  <video muted autoPlay controls={false} loop
+            
+            className="  w-full w-full sm:w-full  p-0 sm:p-2 mt-8
+              min-w-96 min-h-full max-w-none mb-8"
+            >
+                
+              <source src={"/mp4/dixiom.mp4"} type="video/mp4"
+            //   autoplay={true}
+            
+              
+              
+              />
+              Your browser does not support the video tag.
+            </video>
+<Dixi/>
   </div>
 
 
 };
 
+
+const Dixi=()=>{
+  const di={
+    Introduction:"Dixom Tool is an innovative feature in the Shivom platform that allows users to seamlessly manage their financial transactions by leveraging the power of Yantras. It provides a unique and holistic approach to monetary transactions by integrating traditional practices with modern technology. Let's explore how the Dixom Tool works and how users can buy or sell Yantras using money.",
+matter:[
+{
+  q:"Concept of Yantras",
+  d:["In ancient Indian traditions, Yantras are geometric diagrams or symbols that are believed to possess mystical and spiritual properties. They are considered powerful tools for focusing energy and manifesting intentions. Yantras are often associated with specific deities, energies, or intentions and are used for various purposes, including spiritual practices, healing, and prosperity."]
+  },
+{
+
+  q:"Integration of Yantras in the Dixom Tool",
+  d:["In the Dixom Tool of the Shivom platform, Yantras are integrated as digital objects that represent digital assets or monetary value. Users can acquire specific Yantras by purchasing them within the platform. Each Yantra is associated with a unique identifier that links it to the user's digital account."]
+},
+
+
+ {q:"Purchasing Yantras  with Money:",
+d:["To deposit money using the Dixom Tool, users can acquire a Yantra through the platform. The Yantra serves as a representation of the deposited funds. Users can activate the Yantra by scanning it or associating it with their digital account. The value of the Yantra is then reflected in their kosh balance. The Yantra becomes a digital representation of the deposited money, connecting the digital and physical realms."]
+},
+
+ {q:"Withdrawing Money with Yantras:",
+d:["When users wish to sale Yantra from their account, they can initiate the process through the Shivom platform. The platform verifies the user's request and converts the desired Yantra into a corresponding ammount. The user on request can then receive the money digitally in attached account, which represents the Yantra. This allows for a tangible and symbolic representation of the converted Yantra."]
+},
+
+ {q:"Benefits and Significance:",
+d:["The integration of Yantras in the Dixom Tool provides several benefits and adds a unique dimension to financial transactions:",
+"Blending Tradition and Technology: By incorporating the power of Yantras, Shivom combines ancient wisdom with modern financial technology, creating a harmonious synergy between the two.",
+"Symbolic Representation: The digital Yantras act as tangible representations of assets, fostering a deeper connection and understanding of one's financial transactions.",
+"Energy and Intention: Yantras are believed to carry specific energies and intentions. By utilizing them in financial transactions, users can infuse their money management with positive and focused energy.",
+
+]}
+],
+Remark:"It's important to note that the specific workings and details of the Dixom Tool in Shivom may vary, as it is a hypothetical scenario based on the context provided. The description aims to illustrate a creative integration of ancient practices and modern financial tools to enhance the user experience and provide a unique approach to managing monetary transactions."
+}
+
+  
+  return <div>
+<h1>{di.Introduction}</h1>
+<div>
+  {
+    di.matter.map((ma,index)=>{
+      return <div key={index}>
+        <div className="font-bold p-2 text-sm">{ma.q}</div>
+        {ma.d.map((li,index)=>{
+          return <div  key={index} className="p-2">{li}</div>
+        })}
+        </div>
+    })
+  }
+</div>
+<h3>{di.Remark}</h3>
+
+  </div>
+}
 
 // local <> cloud
 // user tokens
@@ -119,7 +184,20 @@ className='m-auto w-72   h-auto'
 // []-{}
 // 
 
+// calender eid V 5 ∞%ﬁ {5 ﬁ ∞%} kesh kachChA {} kaDA {∂Dd}{øoo} {aåA/* A */}{æÆ'""}/{string_in_action}
+// 
 
+// eye in Jj jJAn {∆ÔJ∆j}
+// {}-{}-{}
+// {}-{}-{}
+// “‘{}[]”’
+// ”’[] observe {}
+// _—_||_—_
+// »»«« time craft 
+// ºººº 
+// ˘˘≥≥
+// ª·9()
+//  
 // channel user group
 // @//user_id,contact_id,idom
 // 
@@ -136,6 +214,16 @@ className='m-auto w-72   h-auto'
 // {"co":"pu"}
 // {"comp":"u":"ter"}
 //  
+
+
+// https://roamingclicks.com
+// /view/
+// ivWFhFIFsULptK3gpd5IKBXMlbjqJVtZvWr4BddtreteRA?c=33347&pid=4826
+// &site=352272.501559_2482b17d-3d
+// a8-45
+// dd-b028-f8c83c
+// aaa6
+// d2
 
 // create typescript based detailed order invoice payment system.
 
