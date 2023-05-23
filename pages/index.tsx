@@ -34,6 +34,7 @@ import { useSelector } from 'react-redux'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Services from './services'
+import { VedicCoarses } from './services/[service]'
 
 
 
@@ -94,6 +95,7 @@ export default function Home(props: any) {
 
       {section === "vedic_classes" && <>
         <MApp />
+        <VedicCoarses/>
         <Brahmi />
       </>}
 
