@@ -1,3 +1,4 @@
+import App from "@/canvas/chart"
 import { UserRegistrationForm } from "@/components/form/forms/auth/RegistrationForm"
 
 const Astro=()=>{

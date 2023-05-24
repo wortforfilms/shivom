@@ -68,22 +68,26 @@ const router=useRouter()
     }
   },[])
 
-// चैट gpt ७८६ ::: । ।। ॰॰॰ विद्या 
-// स्तर स्टार 
-// स्टोरी 
-// 
 
-// css:{}
-// ब्लाइंड:{}
-// गोल्ड:स्वर्ण 
-//  
-  return <div className="flex flex-row p-4 bg-white mt-8 flex-wrap gap-2">
+  return <div className="flex flex-row p-4 bg-white mt-4 flex-wrap gap-2">
     
    {step!=="" && <div onClick={()=>{
       setStep("")
     }}><FaBackward/></div>}
-    {step!=="shift" && <div className="w-1/2 m-auto">
+      <div className="flex flex-row gap-4 m-auto text-center">
 
+<div>Yantra: <h3>
+  20
+  </h3>
+  </div>
+<div>Mantra: <h3>
+  60
+  </h3>
+  </div>
+
+      </div>
+    {step!=="shift" && <div className="w-1/2 m-auto">
+    
        <Image
 src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
 alt="coins"

@@ -49,7 +49,7 @@ export default function Home(props: any) {
 
 
   return (
-    <main className={`flex min-h-screen  flex-col justify-around p-2 w-full`}
+    <main className={`flex min-h-screen max-w-3xl m-auto  flex-col justify-around p-2 w-full`}
     >
 
       <div className='h-12'></div>
@@ -57,15 +57,14 @@ export default function Home(props: any) {
       <HeaderButtons setSection={setSection} section={section} />
       <div className='flex flex-col sm:flex-row gap-2 '>
 
-        {!section && <div className='flex flex-col sm:flex-row w-full justify-around gap-4'>
+        {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
-          <GameBanner />
 
+          <GameBanner />
         </div>}
       </div>
       {section === "ecommerce" && <div className='mt-12' id="ecommerce">
-
-        <ProductList />
+        <ProductList earth={earth}/>
       </div>}
 
 

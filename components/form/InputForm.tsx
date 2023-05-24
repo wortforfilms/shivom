@@ -98,7 +98,8 @@ const hemant = (props: any) => {
   // 
 }
 
-
+import Image from  'next/image'
+import { motion } from "framer-motion";
 
 const profile_form_messages = [
   [
@@ -294,9 +295,9 @@ export const InputForm = () => {
     }
 
   }
-  return <div >
+  return <div className="flex flex-row gap-4 w-full">
     <form onSubmit={handleSubmit(u_register)}
-      className='p-2 shadow-lg flex flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
+      className='p-2 shadow-lg flex flex-row w-80 h-96 flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
     >
       <div className='p-2 bg-white w-full'>
         <label>Enter Email</label><br />
@@ -328,6 +329,24 @@ export const InputForm = () => {
         Register
       </button>
     </form>
+
+    <motion.div
+    drag
+    className="bottom-2 bg-blue-100  shadow-lg  cursor-pointer shadow-pink-500 w-80 h-80 m-auto p-2 rounded-full "
+    >
+      
+    <Image
+    // src="/img/astrology-circle-orance-dots.png"
+    src="/img/astrological_chart.png"
+    alt="astro chart"
+    width={100}
+    height={100}
+    unoptimized
+    priority
+    quality={100}
+    className="w-full h-full  rounded-full animate-spin-slow m-auto"
+    />
+    </motion.div>
   </div>;
 };
 

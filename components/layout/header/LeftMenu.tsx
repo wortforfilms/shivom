@@ -76,7 +76,7 @@ const router=useRouter()
 
 
   return <div ref={lfRef} className='ml-2 w-100'>
-<div className='flex flex-row '
+<div className='flex flex-row w-100'
    onClick={()=>{
     setlfOpen(!lf_open)
   }}
@@ -92,7 +92,7 @@ const router=useRouter()
         src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
 
       width={100} height={100}
-      className='w-12  sm:w-10 h-10 rounded-full -mt-1'
+      className='w-12 h-10 sm:w-10 sm:h-10 rounded-full -ml-2 sm:ml-0 -mt-1'
  alt="shiv om" id='ShivAum Top'/>
       </div>
 

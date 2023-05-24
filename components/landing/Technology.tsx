@@ -6,7 +6,8 @@ export const Technology = () => {
     <h2 id="technology" className='text-3xl  p-8 font-bold'>Technology Base: God particle 2012</h2>
     <Image 
     src="/img/ATLAS-Higgsyy-banner.jpeg"
-    alt=""
+    alt="hb"
+    unoptimized
     width={100}
     height={100}
     className='w-full'
@@ -22,7 +23,8 @@ export const Technology = () => {
 
     <Image 
     src="/img/ATLAS_eventdisplay_toppair.png"
-    alt=""
+    alt="gpart"
+    unoptimized
     width={100}
     height={100}
     className='w-full'

@@ -66,8 +66,9 @@ export const Zodiacs = () => {
     width={100}
     height={100}
     priority
+    unoptimized
 quality={100}
-    className="w-72 h-72 rounded-full animate-rotate m-auto"
+    className="w-72 h-72 rounded-full animate-spin-slow m-auto"
     />
 <div className='flex flex-row gap-4 flex-wrap justify-around m-auto'>
 

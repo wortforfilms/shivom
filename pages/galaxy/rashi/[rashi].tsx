@@ -54,7 +54,7 @@ const Constalation=()=>{
   <circle cx="240" cy="160" r="2" fill="white" />
   <circle cx="160" cy="240" r="2" fill="white" />
   <circle cx="240" cy="240" r="2" fill="white" />
-  <path d="M200 200 L190 260 L240 240 L290 260 L280 200 L290 140 L240 160 L190 140 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M200 200 L190 260 L240 240 L290 260 L280 200 L290 140 L240 160 L190 140 Z" fill="none" stroke="white" strokeWidth="1" />
 </svg>
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
   <circle cx="200" cy="200" r="195" fill="black" />
@@ -64,7 +64,7 @@ const Constalation=()=>{
   <circle cx="150" cy="240" r="2" fill="white" />
   <circle cx="250" cy="240" r="2" fill="white" />
   <circle cx="200" cy="280" r="2" fill="white" />
-  <path d="M200 100 L150 160 L200 120 L250 160 L200 100 L200 280 L150 240 L200 280 L250 240 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M200 100 L150 160 L200 120 L250 160 L200 100 L200 280 L150 240 L200 280 L250 240 Z" fill="none" stroke="white" strokeWidth="1" />
 </svg>
 
 
@@ -75,7 +75,7 @@ const Constalation=()=>{
   <circle cx="240" cy="170" r="2" fill="white" />
   <circle cx="150" cy="230" r="2" fill="white" />
   <circle cx="240" cy="230" r="2" fill="white" />
-  <path d="M200 100 L150 170 L200 120 L240 170 L200 100 Z M200 280 L150 230 L200 280 L240 230 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M200 100 L150 170 L200 120 L240 170 L200 100 Z M200 280 L150 230 L200 280 L240 230 Z" fill="none" stroke="white" strokeWidth="1" />
 </svg>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
@@ -85,7 +85,7 @@ const Constalation=()=>{
   <circle cx="195" cy="165" r="2" fill="white" />
   <circle cx="235" cy="185" r="2" fill="white" />
   <circle cx="275" cy="205" r="2" fill="white" />
-  <path d="M145 145 L195 165 L235 185 L275 205" fill="none" stroke="white" stroke-width="1" />
+  <path d="M145 145 L195 165 L235 185 L275 205" fill="none" stroke="white" strokeWidth="1" />
 </svg>
 </div>
 <NakApp/>
@@ -94,6 +94,13 @@ const Constalation=()=>{
 }
 
 
+// 63frc1b
+// arns .innn 
+// {}-{}
+// ._.–––––– take calender there 
+// config arn on s3 
+// {color}{bucket}{hidden}
+// 
 // temprature moisture sound
 // x=temp{sound}{mo is t ur e}
 // user=e

@@ -55,7 +55,7 @@ export const UPIApp=(props:any)=> {
 
 
       return (
-        <div className='flex flex-col gap-4 mx-auto w-full justify-around'>
+        <div className='flex flex-col gap-4 mx-auto w-full mt-4 justify-around'>
           <div className="text-xl text-pink-400 mb-2 flex mx-auto">
             <span className="text-xs  ">{isMobile?
               <div className='w-24 h-100 -mt-4 text-center text-3xl font-extrabold  p-1'>

@@ -29,7 +29,7 @@ const LogY=(props:any)=>{
     }
   ])
   return <div className="min-h-[70vh] p-4">
-    <div className="h-24"></div>
+    <div className="h-12"></div>
     <div className="flex flex-row gap-4">
 
     <BsArrowBarLeft className="text-5xl" onClick={()=>{
@@ -37,10 +37,10 @@ const LogY=(props:any)=>{
     }}/>
     <h1 className="p-4 m-auto uppercase">{type} Specialists</h1>
     </div>
-<div className="flex flex-row gap-4">
+<div className="flex flex-col sm:flex-row gap-4">
   {
     specialists && specialists.map((spl:any,index:number)=>{
-      return <div key={index} className="w-56 p-4 h-100 bg-white shadow-lg rounded-lg">
+      return <div key={index} className="w-full sm:w-56 p-4 h-100 bg-white shadow-lg rounded-lg">
         <h3>{spl.name}</h3>
         <div className="flex flex-row gap-2">
         <Image src={spl.image} alt="slp" width={100} height={100} className="w-24 h-24"/>

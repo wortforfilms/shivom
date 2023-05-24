@@ -55,6 +55,7 @@ export const RightMenu = (props:any) => {
 const router=useRouter()
 
   return <div ref={rfRef} className='bg-white p-1  rounded-full h-10   w-10 -mt-1'>
+    
  
     <FaUserCircle size={32} className={`text-center ${!rf_open ? "" : "text-blue-500"} cursor-pointer mb-2`}
       onClick={() => {
@@ -68,6 +69,7 @@ const router=useRouter()
             return <div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
             onClick={()=>{
               router.push(l.link)
+              setrfOpen(false)
             }}
             >
               
@@ -83,6 +85,8 @@ const router=useRouter()
           return <div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
           onClick={()=>{
             router.push(l.link)
+            setrfOpen(false)
+
           }}
           >
             <div className='text-gray-600  text-2xl rounded-full p-1'>

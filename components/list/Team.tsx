@@ -80,20 +80,24 @@ export const Team = () => {
   //  
   return <div>
     {/* <div>Admins</div> */}
-    <div>Admins :Illuminaty:{'bodhaka'}</div>
-    <div>Ministry of Advance Sciences{'MAS'}{'आधुनिक विज्ञान मंत्रालय'}</div>
-    <div>Ministry of Future Sciences{'MFS'}{'भविष्य विज्ञान मंत्रालय'}</div>
+<div className='text-5xl p-2 text-left font-thin m-auto'>Admins</div>
+    <div className='p-4 text-xl text-center font-bold m-auto '>Illuminaty:{'bodhaka'}</div>
+<div className='text-5xl p-2 text-left font-thin m-auto'>Ministry of Advance Sciences</div>
 
-<div>CHIEF</div>
+    <div className='p-4 text-xl text-center font-bold m-auto '>{'MAS'}{'आधुनिक विज्ञान मंत्रालय'}</div>
+<div className='text-5xl p-2 text-left font-thin m-auto'>Ministry of Future Sciences</div>
+    <div className='p-4 text-xl text-center font-bold m-auto '>{'MFS'}{'भविष्य विज्ञान मंत्रालय'}</div>
+
+<div className='text-5xl p-2 text-left font-thin m-auto'>Chief</div>
 <div className='flex flex-row flex-wrap gap-4 mt-8 justify-around'>{designation.slice(0,5).map((adm: any, index: number) => {
       return <div key={index} className='w-56 h-full bg-white shadow-lg p-2'>
         <div>{Object.keys(adm)[0]}</div>
-        {/* <Image
+        <Image
           src={faker.image.avatar()}
           alt="des"
           width={100}
           height={100}
-          className='w-24 h-24 rounded-full m-auto' /> */}
+          className='w-24 h-24 rounded-full m-auto' />
         {/* <div className='w-full  text-center p-2 font-bold'>{faker.name.fullName()}</div> */}
         <div className='text-xs'>{Object.values(adm)}</div>
 

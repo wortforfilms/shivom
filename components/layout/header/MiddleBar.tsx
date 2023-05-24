@@ -227,7 +227,7 @@ export const MiddleBar = () => {
 
   return <div className='sm:ml-4 flex flex-row gap-2 text-md   justify-between w-100 sm:w-[90vw] '>
 
-    {!search ? <>
+    {!search ? <div className='w-full flex flex-row gap-8 justify-between'>
       {tm.map((me, index) => {
         return <motion.div key={index}
 
@@ -261,7 +261,7 @@ export const MiddleBar = () => {
           setSearch(true)
         }}
       />
-    </> :
+    </div> :
 
       <div className='w-[96%] h-12 ml-2 flex flex-row justify-between' ><input type="search"
         placeholder='Search here' className='w-full rounded-lg -ml-1 p-2 h-8 ' />

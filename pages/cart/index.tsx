@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Image from 'next/image'
 import { useRouter } from "next/router";
-// import { S3Uri } from "../../constant/core";
+
 import { remove_from_cart_ } from "../../store/cart/action";
-// import { AddCartButton } from "../../utils/cart/AddCartButton";
-// import { UPIApp } from "../../utils/payment/upi";
+
 import { S3Uri } from "@/constants/containers";
 // import { UPIApp } from "@/util/payment/upi";
 import { AddCartButton } from "@/util/cart/AddCartButton";
@@ -14,25 +13,15 @@ import { motion } from "framer-motion";
 import { snake } from "@/util/hkc";
 import { UPIApp } from "@/components/Kosh/ShiftShaper";
 import { Container } from "@/canvas/Container";
-// import { LabelButton } from "@/factory/opening/create/LabelButton";
-// import RazorApp from "../../utils/payment/razorpay";
+import { silver } from "@/components/games/GameBanner";
 
-// import { cashfreeSandbox } from 'cashfree-elementjs';
-
-// let cashfree = new cashfreeSandbox.Cashfree(paymentSessionId);
-
-// let testCashfree = new cashfreeSandbox.Cashfree({
-//   "ENV": "TEST", 
-//   "ClientID": "CLIENTID",
-//   "ClientSecret": "CLIENTSECRET"
-// });
 
 export const LabelButton = (props:any) => {
   const { label, action, bg, color, cl } = props;
   return <motion.div
     whileHover={{ scale: .95 }}
     whileTap={{ scale: 1.05 }}
-    className={`w-auto px-2 shadow-lg ${color?color:"text-white"} ${cl} ${bg?bg:"bg-gray-500"} m-auto cursor-pointer mt-2 mb-2  text-center hover:bg-pink-500 p-1 rounded-lg`}
+    className={`w-32 px-2 shadow-lg ${color?color:"text-white"} ${cl} ${bg?bg:"bg-gray-500"} m-auto cursor-pointer mt-2 mb-2  text-center hover:bg-pink-500 p-1 rounded-lg`}
     onClick={action}
 
   >{snake(label)}
@@ -79,8 +68,20 @@ const Cart = (props:any) => {
   const [openSelector, setOS] = useState(false);
   const [step, setStep] = useState(0);
   const [order,setOrder]=useState<any>(null)
+const router=useRouter()
 
+  useEffect(()=>{
+    let mount=true
+    if(mount){
+      if(earth?.auth?.authenticated){
+        return
+      } else {
+        router.push('/auth/login')
+      }
 
+    }
+    return ()=>{mount=false}
+  },[])
 
 
 
@@ -136,7 +137,7 @@ const CartEx = (props:any) => {
 
   if (products.length < 2) {
     return (
-      <div className="text-center w-full mx-auto mt-2">
+      <div className="text-center w-100 mx-auto mt-2">
         Add some products to cart first..
       
         <LabelButton label="Visit Market" 
@@ -149,9 +150,9 @@ const CartEx = (props:any) => {
   }
 
   return (
-    <Container>
+
       <div className="flex h-full flex-col overflow-y-scroll bg-white ">
-        <div className="flex-1 overflow-y-auto  px-2 sm:px-6">
+        <div className="flex-1   px-2 sm:px-6">
           <div className="mt-4">
             <div className="">
               <ul  className=" divide-y divide-gray-200">
@@ -200,18 +201,18 @@ const CartEx = (props:any) => {
           </div>
         </div>
       </div>
-      </Container>
+
 
   );
 };
 
 const Device=()=>{
-  return <div className="p-4 w-56 bg-gray-300 rounded-lg shadow-lg">
+  return <div className={`p-4 w-80 m-auto ${silver} rounded-lg shadow-lg`}>
 
 Increase your sales<br/>
     Register your product<br/>
     Starts as low as INR.99.00 p.m.<br/>
-<UPIApp amount={999}/>
+<UPIApp amount={99}/>
   </div>
 }
 // tamil pirates// 

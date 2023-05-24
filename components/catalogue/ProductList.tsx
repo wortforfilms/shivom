@@ -98,7 +98,7 @@ export const ProductList = (props:any) => {
               const images=product.product_images
               const pr_type="physical"
 
-              if(earth?.auth?.autheticated){
+              if(earth?.auth?.authenticated){
 
                 dispatch(add_to_cart(id,title,price,images,pr_type))
               } else {

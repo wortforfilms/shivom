@@ -37,7 +37,7 @@ export const GameBanner = (props: any) => {
 
 const GameBar=(props:any)=>{
   const {game}=props
-  return  <div className='flex flex-row w-full m-auto gap-6 mt-8 mb-8 justify-around bg-white'>
+  return  <div className='flex flex-row w-full m-auto gap-6 mt-8 mb-8 justify-around '>
 <motion.div 
 whileHover={{scale:.95}}
 className='cursor-pointer bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] hover:from-pink-500 from-gray-900 via-gray-100 to-gray-900 rounded-full shadow-lg'><BiPlayCircle className='text-5xl rouded-full m-auto shadow-lg rounded-full ring-4 ring-red-600 border-2 border-white'/></motion.div>
@@ -54,22 +54,26 @@ className='cursor-pointer bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] 
 }
 
 
+export const gold='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-900 via-yellow-200 to-yellow-600'
+export const silver='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900'
+
 const GameCategory=(props:any)=>{
   const {game}=props
-  return  <div className={`flex flex-col mt-4 mb-4 m-auto w-80  rounded-lg shadow-lg p-2  bg-white`}>
+
+  return  <div className={`flex flex-col mt-4 mb-4 m-auto w-80  rounded-lg shadow-lg p-2  ${game.label==='Lakshmi'?silver:gold}`}>
 
   <div className='p-2 text-3xl text-center font-extrabold'>{game.label}</div>
   <div className='p-2 text-3xl text-center font-extrabold'>क्रीड़ा</div>
   <div className='flex flex-col sm:flex-col w-full m-auto gap-2 mt-2 h-100 justify-around '>
 
-    <div className='w-full m-auto sm:w-1/3  '>
+    <div className='w-full m-auto   '>
       <Image
 
         src={game.img}
         alt="coins"
         width={100}
         height={100}
-        className='m-auto w-48 h-auto  rounded-full' />
+        className='m-auto w-56 p-2 h-auto shadow-lg  rounded-full' />
         </div>
 <GameBar game={game}/>
     <div className='w-100 m-auto text-3xl text-center font-bold '>
