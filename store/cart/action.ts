@@ -1,6 +1,6 @@
 import { ADD_TO_CART, REMOVE_FROM_CART,ADD_QUANTITY, REMOVE_QUANTITY, RESET_AFTER_INVOICE, RESET_AFTER_SIGNOUT, SET_DELIVERY_ADDRESS, SET_DELIVERY_ADDRESS_SUCCESS, SET_DELIVERY_ADDRESS_FAILURE, SET_USER_ADDRESSES, SET_USER_ADDRESSES_SUCCESS, SET_USER_ADDRESSES_FAILURE } from "./types";
 
-export const add_to_cart = (id:any,title:string,price:any,images:any,pr_type:any) =>{
+export const add_to_cart = (id:any,title:any,price:any,images:any,pr_type:any) =>{
     console.log('trace id',id,title,price,pr_type)
     return {
         type: ADD_TO_CART,

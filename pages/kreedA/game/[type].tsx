@@ -131,7 +131,7 @@ const [game_s,setGameS]=useState([{ emoji: "🎲", label: "active", icon: "", im
       ><MdOutlineResetTv/></motion.div>
     </div>
     <Timer/>
-{/* {view} */}
+
    {view==="ghome" && <div className="flex flex-row  flex-wrap justify-around gap-4 p-4">
       {
         [
@@ -227,22 +227,11 @@ const [game_s,setGameS]=useState([{ emoji: "🎲", label: "active", icon: "", im
     {
       view==="help" && <div className="p-4"><Gameplay></Gameplay></div>
     }
-    {/* {stage===0 && <div><Game stage={stage} setStage={setStage}/></div>} */}
-{/* <Tree/> */}
+
   </div>
 }
 
-// wssfe
-// pixel on canvas
-// create canvas 
-// notes
-// {}-{}
-// game : current_games:[] games_results:[]
-// 10 Trillion Treasure
-// ticket :{}
-// bid:[]
-// 1,00,000 diamonds
-// 10Cr   
+
 export default Lakshmi
 
 const Tree=(props:any)=>{

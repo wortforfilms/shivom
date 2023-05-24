@@ -99,9 +99,9 @@ const router=useRouter()
 {lf_open &&
       lf && <motion.div
         animate={{ opacity: [0, 1], x: [10, 0] }}
-        className='absolute h-[100vh] w-56 mt-1  shadow-lg ml-0  bg-white'>{
+        className='absolute h-[100vh] w-64 mt-1  shadow-lg -ml-4  bg-white'>{
           lf.map((l, index) => {
-          return <div key={index} className='text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer flex flex-row gap-4'
+          return <div key={index} className='text-sm p-1 mb-2 ml-2 hover:bg-gray-300 cursor-pointer flex flex-row gap-4'
           onClick={()=>{
             router.push(l.link)
             setlfOpen(false)

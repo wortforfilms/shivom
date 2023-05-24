@@ -16,6 +16,6 @@ class BrowserWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = BrowserWindow()
-    window.load_url("https://www.example.com")
+    window.load_url("https://www.thelineproducer.com")
     window.show()
     sys.exit(app.exec_())

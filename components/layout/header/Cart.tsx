@@ -1,16 +1,45 @@
 import { IconLabel } from '@/lib/calender';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { BiCalendar, BiHome } from 'react-icons/bi';
-import { BsCart, BsWallet } from 'react-icons/bs';
+import { BsCart, BsRainbow, BsWallet } from 'react-icons/bs';
 import { FaWallet } from 'react-icons/fa';
 import { FiHome } from 'react-icons/fi';
 
-export const Cart = () => {
+export const Cart = (props:any) => {
+  const {earth}=props
 const router=useRouter()
   // transaction order catalogue distribution logistic 
   // {}-{}-{}
   // ::: {} ::: subscript
   // section time moon namAza
+  const [products, setProducts]=useState<any>(null)
+  const [amount, setAmount] = useState(0);
+
+  useEffect(()=>{
+    let mount=true
+    if(mount){
+setProducts(earth?.cart?.cartItems)
+    }
+    return()=>{mount=false}
+
+  },[earth?.cart?.cartItems])
+
+  useEffect(() => {
+    let mount = true;
+    if (mount && products && products.length > 1) {
+      // reduce to sum
+      const nums = products.map((i:any) => i.price * i.quantity);
+      const _amount = nums.reduce((i:any, a:any) => i + a, 0);
+      setAmount(_amount);
+      // console.log("cart amount", _amount, products);
+    }
+    return () => {
+      mount = false;
+    };
+  }, [products]);
+
+  
   const services=[
     {
 label:"Home",
@@ -23,7 +52,7 @@ link:"/"
       link:"/calender"
     },  {
       label:"Kosh",
-      icon:<FaWallet/>,
+      icon:<BsRainbow/>,
       link:"/kosh"
     },  {
       label:"Cart",
@@ -35,7 +64,15 @@ link:"/"
 
     {
       services.map((ss,index)=>{
-        return <div key={index}><IconLabel si={ss}/></div>
+        return <div key={index} className=''>
+          <IconLabel si={ss}/>
+          {ss.label.toLowerCase()==="cart" && products?.length>1 && <div className='absolute text-xs text-center m-auto font-bold  z-50 shadow-pink-500 shadow-lg -mt-1 rounded-full p-1 w-100 h-4 bg-red-700 text-white'>
+            <div className='-mt-1'>{Math.round(amount)}</div>
+            </div>}
+            {ss.label.toLowerCase()==="kosh"  && <div className='absolute text-xs text-center m-auto font-bold  z-50 shadow-pink-500 shadow-lg -mt-1 rounded-full p-1 w-100 h-4 bg-yellow-300 text-pink-500'>
+            <div className='-mt-1'>{Math.round(200)}</div>
+            </div>}
+          </div>
       })
     }
 

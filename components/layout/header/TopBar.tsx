@@ -23,7 +23,7 @@ const earth:typeof initialReduxState=useSelector(state=>state)
     {left && <LeftPanel/>}
     {right && <RightPanel/>}
    <LeftMenu/>
-  {earth?.auth?.authenticated ?<Cart/>: <MiddleBar/>
+  {earth?.auth?.authenticated ?<Cart earth={earth}/>: <MiddleBar/>
 
 }
    <RightMenu/>

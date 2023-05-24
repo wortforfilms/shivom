@@ -1,14 +1,14 @@
 const ytm={
-descriptionn:`Yantra, Tantra, Mantra are three features provided by Shivom to enhance the gaming experience and promote learning through different modes. Here's an overview of these features:`,
+description:`Yantra, Tantra, Mantra are three features provided by Shivom to enhance the gaming experience and promote learning through different modes. Here's an overview of these features:`,
 Yantra: `Yantra is a paid feature in Shivom that allows users to purchase virtual coins using real currency. These coins can be used to unlock additional educational content, access special features, or purchase virtual goods in the game. Yantra provides users with an incentive to learn and progress in the game, as they can use the coins to unlock new levels, resources, and features.`,
 Tantra: `Tantra is a feature in Shivom that allows users to place custom orders for learning materials. Users can specify their learning needs, such as a particular subject, topic, or skill, and the game provides customized resources tailored to their needs. This feature enables users to personalize their learning experience and focus on areas where they need more support.`,
 Mantra: `Mantra is a feature in Shivom that rewards users with virtual coins for their engagement and progress in the game. Users can earn coins by completing tasks, answering questions, solving puzzles, or reaching certain milestones in the game. Mantra provides users with a motivation to learn and progress in the game, as they can earn virtual rewards that can be used to unlock new features and content.`,
 notes:`Overall, Yantra, Tantra, Mantra are features in Shivom that provide users with different modes of learning and incentivize their engagement in the game. Yantra provides users with a paid feature to unlock new content and features, Tantra allows users to personalize their learning experience, and Mantra rewards users for their progress and engagement. These features promote a more engaging and interactive learning experience in Shivom, making it a valuable educational tool for learners of all ages.`
 }
 
+
 const guide={
 game:`Shivom is a game that provides educational content and fosters learning through interactive gameplay. Here are the steps by which Shivom provides education:`,
-
 Installation: `Download and install the Shivom game on your preferred device. Ensure that you have a compatible device and a stable internet connection.`,
 
 "Account creation": `Create a user account within the Shivom game. Provide the necessary information and set up your profile.`,
@@ -35,3 +35,4 @@ Installation: `Download and install the Shivom game on your preferred device. En
 
 final:`Remember, while Shivom can be a valuable educational tool, it is essential to supplement it with traditional learning methods, such as classroom instruction, textbooks, and real-world experiences, for a well-rounded education.`
 }
+

@@ -71,8 +71,6 @@ const test_cashfree_order=async(setOrder:any)=>{
 const Cart = (props:any) => {
   const { initialReduxState } = props;
   const earth: typeof initialReduxState = useSelector((state) => state);
-
-
   const products = earth?.cart?.cartItems;
   const qnums = products.map((i:any) => i.quantity);
   const _amount__q = qnums.reduce((i:any, a:any) => i + a, 0);
@@ -87,6 +85,7 @@ const Cart = (props:any) => {
 
 
   return (<Container>
+<div className="h-12"></div>
 
     <div className="mx-auto w-full mt-2 min-h-[100vh] h-full bg-white text-gray-800 justify-around">
 
@@ -118,7 +117,7 @@ export default Cart
 const CartEx = (props:any) => {
   const { products, earth, deliveryAddressId, setOS } = props;
   const [amount, setAmount] = useState(0);
-  // const [open, setOpen] = useState(true);
+  const [address, setAddress] = useState(true);
   const router = useRouter();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -151,7 +150,6 @@ const CartEx = (props:any) => {
 
   return (
     <Container>
-
       <div className="flex h-full flex-col overflow-y-scroll bg-white ">
         <div className="flex-1 overflow-y-auto  px-2 sm:px-6">
           <div className="mt-4">
