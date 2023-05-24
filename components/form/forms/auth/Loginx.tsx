@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 export const LoginForm = () => {
-  return <motion.div  drag className='w-full ml-12 mt-12 flex flex-col sm:flex-row gap-2 p-2 justify-around'>
+  return <motion.div  drag className='w-full mt-12 flex flex-col sm:flex-row gap-2 p-2 justify-around'>
 
     <InputForm />
   </motion.div>;
@@ -19,7 +19,7 @@ export const InputForm = () => {
 <form onSubmit={()=>{
   console.log('data in form')
 }}
-className=' p-2 shadow-lg flex flex-col scale-75 sm:flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
+className=' p-2 shadow-lg flex flex-col sm:flex-row flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
 >
 
     <div className='p-2 w-full bg-white'>
@@ -27,13 +27,10 @@ className=' p-2 shadow-lg flex flex-col scale-75 sm:flex-row flex-wrap gap-2 bg-
       <input className='bg-gray-300 p-2 w-full' required type="text" {...register("username")} />
     </div>
     <div className='p-2 w-full bg-white'>
-      <label>Enter Pin</label><br />
-      <div className="flex flex-row text-7xl font-extrabold gap-2">
-      <input className='bg-gray-300 p-2 w-24 h-32' type="password" {...register("password")}  />
-        
-      <input className='bg-gray-300 p-2 w-24 h-32' type="password" {...register("password")} />
-      <input className='bg-gray-300 p-2 w-24 h-32' type="password" {...register("password")} />
-      <input className='bg-gray-300 p-2 w-24 h-32' type="password" {...register("password")} />
+      <label>Enter Password</label><br />
+      <div className="flex flex-row  font-extrabold gap-2">
+      <input className='bg-gray-300 p-2 w-full ' autoComplete="current-password" type="password" {...register("password")}  />
+
       </div>
     </div>
     <div 

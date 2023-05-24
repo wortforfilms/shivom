@@ -59,17 +59,17 @@ export default function GyroHome() {
 
   return (
     <div className={" flex flex-col gap-2"}>
-      {/* <Head>
+      <Head>
         <title>Gyroscope and Compass App</title>
         <meta name="description" content="Gyroscope and Compass App" />
         <link rel="icon" href="/favicon.ico" />
-      </Head> */}
+      </Head>
 
       <div className={"main p-2 flex flex-col sm:flex-col gap-2"}>
-      <a href="https://ofrohn.github.io/celestial-demo/viewer.html" className="p-2 bg-gray-600 text-green-500 font-bold"> Launch </a>
+      <a href="https://ofrohn.github.io/celestial-demo/viewer.html" className="p-2 bg-gray-600 w-24 text-green-500 text-center rounded-lg shadow-lg font-bold"> Launch </a>
 
         <h1 className={"title text-xs"}>Gyroscope and Compass App</h1>
-        <div className={"gyroscopeContainer"}>
+        <div className={""}>
           <Gyroscope gyroscopeData={gyroscopeData} setGyroscopeData={setGyroscopeData}/>
         </div>
         <div className="compassContainer">

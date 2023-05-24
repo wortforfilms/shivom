@@ -2,12 +2,16 @@ import { add_to_cart } from '@/store/cart/action';
 import { AddCartButtonAlpha } from '@/util/cart/AddCartButton';
 import { dispatch } from 'd3';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-export const ProductList = () => {
+export const ProductList = (props:any) => {
 
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state)
+    const router=useRouter()
   const [product_list, setPL] = useState<any>([
     {
       product_type: "t-shirt",
@@ -93,7 +97,13 @@ export const ProductList = () => {
               const price=product.product_price
               const images=product.product_images
               const pr_type="physical"
-              dispatch(add_to_cart(id,title,price,images,pr_type))
+
+              if(earth?.auth?.autheticated){
+
+                dispatch(add_to_cart(id,title,price,images,pr_type))
+              } else {
+                router.push('/auth/login')
+              }
             }
             }
             >Add to Cart

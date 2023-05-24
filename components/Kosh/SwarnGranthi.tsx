@@ -10,7 +10,7 @@ export const SwarnGranthi = (props: any) => {
     <h1 className='text-3xl p-2 mb-12 font-extrabold'>
       Activate your {"DixOm"}
     </h1>
-    <div className='flex flex-row flex-wrap gap-4 m-auto'>
+    <div className='flex flex-row flex-wrap justify-around gap-4 m-auto'>
 
       {recharges.map((sr: any, index: number) => {
         return <div key={index} className='bg-gray-300 rounded-lg p-2   '

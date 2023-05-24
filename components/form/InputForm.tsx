@@ -209,8 +209,6 @@ const profile_schema = yup.object().shape({
   pob: yup.string().notRequired(),
 })
 
-
-
 const vender_form = [
 
 ]
@@ -223,6 +221,7 @@ const vender_schema_messages = [
   "Address information is required"
 
 ]
+
 const vender_schema = yup.object().shape({
   vender_type: yup.string().min(3).max(3).required(vender_schema_messages[0]),
   vender_gst: yup.string().min(3).max(13).required(vender_schema_messages[1]),

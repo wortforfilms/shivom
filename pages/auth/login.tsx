@@ -13,129 +13,16 @@ const Login =(props:any)=>{
   const [u,setU]=useState({})
   const [uc,setUc]=useState<any>({})
 
-  const getVideo = () => {
-    navigator.mediaDevices
-      .getUserMedia({ video: { width: 300 } })
-      .then(stream => {
-        let video = videoRef.current;
-        video.srcObject = stream;
-        video.play();
-        // var playPromise = video.play();
+
  
-        // if (playPromise !== undefined) {
-        //   playPromise.then((_:any) => {
-        //     // Automatic playback started!
-        //     // Show playing UI.
-        //     // We can now safely pause video...
-        //     video.pause();
-        //   })
-        //   .catch((error:any) => {
-        //     // Auto-play was prevented
-        //     // Show paused UI.
-        //     console.log("error playing",error)
-        //   });
-        // }
-      })
-      .catch(err => {
-        console.error("error:", err);
-      });
-  };
-
-
-
-  useEffect(() => {
-    // first
-    // dtu utd
-    // combited combined
-    //  white owl 
-    // conditionning ¿? ... login {add upi} 
-    // open camerA serching billaniors
-    // list create local per hour 
-    // function {}-> content tube own 
-    // skill oc -> talent -> multi_:: language 
-    // devenAgry  : eng nAga  dosh devenagary dev...lazy_suspense
-    // 
-    // navigator.mediaDevices.getUserMedia()
-    // magic usermedia 
-    // macro
-    // ic raw a
-    // kaf vatta pitta
-    // 
-    // calendriya 
-    // 
-// चलेन्द्रिय	adj.	calendriya	havingunsteadyorgans	
-// Found 19 e_ntries count 
-// nt
-// Your results for calendar:
-// दिनदर्शिका	f.	dinadarzikA	calendar[solar (Gregorian) calendar]	
-// दिनदर्शिका	f.	dinadarzikA	calendar[solar (Gregorian) calendar]	
-// पञ्चाङ्ग	n.	paJcAGga	calendaroralmanac[Indian lunar calendar]	
-// पञ्चाङ्ग	n.	paJcAGga	calendaroralmanac[Indian lunar calendar]	
-// अग्रिमवर्षस्यदिनदर्शिकाअस्तिवा?	sent.	agrimavarSasyadinadarzikAastivA?	Doyouhaveacalendarforthenextyear?	
-// शनिवासरेममजन्मदिनम्इतिचिन्तयामि|अहंदिनदर्षिकांपरिशीलयिष्यामि|	sent.	zanivAsaremamajanmadinamiticintayAmi|ahaMdinadarSikAMparizIlayiSyAmi|	IthinkmybirthdayisonaSaturday-I'llcheckthecalendar.	
-// पदभञ्जिका	f.	padabhaJjikA	calendar
-//     calendar
-// calendars
-// calendulacea
-// kAl vidyA kalA
-// record mil µ Â 
-// list live function 
-// supabase
-// 
-    if(typeof window!==undefined){
-
-      getVideo()
-    }
-  
-    return () => {
-      // second
-      // version 0.0
-      // prakrut 0
-      // brAhmi 0
-      // ltr
-      // rtl
-      // new vedic coarse
-      // ::: {}-{}
-      // ::: {t}oBOMBai
-      // {::}-{::}
-      // >><,what he listening nno one is listening
-      // BhaaArat AbhiyAna
-      // ea ´¬˚
-      // ay ऐ smartness of  
-      // navigator.userAgent()
-      // navigator banAyain
-      // desh apne navigatore main lakmi dosh door kare
-      // padma_bhushaNa
-      // lotus flower : brahmi traces prakrut found 
-      // found nature out log :: earth 
-      // friend groot :: chars on earth 
-      // environmentalists
-      //  ::: {}-{}-{}
-      // ::: (scouts)-{migration}
-      // ::: burner ::: play ground 
-      // 
-      // open.camera()
-      //\\ :: dependency :: 
-      // :::: winter gone
-      // ::: -. > 10000:gems: :: billion each :: 1Trillion Coin : 100Trillion
-      // EcoNomy
-      // EN
-      // ET
-      // message beacon :: {}
-
-    }
-  }, [
-    // third
-  ])
-
   const router=useRouter()
   useEffect(() => {
     let mount=true
     if(mount){
       if(!earth?.auth?.authenticated){
-return
+        return
       } else{
-router.back()
+        router.back()
       }
     }
   
@@ -144,53 +31,15 @@ router.back()
     }
   }, [earth?.auth])
   
-// background
-//  foreground
-// lightsource
-// lense flair 
-// new source
-// view new
-// n->view
-// canvas-=> detect language in screen 
-// canvas-. 
-// create canvas 
-// galaxy canvas 
-// room -> conch
-// 
 
   const videoRef = useRef<any>(null);
   // 
-  return <div className="p-4 h-[100vh] w-full bg-blue-900">
-    <motion.div className="rounded-full h-72 absolute w-72 p-2 bg-black shadow-lg">
-      <div>
-        nbc //cbc // 
-      </div>
-    </motion.div>
-    <motion.div drag className="absolute w-56 z-50 p-2">
+  return <div className="p-4 h-[100vh] w-full ">
+
+
 
     <LoginForm/>
 
-    </motion.div>
-
-    {/* <motion.div className="  overflow-hidden ">
-
-    <video  
-    ref={videoRef}
-    autoPlay
-    className="w-full h-auto bg-blue-700  p-2 ring-2 ring-yellow-500">
-  <source src={uc} />
-
-</video>
-</motion.div> */}
-
-<CubeApp/>
-
-<motion.div drag className="fixed text-7xl rounded-full ring-4 ring-gray-300 shadow-xl shadow-pink-500 p-4  top-12 bg-white">
-💝
-</motion.div>
- 
-      {/* <Gameplay/> */}
-  
     </div>
 
 }
