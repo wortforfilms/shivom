@@ -6,7 +6,7 @@ import universal from '@/data/solar.json'
 export const Planets = () => {
   const router = useRouter();
   // const  planets=universal.planets.slice()
-  return <>
+  return <div className="w-full">
 
     <h2 id="planet" className='text-3xl  p-8 font-bold'>Planets</h2>
     <div className='flex flex-row flex-wrap gap-2 w-full h-full'>
@@ -21,7 +21,7 @@ export const Planets = () => {
         >{index + 1}. {pl}
 
 
-      <div className="w-[100vw] flex flex-row flex-wrap">
+      <div className="w-full flex flex-row flex-wrap">
         <ObjectDisplay object={universal.planets[index]}/>
         
         {/* { JSON.stringify(universal.planets[index])} */}
@@ -45,7 +45,7 @@ export const Planets = () => {
     <DoughnutChart data={Object.values(Kundali0).map((i,index)=>universal.planets[index].orbitalPeriod)} labels={Object.values(Kundali0)}/>
     </div>
 </div>
-  </>;
+  </div>;
 };
 
 

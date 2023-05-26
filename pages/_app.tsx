@@ -7,7 +7,7 @@ import ErrorBoundary from '@/util/boundary'
 import { Provider, useDispatch } from 'react-redux'
 import { wrapper } from '@/store/store'
 import { Suspense, useEffect, useRef, useState } from 'react'
-import { HeaderButtons } from '../components/layout/HeaderButtons'
+
 import { motion } from 'framer-motion'
 import { Router, useRouter } from 'next/router'
 import { update_device, update_device_size } from '@/store/device/action'
@@ -16,7 +16,33 @@ import shortid from 'shortid'
 import { create_device } from '@/q/c/devic'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
-import 'regenerator-runtime/runtime'
+// import 'regenerator-runtime/runtime'
+
+const update_existing_device=async(tantra:any)=>{
+  const {data,error}=await supabase.from('युक्ति').update([{
+    status:"Online",
+  }]).eq('id',tantra)
+
+  return {data,error}
+}
+
+const trans_device=async(data:any)=>{
+  const {data:dev,error}=await supabase.from('युक्ति').insert([{
+    ice: data.i_c,
+    ice_status:"Initiated",
+    ice_eci:[{
+      base:"mac",
+      os:"",
+      arch:"",
+      location:[],
+      orientation:[],
+      ip:{}
+    }]
+
+  }]) 
+  return {dev,error}
+}
+
 
 function App({ Component, ...rest }: AppProps) {
   const {store,props}=wrapper.useWrappedStore(rest)
@@ -31,7 +57,6 @@ function App({ Component, ...rest }: AppProps) {
   });
 
   const appRef=useRef<any>()
-  // const size = useDimensions(appRef)
 
   const  dispatch=useDispatch()
 
@@ -51,37 +76,17 @@ function App({ Component, ...rest }: AppProps) {
       if(mount){
         const tantra=localStorage.getItem('युक्ति')
         if(tantra){
-          const update_device=async()=>{
-            const {data,error}=await supabase.from('युक्ति').update([{
-              status:"Online",
-            }]).eq('id',tantra)
-          }
+          update_existing_device(tantra)
+
+
         } else {
           const i_c=shortid.generate()
-          const trans_device=async()=>{
-            const {data,error}=await supabase.from('युक्ति').insert([{
-              ice: i_c,
-              ice_status:"Initiated",
-              ice_eci:[{
-                base:"mac",
-                os:"",
-                arch:"",
-                location:[],
-                orientation:[],
-                ip:{}
-              }]
-
-            }]) 
-            return {data,error}
-          }
-
-          trans_device().then((res)=>{
-            // dispatch(create_device(data))
+          const data={i_c}
+          trans_device(data).then((res:any)=>{
             if(res && res.data){
               localStorage.setItem('युक्ति',res.data.ice)
               dispatch(update_device(res.data))
             }
-
             console.log(res,'device data')
           })
         }
@@ -107,7 +112,7 @@ function App({ Component, ...rest }: AppProps) {
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
-          draggable
+          draggable={false}
           pauseOnHover
         />
 <TopBar/>
