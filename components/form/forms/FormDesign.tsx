@@ -3,42 +3,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorMessage } from '@hookform/error-message';
 import { motion } from 'framer-motion';
-import crypto from "crypto";
-import { supabase } from '@/lib/Store';
+import { check_if_user_exists, create_product, create_service, create_vender, login_user, register_user } from './actions';
 
 
-export const check_if_user_exists=async(username:any,phone:any)=>{
-  const {data:uexist,error}=await supabase.from('भोक्तृ').select('id').eq('username',username)
-  const {data:pexist,perror}=await supabase.from('भोक्तृ').select('id').eq('phone',phone)
-  return {uexist, pexist, error, perror}
-}
-
-
-
-export const register_user=async(fdata:any)=>{
-
-  const salt = crypto.randomBytes(16).toString("hex");
-  const hash = crypto
-    .pbkdf2Sync(fdata.password, salt, 7860, 64, "sha512")
-    .toString("hex");
-
-  const {data,error}=await supabase.from('भोक्तृ').select('id, username').insert([{
-    username:fdata.username,
-    phone:fdata.phone_number,
-    gender:fdata.gender,
-    password:hash,
-    spua:{salt:salt},
-    dob:fdata.dob,
-    tob:fdata.tob,
-    pob:fdata.pob
-  }])
-  return {data,error}
-}
-
-export const login_user=async(fdata:any)=>{
-  const {data,error}=await supabase.from('').select('id','username').eq('username',fdata.username)
-  return {data,error}
-}
 
 
 export const FormDesign = (props: any) => {
@@ -76,6 +43,15 @@ export const FormDesign = (props: any) => {
         case "login user":
           login_user(data)
           break;
+          case "register vender":
+            create_vender()
+            break;
+            case "register  product":
+              create_product()
+              break;
+              case "register service":
+                create_service()
+                break;
     
       default:
         setFormState(data)
@@ -114,3 +90,5 @@ export const FormDesign = (props: any) => {
     >{action_type}</motion.button>
   </form>;
 };
+
+

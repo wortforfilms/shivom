@@ -72,3 +72,22 @@ const SuccessCard=(props:any)=>{
     <a className='hover:text-green-500 cursor-pointer py-8'>{action_message}</a>
   </div>
 }
+
+
+const IssueCard=(props:any)=>{
+  const {message, required_message, action_message, primary_action}=props
+  const { width, height } = useWindowSize()
+  return <div className='w-100 h-100 mt-12 bg-red-200 p-4 shadow-lg'>
+    <div className='thin-subhead sm:thin-head'>
+      Congratulations!!!{message}
+      </div>
+
+    <div className='thin-subhead py-12'>{required_message}</div>
+    <div className='form-button'
+    onClick={()=>{
+      primary_action.action()
+    }}
+    >{primary_action.message}</div>
+    <a className='hover:text-green-500 cursor-pointer py-8'>{action_message}</a>
+  </div>
+}
