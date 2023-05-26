@@ -8,7 +8,6 @@ export const check_if_user_exists=async(username:any,phone:any)=>{
 }
 
 
-
 export const register_user=async(fdata:any)=>{
 
   const salt = crypto.randomBytes(16).toString("hex");
@@ -30,9 +29,11 @@ export const register_user=async(fdata:any)=>{
 }
 
 export const login_user=async(fdata:any)=>{
-  const {data,error}=await supabase.from('').select('id,username,password,spua').eq('username',fdata.username)
+  const {data,error}=await supabase.from('भोक्तृ').select('id,username,password,spua').eq('username',fdata.username)
 
   // const verify_password=verify(fdata.password)
+console.log(data,'--=>')
+
   return {data,error}
 }
 

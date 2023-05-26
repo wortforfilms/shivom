@@ -1,4 +1,4 @@
-import { AudioInput, DateInput, EmailInput, FileInput, ImageInput, MultiSelectInput, PasswordInput, PhoneInput, PinInput, RadioInput, SelectInput, TimeInput, VideoInput } from '../InputForm';
+import { AudioInput, DateInput, EmailInput, FileInput, ImageInput, MultiSelectInput, PasswordInput, PhoneInput, PinInput, RadioInput, SelectInput, TimeInput, VideoInput } from '../InputFormFields';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorMessage } from '@hookform/error-message';
@@ -27,6 +27,7 @@ export const FormDesign = (props: any) => {
           if(res.uexist && res.uexist.length>0){
             // console.log("username already in use")
             errorT("Email already in use try login")
+
           }
           if( res.pexist && res.pexist.length>0){
             errorT("phone number already in use")
@@ -42,7 +43,7 @@ export const FormDesign = (props: any) => {
           }
         })
         break;
-        case "login user":
+        case "Login":
           login_user(data)
           break;
           case "register vender":
