@@ -47,9 +47,10 @@ export interface Kundali {
 }
 
 export const Kundali0 = [
-  "sun",
-  "moon",
+  // "sun",
+  // "moon",
   "mercury",
+  "earth",
   "venus",
   "mars",
   "jupiter",

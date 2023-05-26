@@ -6,6 +6,7 @@ import { FaBackward } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { ShiftShaper } from "./ShiftShaper";
 import { SwarnGranthi } from "./SwarnGranthi";
+import { gold } from "../games/GameBanner";
 
 
 export const get_user_kosh=async(userId:any)=>{
@@ -69,12 +70,14 @@ const router=useRouter()
   },[])
 
 
-  return <div className="flex flex-row p-4 bg-white mt-4 flex-wrap gap-2">
+  return <div className="flex flex-col p-4 bg-white mt-4 flex-wrap gap-2">
     
-   {step!=="" && <div onClick={()=>{
+   {step!=="" && <div 
+   className="absolute"
+   onClick={()=>{
       setStep("")
     }}><FaBackward/></div>}
-      <div className="flex flex-row gap-4 m-auto text-center">
+      <div className={`flex flex-row justify-around gap-4 m-auto ${gold} w-64 m-auto rounded-lg shadow-lg text-center`}>
 
 <div>Yantra: <h3>
   20

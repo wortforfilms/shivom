@@ -11,6 +11,7 @@
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "@hapi/iron": "^7.0.1",
+    "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.1.0",
     "@pmndrs/branding": "^0.0.8",
     "@react-three/drei": "^9.66.6",
@@ -47,6 +48,7 @@
     "passport-local": "^1.0.0",
     "postcss": "8.4.23",
     "react": "18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
     "react-fancy-circular-carousel": "^1.0.8",
     "react-hook-form": "^7.43.9",
@@ -57,6 +59,7 @@
     "react-redux": "^8.0.5",
     "react-three-fiber": "^6.0.13",
     "react-toastify": "^9.1.2",
+    "react-use": "^17.4.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-saga": "^1.2.3",
     "shortid": "^2.2.16",

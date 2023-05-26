@@ -104,7 +104,7 @@ const router=useRouter()
         deliveryAddressId={deliveryAddressId}
       />
 
-<Device/>
+<RegDevice amount={99} type="product" unit="per month"/>
 
     </div>
   </Container>
@@ -206,13 +206,14 @@ const CartEx = (props:any) => {
   );
 };
 
-const Device=()=>{
-  return <div className={`p-4 w-80 m-auto ${silver} rounded-lg shadow-lg`}>
+export const RegDevice=(props:any)=>{
+  const {amount, type, unit}=props
+  return <div className={`p-4 w-80 mt-6 m-auto ${silver} rounded-lg shadow-lg`}>
 
 Increase your sales<br/>
-    Register your product<br/>
-    Starts as low as INR.99.00 p.m.<br/>
-<UPIApp amount={99}/>
+    Register your {type}<br/>
+    Starts as low as INR. {amount} {unit}<br/>
+<UPIApp amount={amount}/>
   </div>
 }
 // tamil pirates// 

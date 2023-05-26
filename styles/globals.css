@@ -53,6 +53,22 @@ body {
     @apply text-blue-600 underline;
   }
 
+  .thin-head {
+    @apply text-5xl font-thin;
+  }
+
+  .thin-subhead {
+    @apply text-2xl font-thin;
+  }
+
+  .form-container {
+    @apply p-2 shadow-lg flex flex-row w-full sm:w-80 h-full flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8
+  }
+
+  .form-button {
+    @apply bg-pink-500 w-full text-white p-2 text-center rounded-lg shadow-lg hover:bg-blue-500 cursor-pointer
+  }
+
   li {
     @apply list-disc ml-4;
   }
@@ -66,6 +82,8 @@ body {
     padding: 2px 3px;
     border-radius: 2px;
   }
+
+
 }
 
 

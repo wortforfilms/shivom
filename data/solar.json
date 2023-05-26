@@ -74,7 +74,67 @@
           }
       },
       {
-          "id": 2,
+        "id": 2,
+        "name": "Earth",
+        "diameter": 12756,
+        "mass": 5.97,
+        "gravity": 9.8,
+        "density": 5514,
+        "rotationPeriod": 23.9,
+        "lengthOfDay": 24,
+        "distanceFromParent": 149600000,
+        "orbitalPeriod": 365.2,
+        "orbitalVelocity": 29.8,
+        "orbitalInclination": 0,
+        "axialTilt": 23.4,
+        "orbitPositionOffset": 0,
+        "meanTemperature": 15,
+        "surfaceTemps": {
+            "min": 185,
+            "mean": 288,
+            "max": 331
+        },
+        "rings": false,
+        "satellites": [
+            {
+                "id": "3a",
+                "name": "Moon",
+                "diameter": 3476.2,
+                "mass": 0.07342,
+                "distanceFromParent": 384400,
+                "orbitalPeriod": 27.3,
+                "orbitalInclination": 21,
+                "gravity": 1.62,
+                "surfaceTemps": {
+                    "min": -110,
+                    "max": 130
+                },
+                "_3d": {
+                    "textures": {
+                        "base": "/assets/textures/earth/satellites/moon_1k.jpg",
+                        "topo": "/assets/textures/earth/satellites/moon_topo_1k.jpg"
+                    }
+                }
+            }
+        ],
+        "satellites_mech": [
+            {
+                "ISS": {
+                    "distanceFromParent": 400
+                }
+            }
+        ],
+        "_3d": {
+            "textures": {
+                "base": "/assets/textures/earth_4k.jpg",
+                "topo": "/assets/textures/earth_topo_4k.jpg",
+                "specular": "/assets/textures/earth_ocean_reflectance_10k.jpg",
+                "clouds": "/assets/textures/earth_clouds_active2.png"
+            }
+        }
+    },
+      {
+          "id": 3,
           "name": "Venus",
           "diameter": 12104,
           "mass": 4.87,
@@ -103,66 +163,7 @@
               }
           }
       },
-      {
-          "id": 3,
-          "name": "Earth",
-          "diameter": 12756,
-          "mass": 5.97,
-          "gravity": 9.8,
-          "density": 5514,
-          "rotationPeriod": 23.9,
-          "lengthOfDay": 24,
-          "distanceFromParent": 149600000,
-          "orbitalPeriod": 365.2,
-          "orbitalVelocity": 29.8,
-          "orbitalInclination": 0,
-          "axialTilt": 23.4,
-          "orbitPositionOffset": 0,
-          "meanTemperature": 15,
-          "surfaceTemps": {
-              "min": 185,
-              "mean": 288,
-              "max": 331
-          },
-          "rings": false,
-          "satellites": [
-              {
-                  "id": "3a",
-                  "name": "Moon",
-                  "diameter": 3476.2,
-                  "mass": 0.07342,
-                  "distanceFromParent": 384400,
-                  "orbitalPeriod": 27.3,
-                  "orbitalInclination": 21,
-                  "gravity": 1.62,
-                  "surfaceTemps": {
-                      "min": -110,
-                      "max": 130
-                  },
-                  "_3d": {
-                      "textures": {
-                          "base": "/assets/textures/earth/satellites/moon_1k.jpg",
-                          "topo": "/assets/textures/earth/satellites/moon_topo_1k.jpg"
-                      }
-                  }
-              }
-          ],
-          "satellites_mech": [
-              {
-                  "ISS": {
-                      "distanceFromParent": 400
-                  }
-              }
-          ],
-          "_3d": {
-              "textures": {
-                  "base": "/assets/textures/earth_4k.jpg",
-                  "topo": "/assets/textures/earth_topo_4k.jpg",
-                  "specular": "/assets/textures/earth_ocean_reflectance_10k.jpg",
-                  "clouds": "/assets/textures/earth_clouds_active2.png"
-              }
-          }
-      },
+     
       {
           "id": 4,
           "name": "Mars",

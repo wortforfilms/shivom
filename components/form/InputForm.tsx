@@ -101,257 +101,230 @@ const hemant = (props: any) => {
 import Image from  'next/image'
 import { motion } from "framer-motion";
 
-const profile_form_messages = [
-  [
-    "Enter First Name",
-    "Enter First Name"
-  ],
-  [
-    "Enter Middle Name",
-    "Enter Middle Name",
-  ],
-  [
-    "Enter Last Name",
-    "Enter Last Name"
-  ],
-  [
-    "Choose Gender",
-    'Select Gender',
-    ['Male', 'Female', 'Other', 'LGBTQ']
-  ],
-  [
-    "Select Date of Birth",
-    "Select Date of Birth"
-  ],
-  [
-    "Select Time of Birth",
-    "Select Time of Birth"
-  ],
-  [
-    "Select Place of Birth",
-    "Select Place of Birth",
-  ]
-
-]
-
-const profile_schema_messages = [
-  [],
-  [],
-  [],
-  []
-]
-
-const profile_form = [
-  {
-    type: "text",
-    name: "first_name",
-    label: profile_form_messages[0][0],
-    value: "",
-    options: [],
-    message: profile_form_messages[0][1]
-  },
-  {
-    type: "text",
-    name: "middle_name",
-    label: profile_form_messages[1][0],
-    value: "",
-    options: [],
-    message: profile_form_messages[1][1]
-  },
-  {
-    type: "text",
-    name: "last_name",
-    label: profile_form_messages[2][0],
-    value: "",
-    options: [],
-    message: profile_form_messages[2][1]
-  },
-  {
-    type: "radio",
-    name: "gender",
-    label: profile_form_messages[3][0],
-    value: "",
-    options: profile_form_messages[3][3],
-    message: profile_form_messages[3][1]
-  },
-  {
-    type: "date",
-    name: "dob",
-    label: profile_form_messages[4][0],
-    value: "",
-    options: [],
-    message: profile_form_messages[4][1]
-  },
-  {
-    type: "time",
-    name: "tob",
-    label: profile_form_messages[5][0],
-    value: "",
-    options: [],
-    message: profile_form_messages[5][1]
-  },
-  {
-    type: "pin",
-    name: "pob",
-    label: profile_form_messages[6][0],
-    value: "",
-    options: [],
-    message: profile_form_messages[6][1]
-  }
-]
-
-const profile_schema = yup.object().shape({
-  first_name: yup.string().min(3).max(100).required("First Name is required"),
-  last_name: yup.string().min(3).max(100).notRequired(),
-  middle_name: yup.string().min(3).max(100).notRequired(),
-  gender: yup.string().min(1).max(1).required('Gender is required'),
-  dob: yup.date().required('Date of birth is required'),
-  tob: yup.string().notRequired(),
-  pob: yup.string().notRequired(),
-})
-
-const vender_form = [
-
-]
 
 
-const vender_schema_messages = [
-  "Vender Type is Required",
-  "Vender GST is Required",
-  "Tax information is required",
-  "Address information is required"
+export const TextInput=(props:any)=>{
+  const {register,fl}=props
+  return    <div className='p-2 bg-white w-full'>
+  <label>{fl?.label}</label><br />
+  
+  <input {...register(fl?.name?fl.name:"email")} className='bg-gray-300 p-2 w-full'  type="text" />
+</div>
+}
 
-]
-
-const vender_schema = yup.object().shape({
-  vender_type: yup.string().min(3).max(3).required(vender_schema_messages[0]),
-  vender_gst: yup.string().min(3).max(13).required(vender_schema_messages[1]),
-  vender_pan: yup.string().min(12).max(12).required(vender_schema_messages[2]),
-  vender_address: yup.string().min(12).max(12).required(vender_schema_messages[3]),
-})
-
-
-const product_schema_messages = [
-  "Product Type is required",
-  "Product Category is required",
-  "Product GST is required",
-  "Product Title is required",
-  "Product Description is required",
-  "Product Precautions is required",
-  "Product Inventory Address is required",
-]
-
-const product_schema = yup.object().shape({
-  product_type: yup.string().min(3).max(30).required(product_schema_messages[0]),
-  product_category: yup.string().min(3).max(30).required(product_schema_messages[1]),
-  product_gst: yup.string().min(3).max(13).required(product_schema_messages[2]),
-  product_title: yup.string().min(12).max(120).required(product_schema_messages[3]),
-  product_description: yup.string().min(12).max(1200).required(product_schema_messages[4]),
-  product_specification: yup.string().min(12).max(1200).notRequired(),
-  product_technical_information: yup.string().min(12).max(1200).notRequired(),
-  product_precautions: yup.string().min(12).max(1200).required(product_schema_messages[5]),
-  product_inventory_address: yup.string().min(12).max(120).required(product_schema_messages[6]),
-})
-
-
-
-
-export const InputForm = () => {
-  const { handleSubmit, register } = useForm({
-    resolver: yupResolver(user_schema)
-  })
-
-  const [avialable, setAvialable] = useState(false)
-  const u_register = (data: any) => {
-    console.log(data, '---=>')
-
-    const check_avialable = async (user_email: any, user_phone: any) => {
-      const { data, error } = await supabase.from("").select('*').eq('email', user_email)
-      if (data && data.length > 0) {
-        setAvialable(false)
-      } else {
-        setAvialable(true)
-      }
+export const RadioInput=(props:any)=>{
+  const {register,fl}=props
+  const [val,setVal]=useState<any>(null)
+  return    <div className='p-2 bg-white w-full'>
+  <label>{fl?.label}</label><br />
+  
+  <select {...register(fl?.name?fl.name:"email")} defaultValue={val} className='bg-gray-300 p-2 w-full'  
+  onChange={(e:any)=>{
+    setVal(e.target.value)
+  }}
+  >
+    {
+      fl?.options.map((opt:any,index:number)=>{
+        return <option key={index}
+        value={opt}
+        >{opt}</option>
+      })
     }
-    const create_Ru = async (data: any) => {
-      const { data: init_session, error } = await supabase.from('भोक्तृ').insert([{
-        email: data.email,
-        phone: data.phone,
-        password: data.password,
-        first_name: data.first_name,
-        last_name: data.last_name,
-        middle_name: data.middle_name,
-        gender: data.gender,
+    </select>
+</div>
+}
+
+export const TextAreaInput=(props:any)=>{
+  const {register,fl}=props
+  return    <div className='p-2 bg-white w-full'>
+  <label>{fl?.label}</label><br />
+  
+  <textarea {...register(fl?.name?fl.name:"email")} className='bg-gray-300 p-2 w-full' rows={3} type="text" />
+</div>
+}
 
 
-      }]).select('*')
+export const EmailInput=(props:any)=>{
+  const {register,fl}=props
+  return    <div className='p-2 bg-white w-full'>
+  <label>{fl?.label}</label><br />
+  
+  <input {...register(fl?.name?fl.name:"email")} className='bg-gray-300 p-2 w-full'  type="email" />
+</div>
+}
 
-      if (init_session && init_session.session) {
-        // dispatch(user_registration(data.session, data.user, data.password))
-      }
+export const PhoneInput=(props:any)=>{
+  const {register,fl}=props
+  return    <div className='p-2 bg-white w-full'>
+    <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"phone")} 
+  autoComplete="phone"
+  className='bg-gray-300 p-2 w-full'  type="tel" />
+</div>
+}
 
-      return { init_session, error }
+export const PasswordInput=(props:any)=>{
+  const {register,fl}=props
+  return <div className='p-2 bg-white w-full'>
+    <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"password")} autoComplete="current-password" className='bg-gray-300 p-2 w-full'  type="password" />
+</div>
+}
 
+export const DateInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+    <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"dob")} className='bg-gray-300 p-2'  type="date" />
+</div>
+}
+
+export const TimeInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="time" />
+</div>
+}
+
+export const SelectInput=(props:any)=>{
+  const {register,fl}=props
+  const [val,setVal]=useState<any>(null)
+  return    <div className='p-2 bg-white w-full'>
+  <label>{fl?.label}</label><br />
+  
+  <select {...register(fl?.name?fl.name:"email")} defaultValue={val} className='bg-gray-300 p-2 w-full'  
+  onChange={(e:any)=>{
+    setVal(e.target.value)
+  }}
+  >
+    {
+      fl?.options.map((opt:any,index:number)=>{
+        return <option key={index}
+        value={opt}
+        >{opt}</option>
+      })
     }
+    </select>
+</div>
+}
 
-  }
-  return <div className="flex flex-row gap-4 w-full">
-    <form onSubmit={handleSubmit(u_register)}
-      className='p-2 shadow-lg flex flex-row w-80 h-96 flex-wrap gap-2 bg-white rounded-lg ring-2 ring-gray-400 mt-8 mb-8'
-    >
-      <div className='p-2 bg-white w-full'>
-        <label>Enter Email</label><br />
-        <input {...register('email')} className='bg-gray-300 p-2 w-full' id="email" type="email" />
-      </div>
-      <div className='p-2 bg-white w-full'>
-        <label>Enter Phone</label><br />
-        <input {...register("phone")} className='bg-gray-300 p-2 w-full' id="phone" type="tel" />
-      </div>
-      <div className='p-2 bg-white w-full'>
-        <label>Enter Password</label><br />
-        <input {...register("password")} className='bg-gray-300 p-2 w-full' id="phone" type="tel" />
-      </div>
-      <div className='p-2 bg-white  w-full'>
-        <label>Enter Date of  Birth</label><br />
-        <input {...register("dob")} className='bg-gray-300 p-2' id="dob" type="date" />
-      </div>
-      <div className='p-2 bg-white w-full'>
-        <label>Enter Time of  Birth</label><br />
-        <input {...register("tob")} className='bg-gray-300 p-2' id="tob" type="time" />
-      </div>
-      <div className='p-2 bg-white w-full'>
-        <label>Enter Place of Birth</label><br />
-        <input {...register("pob")} className='bg-gray-300 p-2' type="text" placeholder='Enter your birthplace' id="pob" />
-      </div>
-      <button className='bg-pink-500 w-full text-white p-2 text-center rounded-lg shadow-lg hover:bg-blue-500 cursor-pointer'
-        type="submit"
-      >
-        Register
-      </button>
-    </form>
+export const MultiSelectInput=(props:any)=>{
+  const {register,fl}=props
+  const [val,setVal]=useState<any>(null)
+  return    <div className='p-2 bg-white w-full'>
+  <label>{fl?.label}</label><br />
+  
+  <select multiple {...register(fl?.name?fl.name:"email")} defaultValue={val} className='bg-gray-300 p-2 w-full'  
+  onChange={(e:any)=>{
+    setVal(e.target.value)
+  }}
+  >
+    {
+      fl?.options.map((opt:any,index:number)=>{
+        return <option key={index}
+        value={opt}
+        >{opt}</option>
+      })
+    }
+    </select>
+</div>
+}
 
-    <motion.div
-    drag
-    className="bottom-2 bg-blue-100  shadow-lg  cursor-pointer shadow-pink-500 w-80 h-80 m-auto p-2 rounded-full "
-    >
-      
-    <Image
-    // src="/img/astrology-circle-orance-dots.png"
-    src="/img/astrological_chart.png"
-    alt="astro chart"
-    width={100}
-    height={100}
-    unoptimized
-    priority
-    quality={100}
-    className="w-full h-full  rounded-full animate-spin-slow m-auto"
-    />
-    </motion.div>
-  </div>;
-};
+export const PinInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="text" />
+</div>
+}
 
+
+export const TwoPinInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="text" />
+</div>
+}
+
+export const  ImageInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="text" />
+</div>
+}
+
+export const  VideoInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="video" />
+</div>
+}
+
+export const  AudioInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="audio" />
+</div>
+}
+
+export const  FileInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="file" />
+</div>
+}
+
+export const RangeInput=(props:any)=>{
+  const {register,fl}=props
+  
+  return <div className='p-2 bg-white  w-full'>
+  <label>{fl?.label}</label><br />
+  <input {...register(fl?.name?fl.name:"tob")} className='bg-gray-300 p-2'  type="range" />
+</div>
+}
+
+// design field
+const field={
+  type:"",
+  name:"",
+  label:"",
+  message:"",
+  options:[""],
+  value:"",
+  required:false,
+  e_message:""
+}
+
+// single list
+
+// {}[]()
+
+//  
+
+// ==> {}==> dixit ===> xx:xy
+// d111t
+// ∂¡¡¡†
+// ˛ˇ ∂´´π 
+// symbols in deep 
 
 // INPUT
+
+// detect nearby device 
+// 
 // text
 // email
 // password
@@ -391,6 +364,9 @@ export const InputForm = () => {
 // compass
 // dosh-mukti-yantra
 
+
+// save as
+// tag fil_name format 
 
 // Found 41 entries
 // Your results for device:

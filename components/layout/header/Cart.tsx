@@ -65,7 +65,7 @@ link:"/"
 
     {
       services.map((ss,index)=>{
-        return <div key={index} className={`${router.asPath===ss.link?`${"bg-sky-600 ring-2 ring-white"} rounded-full w-10 h-10`:""}`}>
+        return <div key={index} className={`${router.asPath===ss.link?`${"bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 ring-2 ring-white"} rounded-full w-10 h-10`:""}`}>
           <IconLabel si={ss}/>
           {ss.label.toLowerCase()==="cart" && products?.length>1 && <div className='absolute text-xs text-center m-auto font-bold  z-50 shadow-pink-500 -mt-10 ml-4 rounded-full p-1 w-100 h-4 bg-red-700 text-white'>
             <div className='-mt-1'>{Math.round(amount)}</div>

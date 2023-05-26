@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FaVideo } from 'react-icons/fa';
+import { FaBlog, FaVideo } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
 import { BsFillChatFill } from 'react-icons/bs';
 import { motion } from 'framer-motion';
@@ -12,12 +12,17 @@ export const Communication = () => {
     <div className='p-4 text-3xl font-bold text-center text-gray-600'>Communicate with experts in the way you like!!</div>
     <div className='flex flex-col sm:flex-row gap-2'>
 
-      <div className='flex flex-row gap-4 -mt-12 sm:mt-0 w-1/2 p-12 '>
+      <div className='flex flex-row gap-4 -mt-12 sm:mt-0 w-1/2 p-12 '
+      onClick={()=>{
+        router.push('/chat/paid')
+      }}
+      >
 
         {[
-          { name: 'Text', icon: <BsFillChatFill /> },
-          { name: 'Audio', icon: <FiPhoneCall /> },
-          { name: 'Video', icon: <FaVideo /> }
+          { name: 'Text',tool:"Chat", icon: <BsFillChatFill /> },
+          { name: 'Audio', tool:"Talk", icon: <FiPhoneCall /> },
+          { name: 'Video', tool:"Live", icon: <FaVideo /> },
+          { name: 'Blog', tool:"Blog", icon: <FaBlog /> },
         ].map((mes, index) => {
           return <motion.div key={index} 
           animate={{opacity:[0,1]}}
@@ -27,7 +32,7 @@ export const Communication = () => {
             
             
             className='text-3xl m-auto  rounded-full w-16 h-16 bg-gradient-to-r from-red-800 via-yellow-300 to-yellow-500 ring-4 ring-orange-300 p-4 shadow-lg '>{mes.icon}</motion.div>
-            <div className=' text-center text-xl m-auto font-thin p-2'>{mes.name}</div>
+            <div className=' text-center text-xl m-auto font-thin p-2'>{mes.tool}</div>
           </motion.div>;
         })}
       </div>
@@ -88,6 +93,14 @@ export const Communication = () => {
 //  
 
 
+// Some recent entries:
+// जनौघ	n.	janaugha	gathering[people]	
+// घात	m.	ghAta	bang[stroke]	
+// औद्भिद	adj.	audbhida	botanical[pertaining to plants]	
+// वैषुवत	n.	vaiSuvata	equinox[astron.]	
+// विषुव	m.	viSuva	equinox[astron.]	
+
+
 // todo :: calculate value oil
 // location ;: employment :: process :: designation
 // collectorr
@@ -113,3 +126,24 @@ export const Communication = () => {
 // ::: ::: :::
 // k:arn
 // 
+
+// Found 18 entries
+// Your results for equinox:
+// विषुव	m.	viSuva	equinox[astron.]	
+// वैषुवत	n.	vaiSuvata	equinox[astron.]	
+// महाविषुव	n.	mahAviSuva	vernalequinox[occurs in March]	
+// अर्धरात्रार्धदिवस	m.	ardharAtrArdhadivasa	equinox	
+// विषुण	m.	viSuNa	equinox	
+// विषुप	m.	viSupa	equinox	
+// विष्वञ्च्	n.	viSvaJc	equinox	
+// हरिपद	n.	haripada	vernalequinox	
+// विषुपद	n.	viSupada	autumnalequinox	
+// जलविषुव	n.	jalaviSuva	autumnalequinox	
+// आश्विनचिह्नित	n.	Azvinacihnita	autumnalequinox	
+// विषुवदिन	n.	viSuvadina	dayoftheequinox	
+// वैषुवत	adj.	vaiSuvata	relatingtotheequinox	
+// क्रान्तिपातगति	f.	krAntipAtagati	precessionoftheequinox	
+// विषुवत्	n.	viSuvat	equinoctialpointorequinox	
+// पञ्चतीथी	f.	paJcatIthI	bathingonthedayoftheequinox	
+// होलाका	f.	holAkA	springfestivalattheapproachofthevernalequinox	
+// विषुवत्सङ्क्रान्ति	f.	viSuvatsaGkrAnti	passingofthethesunintothenextsignateitherequinox	

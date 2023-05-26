@@ -49,7 +49,7 @@ export default function Home(props: any) {
 
 
   return (
-    <main className={`flex min-h-screen max-w-3xl m-auto  flex-col justify-around p-2 w-full`}
+    <main className={`flex min-h-screen max-w-5xl m-auto  flex-col justify-around p-2 w-full`}
     >
 
       <div className='h-12'></div>
@@ -59,7 +59,6 @@ export default function Home(props: any) {
 
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
-
           <GameBanner />
         </div>}
       </div>

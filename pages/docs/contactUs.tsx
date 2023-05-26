@@ -24,7 +24,7 @@ const ContactUs = () => {
   return (
     <div
       // animate={{ opacity:[0,1],y: [0, 10, 0] }} 
-      className="p-2 mt-2 max-w-3xl mx-auto text-gray-700 bg-slate-200">
+      className="p-2 mt-2 max-w-2xl mx-auto text-gray-700 bg-slate-200">
 
       <div className="p-2 bg-white text-gray-700 py-4">
         <p className="text-center font-light mb-4">
