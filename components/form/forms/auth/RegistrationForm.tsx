@@ -1,7 +1,12 @@
 
 import { registration_form, registration_schema } from '../../schema/user/registration';
-import { FormDesign } from './FormDesign';
+import { FormDesign } from '../FormDesign';
 import { useEffect, useState } from 'react';
+import useWindowSize from 'react-use/lib/useWindowSize'
+
+
+
+
 
 export const UserRegistrationForm = () => {
 
@@ -13,13 +18,16 @@ export const UserRegistrationForm = () => {
     if(mount){
       if(form_state){
         setSubmitted(true)
-      }
+        
 
+      }
     }
     return ()=>{
       mount=false
     }
   },[form_state])
+
+
 const router=useRouter()
   return <div className='w-full mt-2 flex flex-col sm:flex-row flex-wrap gap-2 h-100 mb-24 justify-around'>
   { submitted?<div className=' m-auto h-[90vh]'>
@@ -33,9 +41,10 @@ const router=useRouter()
   </div>;
 };
 
-import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 import { useRouter } from 'next/router';
+import { user_registration } from '@/q/c/auth';
+import { supabase } from '@/lib/Store';
 
 const SuccessCard=(props:any)=>{
   const {message, required_message, action_message, primary_action}=props
