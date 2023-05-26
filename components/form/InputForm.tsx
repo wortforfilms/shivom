@@ -100,6 +100,7 @@ const hemant = (props: any) => {
 
 import Image from  'next/image'
 import { motion } from "framer-motion";
+import { BiHide, BiShow } from "react-icons/bi";
 
 
 
@@ -165,9 +166,30 @@ export const PhoneInput=(props:any)=>{
 
 export const PasswordInput=(props:any)=>{
   const {register,fl}=props
+  const [show,setShow]=useState(false)
   return <div className='p-2 bg-white w-full'>
     <label>{fl?.label}</label><br />
-  <input {...register(fl?.name?fl.name:"password")} autoComplete="current-password" className='bg-gray-300 p-2 w-full'  type="password" />
+    <div className="flex flex-row">
+
+  <input {...register(fl?.name?fl.name:"password")} autoComplete="current-password" className='bg-gray-300 p-2 w-full'  type={show?"text":"password"} />
+<div 
+  className="text-3xl m-auto bg-gray-300 p-2"
+ >
+  {show?<BiHide
+  onClick={()=>{
+    setShow
+    (!show)
+  }}
+  />:<BiShow
+  onClick={()=>{
+    setShow
+    (!show)
+  }}
+  />}
+    </div>
+
+  </div> 
+
 </div>
 }
 

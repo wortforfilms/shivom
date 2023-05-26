@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorMessage } from '@hookform/error-message';
 import { motion } from 'framer-motion';
 import { check_if_user_exists, create_product, create_service, create_vender, login_user, register_user } from './actions';
+import { errorT, notify } from '@/components/toast';
 
 
 
@@ -21,18 +22,19 @@ export const FormDesign = (props: any) => {
   const submit = (data: any) => {
 
     switch (action_type) {
-      case "register user":
+      case "Register":
         check_if_user_exists(data.username, data.phone_number).then(res=>{
           if(res.uexist && res.uexist.length>0){
-            console.log("username already in use")
+            // console.log("username already in use")
+            errorT("Email already in use try login")
           }
           if( res.pexist && res.pexist.length>0){
-            console.log("phone number already in use")
+            errorT("phone number already in use")
+            // notify
           } 
           if( res.uexist.length===0 && res.uexist.length===0){
-            console.log('start registering')
+            notify('-->start registering')
             register_user(data).then(res=>{
-
               if(res.data){
                 setFormState(res.data)
               } 
@@ -53,6 +55,7 @@ export const FormDesign = (props: any) => {
                 create_service()
                 break;
     
+
       default:
         setFormState(data)
         break;

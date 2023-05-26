@@ -14,6 +14,9 @@ import { update_device, update_device_size } from '@/store/device/action'
 import { supabase } from '@/lib/Store'
 import shortid from 'shortid'
 import { create_device } from '@/q/c/devic'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
+import 'regenerator-runtime/runtime'
 
 function App({ Component, ...rest }: AppProps) {
   const {store,props}=wrapper.useWrappedStore(rest)
@@ -96,6 +99,17 @@ function App({ Component, ...rest }: AppProps) {
   <ErrorBoundary>
 <Provider store={store}>
 <Suspense fallback={<div className='bg-gray-300 m-auto'>Loading...</div>}>
+<ToastContainer
+          position="top-right"
+          newestOnTop
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
 <TopBar/>
 
 

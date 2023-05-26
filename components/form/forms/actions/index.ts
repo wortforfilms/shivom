@@ -16,7 +16,7 @@ export const register_user=async(fdata:any)=>{
     .pbkdf2Sync(fdata.password, salt, 7860, 64, "sha512")
     .toString("hex");
 
-  const {data,error}=await supabase.from('भोक्तृ').select('id, username').insert([{
+  const {data,error}=await supabase.from('भोक्तृ').insert([{
     username:fdata.username,
     phone:fdata.phone_number,
     gender:fdata.gender,
@@ -25,7 +25,7 @@ export const register_user=async(fdata:any)=>{
     dob:fdata.dob,
     tob:fdata.tob,
     pob:fdata.pob
-  }])
+  }]).select('id, username')
   return {data,error}
 }
 

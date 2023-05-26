@@ -43,8 +43,7 @@ const router=useRouter()
 
 import Confetti from 'react-confetti'
 import { useRouter } from 'next/router';
-import { user_registration } from '@/q/c/auth';
-import { supabase } from '@/lib/Store';
+
 
 const SuccessCard=(props:any)=>{
   const {message, required_message, action_message, primary_action}=props
