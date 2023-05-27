@@ -5,3 +5,5 @@ export const form_button= "bg-pink-500 w-full text-white p-2 text-center rounded
 export const heading  ="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
 
 export const information="text-lg text-gray-600 mb-8"
+
+export const top_bar="bg-gradient-to-r from-indigo-500 via-pink-500 to-pink-500"

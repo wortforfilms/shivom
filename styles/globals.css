@@ -222,3 +222,42 @@ body {
   background-color: #d44218;
 }
 
+@keyframes matrix {
+  0% {
+    content: '';
+  }
+  5% {
+    content: 's';
+  }
+  10% {
+    content: 'sh';
+  }
+  15% {
+    content: 'sh4';
+  }
+  25% {
+    content: 'sh4o';
+  }
+  35% {
+    content: 'sh4om';
+  }
+  50% {
+    content: 'shivom';
+  }
+  75% {
+    content: 'sh{iv}ॐ';
+  }
+  100% {
+    content: 'shivom';
+  }
+  175% {
+    content: 'sh{iv}ॐ';
+  }
+  /* Continue adding characters gradually */
+  /* Adjust the timing and characters to your liking */
+}
+
+.animate-matrix::after {
+  content: '';
+  animation: matrix 1s steps(20) infinite;
+}

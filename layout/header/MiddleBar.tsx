@@ -225,7 +225,7 @@ export const MiddleBar = () => {
   const ref = useRef<any>(null);
   useOnClickOutside(ref, () => setSubOpen(null));
 
-  return <div className='sm:ml-4 flex flex-row gap-2 text-md   justify-between w-100 sm:w-[90vw] '>
+  return <div className='sm:ml-4 -mt-1 flex flex-row gap-2 text-md   justify-between w-100 sm:w-[90vw] '>
 
     {!search ? <div className='w-full flex flex-row gap-8 justify-between'>
       {tm.map((me, index) => {

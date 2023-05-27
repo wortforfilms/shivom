@@ -1,6 +1,6 @@
 import { getLoginSession } from '../../../lib/auth/auth'
 import { findUserFromAuth } from "@/lib/auth/action/findUserFromAuth"
-import { findUser } from "@/lib/auth/action/findUser"
+
 
 export default async function user(req:any, res:any) {
   console.log(

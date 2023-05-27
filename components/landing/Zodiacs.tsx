@@ -482,7 +482,7 @@ export const Zodiacs = () => {
 
 const router=useRouter()
 
-  return <div className="flex flex-col sm:flex-row bg-white p-4">
+  return <div className="flex flex-col  overflow-hidden sm:flex-row bg-white p-4">
     <Image
     src="/img/astrology-circle-orance-dots.png"
     // src="/img/astrological_chart.png"
@@ -492,15 +492,15 @@ const router=useRouter()
     priority
     unoptimized
 quality={100}
-    className="w-72 h-72 rounded-full invert  animate-spin-slow m-auto"
+    className="w-full sm:w-2/3 rounded-full invert -mt-50 animate-spin-slow"
     />
-<div className='flex flex-row gap-4 flex-wrap justify-around m-auto'>
+<div className='flex flex-row gap-4  flex-wrap justify-around m-auto'>
 
     {zods.map((ss, index) => {
       return <motion.div key={index} 
       whileHover={{scale:1.1}}
       whileTap={{scale:.95}}
-      className='flex flex-col cursor-pointer gap-2 justify-start bg-white p-2 rounded-lg '
+      className={`flex flex-col cursor-pointer gap-2 justify-start bg-[url(/img/zodiac/${ss.label.toLowerCase()}.png)] p-2 rounded-lg`}
       onClick={()=>{
         router.push(`/galaxy/rashi/${ss.label}`)
       }}
@@ -508,7 +508,7 @@ quality={100}
         <div className='text-5xl p-2 hover:bg-blue-500 rounded-lg'>
           {ss.sign}
         </div>
-        <div className=' text-xs text-center'>
+        <div className=' text-md text-center'>
           {ss.label}
         </div>
       </motion.div>;

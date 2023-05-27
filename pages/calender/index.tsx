@@ -133,7 +133,7 @@ const CalenderView=(props:any)=>{
   height={100}
   priority
   unoptimized
-  className="w-96 h-auto m-auto rounded-full invert bg-white"
+  className="w-96 h-auto m-auto z-10 rounded-full invert bg-white"
     />
 {/* `Vedic Tithi: {vedicTithi}-{Tithi.list[vedicTithi-1]}` */}
 

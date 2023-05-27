@@ -14,7 +14,7 @@ import {
 } from 'next-share';
 
 export const SocialBar = () => {
-  return <div className='flex flex-row justify-around gap-4 w-80  mt-24 mb-12'>
+  return <div className='flex flex-row justify-around  m-auto gap-4 w-80  mt-24 mb-12'>
     <FacebookShareButton
       url={'https://github.com/next-share'}
       quote={'next-share is a social share buttons for your next React apps.'}

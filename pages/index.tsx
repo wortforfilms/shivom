@@ -1,5 +1,5 @@
 
-import { SocialBar } from '../components/layout/SocialBar'
+import { SocialBar } from '../layout/SocialBar'
 
 import { Doshas } from '@/components/landing/Doshas'
 import { Nakshatras } from '@/components/landing/Nakshatras'
@@ -20,14 +20,17 @@ import { Communication } from '../components/communication/Communication'
 import { Game } from '../components/games/Game'
 import { GameBanner } from '@/components/games/GameBanner'
 import { Brahmi } from '@/components/classes/brahmi'
-import { HeaderButtons } from '../components/layout/HeaderButtons'
+import { HeaderButtons } from '../layout/HeaderButtons'
 import { Team } from '../components/list/Team'
 import { useSelector } from 'react-redux'
 import Services from './services'
 import { VedicCoarses } from './services/[service]'
 import Banner from '@/elements/banner'
+import Sh4omBanner, { Sh4omBanner0 } from '@/elements/headless/banner'
 
 
+// before active after
+// before processing after
 
 export default function Home(props: any) {
   const { initialReduxState } = props
@@ -43,6 +46,8 @@ export default function Home(props: any) {
       <div className='h-12'></div>
       <HeaderButtons setSection={setSection} section={section} />
       {!section &&<Banner/>}
+      <Sh4omBanner/>
+      <Sh4omBanner0/>
       <div className='flex flex-col sm:flex-row gap-2 '>
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
@@ -59,21 +64,17 @@ export default function Home(props: any) {
       {section === "astronomy" && <>
         <div className='mt-8'>
           <Zodiacs />
-          {/* <Image
-            src="/book/cover1.jpg" alt="" width={100} height={100}
-            className='relative w-full'
-          />
-          <Symbols />
-          <div id="astronomy" className='text-xl flex flex-row flex-wrap text-center justify-between overflow-hidden p-2'>
-            ⋆｡°✩⋆｡°✩🌏⋆｡°✩💫⋆｡°✩⋆｡°✩⋆｡°✩☄️⋆｡°✩⋆｡°✩⋆｡°✩🌟⋆｡°✩⋆｡°✩🌏⋆｡°✩⋆｡°✩🪐⋆｡°✩⋆｡°✩⋆｡°✩🚀⋆｡°✩⋆｡°✩⋆｡°✩
-          </div>
-          <div className='text-xl sm:text-7xl -bottom-24 m-auto absolute font-extrabold p-4 text-white'>QUESTION OF INDIA TO INDIAN</div> */}
+
         </div>
       </>
       }
       {section === "vedic_classes" && <>
         {/* <MApp /> */}
         <VedicCoarses/>
+
+      </>}
+      {section === "brahmi_classes" && <>
+     
         <Brahmi />
       </>}
       {section === "boards" && <Team />}

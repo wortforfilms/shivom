@@ -22,6 +22,7 @@ export const HeaderButtons = (props: any) => {
       { emoji: "💫🛍️", label: "Ecommerce", icon: "", image: "", link: "/#ecommerce", tag: "ecommerce" },
       { emoji: "🛠️🔔", label: "Services", icon: "", image: "", link: "", tag: "services" },
       { emoji: "🎮🎲", label: "Games", icon: "", image: "", link: "/#games", tag: "games" },
+      { emoji: "🔱☪𓁭", label: "Brahmi Classes", icon: "", image: "", link: "/#brahmi_classes", tag: "brahmi_classes" },
       // {emoji:"🔱🪔⚜☥⚜️☪𓁭",label:"Vedic Classes",icon:"",image:"",link:"",tag:""},
       { emoji: "🔱☪𓁭", label: "Vedic Classes", icon: "", image: "", link: "/#vedic_classes", tag: "vedic_classes" },
       { emoji: "🧿𓁭📿", label: "Boards", icon: "", image: "", link: "", seat_conditions: "", tag: "boards" },
@@ -48,6 +49,8 @@ export const HeaderButtons = (props: any) => {
       { emoji: "🛠️", label: "Services", icon: "", image: "", link: "", tag: "services" },
       { emoji: "🎲", label: "Games", icon: "", image: "", link: "/#games", tag: "games" },
       // {emoji:"🔱🪔⚜☥⚜️☪𓁭",label:"Vedic Classes",icon:"",image:"",link:"",tag:""},
+      { emoji: "🔱☪𓁭", label: "Brahmi Classes", icon: "", image: "", link: "/#brahmi_classes", tag: "brahmi_classes" },
+
       { emoji: "🔱", label: "Vedic Classes", icon: "", image: "", link: "/#vedic_classes", tag: "vedic_classes" },
       { emoji: "🧿", label: "Boards", icon: "", image: "", link: "", seat_conditions: "", tag: "boards" },
       { emoji: "🌈", label: "Kosha", icon: "", image: "", link: "", seat_conditions: "", tag: "kosha" },

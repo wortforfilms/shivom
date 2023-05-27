@@ -61,18 +61,18 @@ link:"/"
       link:"/cart"
     }
   ]
-  return <div className=' px-8 w-100 flex -mt-1 flex-row gap-4 sm:gap-8'>
+  return <div className=' px-8 w-100 flex -mt-2 flex-row gap-4 sm:gap-8'>
 
     {
       services.map((ss,index)=>{
         return <div key={index} className={`${router.asPath===ss.link?`${"bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 ring-2 ring-white"} rounded-full w-10 h-10`:""}`}>
-          <IconLabel si={ss}/>
-          {ss.label.toLowerCase()==="cart" && products?.length>1 && <div className='absolute text-xs text-center m-auto font-bold  z-50 shadow-pink-500 -mt-10 ml-4 rounded-full p-1 w-100 h-4 bg-red-700 text-white'>
+          {ss.label.toLowerCase()==="cart" && products?.length>1 && <div className='absolute text-xs text-center m-auto font-bold  z-20 shadow-pink-500 -mt-10 ml-4 rounded-full p-1 w-100 h-4 bg-red-700 text-white'>
             <div className='-mt-1'>{Math.round(amount)}</div>
             </div>}
-            {ss.label.toLowerCase()==="kosh"  && <div className='absolute text-xs text-center m-auto font-bold  z-50 shadow-pink-500  -mt-10 ml-4 rounded-full p-1 w-100 h-4 bg-yellow-300 text-pink-500'>
+            {ss.label.toLowerCase()==="kosh"  && <div className='absolute text-xs text-center m-auto font-bold  z-20 shadow-pink-500   ml-4 rounded-full p-1 w-100 h-4 bg-yellow-300 text-pink-500'>
             <div className='-mt-1'>{Math.round(200)}</div>
             </div>}
+          <IconLabel si={ss}/>
           </div>
       })
     }

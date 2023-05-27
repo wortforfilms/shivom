@@ -10,7 +10,7 @@ const TOKEN_SECRET = process.env.TOKEN_SECRET
 export async function setLoginSession(res:any, session:any) {
   try {
     const createdAt = Date.now()
-    console.log("setting session->")
+    console.log("setting session-> seee whats on")
   
     // Create a session object with a max age that we can validate later
     const obj = { ...session, createdAt, maxAge: MAX_AGE }

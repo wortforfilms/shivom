@@ -75,7 +75,7 @@ const router=useRouter()
     {rf_open &&
       rf &&  <motion.div
         animate={{ opacity: [0, 1], x: [10, 0] }}
-        className='h-100 w-48 p-2 mt-2 shadow-lg -ml-32 rounded-lg bg-white'>{earth?.auth?.authenticated?arf.map(
+        className='absolute right-0 h-100 w-48 p-2 mt-2 shadow-lg  rounded-lg bg-white'>{earth?.auth?.authenticated?arf.map(
           (l, index) => {
             return <div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
             onClick={()=>{
@@ -93,20 +93,23 @@ const router=useRouter()
             </div>;
           }
         ):rf.map((l, index) => {
-          return <div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
+          return <motion.div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-400 cursor-pointer'
           onClick={()=>{
             router.push(l.link)
             setrfOpen(false)
 
           }}
+
+          whileHover={{scale:.95}}
+          whileTap={{scale:1.1}}
           >
             <div className='text-gray-600  text-2xl rounded-full p-1'>
               {l.icon}
               </div>
-              <div className='my-auto'>
+              <div className='my-auto  mt-2'>
                 {l.label}
                 </div>
-          </div>;
+          </motion.div>;
         })}
 
 
