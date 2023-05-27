@@ -11,3 +11,7 @@ export const find_device_by_id = async (id: any) => {
     return { device, error }
   }
 
+export const find_user_devices=async(userId:any)=>{
+  const {data,error}=await supabase.from("device").select('*').eq('users',userId)
+  return {data,error}
+}

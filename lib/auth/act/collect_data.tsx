@@ -26,6 +26,7 @@ export const collect_data = async (data: any, setLoading: any, dispatch: any, ea
     if (res.status === 200) {
       const _user = await res.json();
       notify("Successfully logged in 🚀");
+      console.log(_user,'user-=-=>')
       const data = {
         user: _user?.user?.user[0],
         sessionToken: getTokenCookie({})

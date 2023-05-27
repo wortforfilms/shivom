@@ -16,8 +16,6 @@ export const LoginForm = () => {
     if(mount){
       if(form_state){
         setSubmitted(true)
-        
-
       }
     }
     return ()=>{

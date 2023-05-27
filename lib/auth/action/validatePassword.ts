@@ -4,11 +4,12 @@ import crypto from "crypto";
 // password for a potential match
 
 export function validatePassword(user: any, inputPassword: any) {
-  console.log("start  validating---->", user.user[0].spua.salt);
+  // console.log("start  validating---->", user.user[0]);
   const inputHash = crypto
     .pbkdf2Sync(inputPassword, user.user[0].spua.salt, 7860, 64, "sha512")
     .toString("hex");
   // console.log(inputHash, "----->", user.user[0].password, "---=>");
   const passwordsMatch = user.user[0].password === inputHash;
+  console.log(passwordsMatch,'---=>')
   return passwordsMatch;
 }

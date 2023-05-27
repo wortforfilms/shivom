@@ -32,18 +32,11 @@ export const register_user=async(fdata:any)=>{
 export const login_user=async(fdata:any)=>{
   const {data:user,error}=await supabase.from('भोक्तृ').select('id,username,password,spua').eq('username',fdata.username)
 
-  // const verify_password=verify(fdata.password)
-  // if(user && user.length>0){
+ 
 
     console.log(user,'--=>')
 
-    // crypto
-    // const data=user[0].password
-    // console.log(
-    //   'decrypt',
-    //   decrypt(fdata.password,user[0].spua.salt,data)
-    //   )
-    // }
+
 
   return {user,error}
 }

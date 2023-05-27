@@ -3,7 +3,8 @@ import { LoginForm } from "@/form/forms/auth/LoginForm"
 import { Gameplay } from "@/components/games/Gameplay"
 import { motion } from "framer-motion"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { useSelector } from "react-redux"
 
 const Login =(props:any)=>{
 
@@ -35,9 +36,6 @@ const Login =(props:any)=>{
   const videoRef = useRef<any>(null);
   // 
   return <div className="p-4 h-[100vh] w-full ">
-
-
-
     <LoginForm/>
 
     </div>
@@ -45,54 +43,3 @@ const Login =(props:any)=>{
 }
 
 export default Login
-
-// hast in A pur
-// in dra pas th
-// treat muhAsA
-// detect mumbAsA
-
-// telecast ::: distribute 
-// :: teslA test t->lA
-// -> assure safety 
-// ->< :: 
-// prakrut ::
-// bhram i->hi
-// 
-
-export function useUserMedia(requestedMedia:any) {
-  const [mediaStream, setMediaStream] = useState<any>(null);
-
-  useEffect(() => {
-    async function enableStream() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia(requestedMedia);
-        setMediaStream(stream);
-      } catch(err) {
-        // Removed for brevity
-      }
-    }
-
-    if (!mediaStream) {
-      enableStream();
-    } else {
-      return function cleanup() {
-        mediaStream.getTracks().forEach((track:any) => {
-          track.stop();
-        });
-      }
-    }
-  }, [mediaStream, requestedMedia]);
-
-  return mediaStream;
-}
-
-import React, { useRef } from 'react';
-import { useSelector } from "react-redux"
-
-
-const CAPTURE_OPTIONS = {
-    audio: false,
-    video: { facingMode: "environment" },
-};
-
-
