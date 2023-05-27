@@ -13,7 +13,6 @@ import { Router, useRouter } from 'next/router'
 import { update_device, update_device_size } from '@/store/device/action'
 import { supabase } from '@/lib/Store'
 import shortid from 'shortid'
-import { create_device } from '@/q/c/devic'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 // import 'regenerator-runtime/runtime'
@@ -26,17 +25,12 @@ const update_existing_device=async(tantra:any)=>{
   return {data,error}
 }
 
-const trans_device=async(data:any)=>{
+const trans_device=async(data:any, nav:any)=>{
   const {data:dev,error}=await supabase.from('युक्ति').insert([{
     ice: data.i_c,
     ice_status:"Initiated",
     ice_eci:[{
-      base:"mac",
-      os:"",
-      arch:"",
-      location:[],
-      orientation:[],
-      ip:{}
+      nav
     }]
 
   }]) 
@@ -77,12 +71,10 @@ function App({ Component, ...rest }: AppProps) {
         const tantra=localStorage.getItem('युक्ति')
         if(tantra){
           update_existing_device(tantra)
-
-
         } else {
           const i_c=shortid.generate()
           const data={i_c}
-          trans_device(data).then((res:any)=>{
+          trans_device(data, navigator).then((res:any)=>{
             if(res && res.data){
               localStorage.setItem('युक्ति',res.data.ice)
               dispatch(update_device(res.data))

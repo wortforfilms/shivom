@@ -13,12 +13,14 @@ const [games,setGames]=useState()
 const [kosh,setKosk]=useState()
 const [deposite,setDeposite]=useState()
 
-  return <div className="py-24">
-    Live:
-    Channel:
-    Static_on_Books:
-    Book:
-{/* <MessageHome/> */}
+  return <div className="py-24 p-6">
+  
+<div>Notifications</div>
+<div>Newsletter</div>
+<div>Tokens</div>
+<div>Tansaction Account</div>
+<div>Email</div>
+<div>Phone</div>
 
   </div>
 }

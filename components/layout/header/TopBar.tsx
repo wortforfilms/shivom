@@ -47,7 +47,7 @@ const dispatch=useDispatch()
       let mount = true;
   
       const token = getTokenCookie({});
-      // console.log(token, "---> in cookie");
+      console.log(token, "---> in cookie");
       if (mount) {
         refresh_user_session(token, dispatch, earth);
       }

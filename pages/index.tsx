@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+
 import { SocialBar } from '../components/layout/SocialBar'
 
 import { Doshas } from '@/components/landing/Doshas'
@@ -7,8 +7,7 @@ import { Planets } from '@/components/landing/Planets'
 import { Process } from '@/components/landing/Process'
 import { Technology } from '@/components/landing/Technology'
 import { AboutUs } from '../components/landing/AboutUs'
-// import FancyCarousel from 'react-fancy-circular-carousel'
-// import 'react-fancy-circular-carousel/FancyCarousel.css';
+
 import { ProductForm } from '@/form/forms/product/ProductForm'
 import { Questions } from '@/components/landing/Questions'
 import { Testemonials } from '@/components/landing/Testemonial'
@@ -17,22 +16,13 @@ import { useState } from 'react'
 import { Kosh } from '../components/Kosh'
 import { ProductList } from '../components/catalogue/ProductList'
 import { Communication } from '../components/communication/Communication'
-import { Symbols } from '../components/landing/Symbols'
-
-import MApp from '@/canvas/model'
 
 import { Game } from '../components/games/Game'
 import { GameBanner } from '@/components/games/GameBanner'
-
 import { Brahmi } from '@/components/classes/brahmi'
-
 import { HeaderButtons } from '../components/layout/HeaderButtons'
 import { Team } from '../components/list/Team'
-
 import { useSelector } from 'react-redux'
-
-import Image from 'next/image'
-import { useRouter } from 'next/router'
 import Services from './services'
 import { VedicCoarses } from './services/[service]'
 import Banner from '@/elements/banner'
@@ -42,9 +32,6 @@ import Banner from '@/elements/banner'
 export default function Home(props: any) {
   const { initialReduxState } = props
   const earth: typeof initialReduxState = useSelector(state => state)
-
-
-
   const [section, setSection] = useState(null)
 
 
@@ -54,11 +41,9 @@ export default function Home(props: any) {
     >
 
       <div className='h-12'></div>
-
       <HeaderButtons setSection={setSection} section={section} />
       {!section &&<Banner/>}
       <div className='flex flex-col sm:flex-row gap-2 '>
-
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
           <GameBanner />
@@ -67,17 +52,11 @@ export default function Home(props: any) {
       {section === "ecommerce" && <div className='mt-12' id="ecommerce">
         <ProductList earth={earth}/>
       </div>}
-
-
       {section === "games" && <>
         {!earth.auth.authenticated ? <GameBanner /> : <Game />}
       </>}
-
       {section === "astrology" && <Communication />}
-
       {section === "astronomy" && <>
-
-
         <div className='mt-8'>
           <Zodiacs />
           {/* <Image
@@ -92,13 +71,11 @@ export default function Home(props: any) {
         </div>
       </>
       }
-
       {section === "vedic_classes" && <>
-        <MApp />
+        {/* <MApp /> */}
         <VedicCoarses/>
         <Brahmi />
       </>}
-
       {section === "boards" && <Team />}
       {section === "kosha" && <Kosh />}
       {section === "services" && <Services />}

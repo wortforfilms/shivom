@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import GyroHome from "@/components/tool"
 import Image from 'next/image'
 import { motion } from "framer-motion"
+import { heading } from "@/styles/sty"
 
 interface DateTime {
   year: number;
@@ -100,7 +101,7 @@ const vedicYoga = calculateVedicYoga(currentDate);
 const Ifo=(props:any)=>{
   const {data,label}=props
   return <div className="p-4 m-auto">
-    <div className="thin-head">{label}</div>
+    <div className={heading}>{label}</div>
     <div className="py-4">{data.Information}</div>
     <div className="flex flex-row gap-2 flex-wrap">
       {
@@ -113,6 +114,7 @@ const Ifo=(props:any)=>{
       }
     </div>
     <div className="text-xs py-4">{data.notes}</div>
+    <hr className="border-1 border-gray-300"/>
   </div>
 }
 
@@ -122,7 +124,7 @@ const CalenderView=(props:any)=>{
   const earth:typeof initialReduxState=useSelector(state=>state)
   return <div className="max-w-5xl m-auto p-4">
     <div className="h-12"></div>
-    <div>{vedicYear}</div>
+    {/* <div>{vedicYear}</div> */}
     <div className="flex flex-col sm:flex-row">
     <Image
   src="/img/tithi.png"
@@ -133,14 +135,14 @@ const CalenderView=(props:any)=>{
   unoptimized
   className="w-96 h-auto m-auto rounded-full invert bg-white"
     />
-`Vedic Tithi: {vedicTithi}-{Tithi.list[vedicTithi-1]}`
+{/* `Vedic Tithi: {vedicTithi}-{Tithi.list[vedicTithi-1]}` */}
 
 <Ifo data={Tithi}  label="Tithi"/>
 </div>
 <div className="flex  flex-col sm:flex-row">
 
 <Ifo data={Yoga}  label="Yoga"/>
-`Vedic Yoga: {vedicYoga}-{Yoga.list[vedicYoga-1]}`
+{/* `Vedic Yoga: {vedicYoga}-{Yoga.list[vedicYoga-1]}` */}
 
 <Image
   src="/img/yoga.png"

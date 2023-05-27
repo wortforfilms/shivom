@@ -52,7 +52,7 @@ export const EmailInput=(props:any)=>{
   return    <div className='p-2 bg-white w-full'>
   <label>{fl?.label}</label><br />
   
-  <input {...register(fl?.name?fl.name:"email")} className='bg-gray-300 p-2 w-full'  type="email" />
+  <input {...register(fl?.name?fl.name:"email")} className='bg-gray-300 p-2 w-full' autoComplete="username"  type="email" />
 </div>
 }
 

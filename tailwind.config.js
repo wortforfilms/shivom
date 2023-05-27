@@ -10,6 +10,7 @@ module.exports = {
       animation:{
         'spin-slow': 'spin 24s linear infinite'
       },
+      backgroundOpacity: ['active'],
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

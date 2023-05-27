@@ -15,3 +15,7 @@ export const find_user_devices=async(userId:any)=>{
   const {data,error}=await supabase.from("device").select('*').eq('users',userId)
   return {data,error}
 }
+
+
+
+// stages device auth profile role create transaction order delivery invoice

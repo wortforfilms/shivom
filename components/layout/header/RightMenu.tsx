@@ -75,7 +75,7 @@ const router=useRouter()
     {rf_open &&
       rf &&  <motion.div
         animate={{ opacity: [0, 1], x: [10, 0] }}
-        className='h-100 w-48 p-2  shadow-lg -ml-32 rounded-lg bg-white'>{earth?.auth?.authenticated?arf.map(
+        className='h-100 w-48 p-2 mt-2 shadow-lg -ml-32 rounded-lg bg-white'>{earth?.auth?.authenticated?arf.map(
           (l, index) => {
             return <div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
             onClick={()=>{
