@@ -2,8 +2,7 @@ import passport from 'passport'
 import nextConnect from 'next-connect'
 import { localStrategy } from '@/lib/auth/passport-local'
 import { setLoginSession } from '@/lib/auth/auth'
-import { findUserFromAuth } from '@/lib/auth/action/findUserFromAuth'
-// import { findUserFromAuth } from "@/lib/auth/action/findUserFromAuth"
+import { findUserFromAuth } from "@/lib/auth/action/findUserFromAuth"
 
 export const authenticate = (method:any, req:any, res:any) =>
   new Promise((resolve, reject) => {
@@ -19,18 +18,20 @@ export const authenticate = (method:any, req:any, res:any) =>
 
 passport.use(localStrategy)
 
-// export default nextConnect()
-//   .use(passport.initialize())
-//   .post(async (req:any, res:any) => {
-//     try {
-//       const user:any = await authenticate('local', req, res)
-//       const session = { ...user }
-//       await setLoginSession(res, session)
+export default nextConnect().use(passport.initialize())
+  .post(async (req:any, res:any) => {
+    try {
+      // console.log(req.body,'---=>req')
+      const user:any = await authenticate('local', req, res)
+      const session = { ...user }
+      await setLoginSession(res, session)
 
-//       const u = await findUserFromAuth(session.user[0].username)
-//        res.status(200).send({ done: true, user:u })
-//     } catch (error:any) {
-//       console.error(error)
-//       res.status(401).send(error.message)
-//     }
-//   }) 
+      const u = await findUserFromAuth(session.user[0].username)
+      res.status(200).send({ done: true, user:u })
+    } catch (error:any) {
+      console.error(error)
+      res.status(401).send(error.message)
+    }
+  })
+
+  // export default au

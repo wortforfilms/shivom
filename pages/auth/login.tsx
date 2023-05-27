@@ -1,5 +1,5 @@
 import CubeApp from "@/canvas/cube"
-import { LoginForm } from "@/components/form/forms/auth/Loginx"
+import { LoginForm } from "@/form/forms/auth/LoginForm"
 import { Gameplay } from "@/components/games/Gameplay"
 import { motion } from "framer-motion"
 import { useRouter } from "next/router"

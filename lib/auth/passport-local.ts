@@ -6,12 +6,12 @@ import { findUserForAuth } from "./action/findUserForAuth"
 export const localStrategy = new Local.Strategy(function (
   username:any,
   password:any,
-
   done:any
 ) {
+  console.log("first")
   findUserForAuth(username )
     .then((user:any) => {
-      // console.log(user.user[0],'------>y')
+      console.log(user,'------>y')
       if (user && validatePassword(user, password)) {
         done(null, user)
       } else {
@@ -19,6 +19,7 @@ export const localStrategy = new Local.Strategy(function (
       }
     })
     .catch((error) => {
+      console.log("first error trace")
       done(error)
     })
 })

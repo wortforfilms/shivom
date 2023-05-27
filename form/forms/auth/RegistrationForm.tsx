@@ -37,7 +37,7 @@ const router=useRouter()
     primary_action={
       {message:"Goto Login.",action:()=>router.push('/auth/login')}}
     action_message={"Didn't recieved email. Resend verification link."}
-    /></div>: <FormDesign form={registration_form} validation={registration_schema} label="" setFormState={setFormState} action_type="Register"/>}
+    /></div>: <FormDesign form={registration_form} validation={registration_schema} label="" setFormState={setFormState} setLoading={setSubmitted} action_type="Register"/>}
   </div>;
 };
 

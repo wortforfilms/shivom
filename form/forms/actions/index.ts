@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/Store"
+import { decrypt } from "@hapi/iron"
 import crypto from 'crypto'
 
 export const check_if_user_exists=async(username:any,phone:any)=>{
@@ -29,13 +30,25 @@ export const register_user=async(fdata:any)=>{
 }
 
 export const login_user=async(fdata:any)=>{
-  const {data,error}=await supabase.from('भोक्तृ').select('id,username,password,spua').eq('username',fdata.username)
+  const {data:user,error}=await supabase.from('भोक्तृ').select('id,username,password,spua').eq('username',fdata.username)
 
   // const verify_password=verify(fdata.password)
-console.log(data,'--=>')
+  // if(user && user.length>0){
 
-  return {data,error}
+    console.log(user,'--=>')
+
+    // crypto
+    // const data=user[0].password
+    // console.log(
+    //   'decrypt',
+    //   decrypt(fdata.password,user[0].spua.salt,data)
+    //   )
+    // }
+
+  return {user,error}
 }
+
+
 
 
 export const create_vender=()=>{

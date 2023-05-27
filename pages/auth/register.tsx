@@ -1,4 +1,4 @@
-import { UserRegistrationForm } from "@/components/form/forms/auth/RegistrationForm"
+import { UserRegistrationForm } from "@/form/forms/auth/RegistrationForm"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"

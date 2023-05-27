@@ -5,7 +5,7 @@ import { supabase } from "@/lib/Store";
 
 export async function findUserFromAuth(username: any) {
   const { data: user, error } = await supabase
-    .from("su_net")
+    .from("भोक्तृ")
     .select("id, username, verified, biomed, profiled")
     .eq("username", username);
   if (error) {

@@ -6,18 +6,23 @@ import { motion } from 'framer-motion';
 import { check_if_user_exists, create_product, create_service, create_vender, login_user, register_user } from './actions';
 import { errorT, notify } from '@/components/toast';
 
-
+import { form_button, form_container } from '@/styles/sty'
+import { collect_data } from '@/lib/auth/act/collect_data';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 export const FormDesign = (props: any) => {
-  const { form, validation, action_type, setFormState } = props;
+  const { form, validation, action_type, setFormState, setLoading, initialReduxState } = props;
 
+  const earth:typeof initialReduxState=useSelector(state=>state)
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm(
     {
       mode: "onChange",
       resolver: yupResolver(validation)
     }
   );
+
+  const dispatch=useDispatch()
 
   const submit = (data: any) => {
 
@@ -44,8 +49,18 @@ export const FormDesign = (props: any) => {
         })
         break;
         case "Login":
-          login_user(data)
+          // login_user(data)
+          collect_data(data,setLoading,dispatch,earth)
           break;
+          
+          case "Pay":
+              console.log("first update if live")
+          break;
+
+          case "Play":
+            console.log('The  player ro sync')
+            break;
+          
           case "register vender":
             create_vender()
             break;
@@ -64,7 +79,7 @@ export const FormDesign = (props: any) => {
 
   };
 
-  return <form className={`form-container`} onSubmit={handleSubmit(submit)}>
+  return <form className={form_container} onSubmit={handleSubmit(submit)}>
 
     {form.map((fl: any, index: number) => {
       return <div key={index} className='w-full'>
@@ -90,7 +105,7 @@ export const FormDesign = (props: any) => {
     whileHover={{scale:.95}}
     whileTap={{scale:1.1}}
       type="submit"
-      className={'form-button'}
+      className={form_button}
     >{action_type}</motion.button>
   </form>;
 };

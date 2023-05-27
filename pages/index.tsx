@@ -9,7 +9,7 @@ import { Technology } from '@/components/landing/Technology'
 import { AboutUs } from '../components/landing/AboutUs'
 // import FancyCarousel from 'react-fancy-circular-carousel'
 // import 'react-fancy-circular-carousel/FancyCarousel.css';
-import { ProductForm } from '@/components/form/forms/product/ProductForm'
+import { ProductForm } from '@/form/forms/product/ProductForm'
 import { Questions } from '@/components/landing/Questions'
 import { Testemonials } from '@/components/landing/Testemonial'
 import { Zodiacs } from '@/components/landing/Zodiacs'

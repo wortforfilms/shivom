@@ -1,5 +1,5 @@
 import App from "@/canvas/chart"
-import { UserRegistrationForm } from "@/components/form/forms/auth/RegistrationForm"
+import { UserRegistrationForm } from "@/form/forms/auth/RegistrationForm"
 
 const Astro=()=>{
   return <div>
