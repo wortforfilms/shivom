@@ -1,3 +1,4 @@
+import { AutoAvatar } from '@/elements/avatar';
 import useOnClickOutside from '@/hook/useOnClickOutside';
 import { IconLabel } from '@/lib/calender';
 import { motion } from 'framer-motion';
@@ -57,10 +58,20 @@ const router=useRouter()
   return <div ref={rfRef} className='bg-white p-1  rounded-full h-10   w-10 -mt-1'>
     
  
+    {earth?.auth?.authenticated?<div
+    className='-mt-2'
+        onClick={() => {
+          setrfOpen(!rf_open);
+        }}
+    ><AutoAvatar user={earth?.auth?.user} size={8}
+ 
+    /></div>:
     <FaUserCircle size={32} className={`text-center ${!rf_open ? "" : "text-blue-500"} cursor-pointer mb-2`}
       onClick={() => {
         setrfOpen(!rf_open);
-      }} />
+      }} />}
+
+
     {rf_open &&
       rf &&  <motion.div
         animate={{ opacity: [0, 1], x: [10, 0] }}

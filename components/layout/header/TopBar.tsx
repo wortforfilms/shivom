@@ -3,11 +3,37 @@ import { RightMenu } from './RightMenu';
 import { LeftMenu } from './LeftMenu';
 import { MiddleBar } from './MiddleBar';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LeftPanel } from '@/components/panel/left_panel';
 import { RightPanel } from '@/components/panel/right_panel';
 import { Cart } from './Cart';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTokenCookie } from '@/lib/auth/auth-cookies';
+import { login } from '@/store/auth/action';
+import { errorT } from '@/components/toast';
+
+
+
+// @ refresh user session
+export const refresh_user_session = async (token: any, dispatch: any, earth: any) => {
+  const f = await fetch("/api/auth/get")
+    .then((res) => res.json())
+    .then((_data) => {
+      if (_data.user) {
+        const data = {
+          user: _data?.user?.user[0],
+          sessionToken: token,
+        };
+        dispatch(login(data));
+
+      }
+      // if (_data?.message) {
+      //   notify("_data.message")]\
+      
+    });
+  return f;
+};
+
 
 
 export const TopBar = (props:any) => {
@@ -15,6 +41,22 @@ export const TopBar = (props:any) => {
 const earth:typeof initialReduxState=useSelector(state=>state)
   const [left,setLeft]=useState(false)
   const [right,setRight]=useState(false)
+const dispatch=useDispatch()
+    // @ refresh token
+    useEffect(() => {
+      let mount = true;
+  
+      const token = getTokenCookie({});
+      // console.log(token, "---> in cookie");
+      if (mount) {
+        refresh_user_session(token, dispatch, earth);
+      }
+  
+      return () => {
+        mount = false;
+      };
+    }, []);
+    // dont change dependencies
 
   return <nav className='fixed bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 
   z-50  w-full h-12 p-2  

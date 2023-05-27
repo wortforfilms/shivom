@@ -181,3 +181,44 @@ body {
   transition: all 0.1s;
   will-change: transform, opacity, filter;
 }
+
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: #f1f1f1;
+  overflow: hidden;
+}
+.banner .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.banner h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.banner p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
+.banner .cta-button {
+  display: inline-block;
+  background-color: #f1592a;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.banner .cta-button:hover {
+  background-color: #d44218;
+}
+

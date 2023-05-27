@@ -35,6 +35,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Services from './services'
 import { VedicCoarses } from './services/[service]'
+import Banner from '@/elements/banner'
 
 
 
@@ -55,6 +56,7 @@ export default function Home(props: any) {
       <div className='h-12'></div>
 
       <HeaderButtons setSection={setSection} section={section} />
+      {!section &&<Banner/>}
       <div className='flex flex-col sm:flex-row gap-2 '>
 
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
