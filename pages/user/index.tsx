@@ -56,7 +56,7 @@ return  <div key={index}>{f.first_name}</div>
 
 <div>{user.id}</div>
 
-<PostCreator/>
+{/* <PostCreator/> */}
 <div>Biomed: {user.biomed?"done":"false"}</div>
 <div>Profiled: {user.profiled?"done":"false"}</div>
 <div>Email Verified: {user.email_verified?"done":"false"}</div>

@@ -368,9 +368,6 @@ const List = (props: any) => {
 
 }
 
-
-export const VedicCoarses=()=>{
-
 const vedic={
   Introduction:"Course Structure for Vedic Studies (Starter to Advanced Level):",
 
@@ -416,15 +413,21 @@ matter:[
 Conclusion:"This course structure provides a progressive pathway for students to develop a comprehensive understanding of Vedic texts, rituals, philosophy, and their cultural and historical significance. It aims to cultivate proficiency in Sanskrit, critical analysis, and independent research skills, enabling students to engage with the rich heritage of Vedic literature and contribute to Vedic studies as scholars and researchers."
 }
 
+export const VedicCoarses=()=>{
+
+
+
 return <div className="p-2 mt-6">
             <div className={heading}>{vedic.Introduction}</div>
+<div className="p-2 flex flex-col gap-4">
 
             {vedic.matter.map((c: any, index: number) => {
-              return <div key={index} className="snakeCase text-sm  p-1">
+              return <div key={index} className="snakeCase bg-white rounded-lg shadow-lg text-sm  p-1">
                 {/* {c.q} */}
                 <List header={c.q} data={c.d} />
               </div>
             })}
+            </div>
 </div>
 
 }

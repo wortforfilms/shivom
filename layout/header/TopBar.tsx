@@ -60,7 +60,7 @@ const dispatch=useDispatch()
     }, []);
     // dont change dependencies
 
-  return <nav className={`fixed  z-50 ${t_b} w-full h-12 p-2 shadow-lg flex flex-row justify-between`}>
+  return <nav className={`fixed  z-50 ${"bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 ring-2 ring-white"} w-full h-12 p-2 shadow-lg flex flex-row justify-between`}>
     {left && <LeftPanel/>}
     {right && <RightPanel/>}
    <LeftMenu/>
