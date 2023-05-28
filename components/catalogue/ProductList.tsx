@@ -87,7 +87,7 @@ export const ProductList = (props:any) => {
             alt="tshirt"
             width={100}
             height={100}
-            className='w-96 invert m-auto ' /></div>
+            className='w-96 z-10 invert m-auto ' /></div>
           <div className='text-md font-bold py-4'>{product.product_title}</div>
           <div className='text-md font-thin py-4'>{product.product_description}</div>
           <div className='flex flex-col sm:flex-col gap-2  p-1  rounded-lg justify-between'>

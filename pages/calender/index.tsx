@@ -98,7 +98,7 @@ const vedicYoga = calculateVedicYoga(currentDate);
 
 
 
-const Ifo=(props:any)=>{
+export const Ifo=(props:any)=>{
   const {data,label}=props
   return <div className="p-4 m-auto">
     <div className={heading}>{label}</div>

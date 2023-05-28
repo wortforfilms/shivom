@@ -46,8 +46,7 @@ export default function Home(props: any) {
       <div className='h-12'></div>
       <HeaderButtons setSection={setSection} section={section} />
       {!section &&<Banner/>}
-      <Sh4omBanner/>
-      <Sh4omBanner0/>
+      
       <div className='flex flex-col sm:flex-row gap-2 '>
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
@@ -89,6 +88,8 @@ export default function Home(props: any) {
       <Doshas />
       <Process />
       <SocialBar />
+      <Sh4omBanner/>
+      <Sh4omBanner0/>
     </main>
   )
 }

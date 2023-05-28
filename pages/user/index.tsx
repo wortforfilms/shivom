@@ -5,24 +5,11 @@ import { useSelector } from "react-redux"
 import Image from 'next/image'
 import { BsDisplay } from "react-icons/bs"
 import { sunsign } from "@/canvas/chart/d3/vedic"
-import { gold } from "@/components/games/GameBanner"
+
 const User=(props:any)=>{
-  // meghdoot
-  // shakuntlA bharat bhArat 
-  // clock on every 
-  // run _ cl;;ock 
-  // second->acca
-  // 
+
   const {initialReduxState}=props
   const earth:typeof initialReduxState=useSelector(state=>state)
-
-  // get_hindu_date
-  // get_vedic_tithi
-
-  // a_tithi dev o bhava
-
-
-
 const [user,setUser]=useState(earth?.auth?.user)
 const [games,setGames]=useState()
 const [kosh,setKosk]=useState()
@@ -69,10 +56,12 @@ return  <div key={index}>{f.first_name}</div>
 
 <div>{user.id}</div>
 
-<div>Biomed</div>
-<div>Profiled</div>
-<div>Email Verified</div>
+<PostCreator/>
+<div>Biomed: {user.biomed?"done":"false"}</div>
+<div>Profiled: {user.profiled?"done":"false"}</div>
+<div>Email Verified: {user.email_verified?"done":"false"}</div>
 <div>Phone Verified</div>
+<ObjectInfo data={vedic_for_user} label="User Yoga"/>
 
 <Zodiac/>
 <ZodiacPosition/>
@@ -112,13 +101,11 @@ export default User
 
 const Zodiac=()=>{
 
-
-  return <div className="flex flex-row gap2 justify-around flex-wrap">
+  return <div className="flex flex-row gap2 invert justify-around flex-wrap">
     {
       sunsign.map((str,index)=>{
         return <div key={index} className={`${gold} shadow-lg m-4 rounded-full ring-4 ring-orange-200` }>
 <Image
-
     src={`/img/zodiac/${str}.png`}
     alt="astro chart"
     width={100}
@@ -126,7 +113,7 @@ const Zodiac=()=>{
     priority
     unoptimized
 quality={100}
-    className="w-32    justify-start  m-auto"
+    className="w-32   invert justify-start  m-auto"
     />
         </div>
       })
@@ -136,6 +123,9 @@ quality={100}
 
 
 import React from 'react';
+import { gold } from "@/styles/sty"
+import { ObjectInfo } from "@/elements/object_display"
+import { PostCreator } from "@/elements/post_creator"
 
 // Zodiac sign data
 const zodiacSigns = [
@@ -334,7 +324,7 @@ const MoonSignCalculator: React.FC = () => {
 
 const vedic_for_user={
   Information:'Vedic astronomical algorithms are a set of mathematical calculations and formulas used in Vedic astrology to determine the positions of celestial bodies, calculate planetary movements, and analyze astrological charts. These algorithms are based on ancient Vedic texts, such as the Vedanga Jyotisha, which provide guidelines and principles for astronomical calculations. Here are some key aspects and components of Vedic astronomical algorithms:',
- matter:[
+ list:[
   {"Sidereal Zodiac": "Vedic astrology uses the sidereal zodiac, which is based on the actual positions of the stars in the sky. It divides the zodiac into 12 equal parts or signs, each named after a prominent constellation. The starting point of the zodiac is often considered to be the position of the fixed star Spica (Chitra) at a specific time in history."},
  {"Planetary Positions": "Vedic astronomical algorithms calculate the precise positions of the planets at a given time. This involves determining the longitude and latitude coordinates of each planet in the zodiac. These positions are crucial for constructing astrological charts and making predictions."},
  {"Ephemeris": "An ephemeris is a tabular representation of planetary positions for a specific period. Vedic astrology relies on ephemerides that provide accurate and detailed data on the positions of celestial bodies at regular intervals of time. These ephemerides are created using advanced mathematical calculations and algorithms."},

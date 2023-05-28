@@ -11,6 +11,7 @@ import { BiPlayCircle } from 'react-icons/bi';
 import { MdGamepad, MdGames } from 'react-icons/md';
 import { GrGamepad } from 'react-icons/gr';
 import { supabase } from '@/lib/Store';
+import { gold, silver } from '@/styles/sty';
 
 
 export const GameBanner = (props: any) => {
@@ -54,8 +55,6 @@ className='cursor-pointer bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] 
 }
 
 
-export const gold='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-900 via-yellow-200 to-yellow-600'
-export const silver='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900'
 
 const GameCategory=(props:any)=>{
   const {game}=props

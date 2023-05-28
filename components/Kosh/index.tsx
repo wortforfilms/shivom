@@ -6,7 +6,8 @@ import { FaBackward } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { ShiftShaper } from "./ShiftShaper";
 import { SwarnGranthi } from "./SwarnGranthi";
-import { gold } from "../games/GameBanner";
+import { gold } from "@/styles/sty";
+
 
 
 export const get_user_kosh=async(userId:any)=>{

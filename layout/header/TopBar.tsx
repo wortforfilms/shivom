@@ -11,8 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTokenCookie } from '@/lib/auth/auth-cookies';
 import { login } from '@/store/auth/action';
 import { errorT } from '@/components/toast';
-import { top_bar } from '@/styles/sty';
-import { gold } from '@/components/games/GameBanner';
+import { t_b, top_bar } from '@/styles/sty';
+
 
 
 
@@ -60,7 +60,7 @@ const dispatch=useDispatch()
     }, []);
     // dont change dependencies
 
-  return <nav className={`fixed  z-50 ${gold} w-full h-12 p-2 shadow-lg flex flex-row justify-between`}>
+  return <nav className={`fixed  z-50 ${t_b} w-full h-12 p-2 shadow-lg flex flex-row justify-between`}>
     {left && <LeftPanel/>}
     {right && <RightPanel/>}
    <LeftMenu/>
