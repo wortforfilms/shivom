@@ -245,7 +245,7 @@ export const brahmi = () => {
     const bangla_for_brahmi = String.fromCharCode(bnindex);
     const punjabi_for_brahmi = String.fromCharCode(pnindex);
     const english_for_brahmi = String.fromCharCode(enindex);
-    const gujjrati_for_brahmi = String.fromCharCode(gjindex);
+    const gujrati_for_brahmi = String.fromCharCode(gjindex);
     const tamil_for_brahmi = String.fromCharCode(tlindex);
     const telegu_for_brahmi = String.fromCharCode(tuindex);
     const malayaalam_for_brahmi = String.fromCharCode(mlindex);
@@ -259,7 +259,7 @@ export const brahmi = () => {
       letter,
       bangla_for_brahmi,
       punjabi_for_brahmi,
-      gujjrati_for_brahmi,
+      gujrati_for_brahmi,
       tamil_for_brahmi,
       telegu_for_brahmi,
       malayaalam_for_brahmi,
@@ -296,7 +296,7 @@ export const Brahmi = () => {
           return (
             <div
               key={index}
-              className="text-center w-56 mb-4 bg-white flex flex-col flex-wrap mx-auto p-4 rounded-lg shadow-xl"
+              className="text-center w-full sm:w-56 mb-4 bg-white flex flex-col flex-wrap mx-auto p-2 rounded-lg shadow-xl"
               onClick={()=>{
                 router.push(`/engine/letter/${letter[2]}`)
               }}
@@ -331,34 +331,44 @@ export const LetterMatter = (props:any) => {
   const [matter3, setMatter3] = useState("");
   const [matter4, setMatter4] = useState("");
 
+  const languages=[
+    "hindi",
+    "bangla",
+    "punjabi",
+    "gujrati",
+    "tamil",
+    "telegu",
+    "malyalam",
+    "arabic",
+    "kannada",
+    "tibetian",
+  ]
+
   return (
-    <div className="text-center w-full mb-4 bg-white hover:bg-orange-500 hover:text-white cursor-pointer flex flex-col flex-wrap mx-auto p-4 rounded-lg shadow-xl">
-      <div>
-        {/* <iframe  src="https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=&srlimit=20&srsearch={letter}"/> */}
-      </div>
+    <div className="text-center w-full mb-4 bg-white hover:bg-orange-500 hover:text-white cursor-pointer flex flex-col flex-wrap mx-auto p-2 rounded-lg shadow-xl">
+
       <div className="flex flex-row flex-wrap p-2 text-center overflow-y-auto mx-auto">
-        <div className="text-5xl font-bold text-gray-600">{letter[1]}</div>|:|
-        <div className="text-5xl font-bold text-gray-600">{letter[2]}</div>
+
+        <div className="text-7xl font-bold text-gray-600">{letter[2]}</div>
       </div>
 
-      <div className="text-2xl">
+
         <div className="text-xs">
-          hindi bangla punjabi gujrati tamil telegu malyalam arabic kannada
-          tibetian
+          {
+            languages.map((ln,index)=>{
+              return <div key={index} className="flex flex-row m-auto justify-between">
+                <div className="uppercase mt-2 p-2">
+                  {ln}:
+                  </div>
+                  <div className="text-3xl p-2">{letter[index===0?0:index+2]}</div>
+                </div>
+            }
+        
+            )
+          }
         </div>
-        {letter[0]}
-        {letter[3]}
-        {letter[4]}
-        {letter[6]}
-        {letter[7]}
-        {letter[8]}
-        {letter[9]}
-        {letter[10]}
-        {letter[11]}
-        {letter[12]}
+    
 
-        <div className="text-3xl  font-bold">{letter[13]}</div>
-      </div>
       <div className="w-full  text-xs text-left flex flex-wrap p-2">
         <div dangerouslySetInnerHTML={{ __html: matter }} />
         <div dangerouslySetInnerHTML={{ __html: matter1 }} />

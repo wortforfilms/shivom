@@ -73,7 +73,9 @@ return ()=>{mount=false}
 <UserCard user={user} kundali={kundali}/>
 <UserZodiac zod={sunsign}/>
 </div>
-
+<h1>
+  Janm
+  </h1>
 <div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
 
 {Object.keys(panch).map((hea,index)=>{
@@ -84,7 +86,9 @@ return ()=>{mount=false}
     <div>  {Object.values(panch)[index].name_en_UK}</div>
     </div>
 })}</div>
-
+<h1>
+  Vartmaan
+  </h1>
 <div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
 
 {Object.keys(vartamaan).map((hea,index)=>{

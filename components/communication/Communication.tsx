@@ -26,7 +26,7 @@ export const Communication = () => {
           animate={{opacity:[0,1]}}
           className='flex flex-col m-auto gap-2  cursor-pointer'
           onClick={()=>{
-            router.push('/chat/paid')
+            router.push(`/chat/${mes.tool.toLowerCase()}`)
           }}
           >
             <motion.div 

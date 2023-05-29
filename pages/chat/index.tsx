@@ -111,3 +111,17 @@ const [participants,setParticipents]=useState([
 };
 
 export default GroupVideoCall;
+
+
+// read enscriptions
+// 
+
+// "Learn Brahmi Alphabet with Fun Activities": This blog provides various interactive and engaging activities to introduce Brahmi alphabets to kindergarten kids. It includes printable worksheets, coloring pages, and games to make the learning process enjoyable.
+
+// "Brahmi Script for Kids: Introduction and Basics": This blog offers a simple introduction to Brahmi script, explaining its historical significance and basic concepts. It provides step-by-step guides on how to write each Brahmi letter, accompanied by illustrations and mnemonic devices to help kids remember the shapes.
+
+// "Fun and Creative Ways to Learn Brahmi Script": This blog focuses on creative learning techniques to teach Brahmi script to kindergarten kids. It suggests using play-based learning, such as making sand or clay models of Brahmi letters, creating craft projects, or using digital tools to practice writing.
+
+// "Brahmi Flashcards and Memory Games for Kids": This blog offers printable flashcards featuring Brahmi letters, along with memory games that reinforce letter recognition and recall. The games can be played individually or in groups, making learning a fun and social experience.
+
+// "Storytelling with Brahmi: Teaching Letters through Tales": This blog combines storytelling with teaching Brahmi letters. It provides short stories or anecdotes for each letter, connecting the letter's shape to a memorable character or object. This approach helps kids associate letters with meaningful contexts, aiding their retention and understanding.

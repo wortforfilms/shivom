@@ -37,7 +37,7 @@ const TransitionScreen: React.FC = () => {
             alt="loader"
             width={100}
             height={100}
-            className='w-full m-auto '
+            className='w-64 m-auto '
             />
     </div>
   );
