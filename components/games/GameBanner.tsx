@@ -11,7 +11,8 @@ import { BiPlayCircle } from 'react-icons/bi';
 import { MdGamepad, MdGames } from 'react-icons/md';
 import { GrGamepad } from 'react-icons/gr';
 import { supabase } from '@/lib/Store';
-import { gold, silver } from '@/styles/sty';
+import { gold, silver } from '@/sty';
+import { Box } from '@/elements/box';
 
 
 export const GameBanner = (props: any) => {
@@ -24,12 +25,17 @@ export const GameBanner = (props: any) => {
     { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
   ]);
 
-  return <div className='bg-white w-full sm:w-full  h-100 overflow-hidden mt-4'>
-    <div className='text-center p-2'>बुद्धिकल्पितसमाज</div>
-<div className='flex flex-row flex-wrap gap-8 m-auto bg-gray-300'>
-
+  return <div className=' w-full sm:w-full  h-100 overflow-hidden mt-4'>
+    <div className='text-center text-5xl thin-head p-2'>बुद्धिकल्पितसमाज</div>
+<div className='flex flex-row flex-wrap gap-8 m-auto '>
+<Box>
+  
    <GameCategory game={game[1]}/>
+</Box>
+<Box>
+
    <GameCategory game={game[0]}/>
+</Box>
 </div>
 
   </div>;

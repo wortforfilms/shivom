@@ -6,7 +6,8 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './layout/**/*.{js,ts,jsx,tsx,mdx}',
     './elements/**/*.{js,ts,jsx,tsx,mdx}',
-    './canvas/**/*.{js,ts,jsx,tsx,mdx}'
+    './canvas/**/*.{js,ts,jsx,tsx,mdx}',
+    './sty/**/*.{js,ts,jsx,tsx,mdx}'
 
   ],
   theme: {

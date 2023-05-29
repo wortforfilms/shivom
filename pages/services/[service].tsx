@@ -1,4 +1,4 @@
-import { heading } from "@/styles/sty"
+import { heading } from "@/sty"
 import { useRouter } from "next/router"
 
 const Service = () => {

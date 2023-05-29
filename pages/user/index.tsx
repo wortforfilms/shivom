@@ -1,10 +1,16 @@
-import MessageHome from "@/components/communication/messaging"
-import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import Image from 'next/image'
-import { BsDisplay } from "react-icons/bs"
+import TwoStatChartApp from "@/canvas/chart/TwoStat"
 import { sunsign } from "@/canvas/chart/d3/vedic"
+import { RingNakshatra } from "@/canvas/gears/ring_nakshatra"
+import { ObjectInfo } from "@/elements/object_display"
+import { moon_phase } from "@/lib/calender/MoonPhase"
+
+import { gold } from "@/sty"
+import Image from 'next/image'
+import { useRouter } from "next/router"
+import React, { useEffect, useState } from 'react'
+import { useSelector } from "react-redux"
+
+import { MhahPanchang } from 'mhah-panchang';
 
 const User=(props:any)=>{
 
@@ -16,6 +22,13 @@ const [kosh,setKosk]=useState()
 const [deposite,setDeposite]=useState()
 const router=useRouter()
 
+const [sunsign,setSunSign]=useState<any>('')
+const [kundali,setKundali]=useState( {
+  sunSign: 'Leo',
+  moonSign: 'Cancer',
+  ascendant: 'Aries'
+}
+)
 const info={
   tithi:"",
   pal:"",
@@ -29,6 +42,13 @@ const info={
   mahurat:""
 }
 
+
+var obj = new MhahPanchang();
+
+var [panch,setPunch] = useState(obj.calculate(new Date(user.dob)));
+var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
+// console.log(mhahObj);
+
 useEffect(()=>{
 let mount=true
 if(mount){
@@ -41,32 +61,81 @@ if(earth?.auth?.authenticated){
 return ()=>{mount=false}
 },[])
 
+
+// console.log(moon_phase(new Date(user.dob)))
   return <div className="p-4">
     <div className="h-12"></div>
-    <div   className="w-full p-2">
-   {
-     JSON.stringify(earth?.auth?.user)
-    }
-    </div>
-<BsDisplay className="text-7xl p-2"/>
 
-{[{first_name:"hkd"},{middle_name:""},{last_name:""}].map((f,index)=>{
-return  <div key={index}>{f.first_name}</div>
-})}
-
-<div>{user.id}</div>
 
 {/* <PostCreator/> */}
-<div>Biomed: {user.biomed?"done":"false"}</div>
-<div>Profiled: {user.profiled?"done":"false"}</div>
-<div>Email Verified: {user.email_verified?"done":"false"}</div>
-<div>Phone Verified</div>
+<div className="flex flex-col sm:flex-row gap-4">
+
+<UserCard user={user} kundali={kundali}/>
+<UserZodiac zod={sunsign}/>
+</div>
+
+<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+
+{Object.keys(panch).map((hea,index)=>{
+  return <div  key={index}  className="flex flex-col  m-auto text-center">
+    <div className="thin-subhead">{hea}:</div>
+    <div>  {Object.values(panch)[index].name}</div>
+    <div>  {Object.values(panch)[index].name_en_IN}</div>
+    <div>  {Object.values(panch)[index].name_en_UK}</div>
+    </div>
+})}</div>
+
+<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+
+{Object.keys(vartamaan).map((hea,index)=>{
+  return <div  key={index}  className="flex flex-col  m-auto text-center">
+    <div className="thin-subhead">{hea}:</div>
+    <div>  {Object.values(vartamaan)[index].name}</div>
+    <div>  {Object.values(vartamaan)[index].name_en_IN}</div>
+    <div>  {Object.values(vartamaan)[index].name_en_UK}</div>
+    </div>
+})}</div>
+
+
+<div className="flex flex-row justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+
+<div className="text-sm font-bold flex flex-col"><div>
+  Biomed: </div><div className="font-normal">{user.biomed?"done":"false"}
+  </div>
+  </div>
+<div className="text-sm font-bold flex flex-col"><div>
+  Profiled: </div><div className="font-normal">{user.profiled?"done":"false"}
+  </div>
+  </div>
+<div className="text-sm font-bold flex flex-col"><div>
+  Email Verified: </div><div className="font-normal">{user.email_verified?"done":"false"}
+  </div>
+  </div>
+<div className="text-sm font-bold flex flex-col"><div>
+  Phone Verified: </div><div className="font-normal">{user.phone_verified?"done":"false"}
+  </div>
+  </div>
+</div>
+<RingNakshatra/>
+{/* <TwoStatChartApp/> */}
+<Image
+    // src="/img/astrology-circle-orance-dots.png"
+    src="/img/indian2.png"
+    alt="astro chart"
+    width={100}
+    height={100}
+    priority
+    unoptimized
+quality={100}
+    className="w-full  invert  justify-start  m-auto"
+    />
+
 <ObjectInfo data={vedic_for_user} label="User Yoga"/>
 
 <Zodiac/>
 <ZodiacPosition/>
-<ZodiacCalculator/>
-<MoonSignCalculator/>
+<ZodiacCalculator user={user} setSunSign={setSunSign}/>
+<MoonSignCalculator user={user}/>
 <Image
     // src="/img/astrology-circle-orance-dots.png"
     src="/img/astrological_chart.png"
@@ -79,20 +148,7 @@ quality={100}
     className="w-1/2  rounded-full  justify-start opacity-50 m-auto"
     />
 
-<Image
-    // src="/img/astrology-circle-orance-dots.png"
-    src="/img/indian2.png"
-    alt="astro chart"
-    width={100}
-    height={100}
-    priority
-    unoptimized
-quality={100}
-    className="w-full    justify-start  m-auto"
-    />
-<div className="h-80 w-80 m-auto bg-green-500 p-2 ">
 
-</div>
 
   </div>
 }
@@ -121,11 +177,93 @@ quality={100}
   </div>
 }
 
+const UserZodiac=(props:any)=>{
+  const {zod}=props
 
-import React from 'react';
-import { gold } from "@/styles/sty"
-import { ObjectInfo } from "@/elements/object_display"
-import { PostCreator } from "@/elements/post_creator"
+  return <div className="flex flex-col w-32 m-auto bg-white rounded-lg shadow-lg gap2  justify-around flex-wrap">
+    {
+      sunsign.filter(i=>i===zod.toLowerCase()).map((str,index)=>{
+        return <div key={index} className={`${gold} shadow-lg m-4 rounded-full ring-4 ring-orange-200` }>
+<Image
+    src={`/img/zodiac/${str}.png`}
+    alt="astro chart"
+    width={100}
+    height={100}
+    priority
+    unoptimized
+quality={100}
+    className="w-32 invert justify-start  m-auto"
+    />
+        </div>
+      })
+    }
+    <h1 className="text-center">
+      {zod}
+      </h1>
+  </div>
+}
+
+interface Dosha {
+  kapha: number;
+  vata: number;
+  pitta: number;
+}
+
+const calculateDoshas = (dateOfBirth: string): Dosha => {
+  // Perform dosha calculation logic here
+  // This is a sample implementation, you can replace it with your own calculation logic
+
+  const kapha = dateOfBirth.length % 3;
+  const vata = dateOfBirth.length % 5;
+  const pitta = dateOfBirth.length % 7;
+
+  //  red green blue
+  // ¿? ::  white black
+  // {}->
+  // ?/¿
+  // q->u
+  // kyu yu
+  // mass biom profile 
+  // arm leg  chest height 
+  // vision hear vocal 
+  // {}-{} .. ≥≥ >>˘˘ compressspread
+  // t{aAaa}ndavaa
+  // case {}{}{}
+  // work case :: {} 
+  // {}-{}-{}-{}-{}
+  // trade
+  // tree ad ee 
+  // {ad}-{mp4}-{aiff}-{wave}-{qt}
+  // distribute clock
+  // {}-{}-{}
+  // cosmic clock
+  // hemant cosmic clock
+  // HCC
+  // H8
+  // he l_li um yum
+  // :;:  nachiketA saMvAda
+  //   {} -. ip address: {} devices:[] users:[]
+  // server client
+  // apache framework 
+  // azure aws heroku supabase 
+  // serve domain on cdn 
+  // serve from local server
+  // big rock :: godaddy :; :;::::………ÚÚÚ
+  // nandi
+  // Sengoll
+  // ß´˜˜©ø¬¬
+  // <.≤≥¯˘<>> fragment 
+  // bull
+  // ∫¨¬¬∫¨ÒÒ
+  // ?ox ø≈  ˛
+  // rahuketu
+  // {®å˙¨˚´†¨‰/* ¨´ˇ¨ */}->
+  // ¥ÁYy
+  // ¨¨¨¨¨¨uuUU "ÆÆ":ÚÚ
+  // 
+
+  return { kapha, vata, pitta };
+};
 
 // Zodiac sign data
 const zodiacSigns = [
@@ -186,8 +324,9 @@ console.log("first cal cul at-e")
 // {}= :::
 // 
 
-const ZodiacCalculator: React.FC = () => {
-  const [date, setDate] = useState('');
+const ZodiacCalculator = (props:any) => {
+  const {user, setSunSign}=props
+  const [date, setDate] = useState(user.dob);
   const [zodiac, setZodiac] = useState('');
 
   const calculateZodiac = () => {
@@ -224,28 +363,42 @@ const ZodiacCalculator: React.FC = () => {
     setZodiac(zodiacSign);
   };
 
+  useEffect(() => {
+    let mount=true
+    if(mount){
+      calculateZodiac()
+    }
+  
+    return () => {
+      mount=false
+    }
+  }, [date])
+
+  useEffect(() => {
+    let  mount=true
+    if(mount){
+      setSunSign(zodiac)
+    }
+  
+    return () => {
+      mount=false
+    }
+  }, [zodiac])
+  
+  
+
   return (
     <div>
       <h2>Zodiac Calculator</h2>
-      <div>
-        <label>Date:</label>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </div>
-      <button onClick={calculateZodiac}>Calculate</button>
       {zodiac && <p>Zodiac Sign: {zodiac}</p>}
     </div>
   );
 };
 
 
-
-
-const MoonSignCalculator: React.FC = () => {
-  const [date, setDate] = useState('');
+const MoonSignCalculator = (props:any) => {
+  const {user}=props
+  const [date, setDate] = useState(user.dob);
   const [moonSign, setMoonSign] = useState('');
 
   const calculateMoonSign = () => {
@@ -303,6 +456,18 @@ const MoonSignCalculator: React.FC = () => {
     setMoonSign(moonSign);
   };
 
+  useEffect(() => {
+    let mount
+    if(mount){
+      calculateMoonSign()
+    }
+  
+    return () => {
+      mount=true
+    }
+  }, [date])
+  
+
   return (
     <div>
       <h2>Moon Sign Calculator</h2>
@@ -336,3 +501,75 @@ const vedic_for_user={
 
 notes:"It's important to note that Vedic astronomical algorithms have evolved over centuries and continue to be refined by scholars and practitioners. They form the basis of Vedic astrology and are used to make predictions, analyze personality traits, and provide guidance for various aspects of life. However, accurate interpretation and application of these algorithms require deep knowledge, expertise, and experience in Vedic astrology.",
 }
+
+
+interface User {
+  username: string;
+  dob: string;
+  pob: string;
+}
+
+interface Kundali {
+  sunSign: string;
+  moonSign: string;
+  ascendant: string;
+}
+
+interface UserCardProps {
+  user: User;
+  kundali: Kundali;
+}
+
+const UserCard: React.FC<UserCardProps> = ({ user, kundali }) => {
+  return (
+    <div className="user-card bg-white p-2 shadow-lg rounded-lg m-auto w-80">
+      <h2>Welcome.. {user.username}</h2>
+      <div className="user-details">
+        <p>Date of Birth: {user.dob}</p>
+        <p>Place of Birth: {user.pob}</p>
+      </div>
+      <div className="kundali-details">
+        <h3>Kundali Information</h3>
+        <p>Sun Sign: {kundali.sunSign}</p>
+        <p>Moon Sign: {kundali.moonSign}</p>
+        <p>Ascendant: {kundali.ascendant}</p>
+      </div>
+    </div>
+  );
+};
+
+
+
+const PlanetOrbits: React.FC = () => {
+  const [rotation, setRotation] = useState(0);
+  let animationFrameId: number = 0;
+
+  useEffect(() => {
+    startAnimation();
+
+    return () => stopAnimation();
+  }, []);
+
+  const startAnimation = () => {
+    const animate = () => {
+      setRotation((prevRotation) => prevRotation + 1);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+  };
+
+  const stopAnimation = () => {
+    cancelAnimationFrame(animationFrameId);
+  };
+
+  return (
+    <div className="planet-orbits">
+      <div className="orbit">
+        <div className="planet" style={{ transform: `rotate(${rotation}deg)` }}></div>
+      </div>
+    </div>
+  );
+};
+
+

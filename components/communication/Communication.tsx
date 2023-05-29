@@ -12,10 +12,8 @@ export const Communication = () => {
     <div className='p-4 text-3xl font-bold text-center text-gray-600'>Communicate with experts in the way you like!!</div>
     <div className='flex flex-col sm:flex-row gap-2'>
 
-      <div className='flex flex-row gap-4 -mt-12 sm:mt-0 w-1/2 p-12 '
-      onClick={()=>{
-        router.push('/chat/paid')
-      }}
+      <div className='flex flex-row gap-4 -mt-2 sm:mt-0 w-full sm:w-1/2 p-2 '
+  
       >
 
         {[
@@ -26,13 +24,17 @@ export const Communication = () => {
         ].map((mes, index) => {
           return <motion.div key={index} 
           animate={{opacity:[0,1]}}
-          className='flex flex-col m-auto gap-2  cursor-pointer'>
+          className='flex flex-col m-auto gap-2  cursor-pointer'
+          onClick={()=>{
+            router.push('/chat/paid')
+          }}
+          >
             <motion.div 
             whileHover={{scale:1.1}}
             
             
             className='text-3xl m-auto  rounded-full w-16 h-16 bg-gradient-to-r from-red-800 via-yellow-300 to-yellow-500 ring-4 ring-orange-300 p-4 shadow-lg '>{mes.icon}</motion.div>
-            <div className=' text-center text-xl m-auto font-thin p-2'>{mes.tool}</div>
+            <div className=' text-center text-xl m-auto  font-bold p-2'>{mes.tool}</div>
           </motion.div>;
         })}
       </div>
@@ -45,7 +47,7 @@ export const Communication = () => {
         className='w-72 h-auto m-auto' />
     </div>
 
-    <div className='absolute bg-pink-500 top-96 sm:top-56 text-white p-4 roudned-lg'>Starting at INR. 20.00 per minute</div>
+    <div className='absolute bg-pink-500 bottom-56 sm:top-56 h-12 text-white p-4 roudned-lg'>Starting at INR. 20.00 per minute</div>
 
     <div className='flex flex-row flex-wrap gap-4 -mt-8 sm:mt-0 justify-around  w-full p-12 bg-white'>
 
@@ -147,3 +149,13 @@ export const Communication = () => {
 // पञ्चतीथी	f.	paJcatIthI	bathingonthedayoftheequinox	
 // होलाका	f.	holAkA	springfestivalattheapproachofthevernalequinox	
 // विषुवत्सङ्क्रान्ति	f.	viSuvatsaGkrAnti	passingofthethesunintothenextsignateitherequinox	
+
+
+
+// Found 5 entries
+// Your results for artha:
+// स्वरक्षार्थम्		svarakSArtham	svarakSaartha	
+// कार्श्य	n.	kArzya	smallnessartha-k	
+// कार्श्य	n.	kArzya	smallnessartha-k	
+// स्वामिकार्यार्थं		svAmikAryArthaM	svami-karya-artham	
+// कालतरङ्ग	m.	kAlataraGga	firstpartofthesmRtyarthasAgarabynRsiMha

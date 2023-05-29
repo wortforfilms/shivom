@@ -27,6 +27,7 @@ import Services from './services'
 import { VedicCoarses } from './services/[service]'
 import Banner from '@/elements/banner'
 import Sh4omBanner, { Sh4omBanner0 } from '@/elements/headless/banner'
+import { Box } from '@/elements/box'
 
 
 // before active after
@@ -45,8 +46,10 @@ export default function Home(props: any) {
 
       <div className='h-12'></div>
       <HeaderButtons setSection={setSection} section={section} />
+<Box>
+
       {!section &&<Banner/>}
-      
+</Box>      
       <div className='flex flex-col sm:flex-row gap-2 '>
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
@@ -61,10 +64,13 @@ export default function Home(props: any) {
       </>}
       {section === "astrology" && <Communication />}
       {section === "astronomy" && <>
+      <Box>
+
         <div className='mt-8'>
           <Zodiacs />
 
         </div>
+      </Box>
       </>
       }
       {section === "vedic_classes" && <>
@@ -88,7 +94,7 @@ export default function Home(props: any) {
       <Doshas />
       <Process />
       <SocialBar />
-      <Sh4omBanner/>
+      {/* <Sh4omBanner/> */}
       <Sh4omBanner0/>
     </main>
   )

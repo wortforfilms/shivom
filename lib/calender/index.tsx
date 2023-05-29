@@ -142,8 +142,8 @@ export const IconLabel=(props:any)=>{
                     {si.icon}
                     </div>
                   {hovered && <motion.div 
-                  animate={{x:[-10,0],y:[35,45], opacity:[0,1]}}
-                  className="absolute z-50 m-auto bg-pink-500  p-1 rounded-lg">{si.label}</motion.div>}
+                  // animate={{x:[-10,0],y:[35,45], opacity:[0,1]}}
+                  className="absolute z-50 m-auto bg-pink-500 mt-24 p-1 rounded-lg">{si.label}</motion.div>}
     </motion.div>
   }
 

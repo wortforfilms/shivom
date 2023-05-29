@@ -4,7 +4,8 @@ import { useSelector } from "react-redux"
 import GyroHome from "@/components/tool"
 import Image from 'next/image'
 import { motion } from "framer-motion"
-import { heading } from "@/styles/sty"
+import { heading } from "@/sty"
+import { Box } from "@/elements/box"
 
 interface DateTime {
   year: number;
@@ -100,7 +101,8 @@ const vedicYoga = calculateVedicYoga(currentDate);
 
 export const Ifo=(props:any)=>{
   const {data,label}=props
-  return <div className="p-4 m-auto">
+  return <Box>
+    <div className="p-4 m-auto">
     <div className={heading}>{label}</div>
     <div className="py-4">{data.Information}</div>
     <div className="flex flex-row gap-2 flex-wrap">
@@ -116,6 +118,7 @@ export const Ifo=(props:any)=>{
     <div className="text-xs py-4">{data.notes}</div>
     <hr className="border-1 border-gray-300"/>
   </div>
+      </Box>
 }
 
 

@@ -13,7 +13,8 @@ import { motion } from "framer-motion";
 import { snake } from "@/util/hkc";
 import { UPIApp } from "@/components/Kosh/ShiftShaper";
 import { Container } from "@/canvas/Container";
-import { silver } from "@/components/games/GameBanner";
+import { silver } from "@/sty";
+
 
 
 export const LabelButton = (props:any) => {
@@ -210,8 +211,12 @@ export const RegDevice=(props:any)=>{
   const {amount, type, unit}=props
   return <div className={`p-4 w-80 mt-6 m-auto ${silver} rounded-lg shadow-lg`}>
 
-Increase your sales<br/>
-    Register your {type}<br/>
+<div className="thin-head">
+  Increase your sales<br/>
+  </div>
+    <div className="description">
+      Showcase your {type}<br/>
+      </div>
     Starts as low as INR. {amount} {unit}<br/>
 <UPIApp amount={amount}/>
   </div>

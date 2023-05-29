@@ -61,4 +61,16 @@
 // export default NakshatraChart;
 export {}
 
-export const sunsign=[ "aries","cancer","gemini","leo","libre","gold","gold-t","pisces","sagittarius","scorpio","tarius","virgo"]
+export const sunsign=[ "aries","cancer","gemini","leo","libre","capricorn","gold","pisces","sagittarius","scorpio","tarius","virgo"]
+
+
+
+// Found 7 entries
+// Your results for parallal:
+// अवनति	f.	avanati	parallax	
+// दृग्लम्बन	n.	dRglambana	verticalparallax	
+// नति	f.	nati	parallaxinlatitude	
+// हरिज	n.	harija	longitudinalparallax	
+// लम्बन	n.	lambana	moon'sparallaxinlongitude	
+// नति	f.	nati	inclinationorparallaxinlatitude	
+// लम्बनविधि	m.	lambanavidhi	ruleforcalculatingthemoon'sparallaxinlongitude	

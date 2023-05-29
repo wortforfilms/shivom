@@ -1,4 +1,4 @@
-import { heading } from "@/styles/sty"
+import { heading } from "@/sty"
 import { motion } from "framer-motion"
 
 export const ObjectInfo=(props:any)=>{

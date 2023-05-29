@@ -15,6 +15,9 @@ import { supabase } from '@/lib/Store'
 import shortid from 'shortid'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
+import { Transition } from '@headlessui/react'
+import TransitionScreen from '@/elements/transition'
+import { Box } from '@/elements/box'
 // import 'regenerator-runtime/runtime'
 
 const update_existing_device=async(tantra:any)=>{
@@ -89,7 +92,11 @@ function App({ Component, ...rest }: AppProps) {
       }
     }, [])
     
-
+if(loading){
+  return <Box>
+    <TransitionScreen/>
+    </Box>
+}
   return <>
     <div ref={appRef} className='text-gray-700'>
 
@@ -106,11 +113,13 @@ function App({ Component, ...rest }: AppProps) {
           pauseOnFocusLoss
           draggable={false}
           pauseOnHover
-        />
+          />
+          {/* <TransitionScreen/> */}
 <TopBar/>
 
 
 <Component {...props.pageProps} />
+
 
 
 <motion.div 

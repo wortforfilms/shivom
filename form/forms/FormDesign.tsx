@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { check_if_user_exists, create_product, create_service, create_vender, login_user, register_user } from './actions';
 import { errorT, notify } from '@/components/toast';
 
-import { form_button, form_container } from '@/styles/sty'
+import { form_button, form_container } from '@/sty'
 import { collect_data } from '@/lib/auth/act/collect_data';
 import { useDispatch, useSelector } from 'react-redux';
 

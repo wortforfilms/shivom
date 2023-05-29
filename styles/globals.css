@@ -262,3 +262,53 @@ body {
   content: '';
   animation: matrix 1s steps(20) infinite;
 }
+
+
+.planet-orbits {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.orbit {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed gray;
+  border-radius: 50%;
+  position: relative;
+  animation: orbit-rotation 10s linear infinite;
+}
+
+@keyframes orbit-rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.planet {
+  width: 20px;
+  height: 20px;
+  background-color: #ffdd57;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 10px);
+}
+
+
+.transition-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
