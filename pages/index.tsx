@@ -28,6 +28,8 @@ import { VedicCoarses } from './services/[service]'
 import Banner from '@/elements/banner'
 import Sh4omBanner, { Sh4omBanner0 } from '@/elements/headless/banner'
 import { Box } from '@/elements/box'
+import BookCover3D from '@/elements/3d/bookcover'
+import HindiAlphabetChart from '@/lib/akshar/hindi'
 
 
 // before active after
@@ -62,7 +64,11 @@ export default function Home(props: any) {
       {section === "games" && <>
         {!earth.auth.authenticated ? <GameBanner /> : <Game />}
       </>}
-      {section === "astrology" && <Communication />}
+      {section === "astrology" && <Box>
+   
+        <Communication />
+        </Box>
+        }
       {section === "astronomy" && <>
       <Box>
 
@@ -79,7 +85,7 @@ export default function Home(props: any) {
 
       </>}
       {section === "brahmi_classes" && <>
-     
+     <HindiAlphabetChart/>
         <Brahmi />
       </>}
       {section === "boards" && <Team />}

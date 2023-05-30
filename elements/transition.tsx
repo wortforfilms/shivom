@@ -17,7 +17,9 @@ const TransitionScreen: React.FC = () => {
 
   return (
     <div className={`transition-screen ${animationFinished ? 'fade-out' : ''}`}>
-      {/* <h1>Sh{"iv"}om</h1> */}
+      <div className='flex flex-col gap-2'>
+
+      <h1 className='thin-head text-center'>Sh{"iv"}om</h1>
       {/* <video muted autoPlay controls={false} loop
             
             className="  w-full w-full sm:w-full  p-0 sm:p-2 mt-8
@@ -39,6 +41,8 @@ const TransitionScreen: React.FC = () => {
             height={100}
             className='w-64 m-auto '
             />
+      </div>
+
     </div>
   );
 };

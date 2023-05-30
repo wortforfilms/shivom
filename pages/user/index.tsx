@@ -577,3 +577,9 @@ const PlanetOrbits: React.FC = () => {
 };
 
 
+const qs=[
+"What does the Kundali suggest about this person's career?",
+"What are some potential challenges this person may face based on their Kundali?",
+"Can you suggest any specific practices or rituals that would be beneficial for this person based on their Kundali?",
+]
+
