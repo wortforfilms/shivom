@@ -1,9 +1,7 @@
-import TwoStatChartApp from "@/canvas/chart/TwoStat"
+
 import { sunsign } from "@/canvas/chart/d3/vedic"
 import { RingNakshatra } from "@/canvas/gears/ring_nakshatra"
 import { ObjectInfo } from "@/elements/object_display"
-import { moon_phase } from "@/lib/calender/MoonPhase"
-
 import { gold } from "@/sty"
 import Image from 'next/image'
 import { useRouter } from "next/router"
@@ -532,12 +530,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, kundali }) => {
         <p>Date of Birth: {user.dob}</p>
         <p>Place of Birth: {user.pob}</p>
       </div>
-      <div className="kundali-details">
-        <h3>Kundali Information</h3>
-        <p>Sun Sign: {kundali.sunSign}</p>
-        <p>Moon Sign: {kundali.moonSign}</p>
-        <p>Ascendant: {kundali.ascendant}</p>
-      </div>
+  
     </div>
   );
 };

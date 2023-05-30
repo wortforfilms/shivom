@@ -1,3 +1,4 @@
+import { alphabetData } from "@/lib/akshar/hindi";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 export const brahmi = () => {
@@ -301,7 +302,8 @@ export const Brahmi = () => {
                 router.push(`/engine/letter/${letter[2]}`)
               }}
             >
-              {index + 1}
+              {/* {index + 1} */}
+              {/* {alphabetData[index] } */}
               <LetterMatter letter={letter} />
             </div>
           );

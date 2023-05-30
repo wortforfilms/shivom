@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { ShiftShaper } from "./ShiftShaper";
 import { SwarnGranthi } from "./SwarnGranthi";
 import { gold } from "@/sty";
+import { motion } from "framer-motion";
 
 
 
@@ -39,7 +40,7 @@ export const Kosh = (props:any) => {
   // const ['','जय हनुमान ज्ञान गुण सागर ']=उसेस्टते()
   const [kosh_kotwaala,setKoshKotwAla]=useState<Auth>()
 
-  const [koshy, setKosh] = useState<any>([{ total: "0", last_use: "9", last_deposite: "20" }])
+  const [koshy, setKosh] = useState<any>([{  user_yantra:0, user_mantra:0, last_use: 0, last_deposite: 0 }])
   
   const [orders, setOrders] = useState<any>([
     { amount: "5", paid_to: "palmistry", use: "session" },
@@ -80,12 +81,20 @@ const router=useRouter()
     }}><FaBackward/></div>}
       <div className={`flex flex-row justify-around gap-4 m-auto ${gold} w-64 m-auto rounded-lg shadow-lg text-center`}>
 
-<div>Yantra: <h3>
-  20
+<div className="text-3xl">Yantra: <h3>
+  {koshy.user_yantra?koshy.user_yantra:0} 
+  <motion.div 
+  whileHover={{scale:.95}}
+  whileTap={{scale:1.1}} className="bg-gray-600 text-white p-2 rounded-lg  cursor-pointer  shadow-lg shadow-pink-500">Withdraw</motion.div>
   </h3>
   </div>
-<div>Mantra: <h3>
-  60
+<div className="text-3xl ">Mantra: <h3>
+  {koshy.user_mantra?koshy.user_mantra:0}
+  <motion.div 
+  whileHover={{scale:.95}}
+  whileTap={{scale:1.1}}
+  className="bg-gray-600 text-white p-2 rounded-lg cursor-pointer shadow-lg shadow-pink-500">Gift</motion.div>
+
   </h3>
   </div>
 

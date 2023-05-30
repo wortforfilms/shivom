@@ -3,17 +3,24 @@
 // विस्तृत	n.	vistRta	wideball[cricket]	
 // आज्ञावलीपट्ट	m.	AjJAvalIpaTTa	menubar[computer]	
 // औद्भिदीय	adj.	audbhidIya	botanical[relating to botany]	
+
+import { silver } from "@/sty";
+import { motion } from "framer-motion";
+
 // उद्भवद्विवरण	n.	udbhavadvivaraNa	pop-updescription[computer]
 export const SwarnGranthi = (props: any) => {
   const { recharges, kosh,  setStep, setAmount } = props;
   return <div className='p-2 bg-white m-auto'>
-    <h1 className='text-3xl p-2 mb-12 font-extrabold'>
+    <h1 className='text-3xl p-2 mb-12  text-center font-extrabold'>
       Activate your {"DixOm"}
     </h1>
     <div className='flex flex-row flex-wrap justify-around gap-4 m-auto'>
 
       {recharges.map((sr: any, index: number) => {
-        return <div key={index} className='bg-gray-300 rounded-lg p-2   '
+        return <motion.div key={index} 
+        whileHover={{scale:.95}}
+        whileTap={{scale:1.1}}
+        className={`${silver} rounded-lg p-2 cursor-pointer shadow-lg shadow-pink-500 ring-4 ring-gray-400 border-4 border-white`}
         onClick={()=>{
           setStep('shift')
           setAmount(sr.amount)
@@ -21,7 +28,7 @@ export const SwarnGranthi = (props: any) => {
         >
           <div className='text-sm font-bold p-2 text-center'>Deposit {sr.count}</div>
           <div className='text-xs text-center'>Pay {"INR"} {sr.amount}</div>
-        </div>;
+        </motion.div>;
       })}
     </div> 
       {/* 
