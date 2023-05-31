@@ -1,3 +1,4 @@
+import { Box } from '@/elements/box';
 import { add_to_cart } from '@/store/cart/action';
 import { AddCartButtonAlpha } from '@/util/cart/AddCartButton';
 import { dispatch } from 'd3';
@@ -80,6 +81,8 @@ export const ProductList = (props:any) => {
             images:product.product_images, pr_type:"physical goods", data:"data", variance:[{price:product.product_price}]
         }
         return <div key={index} className='bg-white p-4 w-full sm:w-72 flex flex-col justify-between'>
+          <Box>
+
           <div>Rating: {product.product_rating}</div>
           <div className='bg-black w-full'>
           <Image
@@ -111,6 +114,8 @@ export const ProductList = (props:any) => {
             >Add to Cart
             </div>
           </div>
+          </Box>
+
         </div>;
       })}
 

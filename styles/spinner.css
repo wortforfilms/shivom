@@ -1,0 +1,35 @@
+.spinning-wheel {
+  text-align: center;
+}
+
+.wheel {
+  width: 200px;
+  height: 200px;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  margin: 20px auto;
+  transition: transform 3s ease-in-out;
+}
+
+.spin {
+  animation: spin-animation 3s infinite;
+}
+
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.reward {
+  font-size: 24px;
+  margin: 20px auto;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}

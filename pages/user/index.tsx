@@ -44,7 +44,7 @@ const info={
 var obj = new MhahPanchang();
 
 var [panch,setPunch] = useState(obj.calculate(new Date(user.dob)));
-var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
+var [vartamaan,setVartamaan] = useState<any>(obj.calculate(new Date()));
 // console.log(mhahObj);
 
 useEffect(()=>{
@@ -84,21 +84,9 @@ return ()=>{mount=false}
     <div>  {Object.values(panch)[index].name_en_UK}</div>
     </div>
 })}</div>
-<h1>
-  Vartmaan
-  </h1>
-<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
-
-{Object.keys(vartamaan).map((hea,index)=>{
-  return <div  key={index}  className="flex flex-col  m-auto text-center">
-    <div className="thin-subhead">{hea}:</div>
-    <div>  {Object.values(vartamaan)[index].name}</div>
-    <div>  {Object.values(vartamaan)[index].name_en_IN}</div>
-    <div>  {Object.values(vartamaan)[index].name_en_UK}</div>
-    </div>
-})}</div>
 
 
+<Aaj />
 <div className="flex flex-row justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
 
 <div className="text-sm font-bold flex flex-col"><div>
@@ -576,3 +564,27 @@ const qs=[
 "Can you suggest any specific practices or rituals that would be beneficial for this person based on their Kundali?",
 ]
 
+export const Aaj=(props:any)=>{
+
+
+  var obj = new MhahPanchang();
+
+
+var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
+
+  return <>
+  <h1>
+  Vartmaan
+  </h1>
+<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+
+{vartamaan && Object.keys(vartamaan).map((hea,index)=>{
+  return <div  key={index}  className="flex flex-col  m-auto text-center">
+    <div className="thin-subhead">{hea}:</div>
+    <div>  {Object.values(vartamaan)[index]?.name}</div>
+    <div>  {Object.values(vartamaan)[index]?.name_en_IN}</div>
+    <div>  {Object.values(vartamaan)[index]?.name_en_UK}</div>
+    </div>
+})}</div>
+  </>
+}

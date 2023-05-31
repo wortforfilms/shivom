@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { motion } from "framer-motion"
 import { heading } from "@/sty"
 import { Box } from "@/elements/box"
+import { Aaj } from "../user"
 
 interface DateTime {
   year: number;
@@ -101,8 +102,7 @@ const vedicYoga = calculateVedicYoga(currentDate);
 
 export const Ifo=(props:any)=>{
   const {data,label}=props
-  return <Box>
-    <div className="p-4 m-auto">
+  return  <div className="p-4 m-auto">
     <div className={heading}>{label}</div>
     <div className="py-4">{data.Information}</div>
     <div className="flex flex-row gap-2 flex-wrap">
@@ -118,16 +118,17 @@ export const Ifo=(props:any)=>{
     <div className="text-xs py-4">{data.notes}</div>
     <hr className="border-1 border-gray-300"/>
   </div>
-      </Box>
+
 }
 
 
 const CalenderView=(props:any)=>{
   const {initialReduxState}=props
   const earth:typeof initialReduxState=useSelector(state=>state)
-  return <div className="max-w-5xl m-auto p-4">
+  return  <div className="max-w-5xl m-auto p-4">
     <div className="h-12"></div>
     {/* <div>{vedicYear}</div> */}
+    <Aaj/>
     <div className="flex flex-col sm:flex-row">
     <Image
   src="/img/tithi.png"
@@ -138,15 +139,12 @@ const CalenderView=(props:any)=>{
   unoptimized
   className="w-96 h-auto m-auto z-10 rounded-full invert bg-white"
     />
-{/* `Vedic Tithi: {vedicTithi}-{Tithi.list[vedicTithi-1]}` */}
+
 
 <Ifo data={Tithi}  label="Tithi"/>
 </div>
 <div className="flex  flex-col sm:flex-row">
-
 <Ifo data={Yoga}  label="Yoga"/>
-{/* `Vedic Yoga: {vedicYoga}-{Yoga.list[vedicYoga-1]}` */}
-
 <Image
   src="/img/yoga.png"
   alt="yoga"
@@ -200,6 +198,8 @@ const CalenderView=(props:any)=>{
           </div> */}
     {/* <Calender earth={earth}/> */}
   </div>
+
+
 }
 
 export default CalenderView

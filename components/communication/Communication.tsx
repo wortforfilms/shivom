@@ -10,8 +10,9 @@ export const Communication = () => {
   const router=useRouter()
   return <div className='flex flex-col bg-white shadow-lg w-full mb-12 mt-12'>
     <div className='p-4 text-3xl font-bold text-center text-gray-600'>Communicate with experts in the way you like!!</div>
-   <div className="flex flex-row justify-between"></div>
-    <div className='flex flex-col justify-between'>
+   <div className="flex flex-col sm:flex-row justify-between">
+
+    <div className='flex flex-col justify-between m-auto'>
     <div className='flex flex-col sm:flex-row gap-2'>
 
       <div className='flex flex-row gap-4 -mt-2 sm:mt-0 w-full sm:w-1/2 p-2 '
@@ -43,7 +44,7 @@ export const Communication = () => {
 
     
     </div>
-    <div className=' bg-pink-500  sm:top-56 h-12 text-white p-4 roudned-lg'>Starting at INR. 20.00 per minute</div>
+    <div className=' bg-pink-500  sm:top-56 h-12 text-white p-4 roudned-lg'>Starting at INR. 10.00 per minute</div>
 
 </div>
 <div>
@@ -55,6 +56,8 @@ export const Communication = () => {
         height={100}
         className='w-72 h-auto m-auto' />
         </div>
+   </div>
+
     <div className='flex flex-row flex-wrap gap-4 -mt-8 sm:mt-0 justify-around  w-full p-12 bg-white'>
 
       {[

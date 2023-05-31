@@ -1,3 +1,4 @@
+import { Box } from '@/elements/box';
 import React from 'react';
 
 interface HindiAlphabet {
@@ -62,19 +63,14 @@ const HindiAlphabetChart: React.FC = () => {
   return (
     <div className="hindi-alphabet-chart sm:p-4 mt-4">
       <table>
-        {/* <thead>
-          <tr>
-            <th>अक्षर</th>
-            <th>शब्द</th>
-            <th>इमोजी</th>
-          </tr>
-        </thead> */}
-        <tbody className='flex flex-row flex-wrap  gap-2'>
+        <tbody className='flex flex-row flex-wrap justify-around gap-2'>
           {alphabetData.map((item) => (
-            <tr key={item.alphabet} className='flex flex-col bg-white shadow-lg p-1'>
-              <td className='text-3xl sm:text-7xl'>{item.alphabet}</td>
+            <tr key={item.alphabet} className='flex flex-col bg-white shadow-lg w-[48%] sm:w-48 p-4 text-center'>
+
+               <td className='text-3xl sm:text-7xl'>{item.alphabet}</td>
               <td>{item.word}</td>
               <td className='text-3xl sm:text-7xl'>{item.emoji}</td>
+
             </tr>
           ))}
         </tbody>

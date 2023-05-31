@@ -129,7 +129,7 @@ const CartEx = (props:any) => {
       const nums = products.map((i:any) => i.price * i.quantity);
       const _amount = nums.reduce((i:any, a:any) => i + a, 0);
       setAmount(_amount);
-      console.log("cart amount", _amount, products);
+      // console.log("cart amount", _amount, products);
     }
     return () => {
       mount = false;
@@ -232,7 +232,7 @@ const PhysicalProductInCartCard=(props:any)=>{
          <div className="h-24 w-24  overflow-hidden rounded-md border border-gray-200"
                       
                       onClick={()=>{
-                        console.log(product)
+                        // console.log(product)
                         router.push(`/market/${product &&  product?.product_id}`)
                       }}
                       >

@@ -1,3 +1,4 @@
+import { Box } from "@/elements/box"
 import { heading } from "@/sty"
 import { useRouter } from "next/router"
 
@@ -424,7 +425,10 @@ return <div className="p-2 mt-6">
             {vedic.matter.map((c: any, index: number) => {
               return <div key={index} className="snakeCase bg-white rounded-lg shadow-lg text-sm  p-1">
                 {/* {c.q} */}
+                <Box>
+
                 <List header={c.q} data={c.d} />
+                </Box>
               </div>
             })}
             </div>

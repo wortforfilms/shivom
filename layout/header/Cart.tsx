@@ -66,7 +66,7 @@ link:"/"
 
     {
       services.map((ss,index)=>{
-        console.log(ss)
+        // console.log(ss)
         return <div key={index} className={`${router.asPath===ss.link?`${active_head} rounded-full w-10 h-10`:""}`}>
           {ss.label.toLowerCase()==="cart" && products?.length>1 && <div className='absolute text-xs text-center m-auto font-bold  z-20 shadow-pink-500  ml-4 rounded-full p-1 w-100 h-4 bg-red-700 text-white'>
             <div className='-mt-1'>{Math.round(amount)}</div>

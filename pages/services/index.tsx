@@ -1,3 +1,4 @@
+import { Box } from "@/elements/box"
 import { useRouter } from "next/router"
 import { useState } from "react"
 
@@ -35,8 +36,11 @@ const Services = () => {
           router.push(`/services/${ser.label}`)
         }}
         >
+          <Box>
+
           <div className="font-bold uppercase hover:text-green-500 hover:underline">{ser.label}</div>
         <div className="p-2 text-xs font-normal">{ser.description}</div>
+          </Box>
         </div>
 })
 }

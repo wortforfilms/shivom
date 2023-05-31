@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '@/styles/spinner.css'
 import type { AppProps } from 'next/app'
 import { TopBar } from '@/layout/header/TopBar'
 import { Footer } from '@/layout/Footer'
@@ -128,9 +129,12 @@ if(loading){
         router.push('/supportus')
       }}
       drag className='fixed bottom-16 text-3xl -mb-12 right-2 -ml-12 ring-2 ring-pink-800 shadow-lg bg-white rounded-full p-2'>💝</motion.div>
+{router.asPath==='/' && <>
 <Footer/>
-</Suspense>
 <Copyright/>
+</>
+}
+</Suspense>
 </Provider>
   </ErrorBoundary>
   </div>
