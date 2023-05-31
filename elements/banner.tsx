@@ -36,6 +36,7 @@ const Banner: React.FC = (props:any) => {
   const router=useRouter()
   return (
     <div className="banner flex flex-row bg-gray-200 h-full sm:h-64 mt-8 md:h-80 flex justify-center items-center">
+      
           <Image
     // src="/img/astrology-circle-orance-dots.png"
     src={aibannner.bg_image}
@@ -50,13 +51,13 @@ quality={100}
       <div className="content bg-white shadow-lg bg-opacity-[98%] p-4 text-center">
         <h1 className={heading}>{aibannner.title}</h1>
         <p className={information}>{aibannner.info}</p>
-        {earth?.auth?.authenticated?<div className="cta-button bg-red-500 hover:bg-red-600 text-white text-lg px-8 py-4 rounded-full transition-colors duration-300" 
+        {earth?.auth?.authenticated?<div className="cta-button cursor-pointer bg-red-500 hover:bg-red-600 text-white text-lg px-8 py-4 rounded-full transition-colors duration-300" 
         onClick={()=>{
           router.push('/user')
         }}
         >
           {aibannner.auth_action.label}
-        </div>:<a className="cta-button bg-red-500 hover:bg-red-600 text-white text-lg px-8 py-4 rounded-full transition-colors duration-300"
+        </div>:<a className="cta-button bg-red-500 cursor-pointer hover:bg-red-600 text-white text-lg px-8 py-4 rounded-full transition-colors duration-300"
           onClick={()=>{
             router.push('/auth/register')
           }}

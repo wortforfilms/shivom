@@ -2,6 +2,7 @@
 import { Gameplay } from "@/components/games/Gameplay"
 import { GamesHeaderButtons } from "@/components/games/GamesHeaderButtons"
 import { supabase } from "@/lib/Store"
+import { gold } from "@/sty"
 import { range } from "@/util/createRange"
 import { nFormatter } from "@/util/numberFormatter/nFormatter"
 import { faker } from "@faker-js/faker"
@@ -98,11 +99,13 @@ const router=useRouter()
       ><MdOutlineResetTv/></motion.div>}
     </div>
 
-   {view==="ghome" && !game && <div className="flex flex-row  flex-wrap justify-start gap-4 p-4">
+    
+
+   {view==="ghome" && !game && <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
       {
         category.map((ver,index)=>{
-        return <div key={index} className="rounded-lg text-center m-auto uppercase shadow-lg w-56 h-100 bg-white p-2">
-          <div className="text-7xl p-2">{ver.icon}</div>
+        return <div key={index} className={`rounded-lg text-center m-auto uppercase shadow-lg w-56 h-100 ${gold} p-2`}>
+          <div className="text-7xl p-2 invert">{ver.icon}</div>
           <div>{ver.label} </div>
           <div className="text-xs font-bold p-1">{ver.duration}</div>
           <div>
@@ -115,7 +118,7 @@ const router=useRouter()
             {
              nFormatter(faker.datatype.number({min:99,max:999999}))
             }
-      <div className="p-2 bg-green-500 rounded-lg mt-8 mb-4 shadow-lg"
+      <div className="p-2 bg-gray-700 text-white rounded-lg mt-8 mb-4 shadow-lg shadow-green-500"
       onClick={()=>{
         setGame(ver.label)
         router.push(`/kreedA/game/${ver.label}`)

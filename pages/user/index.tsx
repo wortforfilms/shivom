@@ -9,6 +9,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from "react-redux"
 
 import { MhahPanchang } from 'mhah-panchang';
+import useWindowSize from "react-use/lib/useWindowSize"
+import  Confetti  from "react-confetti"
 
 const User=(props:any)=>{
 
@@ -59,12 +61,20 @@ if(earth?.auth?.authenticated){
 return ()=>{mount=false}
 },[])
 
-
+const { width, height } = useWindowSize()
 // console.log(moon_phase(new Date(user.dob)))
   return <div className="p-4">
     <div className="h-12"></div>
 
-
+    <Confetti
+      width={width}
+      height={height}
+      numberOfPieces={3000}
+      tweenDuration={5000}
+      // initialVelocityY={70}
+      recycle={false}
+      
+    />
 {/* <PostCreator/> */}
 <div className="flex flex-col sm:flex-row gap-4">
 
@@ -316,12 +326,12 @@ console.log("first cal cul at-e")
 
 const ZodiacCalculator = (props:any) => {
   const {user, setSunSign}=props
-  const [date, setDate] = useState(user.dob);
+  const [date, setDate] = useState(user?.dob);
   const [zodiac, setZodiac] = useState('');
 
   const calculateZodiac = () => {
-    const month = parseInt(date.slice(5, 7));
-    const day = parseInt(date.slice(8, 10));
+    const month = parseInt(date?.slice(5, 7));
+    const day = parseInt(date?.slice(8, 10));
 
     let zodiacSign = '';
     if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) {

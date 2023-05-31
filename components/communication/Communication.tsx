@@ -111,6 +111,7 @@ export const Communication = () => {
 // वैषुवत	n.	vaiSuvata	equinox[astron.]	
 // विषुव	m.	viSuva	equinox[astron.]	
 
+// ban:drA vers:ovA
 
 // todo :: calculate value oil
 // location ;: employment :: process :: designation

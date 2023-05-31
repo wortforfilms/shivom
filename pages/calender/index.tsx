@@ -109,9 +109,15 @@ export const Ifo=(props:any)=>{
       {
         data.list.map((el:any,index:number)=>{
           return <motion.div 
-          whileHover={{scale:.95}}
-          whileTap={{scale:1.1}}
-          key={index} className="bg-white cursor-pointer p-1 rounded-lg  shadow-lg">{el}</motion.div>
+          // whileHover={{scale:.95}}
+          // whileTap={{scale:1.1}}
+          key={index} className="bg-white cursor-pointer flex flex-col p-1 rounded-lg  shadow-lg">
+            {el.split(':').map((l:any,index:number)=>{
+              return <div key={index} className={`${index===0?'font-bold py-2 text-xl':'font-normal'}`}>
+                {l}
+                </div>
+            })}
+            </motion.div>
         })
       }
     </div>

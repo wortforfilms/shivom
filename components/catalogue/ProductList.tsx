@@ -1,10 +1,9 @@
 import { Box } from '@/elements/box';
-import { add_to_cart } from '@/store/cart/action';
-import { AddCartButtonAlpha } from '@/util/cart/AddCartButton';
-import { dispatch } from 'd3';
+import { add_to_cart, remove_from_cart_ } from '@/store/cart/action';
+
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -15,6 +14,7 @@ export const ProductList = (props:any) => {
     const router=useRouter()
   const [product_list, setPL] = useState<any>([
     {
+      product_id:1,
       product_type: "t-shirt",
       product_title: "Cosmic T-shirts",
       product_description: "T-shirt for empovering your cosmos with mystical enrgies.",
@@ -25,6 +25,8 @@ export const ProductList = (props:any) => {
       product_images: ["/img/tshirt/13.png"]
     },
     {
+      product_id:2,
+
       product_type: "gem",
       product_title: "Navgrah Ear Rings",
       product_description: "Jewells for empovering your cosmos with mystical enrgies.",
@@ -35,6 +37,8 @@ export const ProductList = (props:any) => {
       product_images: ["/img/gems/37.jpeg"]
     },
     {
+      product_id:3,
+
       product_type: "gem",
       product_title: "Graha Rings",
       product_description: "Rings with mystical energies.",
@@ -45,6 +49,8 @@ export const ProductList = (props:any) => {
       product_images: ["/img/gems/38.jpeg"]
     },
     {
+      product_id:4,
+
       product_type: "yantra",
       product_title: "Doshmukti Yantra",
       product_description: "Rings with mystical energies balancers.",
@@ -55,6 +61,8 @@ export const ProductList = (props:any) => {
       product_images: ["/img/gems/03.jpeg"]
     },
     {
+      product_id:5,
+
       product_type: "gem",
       product_title: "Ennhancer Dixiom Gem",
       product_description: "Rings with mystical energies enhancer.",
@@ -67,7 +75,8 @@ export const ProductList = (props:any) => {
 
   ]);
 
-  
+  const [inCart,setInCart]=useState(false)
+
 
   const dispatch=useDispatch()
 
@@ -95,16 +104,23 @@ export const ProductList = (props:any) => {
           <div className='text-md font-thin py-4'>{product.product_description}</div>
           <div className='flex flex-col sm:flex-col gap-2  p-1  rounded-lg justify-between'>
             <div className='text-md text-center font-bold py-1'>INR. {product.product_price}</div>
-            <div className='bg-blue-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '
+           {earth?.cart?.cartItems.map((i:any)=>i.product_id).includes(product.product_id)?<div
+           className='bg-red-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-sky-500 cursor-pointer '
+           onClick={()=>{
+            const id=index+1
+              dispatch(remove_from_cart_(id))
+          }
+          }
+           >Remove</div>:<div 
+           className='bg-blue-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '
             onClick={()=>{
-              const id=index
+              const id=index+1
               const title=product.product_title
               const price=product.product_price
               const images=product.product_images
               const pr_type="physical"
 
               if(earth?.auth?.authenticated){
-
                 dispatch(add_to_cart(id,title,price,images,pr_type))
               } else {
                 router.push('/auth/login')
@@ -112,7 +128,7 @@ export const ProductList = (props:any) => {
             }
             }
             >Add to Cart
-            </div>
+            </div>}
           </div>
           </Box>
 
