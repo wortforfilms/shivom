@@ -113,7 +113,7 @@ export const Game = (props: any) => {
   // group {}
   // board
   const router = useRouter()
-  return <div className='w-full h-full  flex flex-row flex-wrap  justify-around  p-2 min-h-[80vh] h-[90vh] mt-2 shadow-lg'>
+  return <div className='w-full h-full  flex flex-row flex-wrap  justify-around  p-2 min-h-[80vh] h-[100vh] mt-2 shadow-lg'>
 
     {step === 0 && <Start game={game} router={router} earth={earth} />}
 

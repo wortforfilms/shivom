@@ -1,4 +1,6 @@
 import { ShiftShaper } from "@/components/Kosh/ShiftShaper"
+import { Box } from "@/elements/box"
+import { gold, silver } from "@/sty"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { FaResearchgate } from "react-icons/fa"
@@ -45,14 +47,14 @@ const Support=()=>{
   // stream:web
   // node:stream:web
 
-  return <div className="text-center mb-24">
+  return <div className="text-center mb-24 max-w-3xl m-auto">
     {/* <div className="h-24 "></div> */}
     Support Us
 <div className="text-xl p-4 mt-4 font-extrabold m-auto text-center">Buy me murugan kAjal</div>
 {/* <div>Buy us co</div> */}
 <div className="flex flex-row gap-4 p-4">
 
-<div className="w-[90%]  p-4 mt-8 mb-8 bg-blue-500 shadow-lg m-auto rounded-lg"> 
+<div className={`w-[90%]  p-4 mt-8 mb-8 ${gold} shadow-lg m-auto rounded-lg`}> 
 <input type="range" 
 onChange={(e:any)=>{
 setAmount(e.target.value)
@@ -73,7 +75,8 @@ className="w-full accent-pink-500 rounded-full" min={1} max={99999} />
   return <motion.div key={index} 
   // animate={{}}
   whileHover={{scale:.95}}
-  className='bg-gray-300 ring-2 ring-white shadow-lg cursor-pointer rounded-lg p-2   '
+  whileTap={{scale:1.1}}
+  className={`${silver} ring-2 ring-white shadow-lg cursor-pointer rounded-lg p-2`}
   onClick={()=>{
     setStep('shift')
     setAmount(sr.amount)
@@ -81,7 +84,7 @@ className="w-full accent-pink-500 rounded-full" min={1} max={99999} />
   >
     <div className='text-sm font-bold p-2 text-center'>Donate {sr.count}</div>
 
-    {/* <div className='text-xs '>Pay {"INR"} {sr.amount}</div> */}
+
   </motion.div>;
 })}
 </div>}
@@ -90,10 +93,12 @@ onClick={()=>{
   setAmount(0)
 }}
 >
-{/* <FaResearchgate/> */}
+
 🔙</div>}
 {
-  amount>0 && <ShiftShaper amount={amount} setStep={setStep}/>
+  amount>0 && <Box>
+    <ShiftShaper amount={amount} setStep={setStep}/>
+    </Box>
 }
 <div className="p-4">
 

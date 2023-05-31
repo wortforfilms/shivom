@@ -8,8 +8,8 @@ import { useRouter } from 'next/router';
 export const Communication = () => {
 
   const router=useRouter()
-  return <div className='flex flex-col bg-white shadow-lg w-full mb-12 mt-12'>
-    <div className='p-4 text-3xl font-bold text-center text-gray-600'>Communicate with experts in the way you like!!</div>
+  return <div className='flex flex-col bg-white shadow-lg w-full h-[90vh] mb-12 mt-12'>
+    <div className='p-4  thin-head  text-center text-gray-600'>Communicate with experts in the way you like!!</div>
    <div className="flex flex-col sm:flex-row justify-between">
 
     <div className='flex flex-col justify-between m-auto'>

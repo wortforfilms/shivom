@@ -37,7 +37,7 @@ export const Footer = () => {
     {bm.map((fo: any, index) => {
       return <div className='hover:underline hover:font-bold p-2' key={index}
       onClick={()=>{
-        router.push(`${fo.link}`)
+        router.push(`/docs/${fo.link}`)
       }}
       >{fo.label}</div>;
     })}

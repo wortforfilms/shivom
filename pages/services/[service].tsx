@@ -444,3 +444,15 @@ return <div className="p-2 mt-6">
 // https://www.qsearch.pw/se/search?source=ctappex&channel=2482b17d-3da8-45dd-b028-f8c83caaa6d2&product_id=qs1&mid=880bd9c07e62a79e3cddbf3aeb137e14&source_version=1.5.180&spid=99&os_version=11.7.0&sspid=8&browser_version=111.0.5563.64&query=tailwind+rotate
 // https://spacert-2.info/api/v1/px?xmlid=opXCMkB6eoAatrZdU5D1S3UgLWCm3WP0dxgGdnfN
 // https://1x-bet.in/en?tag=d_50239m_2895c_%5B%5DMS%5B%5Dnull%5B%5DBL%5B%5D06104f973ca019f004087dfdf_d26939_l15031_clickunder
+
+
+// å/* Aa µÂ */
+// /* Â */
+// ∏Â πµ
+// åµ πµ
+// {}=≠±{}
+// “‘ÚÆ
+// device position user control
+// planets engine force power motion forward spin
+// element sound light mass
+// 

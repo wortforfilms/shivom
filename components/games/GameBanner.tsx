@@ -27,7 +27,7 @@ export const GameBanner = (props: any) => {
 
   return <div className=' w-full sm:w-full  h-100 overflow-hidden mt-4'>
     <div className='text-center text-5xl thin-head p-2'>बुद्धिकल्पितसमाज</div>
-<div className='flex flex-row flex-wrap gap-8 m-auto '>
+<div className='flex flex-row flex-wrap justify-around gap-8 m-auto '>
 <Box>
   
    <GameCategory game={game[1]}/>

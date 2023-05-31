@@ -1,3 +1,4 @@
+import { gold } from "@/sty";
 import { motion } from "framer-motion";
 import Image from "next/image"
 import { useRouter } from "next/router";
@@ -482,7 +483,10 @@ export const Zodiacs = () => {
 
 const router=useRouter()
 
-  return <div className="flex flex-col  overflow-hidden sm:flex-row bg-white p-4">
+  return <div className="flex flex-col h-[100vh]   justify-start  bg-white p-4">
+    <h1 className="thin-head text-center p-2">LET UNIVERSE WORK FOR YOU</h1>
+    <div className="flex flex-col   overflow-hidden sm:flex-row ">
+
     <Image
     src="/img/astrology-circle-orance-dots.png"
     // src="/img/astrological_chart.png"
@@ -491,10 +495,10 @@ const router=useRouter()
     height={100}
     priority
     unoptimized
-quality={100}
-    className="w-full sm:w-2/3 rounded-full invert -mt-50 animate-spin-slow"
+    quality={100}
+    className="w-full sm:w-80 h-80 m-auto rounded-full invert  animate-spin-slow"
     />
-<div className='flex flex-row gap-4  flex-wrap justify-around m-auto'>
+<div className='flex flex-row gap-4 h-80 m-auto flex-wrap justify-around '>
 
     {zods.map((ss, index) => {
       return <motion.div key={index} 
@@ -505,7 +509,7 @@ quality={100}
         router.push(`/galaxy/rashi/${ss.label}`)
       }}
       >
-        <div className='text-5xl p-2 hover:bg-blue-500 rounded-lg'>
+        <div className={`text-5xl p-2 hover:${'bg-gray-300'} rounded-lg`}>
           {ss.sign}
         </div>
         <div className=' text-md text-center'>
@@ -515,5 +519,6 @@ quality={100}
     })}
   </div>
   </div>
+    </div>
 
 };

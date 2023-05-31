@@ -86,7 +86,7 @@ const router=useRouter()
 
 
 
-  return (<Container>
+  return (<div>
 <div className="h-12"></div>
 
     <div className="mx-auto w-full mt-2 min-h-[100vh] h-full bg-white text-gray-800 justify-around">
@@ -108,7 +108,7 @@ const router=useRouter()
 <RegDevice amount={99} type="product" unit="per month"/>
 
     </div>
-  </Container>
+  </div>
 
   );
 };
