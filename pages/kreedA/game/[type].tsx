@@ -53,12 +53,23 @@ const GameType=()=>{
   const {type}=router.query
 
 
-    return <div className="min-h-[90vh]">
+    return <div className="min-h-[90vh] p-4">
 <div className="h-12"></div>
 <h1>
   {type}
-  <Lakshmi/>
-  <Game/>
+ {type==="lakshmi" && <Lakshmi/>}
+
+ {type==="akshar" && <div className="p-6">
+  
+  Quiz-e-Answer-Options<br/>
+  ---x<hr/>
+  Timer
+  --==--xz»<hr/>
+
+  Reward
+
+  </div>}
+  {type==="gameplay_lakshmi" && <Game/>}
   </h1>
   </div>
 }

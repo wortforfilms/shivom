@@ -1,5 +1,6 @@
 import { ShiftShaper } from "@/components/Kosh/ShiftShaper"
 import { Box } from "@/elements/box"
+import { HeaderButtons } from "@/layout/HeaderButtons"
 import { gold, silver } from "@/sty"
 import { motion } from "framer-motion"
 import { useState } from "react"
@@ -48,7 +49,8 @@ const Support=()=>{
   // node:stream:web
 
   return <div className="text-center mb-24 max-w-3xl m-auto">
-    {/* <div className="h-24 "></div> */}
+    <div className="h-16 "></div>
+    <HeaderButtons/>
     Support Us
 <div className="text-xl p-4 mt-4 font-extrabold m-auto text-center">Buy me murugan kAjal</div>
 {/* <div>Buy us co</div> */}

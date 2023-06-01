@@ -490,7 +490,7 @@ export const Zodiacs = (props:any) => {
 
 const router=useRouter()
 
-  return <div className="flex flex-col h-full sm:h-full min-h-[100vh]   justify-start  bg-white p-4">
+  return <div className="flex flex-col h-full sm:h-full min-h-[100vh] mt-6  justify-start  bg-white p-4">
     <h1 className="thin-head text-center p-2">LET UNIVERSE WORK FOR YOU</h1>
     <div className="flex flex-col min-h-80   sm:flex-row ">
 

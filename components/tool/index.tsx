@@ -77,7 +77,7 @@ export default function GyroHome() {
       <a href="https://ofrohn.github.io/celestial-demo/viewer.html" className="p-2 bg-gray-600 w-24 text-green-500 text-center rounded-lg shadow-lg font-bold"> Launch </a>
 
         <h1 className={"title text-xs"}>Gyroscope and Compass App</h1>
-        {gyroscopeData.z}
+        {Math.round(gyroscopeData.z)}
         <div className={""}>
           <Gyroscope gyroscopeData={gyroscopeData} setGyroscopeData={setGyroscopeData}/>
         </div>

@@ -1,4 +1,6 @@
 
+import { Game } from "@/components/games/Game"
+import { GameBanner } from "@/components/games/GameBanner"
 import { Gameplay } from "@/components/games/Gameplay"
 import { GamesHeaderButtons } from "@/components/games/GamesHeaderButtons"
 import { supabase } from "@/lib/Store"
@@ -98,12 +100,13 @@ return ()=>{
       <GamesHeaderButtons setSection={setView} section={view} selected_game={game}/>
      { <motion.div className="text-5xl p-2 rounded-lg shadow-lg bg-white"
       onClick={()=>{
+        setView('ghome')
         setGame(null)
       }}
       ><MdOutlineResetTv/></motion.div>}
     </div>
 
-
+{view==='ghome' && <GameBanner/>}
    {view==="lakshmi"  && <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
       {
         category.map((ver,index)=>{

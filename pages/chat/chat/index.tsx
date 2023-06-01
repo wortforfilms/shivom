@@ -1,5 +1,5 @@
 
-import { Communication } from '@/components/communication/Communication';
+import { Communication } from '@/components/landing/Communication';
 import { range } from '@/util/createRange';
 import { faker } from '@faker-js/faker';
 import { useRouter } from 'next/router';

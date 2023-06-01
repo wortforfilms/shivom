@@ -2,8 +2,7 @@ import { Box } from "@/elements/box";
 import { useState } from "react";
 
 export const ProductForm = () => {
-  return <Box>
-    <div className="flex flex-col w-full  h-100  sm:flex-row justify-around gap-2 ">
+  return <div className="flex flex-col w-full  h-100  sm:flex-row justify-around gap-2 ">
         <video muted autoPlay controls={false} loop
             
             className="  w-full w-full sm:w-96  p-0 sm:p-2 mt-8 
@@ -33,7 +32,7 @@ export const ProductForm = () => {
               Your browser does not support the video tag.
             </video>
   </div>
-            </Box>
+           
 };
 
 

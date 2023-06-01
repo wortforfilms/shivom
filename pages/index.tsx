@@ -15,7 +15,7 @@ import { Zodiacs } from '@/components/landing/Zodiacs'
 import { useEffect, useState } from 'react'
 import { Kosh } from '../components/Kosh'
 import { ProductList } from '../components/catalogue/ProductList'
-import { Communication } from '../components/communication/Communication'
+import { Communication } from '../components/landing/Communication'
 
 import { Game } from '../components/games/Game'
 import { GameBanner } from '@/components/games/GameBanner'
@@ -31,6 +31,7 @@ import { Box } from '@/elements/box'
 import BookCover3D from '@/elements/3d/bookcover'
 import HindiAlphabetChart from '@/lib/akshar/hindi'
 import { useRouter } from 'next/router'
+import MApp from '@/canvas/model'
 
 
 // before active after
@@ -65,12 +66,12 @@ export default function Home(props: any) {
       <HeaderButtons setSection={setSection} section={section} />
 
       {!section && <Banner/> }
-      <div className='flex flex-col sm:flex-row gap-2 '>
+
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
           <GameBanner />
         </div>}
-      </div>
+
       {section === "ecommerce" && <div className='mt-12' id="ecommerce">
         <ProductList earth={earth}/>
       </div>}
@@ -83,17 +84,16 @@ export default function Home(props: any) {
         </Box>
         }
       {section === "astronomy" && <>
-      <Box>
+ 
 
-        <div className='mt-8 '>
           <Zodiacs />
 
-        </div>
-      </Box>
+
+     
       </>
       }
       {section === "vedic_classes" && <>
-        {/* <MApp /> */}
+        <MApp />
         <VedicCoarses/>
         <HindiAlphabetChart/>
 

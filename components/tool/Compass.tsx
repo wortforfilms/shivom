@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 interface CompassProps {
@@ -5,11 +6,11 @@ interface CompassProps {
 }
 
 const Compass = (props:any) => {
-  const { heading , gyroscopeData:any}=props
+  const { heading , gyroscopeData}=props
   const [transform, setTransform] = useState("rotate(30deg)");
 
   useEffect(() => {
-    setTransform(`rotate(${heading}deg)`);
+    setTransform(`rotate-[${Math.round(heading)}deg]`);
   }, [heading]);
 
   return (
@@ -17,10 +18,10 @@ const Compass = (props:any) => {
       <div className="compass-rose  z-20" 
       // style={{transform: transform}}
       ></div>
-      <div className={`compass-direction rotate-[${heading}deg]`} 
+      <div className={`relative compass-direction z-30 ${transform}`} 
       // style={{ transform }}
       >
-        <div className="compass-north"></div>
+        <div className="compass-north mt-32"></div>
       </div>
     </div>
   );

@@ -88,11 +88,11 @@ const { width, height } = useWindowSize()
 <h1>
   Janm
   </h1>
-<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+<div className="flex flex-col flex-wrap  gap-4 text-center p-4 w-80 rounded-lg shadow-lg bg-white mt-8 mb-8">
 
 {Object.keys(panch).map((hea,index)=>{
-  return <div  key={index}  className="flex flex-col  m-auto text-center">
-    <div className="thin-subhead">{hea}:</div>
+  return <div  key={index}  className="flex flex-row justify-start gap-4  w-auto text-center">
+    <div className="text-sm font-bold">{hea}:</div>
     <div>  {Object.values(panch)[index].name}</div>
     <div>  {Object.values(panch)[index].name_en_IN}</div>
     <div>  {Object.values(panch)[index].name_en_UK}</div>
