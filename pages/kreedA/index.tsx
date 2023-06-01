@@ -52,11 +52,16 @@ const[category,setCategory]=useState([
   {label:"NavGrah", icon:"🪐", image:"",cycle:"",duration:"Weekly"},
   {label:"Nakzatra", icon:"🌌", image:"",cycle:"",duration:"Monthly"},
 ])
-  useEffect(()=>{
-    // jarA
-    // zArA
-    //  sangh ghati t 
-  },[])
+
+const[gcategory,setGCategory]=useState([
+  {label:"akshar", icon:"🕉️", image:"",cycle:"",duration:"1/5Hourly"},
+  {label:"shabda", icon:"⚛", image:"",cycle:"",duration:"Hourly"},
+  {label:"vakya", icon:"✍🏻", image:"",cycle:"",duration:"Daily"},
+  {label:"mantra", icon:"🧘🏽‍♀️", image:"",cycle:"",duration:"Weekly"},
+  {label:"siddhAnta", icon:"🔣", image:"",cycle:"",duration:"Weekly"},
+])
+
+
 
   const users= range(0,69).map((str)=>{
       return {
@@ -87,6 +92,17 @@ const[category,setCategory]=useState([
 // kamdhenu
 // nandi
 const router=useRouter()
+const {q}=router.query
+
+useEffect(()=>{
+let mount=true
+if(mount){
+  setView(q)
+}
+return ()=>{
+  mount=false
+}
+},[q])
 
   return <div className="p-4   min-h-[90vh]">
     <div className="h-12"></div>
@@ -99,13 +115,41 @@ const router=useRouter()
       ><MdOutlineResetTv/></motion.div>}
     </div>
 
-    
 
-   {view==="ghome" && !game && <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
+
+   {view==="lakshmi" && !game && <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
       {
         category.map((ver,index)=>{
-        return <div key={index} className={`rounded-lg text-center m-auto uppercase shadow-lg w-56 h-100 ${gold} p-2`}>
+        return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
           <div className="text-7xl p-2 invert">{ver.icon}</div>
+          <div>{ver.label} </div>
+          <div className="text-xs font-bold p-1">{ver.duration}</div>
+          <div>
+            <div className="text-xs text-yellow-700 p-2">Lastest winner: </div>
+            <h1>{
+             nFormatter(faker.datatype.number({min:99,max:9999999}))
+            }</h1></div>
+
+<div className="text-xs text-yellow-700 p-2">Current Box: </div>
+            {
+             nFormatter(faker.datatype.number({min:99,max:999999}))
+            }
+      <div className="p-2 bg-gray-700 text-white rounded-lg mt-8 mb-4 shadow-lg shadow-green-500"
+      onClick={()=>{
+        setGame(ver.label)
+        router.push(`/kreedA/game/${ver.label}`)
+      }}
+      >PLAY NOW</div>
+          </div>
+      })
+      }
+    </div>}
+
+    {view==="ganesh" && !game && <div className="flex flex-row   flex-wrap justify-start gap-4 p-4">
+      {
+        gcategory.map((ver,index)=>{
+        return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
+          <div className="text-7xl p-2 ">{ver.icon}</div>
           <div>{ver.label} </div>
           <div className="text-xs font-bold p-1">{ver.duration}</div>
           <div>
@@ -133,7 +177,7 @@ const router=useRouter()
 
 
     {
-      view==="help" && <div><Gameplay></Gameplay></div>
+      view==="help" && <div><Gameplay/></div>
     }
 
 

@@ -25,8 +25,8 @@ export const GameBanner = (props: any) => {
     { label: "Ganesh", img: "/img/ganesh-71lTRvJf0XL._UL1500_2000x.webp" }
   ]);
 
-  return <div className=' w-full sm:w-full  h-100 overflow-hidden mt-4'>
-    <div className='text-center text-5xl thin-head p-2'>बुद्धिकल्पितसमाज</div>
+  return <div className=' w-full sm:w-full  h-full min-h-[90vh]  '>
+    {/* <div className='text-center text-5xl thin-head p-2'>बुद्धिकल्पितसमाज</div> */}
 <div className='flex flex-row flex-wrap justify-around gap-8 m-auto '>
 <Box>
   
@@ -44,10 +44,16 @@ export const GameBanner = (props: any) => {
 
 const GameBar=(props:any)=>{
   const {game}=props
+  const router=useRouter()
   return  <div className='flex flex-row w-full m-auto gap-6 mt-8 mb-8 justify-around '>
 <motion.div 
 whileHover={{scale:.95}}
-className='cursor-pointer bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] hover:from-pink-500 from-gray-900 via-gray-100 to-gray-900 rounded-full shadow-lg'><BiPlayCircle className='text-5xl rouded-full m-auto shadow-lg rounded-full ring-4 ring-red-600 border-2 border-white'/></motion.div>
+className='cursor-pointer bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] hover:from-pink-500 from-gray-900 via-gray-100 to-gray-900 rounded-full shadow-lg'
+onClick={()=>{
+  router.push(`/kreedA?q=${game.label.toLowerCase()}`)
+}
+}
+><BiPlayCircle className='text-5xl rouded-full m-auto shadow-lg rounded-full ring-4 ring-red-600 border-2 border-white'/></motion.div>
 <motion.div 
 whileHover={{scale:.95}}
 

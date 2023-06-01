@@ -117,7 +117,7 @@ export const Game = (props: any) => {
 
     {step === 0 && <Start game={game} router={router} earth={earth} />}
 
-    {step === 1 && <Play game={game} setStep={setStep} timer={timer} />}
+    {step === 1 && <Play_ game={game} setStep={setStep} timer={timer} />}
     <Scene>
       <Gameplay game={game} />
     </Scene>
@@ -136,7 +136,7 @@ export const Game = (props: any) => {
 
 };
 
-const Play = (props: any) => {
+const Play_ = (props: any) => {
   const { game, setStep, timer } = props
   const [result, setToss] = useState({
     res: faker.helpers.arrayElement([0, 1])

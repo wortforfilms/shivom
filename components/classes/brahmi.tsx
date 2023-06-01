@@ -392,7 +392,7 @@ export const Brahmi = () => {
   const router=useRouter()
 
   return (
-    <div id="vedic_classes" className="flex flex-row flex-wrap overflow-y-scroll w-full mt-4 gap-2">
+    <div id="brahmi_classes" className="flex flex-row flex-wrap overflow-y-scroll w-full mt-4 gap-2">
       {br &&
         br.map((letter:any, index:number) => {
           return (
@@ -403,10 +403,11 @@ export const Brahmi = () => {
                 router.push(`/engine/letter/${letter[2]}`)
               }}
             >
-              {/* {index + 1} */}
-              {/* {alphabetData[index] } */}
-              <div className="thin-head">{shArdA[index+3]}</div>
-              <LetterMatter letter={letter} />
+              
+              {alphabetData && alphabetData[index]?.alphabet?alphabetData[index].alphabet:"nf" }
+              <div className="text-7xl p-2">{alphabetData && alphabetData[index]?.alphabet?alphabetData[index].emoji:"nf" }</div>
+              <div className="text-2xl p-2">{alphabetData && alphabetData[index]?.alphabet?alphabetData[index].word:"nf" }</div>
+              <LetterMatter letter={letter} k={index} />
             </div>
           );
         })}
@@ -428,7 +429,7 @@ export const Brahmi = () => {
 // 
 
 export const LetterMatter = (props:any) => {
-  const { letter } = props;
+  const { letter,k } = props;
   const [matter, setMatter] = useState("");
   const [matter1, setMatter1] = useState("");
   const [antimatter, setAntiMatter] = useState("-1");
@@ -458,6 +459,8 @@ export const LetterMatter = (props:any) => {
 
 
         <div className="text-xs">
+        <div className="thin-head">{shArdA[k+3]}</div>
+
           {
             languages.map((ln,index)=>{
               return <div key={index} className="flex flex-row m-auto justify-between">
@@ -473,13 +476,13 @@ export const LetterMatter = (props:any) => {
         </div>
     
 
-      <div className="w-full  text-xs text-left flex flex-wrap p-2">
+      {/* <div className="w-full  text-xs text-left flex flex-wrap p-2">
         <div dangerouslySetInnerHTML={{ __html: matter }} />
         <div dangerouslySetInnerHTML={{ __html: matter1 }} />
         <div dangerouslySetInnerHTML={{ __html: antimatter }} />
         <div dangerouslySetInnerHTML={{ __html: matter3 }} />
         <div dangerouslySetInnerHTML={{ __html: matter4 }} />
-      </div>
+      </div> */}
     </div>
   );
 };

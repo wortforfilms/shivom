@@ -2,6 +2,8 @@ import { gold } from "@/sty";
 import { motion } from "framer-motion";
 import Image from "next/image"
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import Element_ from "./Element";
 export const zods = [
   {
     sign: "♈",
@@ -479,13 +481,15 @@ const avidyA=[
 ]
 
 //dot tree null nill neel zero"},
-export const Zodiacs = () => {
+export const Zodiacs = (props:any) => {
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state)
 
 const router=useRouter()
 
-  return <div className="flex flex-col h-[100vh]   justify-start  bg-white p-4">
+  return <div className="flex flex-col h-full sm:h-full min-h-[100vh]   justify-start  bg-white p-4">
     <h1 className="thin-head text-center p-2">LET UNIVERSE WORK FOR YOU</h1>
-    <div className="flex flex-col   overflow-hidden sm:flex-row ">
+    <div className="flex flex-col min-h-80   sm:flex-row ">
 
     <Image
     src="/img/astrology-circle-orance-dots.png"
@@ -496,9 +500,9 @@ const router=useRouter()
     priority
     unoptimized
     quality={100}
-    className="w-full sm:w-80 h-80 m-auto rounded-full invert  animate-spin-slow"
+    className="w-full sm:w-80 h-auto m-auto rounded-full invert  animate-spin-slow"
     />
-<div className='flex flex-row gap-4 h-80 m-auto flex-wrap justify-around '>
+<div className='flex flex-row gap-4  m-auto flex-wrap justify-around '>
 
     {zods.map((ss, index) => {
       return <motion.div key={index} 
@@ -519,6 +523,18 @@ const router=useRouter()
     })}
   </div>
   </div>
+{/* <div className="mt-24">
+
+  {'MAAS'}-{'प्राचीन और अग्रिम विज्ञान मंत्रालय'}
+  awaits dob pob tob 
+  {earth?.auth?.user?.dob}
+  does this matter ¿?
+  god particle-{}
+  godisdead
+  blessing dead
+  i am hemant:; i am start of winter 
+</div>
+  <Element_/> */}
     </div>
 
 };

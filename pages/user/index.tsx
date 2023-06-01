@@ -79,7 +79,11 @@ const { width, height } = useWindowSize()
 <div className="flex flex-col sm:flex-row gap-4">
 
 <UserCard user={user} kundali={kundali}/>
+<div className="flex flex-row flex-wrap gap-4">
+
 <UserZodiac zod={sunsign}/>
+<UserRaasi zod={'Cancer'}/>
+</div>
 </div>
 <h1>
   Janm
@@ -181,6 +185,34 @@ const UserZodiac=(props:any)=>{
   const {zod}=props
 
   return <div className="flex flex-col w-32 m-auto bg-white rounded-lg shadow-lg gap2  justify-around flex-wrap">
+    <div className="relative left-0 text-5xl -mt-4">🌞</div>
+    {
+      sunsign.filter(i=>i===zod.toLowerCase()).map((str,index)=>{
+        return <div key={index} className={`${gold} shadow-lg m-4 rounded-full ring-4 ring-orange-200` }>
+<Image
+    src={`/img/zodiac/${str}.png`}
+    alt="astro chart"
+    width={100}
+    height={100}
+    priority
+    unoptimized
+quality={100}
+    className="w-32 invert justify-start  m-auto"
+    />
+        </div>
+      })
+    }
+    <h1 className="text-center">
+      {zod}
+      </h1>
+  </div>
+}
+
+const UserRaasi=(props:any)=>{
+  const {zod}=props
+
+  return <div className="flex flex-col w-32 m-auto bg-white rounded-lg shadow-lg gap2  justify-around flex-wrap">
+    <div className="relative left-0 text-5xl -mt-4">🌙</div>
     {
       sunsign.filter(i=>i===zod.toLowerCase()).map((str,index)=>{
         return <div key={index} className={`${gold} shadow-lg m-4 rounded-full ring-4 ring-orange-200` }>

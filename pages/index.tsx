@@ -65,7 +65,7 @@ export default function Home(props: any) {
         <ProductList earth={earth}/>
       </div>}
       {section === "games" && <>
-        {!earth.auth.authenticated ? <GameBanner /> : <Game />}
+        <GameBanner />
       </>}
       {section === "astrology" && <Box>
    
@@ -75,7 +75,7 @@ export default function Home(props: any) {
       {section === "astronomy" && <>
       <Box>
 
-        <div className='mt-8'>
+        <div className='mt-8 '>
           <Zodiacs />
 
         </div>

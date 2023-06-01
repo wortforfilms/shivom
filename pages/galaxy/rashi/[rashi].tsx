@@ -2,6 +2,20 @@ import { useRouter } from "next/router"
 import NakApp from "."
 import { useEffect, useState } from "react"
 import { create_sochen } from "@/q/c/sochen"
+import { supabase } from "@/lib/Store"
+
+const create_doc=async(pmt:any)=>{
+
+  const {data,error}=await supabase.from('sochen').select('*').eq('search',pmt)
+  return {data,error}
+}
+
+
+const create_book=async(pmt:any)=>{
+
+  const {data,error}=await supabase.from('sochen').select('*').eq('search',pmt)
+  return {data,error}
+}
 
 
 const Constalation=()=>{
@@ -35,13 +49,20 @@ const Constalation=()=>{
   
 
   return <div className="p-4">
-    <div className="h-24"></div>
+    <div className="h-12"></div>
 <h1>
   {rashi}
   </h1>
-<div className="flex flex-row gap-4 m-auto">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+<NakApp/>
+
+  </div>
+}
+
+
+const akImages=()=>{
+  return <>
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
   <circle cx="50" cy="50" r="45" fill="white" stroke="black" />
   <path d="M50 10 L90 50 L50 90 L10 50 Z" fill="black" />
 </svg>
@@ -87,12 +108,8 @@ const Constalation=()=>{
   <circle cx="275" cy="205" r="2" fill="white" />
   <path d="M145 145 L195 165 L235 185 L275 205" fill="none" stroke="white" strokeWidth="1" />
 </svg>
-</div>
-<NakApp/>
-
-  </div>
+</>
 }
-
 
 // 63frc1b
 // arns .innn 

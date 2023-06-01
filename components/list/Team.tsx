@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { Ifo } from '@/pages/calender';
 import { motion } from 'framer-motion';
+import { MdClose } from 'react-icons/md';
 
 export const Team = () => {
 
@@ -85,14 +86,39 @@ export const Team = () => {
   // thakur ::: {":::"}
   // tracing ::: indian vidyA
   const designation = [
-    { "Chief Executive Officer (CEO)": "The CEO is responsible for the overall strategic direction of the company and oversees all aspects of its operation." },
-    { "Chief Operating Officer (COO)": "The COO is responsible for managing the day-to-day operations of the company and ensuring that it runs efficiently." },
-    { "Chief Financial Officer (CFO)": "The CFO is responsible for managing the financial resources of the company, including accounting, financial planning, and budgeting." },
-    { "Chief Technology Officer (CTO)": "The CTO is responsible for leading the company's technological innovation and ensuring that it remains at the forefront of its industry." },
-    { "Chief Science Officer (CSO)": "The CSO is responsible for overseeing the company's research and development efforts and ensuring that it continues to develop new and innovative products." },
-    { "Director of Human Resources (HR)": "The HR Director is responsible for managing the company's human resources department and ensuring that the organization attracts, develops, and retains top talent." },
-    { "Director of Marketing": "The Director of Marketing is responsible for developing and executing marketing strategies to promote the company's products and services." },
-    { "Director of Sales": "The Director of Sales is responsible for developing and executing sales strategies to increase revenue and expand the company's customer base." },
+    { "Chief Executive Officer (CEO)": "The CEO is responsible for the overall strategic direction of the company and oversees all aspects of its operation.",
+  name:"Hemant Kumar Dixit",
+  avatar:'/avatars/0.jpeg'
+  },
+    { "Chief Operating Officer (COO)": "The COO is responsible for managing the day-to-day operations of the company and ensuring that it runs efficiently.",
+    name:"Sanjeeta Khaira",
+    avatar:'/avatars/2.jpeg'
+  
+  },
+    { "Chief Financial Officer (CFO)": "The CFO is responsible for managing the financial resources of the company, including accounting, financial planning, and budgeting.",
+  name:"Tanu Sharma",
+  avatar:'/avatars/1.jpeg'
+
+  },
+    { "Chief Technology Officer (CTO)": "The CTO is responsible for leading the company's technological innovation and ensuring that it remains at the forefront of its industry.",
+    name:"Hemant Kumar Dixit",
+  avatar:'/avatars/0.jpeg'
+  },
+    { "Chief Science Officer (CSO)": "The CSO is responsible for overseeing the company's research and development efforts and ensuring that it continues to develop new and innovative products.",
+    name:"Hemant Kumar Dixit",
+  avatar:'/avatars/0.jpeg' },
+    { "Director of Human Resources (HR)": "The HR Director is responsible for managing the company's human resources department and ensuring that the organization attracts, develops, and retains top talent.",
+    name:"Sanjeeta Khaira",
+    avatar:'/avatars/2.jpeg'
+   },
+    { "Director of Marketing": "The Director of Marketing is responsible for developing and executing marketing strategies to promote the company's products and services.",
+    name:"Nitin ShuklA",
+    avatar:'/avatars/3.jpeg'
+   },
+    { "Director of Sales": "The Director of Sales is responsible for developing and executing sales strategies to increase revenue and expand the company's customer base.",
+    name:"Nitin ShuklA",
+    avatar:'/avatars/3.jpeg'
+   },
     { "Research Scientists": "Research Scientists are responsible for conducting research and development activities to create new products and improve existing ones." },
     { "Engineers": "Engineers are responsible for designing, testing, and developing products and ensuring that they meet quality standards." },
     { "Technicians": "Technicians are responsible for supporting the research and development process by conducting experiments and collecting data." },
@@ -105,10 +131,10 @@ const [input_screen,setInputScreen]=useState(false)
   return <div>
 
 <div className='text-5xl p-2 text-left font-thin m-auto'>Admins</div>
-{input_screen && <div className='absolute w-full h-[100vh]'>
+{input_screen && <div className='absolute z-50 w-full bg-gray-800/50 h-[100vh]'>
 
 <motion.div drag className='relative bg-white shadow-lg m-auto w-full sm:w-2/3 h-[70%] overflow-auto'>
-  
+  <MdClose  className='3xl' onClick={()=>setInputScreen(false)}/>
 </motion.div>
 </div>}
   <div className='underline text-green-500 p-2'>{"Apply for designation"}</div>
@@ -124,9 +150,10 @@ const [input_screen,setInputScreen]=useState(false)
   </div>
 
   <div className='text-5xl p-2 text-left font-thin m-auto'>Directors</div>
-  <div className='underline text-green-500 p-2'>{"Apply for designation"}</div>
 
-<div className='flex flex-row flex-wrap w-full justify-around p-2'>
+  <InputF label="Apply for designation" setInputScreen={setInputScreen}/>
+
+<div className='flex flex-row flex-wrap w-full justify-around gap-4 p-2'>
 
 {
   directors.map((adm:any,index:number)=>{
@@ -149,13 +176,13 @@ const [input_screen,setInputScreen]=useState(false)
 <div className='flex flex-row flex-wrap gap-4 mt-8 justify-around'>{designation.slice(0,5).map((adm: any, index: number) => {
       return <div key={index} className='w-56 h-full bg-white shadow-lg p-2'>
         <div>{Object.keys(adm)[0]}</div>
-        <Image
-          src={faker.image.avatar()}
+       {adm.avatar && <Image
+          src={adm.avatar}
           alt="des"
           width={100}
           height={100}
-          className='w-24 h-24 rounded-full m-auto' />
-        {/* <div className='w-full  text-center p-2 font-bold'>{faker.name.fullName()}</div> */}
+          className='w-24 h-24 rounded-full m-auto' />}
+        <div className='w-full  text-center p-2 font-bold'>{adm.name}</div>
         <div className='text-xs'>{Object.values(adm)}</div>
 
       </div>;
@@ -165,34 +192,66 @@ const [input_screen,setInputScreen]=useState(false)
 
 <div className='p-2 text-5xl font-thin'>Team</div>
 
-    <div className='flex flex-row flex-wrap gap-4 mt-8 justify-around'>{designation.slice(4,designation.length).map((adm: any, index: number) => {
+    <div className='flex flex-row flex-wrap gap-4 mt-8 justify-around'>{designation.slice(4,8).map((adm: any, index: number) => {
       return <div key={index} className='w-56 h-full bg-white shadow-lg p-2'>
         <div>{Object.keys(adm)[0]}</div>
         <Image
-          src={faker.image.avatar()}
+          src={adm.avatar?adm.avatar:faker.image.avatar()}
           alt="des"
           width={100}
           height={100}
           className='w-24 h-24 rounded-full m-auto' />
-        <div className='w-full  text-center p-2 font-bold'>{faker.name.fullName()}</div>
+        <div className='w-full  text-center p-2 font-bold'>{adm.name?adm.name:faker.name.fullName()}</div>
+        <div className='text-xs'>{Object.values(adm)}</div>
+
+      </div>;
+    })}</div>
+
+<div className='flex flex-row flex-wrap gap-4 mt-8 justify-around'>{designation.slice(9,designation.length).map((adm: any, index: number) => {
+      return <div key={index} className='w-100 h-full bg-white shadow-lg p-2'>
+        <div className='text-5xl p-2'>{Object.keys(adm)[0]}</div>
+        {/* <Image
+          src={adm.avatar?adm.avatar:faker.image.avatar()}
+          alt="des"
+          width={100}
+          height={100}
+          className='w-24 h-24 rounded-full m-auto' /> */}
+        {/* <div className='w-full  text-center p-2 font-bold'>{adm.name?adm.name:faker.name.fullName()}</div> */}
         <div className='text-xs'>{Object.values(adm)}</div>
 
       </div>;
     })}</div>
 
     {/* // transaction {creative} */}
-    <div className='text-5xl p-2 text-left font-thin m-auto'>Ministry of Ancient & Advance Sciences</div>
+    <div className='text-5xl p-2 text-left font-thin mt-12 m-auto'>Ministry of Ancient & Advance Sciences</div>
 <Ifo data={Ministry0}/>
+<div
+            className={`p-2 bg-gradient-to-r text-green-700 text-center font-extrabold from-red-800 via-yellow-300 to-yellow-500  cursor-pointer w-80 m-auto  shadow-lg`}
+          >
+            {'MAAS'}-{'प्राचीन और अग्रिम विज्ञान मंत्रालय'}
+          </div>
 
-    <div className='p-4 text-xl text-center font-bold m-auto '>{'MAAS'}-{'प्राचीन और अग्रिम विज्ञान मंत्रालय'}</div>
 <div className='text-5xl p-2 text-left font-thin m-auto'>Ministry of Future Sciences</div>
 <Ifo data={Ministry1}/>
+<div
+            className={`p-2 bg-gradient-to-r text-yellow-700 text-center font-extrabold from-red-800 via-yellow-300 to-yellow-500  cursor-pointer w-80 m-auto  shadow-lg`}
+          >
+            {'MFS'}--{'भविष्य विज्ञान मंत्रालय'}
+          </div>
 
-    <div className='p-4 text-xl text-center font-bold m-auto '>{'MFS'}{'भविष्य विज्ञान मंत्रालय'}</div>
 
   </div>;
 };
 
+
+const InputF=(props:any)=>{
+  const{label, setInputScreen}=props
+  return   <div className='underline text-green-500 p-2'
+  onClick={()=>{
+    setInputScreen(true)
+  }}
+  >{label}</div>
+}
 
 const Ministry0={
   Information:"The structure of the Ministry of Ancient and Advance Sciences would aim to promote and advance knowledge and research in various fields of science, including traditional and ancient sciences. Here is a possible structure for such a ministry:",

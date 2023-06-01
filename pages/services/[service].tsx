@@ -8,7 +8,7 @@ const Service = () => {
 
 
 
-  return <div>
+  return <div className="max-w-3xl m-auto  p-4 bg-white">
     <div className="h-12"></div>
     <h1 className="uppercase p-2">{service}</h1>
     {/* <BrahmiKaavya/> */}
@@ -418,7 +418,7 @@ export const VedicCoarses=()=>{
 
 
 
-return <div className="p-2 mt-6">
+return <div className="p-6 mt-6 ">
             <div className={heading}>{vedic.Introduction}</div>
 <div className="p-2 flex flex-col gap-4">
 

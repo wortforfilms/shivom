@@ -1,14 +1,14 @@
 import { Game } from "@/components/games/Game"
 import { Gameplay } from "@/components/games/Gameplay"
 import { GamesHeaderButtons, SelectedGamesHeaderButtons } from "@/components/games/GamesHeaderButtons"
-import { supabase } from "@/lib/Store"
+
 import { range } from "@/util/createRange"
 import { nFormatter } from "@/util/numberFormatter/nFormatter"
 import { faker } from "@faker-js/faker"
 import { motion } from "framer-motion"
-import moment from "moment"
+
 import { useRouter } from "next/router"
-// import { useEffect, useState } from "react"
+
 import { MdOutlineResetTv } from "react-icons/md"
 import QRCode from "react-qr-code"
 
@@ -48,6 +48,20 @@ const Timer = (props:any) => {
     )
 }
 
+const GameType=()=>{
+  const router=useRouter()
+  const {type}=router.query
+
+
+    return <div className="min-h-[90vh]">
+<div className="h-12"></div>
+<h1>
+  {type}
+  <Lakshmi/>
+  <Game/>
+  </h1>
+  </div>
+}
 
 
 
@@ -232,7 +246,7 @@ const [game_s,setGameS]=useState([{ emoji: "🎲", label: "active", icon: "", im
 }
 
 
-export default Lakshmi
+export default GameType
 
 const Tree=(props:any)=>{
   const {str, users, nu}=props

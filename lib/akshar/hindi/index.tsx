@@ -15,8 +15,13 @@ export const alphabetData: HindiAlphabet[] = [
   { alphabet: 'उ', word: 'उत्सव', emoji: '🎉' },
   { alphabet: 'ऊ', word: 'ऊर्जा', emoji: '⚡️' },
   { alphabet: 'ऋ', word: 'ऋषि', emoji: '🧙‍♂️' },
+  { alphabet: 'ऋ', word: 'ऋषि', emoji: '🧙‍♂️' },
   { alphabet: 'ए', word: 'एकता', emoji: '🤝' },
   { alphabet: 'ऐ', word: 'ऐतिहासिक', emoji: '🏰' },
+  { alphabet: 'ए', word: 'एकता', emoji: '🤝' },
+  { alphabet: 'ऐ', word: 'ऐतिहासिक', emoji: '🏰' },
+  { alphabet: 'ओ', word: 'ओजस्वी', emoji: '💪' },
+  { alphabet: 'औ', word: 'औरत', emoji: '👩' },
   { alphabet: 'ओ', word: 'ओजस्वी', emoji: '💪' },
   { alphabet: 'औ', word: 'औरत', emoji: '👩' },
   { alphabet: 'क', word: 'कर्म', emoji: '🔨' },
@@ -39,6 +44,7 @@ export const alphabetData: HindiAlphabet[] = [
   { alphabet: 'द', word: 'देश', emoji: '🏞' },
   { alphabet: 'ध', word: 'धरती', emoji: '🌍' },
   { alphabet: 'न', word: 'नमस्ते', emoji: '🙏' },
+  { alphabet: 'न', word: 'नमस्ते', emoji: '🙏' },
   { alphabet: 'प', word: 'प्यार', emoji: '❤️' },
   { alphabet: 'फ', word: 'फूल', emoji: '🌸' },
   { alphabet: 'ब', word: 'बादल', emoji: '☁️' },
@@ -46,6 +52,9 @@ export const alphabetData: HindiAlphabet[] = [
   { alphabet: 'म', word: 'मित्र', emoji: '🤝' },
   { alphabet: 'य', word: 'योग', emoji: '🧘' },
   { alphabet: 'र', word: 'रंग', emoji: '🎨' },
+  { alphabet: 'र', word: 'रंग', emoji: '🎨' },
+  { alphabet: 'ल', word: 'लक्ष्य', emoji: '🎯' },
+  { alphabet: 'ल', word: 'लक्ष्य', emoji: '🎯' },
   { alphabet: 'ल', word: 'लक्ष्य', emoji: '🎯' },
   { alphabet: 'व', word: 'विजय', emoji: '🏆' },
   { alphabet: 'श', word: 'शान्ति', emoji: '☮️' },
@@ -64,8 +73,8 @@ const HindiAlphabetChart: React.FC = () => {
     <div className="hindi-alphabet-chart sm:p-4 mt-4">
       <table>
         <tbody className='flex flex-row flex-wrap justify-around gap-2'>
-          {alphabetData.map((item) => (
-            <tr key={item.alphabet} className='flex flex-col bg-white shadow-lg w-[48%] sm:w-48 p-4 text-center'>
+          {alphabetData.map((item,index) => (
+            <tr key={index} className='flex flex-col bg-white shadow-lg w-[48%] sm:w-48 p-4 text-center'>
 
                <td className='text-3xl sm:text-7xl'>{item.alphabet}</td>
               <td>{item.word}</td>

@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains:["cloudflare-ipfs.com"]
+    domains:["cloudflare-ipfs.com", "upload.wikimedia.org",
+    "images-of-elements.com", "storage.googleapis.com"
+  ]
 
   },
 

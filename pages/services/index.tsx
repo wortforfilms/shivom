@@ -22,11 +22,11 @@ const Services = () => {
   ])
 
   const router=useRouter()
-  return <div className="p-4">
+  return <div className="p-1 sm:p-4">
     <h1>Introducing Shivom</h1>
     <a>Empowering Education, Mantra (Software), Yantra (Hardware), Tantra (IoT), Advanced Sciences, Artificial Intelligence, Healthcare, Eldercare, Consultations, and Research Services</a>
     <p>Shivom is a groundbreaking platform rooted in the wisdom of Brahmi-based Vedic knowledge, offering a comprehensive range of services that encompass education, mantra (software), yantra (hardware), tantra (IoT), advanced sciences, artificial intelligence, healthcare, eldercare, consultations, and research. This innovative platform aims to empower individuals and organizations by harnessing the transformative potential of ancient wisdom and cutting-edge technologies.</p>
-    <div className='text-xl flex flex-col gap-4 p-4 mt-12'>
+    <div className='text-xl flex flex-col gap-4 p-2 mt-12'>
 
 
     {

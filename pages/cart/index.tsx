@@ -143,7 +143,7 @@ const CartEx = (props:any) => {
       
         <LabelButton label="Visit Market" 
         action={() => {
-          router.push("/market");
+          router.push("/docs/catalogue");
         }}
         />
       </div>
