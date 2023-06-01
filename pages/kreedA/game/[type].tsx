@@ -14,6 +14,7 @@ import QRCode from "react-qr-code"
 
 
 import { useState, useEffect } from 'react';
+import { brahmi } from "@/components/classes/brahmi"
 
 const Timer = (props:any) => {
     const {initialMinute = 0,initialSeconds = 0} = props;
@@ -59,16 +60,7 @@ const GameType=()=>{
   {type}
  {type==="lakshmi" && <Lakshmi/>}
 
- {type==="akshar" && <div className="p-6">
-  
-  Quiz-e-Answer-Options<br/>
-  ---x<hr/>
-  Timer
-  --==--xz»<hr/>
-
-  Reward
-
-  </div>}
+ {type==="akshar" && <Akshar/>}
   {type==="gameplay_lakshmi" && <Game/>}
   </h1>
   </div>
@@ -255,7 +247,86 @@ const [game_s,setGameS]=useState([{ emoji: "🎲", label: "active", icon: "", im
 
   </div>
 }
+import useWindowSize from "react-use/lib/useWindowSize"
+import  Confetti  from "react-confetti"
 
+const Akshar=()=>{
+
+  const [set,setSet]=useState<any>(faker.helpers.arrayElements(brahmi(),4))
+  const [a,setA]=useState<any>(faker.helpers.arrayElement(set))
+  const [success,setSuccess]=useState<any>(null)
+  const [wrong,setWrong]=useState<any>(null)
+  const [score,setScore]=useState<any>(0)
+  const { width, height } = useWindowSize()
+
+  useEffect(() => {
+    let mount=true
+    if(mount){
+      setA(faker.helpers.arrayElement(set))
+    }
+    return () => {
+      mount=false
+    }
+  }, [set])
+  
+
+
+
+  return <div className="p-6 w-[100vw]">
+     {success && <Confetti
+      width={width}
+      height={height}
+      numberOfPieces={3000}
+      tweenDuration={5000}
+      // initialVelocityY={70}
+      recycle={false}
+      
+    />}
+  Quiz-e-Answer-Options<br/>
+  ---x{score}<hr/>
+  <div className="w-full h-48 text-9xl m-auto text-center bg-white shadow-lg">
+{a[2]}
+  </div>
+  Timer
+  --==--xz»<hr/>
+  <div className="flex flex-row gap-4">
+
+{
+  set.map((al:any,index:number)=>{
+    
+    return <motion.div 
+    whileHover={{scale:.95}}
+    whileTap={{scale:1.1}}
+    key={index} className="w-24 h-24 m-auto text-center cursor-pointer hover:bg-yellow-300 bg-white shadow-lg"
+    onClick={()=>{
+      if(al[2]===a[2]){
+
+        setSuccess(true)
+        setWrong(false)
+
+        setSet(faker.helpers.arrayElements(brahmi(),4))
+        setScore((s:any)=>s+5)
+      } else {
+        setWrong(true)
+        setSuccess(false)
+      }
+      
+    }}
+    >{al[0]}</motion.div>
+  })
+}
+  </div>
+ {success && <div className=" text-center overflow-hidden text-green-500 p-2">
+  Reward
+ </div>
+  }
+  {wrong && <div className=" text-red-500 p-2">
+  Wrong
+ </div>
+  }
+
+  </div>
+}
 
 export default GameType
 
