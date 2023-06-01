@@ -54,11 +54,11 @@ const[category,setCategory]=useState([
 ])
 
 const[gcategory,setGCategory]=useState([
-  {label:"akshar", icon:"🕉️", image:"",cycle:"",duration:"1/5Hourly"},
-  {label:"shabda", icon:"⚛", image:"",cycle:"",duration:"Hourly"},
-  {label:"vakya", icon:"✍🏻", image:"",cycle:"",duration:"Daily"},
-  {label:"mantra", icon:"🧘🏽‍♀️", image:"",cycle:"",duration:"Weekly"},
-  {label:"siddhAnta", icon:"🔣", image:"",cycle:"",duration:"Weekly"},
+  {label:"akshar", icon:"🕉️", image:"",cycle:"",duration:"60", reward:[1,5,10]},
+  {label:"shabda", icon:"⚛", image:"",cycle:"",duration:"120", reward:[10,50,100]},
+  {label:"vakya", icon:"✍🏻", image:"",cycle:"",duration:"240", reward:[100,500,1000]},
+  {label:"mantra", icon:"🧘🏽‍♀️", image:"",cycle:"",duration:"600", reward:[1000,5000,10000]},
+  {label:"siddhAnta", icon:"🔣", image:"",cycle:"",duration:"6000", reward:[10000,50000,100000]},
 ])
 
 
@@ -76,21 +76,7 @@ const[gcategory,setGCategory]=useState([
     const current_skew=new Date().getHours()
     const skew=`${new Date().getDay()}-${new Date().getHours()}`
     const remainig=new Date().getMinutes()
-// {}-{}-{}
-// show category 
-// show list
-// show play
-// show-live
-// show help
-// show user-board
-// show admin-board
 
-// {}-{}-{}-{}-{}
-// _|_|_|_|_
-// .....
-// kalp_vruksh
-// kamdhenu
-// nandi
 const router=useRouter()
 const {q}=router.query
 
@@ -106,9 +92,11 @@ return ()=>{
 
   return <div className="p-4   min-h-[90vh]">
     <div className="h-12"></div>
-    <div className="p-4 flex flex-row">
+
+
+    <div className=" flex flex-row">
       <GamesHeaderButtons setSection={setView} section={view} selected_game={game}/>
-     {game && <motion.div className="text-7xl p-2 rounded-lg shadow-lg bg-white"
+     { <motion.div className="text-5xl p-2 rounded-lg shadow-lg bg-white"
       onClick={()=>{
         setGame(null)
       }}
@@ -116,8 +104,7 @@ return ()=>{
     </div>
 
 
-
-   {view==="lakshmi" && !game && <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
+   {view==="lakshmi"  && <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
       {
         category.map((ver,index)=>{
         return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
@@ -145,7 +132,7 @@ return ()=>{
       }
     </div>}
 
-    {view==="ganesh" && !game && <div className="flex flex-row   flex-wrap justify-start gap-4 p-4">
+    {view==="ganesh"  && <div className="flex flex-row   flex-wrap justify-start gap-4 p-4">
       {
         gcategory.map((ver,index)=>{
         return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
@@ -174,8 +161,6 @@ return ()=>{
     </div>}
 
     
-
-
     {
       view==="help" && <div><Gameplay/></div>
     }

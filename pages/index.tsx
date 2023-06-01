@@ -12,7 +12,7 @@ import { ProductForm } from '@/form/forms/product/ProductForm'
 import { Questions } from '@/components/landing/Questions'
 import { Testemonials } from '@/components/landing/Testemonial'
 import { Zodiacs } from '@/components/landing/Zodiacs'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Kosh } from '../components/Kosh'
 import { ProductList } from '../components/catalogue/ProductList'
 import { Communication } from '../components/communication/Communication'
@@ -30,6 +30,7 @@ import Sh4omBanner, { Sh4omBanner0 } from '@/elements/headless/banner'
 import { Box } from '@/elements/box'
 import BookCover3D from '@/elements/3d/bookcover'
 import HindiAlphabetChart from '@/lib/akshar/hindi'
+import { useRouter } from 'next/router'
 
 
 // before active after
@@ -38,7 +39,21 @@ import HindiAlphabetChart from '@/lib/akshar/hindi'
 export default function Home(props: any) {
   const { initialReduxState } = props
   const earth: typeof initialReduxState = useSelector(state => state)
-  const [section, setSection] = useState(null)
+  const [section, setSection] = useState<any>(null)
+  const router=useRouter()
+  const {sect}=router.query
+
+  useEffect(() => {
+    let mount=true
+    if(mount){
+      setSection(sect)
+    }
+  
+    return () => {
+      mount=false
+    }
+  }, [sect])
+  
 
 
 
@@ -85,10 +100,10 @@ export default function Home(props: any) {
       {section === "vedic_classes" && <>
         {/* <MApp /> */}
         <VedicCoarses/>
+        <HindiAlphabetChart/>
 
       </>}
       {section === "brahmi_classes" && <>
-     <HindiAlphabetChart/>
         <Brahmi />
       </>}
       {section === "boards" && <Team />}

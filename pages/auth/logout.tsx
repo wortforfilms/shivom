@@ -29,7 +29,7 @@ const dispatch=useDispatch()
   }, [])
   
   return (
-    <div className='m-auto w-full p-4'>    
+    <div className='m-auto w-full min-h-[90vh] p-4'>    
     <div className='h-12'></div> 
       <TitleCard
       heading="Successfully logged out!!!"

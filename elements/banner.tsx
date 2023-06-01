@@ -49,7 +49,7 @@ quality={100}
     className="w-full  rounded-full  justify-start   animate-spin-slow m-auto"
     />
       <div className="content bg-white shadow-lg bg-opacity-[98%] p-4 text-center">
-        <h1 className={heading}>{aibannner.title}</h1>
+        <div className={heading}>{aibannner.title}</div>
         <p className={information}>{aibannner.info}</p>
         {earth?.auth?.authenticated?<div className="cta-button cursor-pointer bg-red-500 hover:bg-red-600 text-white text-lg px-8 py-4 rounded-full transition-colors duration-300" 
         onClick={()=>{

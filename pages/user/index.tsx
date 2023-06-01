@@ -63,7 +63,7 @@ return ()=>{mount=false}
 
 const { width, height } = useWindowSize()
 // console.log(moon_phase(new Date(user.dob)))
-  return <div className="p-4">
+  return <div className="p-4 w-full">
     <div className="h-12"></div>
 
     <Confetti
@@ -121,9 +121,8 @@ const { width, height } = useWindowSize()
   </div>
 </div>
 <RingNakshatra/>
-{/* <TwoStatChartApp/> */}
+
 <Image
-    // src="/img/astrology-circle-orance-dots.png"
     src="/img/indian2.png"
     alt="astro chart"
     width={100}
@@ -141,7 +140,6 @@ quality={100}
 <ZodiacCalculator user={user} setSunSign={setSunSign}/>
 <MoonSignCalculator user={user}/>
 <Image
-    // src="/img/astrology-circle-orance-dots.png"
     src="/img/astrological_chart.png"
     alt="astro chart"
     width={100}
