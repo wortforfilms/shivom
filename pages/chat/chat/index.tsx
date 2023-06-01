@@ -1,4 +1,5 @@
 
+import { Communication } from '@/components/communication/Communication';
 import { range } from '@/util/createRange';
 import { faker } from '@faker-js/faker';
 import { useRouter } from 'next/router';
@@ -22,7 +23,7 @@ const Chat: React.FC = () => {
     {
       address:"", domain:"",token:"",chats:[{q:"",a:''}]
     },
-    
+
   ])
   const [messages, setMessages] = useState<any>(
     range(0,7).map(()=>{
@@ -54,6 +55,7 @@ const Chat: React.FC = () => {
 
 <FaBackward className='p-1 text-3xl font-bold hover:text-white'/>
   </div>
+  <div><Communication/></div>
 </div>
       <div className="chat-messages h-[80%] bg-gray-300">
         {messages.map((message:any, index:number) => (

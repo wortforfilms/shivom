@@ -4,6 +4,9 @@ import Image from "next/image"
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import Element_ from "./Element";
+import Compass from "../tool/Compass";
+import Gyroscope from "../tool/Gyroscope";
+import GyroHome from "../tool";
 export const zods = [
   {
     sign: "♈",
@@ -535,6 +538,9 @@ const router=useRouter()
   i am hemant:; i am start of winter 
 </div>
   <Element_/> */}
+  {/* <Compass/>
+  <Gyroscope/> */}
+  <GyroHome/>
     </div>
 
 };

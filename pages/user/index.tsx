@@ -628,3 +628,38 @@ var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
 })}</div>
   </>
 }
+
+
+export const Utsav=(props:any)=>{
+
+
+  var obj = new MhahPanchang();
+
+
+var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
+var [utsava,setUtsava]=useState<any>("annimations")
+
+// 
+
+  return <>
+  <h1>
+  Utsav
+  </h1>
+<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+
+{vartamaan && Object.keys(vartamaan).map((hea,index)=>{
+  return <div  key={index}  className="flex flex-col  m-auto text-center">
+    <div className="thin-subhead">{hea}:</div>
+    <div>  {Object.values(vartamaan)[index]?.name}</div>
+    <div>  {Object.values(vartamaan)[index]?.name_en_IN}</div>
+    <div>  {Object.values(vartamaan)[index]?.name_en_UK}</div>
+    </div>
+})}
+{
+  utsava.tithi
+  
+}
+
+</div>
+  </>
+}
