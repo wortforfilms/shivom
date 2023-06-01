@@ -64,12 +64,7 @@ export default function Home(props: any) {
       <div className='h-12'></div>
       <HeaderButtons setSection={setSection} section={section} />
 
-      {!section &&
-<Box>
-      
-      <Banner/>
-</Box>      
-      }
+      {!section && <Banner/> }
       <div className='flex flex-col sm:flex-row gap-2 '>
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />

@@ -52,11 +52,19 @@ export default function GyroHome() {
   };
 
   useEffect(()=>{
-    // handleOrientationChange()
+    handleOrientationChange(gyroscopeData)
   },[])
 
   const [gyroscopeData, setGyroscopeData] = useState<any>({ x: 0, y: 0, z: 0 });
 
+
+  // plane ground x water lebel
+  // balancez  direction
+  // right left 
+  // north south
+  // 
+  // [.] :[float balance]
+  // 
   return (
     <div className={" flex flex-col gap-2"}>
       <Head>
@@ -69,12 +77,12 @@ export default function GyroHome() {
       <a href="https://ofrohn.github.io/celestial-demo/viewer.html" className="p-2 bg-gray-600 w-24 text-green-500 text-center rounded-lg shadow-lg font-bold"> Launch </a>
 
         <h1 className={"title text-xs"}>Gyroscope and Compass App</h1>
-        {heading}
+        {gyroscopeData.z}
         <div className={""}>
           <Gyroscope gyroscopeData={gyroscopeData} setGyroscopeData={setGyroscopeData}/>
         </div>
         <div className="compassContainer m-auto">
-          <Compass heading={heading} gyroscopeData={gyroscopeData} />
+          <Compass heading={gyroscopeData.z} gyroscopeData={gyroscopeData} />
         </div>
 
         {/* <CelestialChart latitude={latitude} longitude={longitude} /> */}
