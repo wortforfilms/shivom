@@ -4,14 +4,14 @@ import { GameBanner } from "@/components/games/GameBanner"
 import { Gameplay } from "@/components/games/Gameplay"
 import { GamesHeaderButtons } from "@/components/games/GamesHeaderButtons"
 import { supabase } from "@/lib/Store"
-import { gold } from "@/sty"
 import { range } from "@/util/createRange"
-import { nFormatter } from "@/util/numberFormatter/nFormatter"
 import { faker } from "@faker-js/faker"
 import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { MdOutlineResetTv } from "react-icons/md"
+import { LakshmiList } from "../../components/games/list/LakshmiList"
+import { Ganeshlist } from "../../components/games/list/Ganeshlist"
 
 
 // 196.9 trillion
@@ -41,10 +41,8 @@ const create_game=async(type:any,amount:any)=>{
 
 
 const KreedA=()=>{
-  const [stage,setStage]=useState(0)
-  const [games,setGames]=useState<any>([])
+
   const [game,setGame]=useState<any>(null)
-  const [tag,setTag]=useState<any>('')
   const [view,setView]=useState<any>('ghome')
 
 const[category,setCategory]=useState([
@@ -56,6 +54,11 @@ const[category,setCategory]=useState([
 ])
 
 const[gcategory,setGCategory]=useState([
+
+  {label:"swar", icon:"🎙", image:"",cycle:"",duration:"60", reward:[1,5,10]},
+  {label:"vyanjana", icon:"♾️", image:"",cycle:"",duration:"60", reward:[1,5,10]},
+  {label:"anka", icon:"🧮", image:"",cycle:"",duration:"60", reward:[1,5,10]},
+  {label:"mAtrA", icon:"⚖️", image:"",cycle:"",duration:"60", reward:[1,5,10]},
   {label:"akshar", icon:"🕉️", image:"",cycle:"",duration:"60", reward:[1,5,10]},
   {label:"shabda", icon:"⚛", image:"",cycle:"",duration:"120", reward:[10,50,100]},
   {label:"vakya", icon:"✍🏻", image:"",cycle:"",duration:"240", reward:[100,500,1000]},
@@ -74,10 +77,7 @@ const[gcategory,setGCategory]=useState([
       }
     })
   
-    const nu=faker.datatype.number({min:3,max:69})
-    const current_skew=new Date().getHours()
-    const skew=`${new Date().getDay()}-${new Date().getHours()}`
-    const remainig=new Date().getMinutes()
+
 
 const router=useRouter()
 const {q}=router.query
@@ -155,70 +155,3 @@ const Tree=(props:any)=>{
 </div>
 }
 
-const LakshmiList=(props:any)=>{
-  const {category, setGame}=props
-  const router=useRouter()
-  return <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
-  {
-    category.map((ver:any,index:number)=>{
-    return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
-      <div className="text-7xl p-2 invert">{ver.icon}</div>
-      <div>{ver.label} </div>
-      <div className="text-xs font-bold p-1">{ver.duration}</div>
-      <div>
-        <div className="text-xs text-yellow-700 p-2">Lastest winner: </div>
-        <h1>{
-         nFormatter(faker.datatype.number({min:99,max:9999999}))
-        }</h1></div>
-
-<div className="text-xs text-yellow-700 p-2">Current Box: </div>
-        {
-         nFormatter(faker.datatype.number({min:99,max:999999}))
-        }
-  <div className="p-2 bg-gray-700 text-white rounded-lg mt-8 mb-4 shadow-lg shadow-green-500"
-  onClick={()=>{
-    setGame(ver.label)
-    router.push(`/kreedA/game/${ver.label}`)
-  }}
-  >PLAY NOW</div>
-      </div>
-  })
-  }
-</div>
-}
-
-const Ganeshlist=(props:any)=>{
-  const {gcategory, setGame}=props
-  const router=useRouter()
-
-  return <div className="flex flex-row   flex-wrap justify-start gap-4 p-4">
-  {
-    gcategory.map((ver:any,index:number)=>{
-    return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
-      <div className="text-7xl p-2 ">{ver.icon}</div>
-      <div>{ver.label} </div>
-      <div className="text-xs font-bold p-1">{ver.duration}</div>
-      <div>
-        <div className="text-xs text-yellow-700 p-2">Lastest winner: </div>
-        <h1>{
-         nFormatter(faker.datatype.number({min:99,max:9999999}))
-        }</h1></div>
-
-<div className="text-xs text-yellow-700 p-2">Current Box: </div>
-        {
-         nFormatter(faker.datatype.number({min:99,max:999999}))
-        }
-  <motion.div 
-  whileHover={{scale:.95}}
-  whileTap={{scale:1.1}}
-  className="p-2 bg-gray-700 text-white rounded-lg mt-8 mb-4 cursor-pointer hover:bg-pink-700 shadow-lg shadow-green-500 hover:shadow-sky-500"
-  onClick={()=>{
-    setGame(ver.label)
-    router.push(`/kreedA/game/${ver.label}`)
-  }}
-  >PLAY NOW</motion.div>
-      </div>
-  })
-  }
-</div>
-}

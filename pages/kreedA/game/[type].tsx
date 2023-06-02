@@ -2,29 +2,63 @@ import { Game } from "@/components/games/Game"
 import { faker } from "@faker-js/faker"
 import { useRouter } from "next/router"
 import { MdBackHand } from "react-icons/md"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Akshar } from "@/components/games/ganesh/akshar"
 import { Lakshmi } from "@/components/games/lakshmi/Lakshmi"
 import { Shabda } from "@/components/games/ganesh/shabda";
+import { Swar } from "@/components/games/ganesh/swar";
+import { Vyanjana } from "@/components/games/ganesh/vyanjana";
+import { Anka } from "@/components/games/ganesh/anka";
+import { MAtrA } from "@/components/games/ganesh/mAtrA";
+import { useSelector } from "react-redux";
+import { BiArrowBack } from "react-icons/bi";
 
 
 
-const GameType = () => {
+const GameType = (props:any) => {
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state)
   const router = useRouter()
   const { type } = router.query
+
+  useEffect(() => {
+    let mount=true
+    if(mount){
+      if(earth?.auth?.authenticated){
+        return
+      } else {
+        router.push('/auth/login')
+      }
+    }
+  
+    return () => {
+      mount=false
+    }
+  }, [earth?.auth])
+  
 
 
   return <div className="min-h-[90vh] p-2 sm:p-4">
     <div className="h-12"></div>
-    <MdBackHand onClick={() => {
-      router.back()
-    }} />
-    <h1>
-      {type}
-      {type === "lakshmi" && <Lakshmi />}
+    <div className="p-2 flex flex-row justify-between">
 
+    <BiArrowBack onClick={() => {
+      router.back()
+    }} 
+    className="text-5xl font-extrabold"
+    />
+    <h1>
+{type}
+    </h1>
+    </div>
+    <h1>
+      {type === "lakshmi" && <Lakshmi />}
       {type === "akshar" && <Akshar />}
+      {type === "swar" && <Swar />}
+      {type === "vyanjana" && <Vyanjana />}
+      {type === "mAtrA" && <MAtrA />}
+      {type === "anka" && <Anka />}
       {type==="shabda" && <Shabda/>}
       {type === "gameplay_lakshmi" && <Game />}
     </h1>

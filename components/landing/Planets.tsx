@@ -31,7 +31,7 @@ export const Planets = () => {
         </div>;
       })}
     </div>
-<div className="flex flex-row flex-wrap justify-around gap-1">
+{/* <div className="flex flex-row flex-wrap justify-around gap-1">
     <div className="thin-subhead">PLANET'S COMPARITIVE MASSES
     <DoughnutChart data={Object.values(Kundali0).map((i,index)=>universal.planets[index].mass)} labels={Object.values(Kundali0)}/>
     </div>
@@ -44,7 +44,7 @@ export const Planets = () => {
     <div className="thin-subhead">PLANET'S COMPARITIVE ORBITAL PERIOD
     <DoughnutChart data={Object.values(Kundali0).map((i,index)=>universal.planets[index].orbitalPeriod)} labels={Object.values(Kundali0)}/>
     </div>
-</div>
+</div> */}
   </div>;
 };
 

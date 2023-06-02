@@ -1,9 +1,9 @@
 const qu=[
-"Why did EAC {my} {ECG} {NAVIC} Games break up happen ?",
-"How will EAC {my} {ECG} {::} Games love life be this year ?",
+"Why did my break up happen ?",
+"How will my love life be this year ?",
 "Do people like to be around me ?",
 "Will I get a job abroad ?",
-"Can I completely trust EAC {my} {ECG} {} Games business partner ?",
+"Can I completely trust my business partner ?",
 "Why am I facing debts and losses ?",
 ]
 

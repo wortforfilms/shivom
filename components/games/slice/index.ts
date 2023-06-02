@@ -45,6 +45,10 @@ const gameSlice=createSlice({
       }
     ],
 
+    ganesh_games:[
+      
+    ],
+
 
     winers:[]
   

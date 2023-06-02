@@ -636,7 +636,7 @@ var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
 
   return <div   className="flex flex-col gap-2">
   <h1>
-  Vartmaan
+  VartamAn
   </h1>
   <div className="flex flex-col flex-wrap  gap-4 text-center p-4 w-80 rounded-lg shadow-lg bg-white mt-4 mb-4">
 
