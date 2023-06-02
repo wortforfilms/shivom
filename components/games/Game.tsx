@@ -376,17 +376,6 @@ const ToDo = (props: any) => {
   </div>
 }
 
-// bear
-// bull
-
-// 36 koti
-// gods of world
-// 
-
-// information in markets
-
-// bheda chAl aries
-// 
 const GameStatus = (props: any) => {
   const { status } = props
   return <div >{status}</div>

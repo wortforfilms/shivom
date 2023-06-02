@@ -85,41 +85,13 @@ const { width, height } = useWindowSize()
 <UserRaasi zod={'Cancer'}/>
 </div>
 </div>
-<h1>
-  Janm
-  </h1>
-<div className="flex flex-col flex-wrap  gap-4 text-center p-4 w-80 rounded-lg shadow-lg bg-white mt-8 mb-8">
+<ProfileStatus user={user}/>
+<div className="flex flex-col  sm:flex-row justify-around ">
 
-{Object.keys(panch).map((hea,index)=>{
-  return <div  key={index}  className="flex flex-row justify-start gap-4  w-auto text-center">
-    <div className="text-sm font-bold">{hea}:</div>
-    <div>  {Object.values(panch)[index].name}</div>
-    <div>  {Object.values(panch)[index].name_en_IN}</div>
-    <div>  {Object.values(panch)[index].name_en_UK}</div>
-    </div>
-})}</div>
-
-
+<Janm user={user}/>
 <Aaj />
-<div className="flex flex-row justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
-
-<div className="text-sm font-bold flex flex-col"><div>
-  Biomed: </div><div className="font-normal">{user.biomed?"done":"false"}
-  </div>
-  </div>
-<div className="text-sm font-bold flex flex-col"><div>
-  Profiled: </div><div className="font-normal">{user.profiled?"done":"false"}
-  </div>
-  </div>
-<div className="text-sm font-bold flex flex-col"><div>
-  Email Verified: </div><div className="font-normal">{user.email_verified?"done":"false"}
-  </div>
-  </div>
-<div className="text-sm font-bold flex flex-col"><div>
-  Phone Verified: </div><div className="font-normal">{user.phone_verified?"done":"false"}
-  </div>
-  </div>
 </div>
+
 <RingNakshatra/>
 
 <Image
@@ -157,7 +129,31 @@ quality={100}
 
 export default User
 
-const Zodiac=()=>{
+
+export const ProfileStatus=(props:any)=>{
+  const {user}=props
+  return <div className="flex flex-row justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+
+  <div className="text-sm font-bold flex flex-col"><div>
+    Biomed: </div><div className="font-normal">{user.biomed?"done":"false"}
+    </div>
+    </div>
+  <div className="text-sm font-bold flex flex-col"><div>
+    Profiled: </div><div className="font-normal">{user.profiled?"done":"false"}
+    </div>
+    </div>
+  <div className="text-sm font-bold flex flex-col"><div>
+    Email Verified: </div><div className="font-normal">{user.email_verified?"done":"false"}
+    </div>
+    </div>
+  <div className="text-sm font-bold flex flex-col"><div>
+    Phone Verified: </div><div className="font-normal">{user.phone_verified?"done":"false"}
+    </div>
+    </div>
+  </div>
+}
+
+export const Zodiac=()=>{
 
   return <div className="flex flex-row gap2 invert justify-around flex-wrap">
     {
@@ -179,7 +175,7 @@ quality={100}
   </div>
 }
 
-const UserZodiac=(props:any)=>{
+export const UserZodiac=(props:any)=>{
   const {zod}=props
 
   return <div className="flex flex-col w-32 m-auto bg-white rounded-lg shadow-lg gap2  justify-around flex-wrap">
@@ -206,7 +202,7 @@ quality={100}
   </div>
 }
 
-const UserRaasi=(props:any)=>{
+export const UserRaasi=(props:any)=>{
   const {zod}=props
 
   return <div className="flex flex-col w-32 m-auto bg-white rounded-lg shadow-lg gap2  justify-around flex-wrap">
@@ -239,7 +235,7 @@ interface Dosha {
   pitta: number;
 }
 
-const calculateDoshas = (dateOfBirth: string): Dosha => {
+export const calculateDoshas = (dateOfBirth: string): Dosha => {
   // Perform dosha calculation logic here
   // This is a sample implementation, you can replace it with your own calculation logic
 
@@ -296,7 +292,7 @@ const calculateDoshas = (dateOfBirth: string): Dosha => {
 };
 
 // Zodiac sign data
-const zodiacSigns = [
+export const zodiacSigns = [
   { name: 'Aries', startDate: new Date(0, 2, 21), endDate: new Date(0, 3, 19) },
   { name: 'Taurus', startDate: new Date(0, 3, 20), endDate: new Date(0, 4, 20) },
   { name: 'Gemini', startDate: new Date(0, 4, 21), endDate: new Date(0, 5, 20) },
@@ -305,7 +301,7 @@ const zodiacSigns = [
 
 
 
-const ZodiacPosition: React.FC = (props:any) => {
+export const ZodiacPosition: React.FC = (props:any) => {
 
   const {initialReduxState}=props
   const earth:typeof initialReduxState=useSelector(state=>state)
@@ -604,6 +600,32 @@ const qs=[
 "Can you suggest any specific practices or rituals that would be beneficial for this person based on their Kundali?",
 ]
 
+export  const  Janm=(props:any)=>{
+  const {user}=props
+  var obj = new MhahPanchang();
+
+var [panch,setPunch] = useState(obj.calculate(new Date(user.dob)));
+
+
+  return <div   className="flex flex-col gap-2">
+  <h1>
+  Janm
+  </h1>
+<div className="flex flex-col flex-wrap  gap-4 text-center p-4 w-80 rounded-lg shadow-lg bg-white mt-4 mb-4">
+
+{Object.keys(panch).map((hea,index)=>{
+  return <div  key={index}  className="flex flex-row justify-start gap-4  w-auto text-center">
+    <div className="text-sm font-bold">{hea}:</div>
+    <div>  {panch && Object.values(panch)[index].name}</div>
+    <div>  {Object.values(panch)[index].name_en_IN}</div>
+    <div>  {Object.values(panch)[index].name_en_UK}</div>
+    </div>
+})}</div>
+
+  </div>
+}
+
+
 export const Aaj=(props:any)=>{
 
 
@@ -612,21 +634,21 @@ export const Aaj=(props:any)=>{
 
 var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
 
-  return <>
+  return <div   className="flex flex-col gap-2">
   <h1>
   Vartmaan
   </h1>
-<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
+  <div className="flex flex-col flex-wrap  gap-4 text-center p-4 w-80 rounded-lg shadow-lg bg-white mt-4 mb-4">
 
-{vartamaan && Object.keys(vartamaan).map((hea,index)=>{
-  return <div  key={index}  className="flex flex-col  m-auto text-center">
-    <div className="thin-subhead">{hea}:</div>
-    <div>  {Object.values(vartamaan)[index]?.name}</div>
-    <div>  {Object.values(vartamaan)[index]?.name_en_IN}</div>
-    <div>  {Object.values(vartamaan)[index]?.name_en_UK}</div>
+{Object.keys(vartamaan).map((hea,index)=>{
+  return <div  key={index}  className="flex flex-row justify-start gap-4  w-auto text-center">
+    <div className="text-sm font-bold">{hea}:</div>
+    <div>  {Object.values(vartamaan)[index].name}</div>
+    <div>  {Object.values(vartamaan)[index].name_en_IN}</div>
+    <div>  {Object.values(vartamaan)[index].name_en_UK}</div>
     </div>
 })}</div>
-  </>
+  </div>
 }
 
 
@@ -641,7 +663,7 @@ var [utsava,setUtsava]=useState<any>("annimations")
 
 // 
 
-  return <>
+  return <div   className="flex flex-col gap-2">
   <h1>
   Utsav
   </h1>
@@ -661,5 +683,5 @@ var [utsava,setUtsava]=useState<any>("annimations")
 }
 
 </div>
-  </>
+  </div>
 }

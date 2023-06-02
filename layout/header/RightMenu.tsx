@@ -4,7 +4,9 @@ import { IconLabel } from '@/lib/calender';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
+import { BiLogOut } from 'react-icons/bi';
 import { FaRegistered, FaUserCircle } from 'react-icons/fa';
+import { FcSettings } from 'react-icons/fc';
 import { useSelector } from 'react-redux';
 
 const right = [
@@ -25,19 +27,19 @@ const right = [
 const aright = [
   {
     label: "Profile",
-    icon: <FaRegistered/>,
+    icon: <FaUserCircle/>,
     image: "",
     link: "/user"
   },
   {
     label: "Setting",
-    icon: <FaUserCircle/>,
+    icon: <FcSettings/>,
     image: "",
     link: "/user/setting"
   },
   {
     label: "Logout",
-    icon: <FaUserCircle/>,
+    icon: <BiLogOut/>,
     image: "",
     link: "/auth/logout"
   }

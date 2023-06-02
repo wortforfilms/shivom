@@ -26,9 +26,9 @@ import { useSelector } from 'react-redux'
 import Services from './services'
 import { VedicCoarses } from './services/[service]'
 import Banner from '@/elements/banner'
-import Sh4omBanner, { Sh4omBanner0 } from '@/elements/headless/banner'
+import { Sh4omBanner0 } from '@/elements/headless/banner'
 import { Box } from '@/elements/box'
-import BookCover3D from '@/elements/3d/bookcover'
+
 import HindiAlphabetChart from '@/lib/akshar/hindi'
 import { useRouter } from 'next/router'
 import MApp from '@/canvas/model'
@@ -93,7 +93,7 @@ export default function Home(props: any) {
       </>
       }
       {section === "vedic_classes" && <>
-        <MApp />
+        {/* <MApp /> */}
         <VedicCoarses/>
         <HindiAlphabetChart/>
 

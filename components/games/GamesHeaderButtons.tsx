@@ -1,13 +1,5 @@
 import { useRouter } from 'next/router';
 
-// register
-// watch
-// play
-// audience
-// TOD:""
-// how when who what 
-// 
-
 
 export const GamesHeaderButtons = (props: any) => {
   const { setSection, section: sec, selected_game } = props;
@@ -63,8 +55,6 @@ export const GamesHeaderButtons = (props: any) => {
 {[
 
 { emoji: "🛠️", label: "help", icon: "", image: "", link: "/#help", tag: "help" },
-// {emoji:"🧿𓁭🎬👨‍💼🎦🎞️🏛️🛕🔺♦️🔼",label:"Boards",icon:"",image:"",link:"",seat_conditions:""},
-// {emoji:"🎮🎲",label:"Vedic Programming Classes",icon:"",image:"",link:""},
 ].map((section, index) => {
 return <div key={index}>
 { selected_game!=='' && <div 
