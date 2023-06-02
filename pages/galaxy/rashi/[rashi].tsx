@@ -3,6 +3,7 @@ import NakApp from "."
 import { useEffect, useState } from "react"
 import { create_sochen } from "@/q/c/sochen"
 import { supabase } from "@/lib/Store"
+import { create_res, find_res } from "@/action"
 
 const create_doc=async(pmt:any)=>{
 
@@ -17,6 +18,55 @@ const create_book=async(pmt:any)=>{
   return {data,error}
 }
 
+const create_answer=async(pmt:any)=>{
+  const DEFAULT_PARAMS = {
+    "model": "text-davinci-003",
+    "prompt": pmt,
+    "temperature": 0.8,
+    "max_tokens": 256,
+    "top_p": 1,
+    "frequency_penalty": 0,
+    "presence_penalty": 0
+  };
+
+  const params_ = { ...DEFAULT_PARAMS };
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + String(process.env.Open_Ai_Key)
+    },
+    body: JSON.stringify(params_)
+  };
+
+  const fetch_open = async () => {
+    await fetch('https://api.openai.com/v1/completions', requestOptions).then(res => res.json()).then(data => {
+      create_res(pmt, data, "ad").then(res => {
+        if (res && res.data && res.data[0].response) {
+          console.log('created answer', res);
+  
+          return res.data[0];
+        }
+      });
+    }).catch(error => {
+      console.log(error);
+
+    });
+  };
+
+  await find_res(pmt).then(res => {
+    if (res && res.existing_res && res.existing_res.length > 0 && res?.existing_res[0]?.response?.choices && res?.existing_res[0]?.response?.choices[0]?.text) {
+      console.log('found synopsis', res);
+      console.log('found synopsis play ext', res?.existing_res[0]?.response?.choices[0]?.text);
+      return res.existing_res[0].response;
+    } else {
+      console.log("local not found");
+      fetch_open();
+    }
+  });
+
+}
+
 
 const Constalation=()=>{
   const router=useRouter()
@@ -29,14 +79,46 @@ const Constalation=()=>{
   // position
   // related character
   // 
-  const [details,setDetails]=useState([])
 
+
+  //  calender 
+  const [details,setDetails]=useState({
+    Information:"About Aeries",
+    Location:'',
+    Mentions:'',
+    characters:[],
+    Stories:[],
+    Stars:[],
+    mythology:'',
+    science:''
+  })
+
+  // cannot touch {pass {await} :: winner players {viewers} }
+  // ring_bearer :: {}
+  // {transfer}-{deposit}-{securirty}
+  // {interest}-{:::}-{__}-__-––——
+  // signal variance 
+  // on keyboardmacwindowandroidios
+  // signn]al   evolution devolutionn
+  // measure onnn u u U ¨ ¨ 1 :["","",""]
+  // 
 
   useEffect(() => {
     let mount=true
     if(mount){
 
-      const pmt=`Describe ${rashi} in detail with history, metions and location details.`
+      const pmt=`Describe ${rashi} in detail with mythology, vedic history, mentions and location details.`
+
+      const process_soch=async()=>{
+        const {data,error}=await supabase.from('sochen').select('*').eq('pmt',pmt)
+
+        if(data.length>0){
+
+          return {data,error} 
+        } else {
+          create_answer(pmt)
+        }
+      }
 
       // create_sochen(data,search)
 

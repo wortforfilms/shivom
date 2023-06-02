@@ -4,8 +4,6 @@ import { update_project_synopsis } from "./update_project_synopsis";
 
 export const create_manuscript_comp = async (pmt:any , book: any, setSynopsis: any, setProcessing: any, setBook:any) => {
 
-
-
   const DEFAULT_PARAMS = {
     "model": "text-davinci-003",
     "prompt": pmt,
@@ -15,7 +13,7 @@ export const create_manuscript_comp = async (pmt:any , book: any, setSynopsis: a
     "frequency_penalty": 0,
     "presence_penalty": 0
   };
-  
+
   const params_ = { ...DEFAULT_PARAMS };
   const requestOptions = {
     method: 'POST',
@@ -71,7 +69,5 @@ export const create_manuscript_comp = async (pmt:any , book: any, setSynopsis: a
       fetch_open();
     }
   });
-
-
 
 };

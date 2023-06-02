@@ -70,7 +70,7 @@ className='cursor-pointer bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] 
 
 const GameCategory=(props:any)=>{
   const {game}=props
-
+const router=useRouter()
   return  <div className={`flex flex-col mt-4 mb-4 m-auto w-80  rounded-lg shadow-lg p-2  ${game.label==='Lakshmi'?silver:gold}`}>
 
   <div className='p-2 text-3xl text-center font-extrabold'>{game.label}</div>
@@ -87,7 +87,11 @@ const GameCategory=(props:any)=>{
         className='m-auto w-56 p-2 h-auto shadow-lg  rounded-full' />
         </div>
 <GameBar game={game}/>
-    <div className='w-100 m-auto text-3xl text-center font-bold '>
+    <div className='w-100 m-auto text-3xl text-center font-bold hover:bg-gray-300 hover:invert cursor-pointer p-2'
+    onClick={()=>{
+      router.push(`/kreedA?q=${game.label.toLowerCase()}`)
+    }}
+    >
 PLAY TO {game.label!=="Lakshmi"?'LEARN':'EARN '} 
      </div>
   </div>
