@@ -16,7 +16,7 @@ export const ProductList = (props:any) => {
     {
       product_id:1,
       product_type: "t-shirt",
-      product_title: "Cosmic T-shirts",
+      product_title: "Shivom Cosmic T-shirts",
       product_description: "T-shirt for empovering your cosmos with mystical enrgies.",
       product_specification: "Dosh nivaran tshirts",
       product_price: "510.00",
@@ -72,16 +72,24 @@ export const ProductList = (props:any) => {
       product_rating: "4.5",
       product_images: ["/img/gems/21.jpeg"]
     },
+    {
+      product_id:6,
+      product_type: "t-shirt",
+      product_title: "Piccolo Cosmic T-shirts",
+      product_description: "T-shirt for empovering your cosmos with mystical enrgies.",
+      product_specification: "Dosh nivaran tshirts",
+      product_price: "7860.00",
+      curency: "INR",
+      product_rating: "4.5",
+      product_images: ["/img/tshirt/13.png"]
+    },
 
   ]);
-
-  const [inCart,setInCart]=useState(false)
 
 
   const dispatch=useDispatch()
 
-  return <div>
-    <div className='w-full  p-2 flex flex-col sm:flex-row flex-wrap justify-around  gap-2 overflow-auto'>
+  return <div className='w-full  p-2 flex flex-col sm:flex-row flex-wrap justify-around  gap-2 overflow-auto'>
 
       {product_list.map((product: any, index: number) => {
         const _item={
@@ -89,56 +97,113 @@ export const ProductList = (props:any) => {
            title:product.product_title,
             images:product.product_images, pr_type:"physical goods", data:"data", variance:[{price:product.product_price}]
         }
-        return <div key={index} className='bg-white p-4 w-full sm:w-72 flex flex-col justify-between'>
-          <Box>
-
-          <div>Rating: {product.product_rating}</div>
-          <div className='bg-black w-full'>
-          <Image
-            src={product.product_images[0]}
-            alt="tshirt"
-            width={100}
-            height={100}
-            className='w-96 z-10 invert m-auto ' /></div>
-          <div className='text-md font-bold py-4'>{product.product_title}</div>
-          <div className='text-md font-thin py-4'>{product.product_description}</div>
-          <div className='flex flex-col sm:flex-col gap-2  p-1  rounded-lg justify-between'>
-            <div className='text-md text-center font-bold py-1'>INR. {product.product_price}</div>
-           {earth?.cart?.cartItems.map((i:any)=>i.product_id).includes(product.product_id)?<div
-           className='bg-red-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-sky-500 cursor-pointer '
-           onClick={()=>{
-            const id=index+1
-              dispatch(remove_from_cart_(id))
-          }
-          }
-           >Remove</div>:<div 
-           className='bg-blue-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '
-            onClick={()=>{
-              const id=index+1
-              const title=product.product_title
-              const price=product.product_price
-              const images=product.product_images
-              const pr_type="physical"
-
-              if(earth?.auth?.authenticated){
-                dispatch(add_to_cart(id,title,price,images,pr_type))
-              } else {
-                router.push('/auth/login')
-              }
-            }
-            }
-            >Add to Cart
-            </div>}
-          </div>
-          </Box>
-
+        return <div key={index} className='bg-white p-2 w-full  flex flex-col justify-between'>
+         
+<ProductCard product={product} earth={earth} type="column"/>
         </div>;
       })}
 
     </div>
-  </div>;
+
 };
 
 
+const ProductCard=(props:any)=>{
+  const{product, earth, type,index}=props
+const dispatch=useDispatch()
+const router=useRouter()
+  if(type!=="Card"){
 
+  return  <Box>
+
+  <div>Rating: {product.product_rating}</div>
+  <div className='bg-black w-full'>
+  <Image
+    src={product.product_images[0]}
+    alt="tshirt"
+    width={100}
+    height={100}
+    className='w-96 z-10 invert m-auto ' /></div>
+  <div className='text-md font-bold py-4'>{product.product_title}</div>
+  <div className='text-md font-thin py-4'>{product.product_description}</div>
+  <div className='flex flex-col sm:flex-col gap-2  p-1  rounded-lg justify-between'>
+    <div className='text-md text-center font-bold py-1'>INR. {product.product_price}</div>
+   {earth?.cart?.cartItems.map((i:any)=>i.product_id).includes(product.product_id)?<div
+   className='bg-red-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-sky-500 cursor-pointer '
+   onClick={()=>{
+    const id=index+1
+      dispatch(remove_from_cart_(id))
+  }
+  }
+   >Remove</div>:<div 
+   className='bg-blue-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '
+    onClick={()=>{
+      const id=index+1
+      const title=product.product_title
+      const price=product.product_price
+      const images=product.product_images
+      const pr_type="physical"
+
+      if(earth?.auth?.authenticated){
+        dispatch(add_to_cart(id,title,price,images,pr_type))
+      } else {
+        router.push('/auth/login')
+      }
+    }
+    }
+    >Add to Cart
+    </div>}
+  </div>
+  </Box>
+  }
+
+  return <Box>
+<div className='flex flex-row justify-between gap-2'>
+
+  <div className='bg-black m-auto w-32'>
+  <Image
+    src={product.product_images[0]}
+    alt="tshirt"
+    width={100}
+    height={100}
+    className={`w-32 z-10  m-auto ${product.product_title==="Piccolo Cosmic T-shirts"?"":"invert"}`} /></div>
+    <div className='w-1/2'>
+
+  <div className='text-md font-bold py-2'>{product.product_title}</div>
+    <div>Rating: {product.product_rating}</div>
+  <div className='text-md font-normal py-2'>{product.product_description}</div>
+    </div>
+</div>
+  <div className='flex flex-row sm:flex-row gap-2  p-1 w-full rounded-lg justify-between'>
+    <div className='text-md text-center w-1/2 font-bold py-1'>INR. {product.product_price}</div>
+   {earth?.cart?.cartItems.map((i:any)=>i.product_id).includes(product.product_id)?<div
+   className='bg-red-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-sky-500 cursor-pointer '
+   onClick={()=>{
+    const id=index+1
+      dispatch(remove_from_cart_(id))
+  }
+  }
+   >Remove</div>:<div 
+   className='bg-blue-500 text-white m-auto text-center font-bold p-2 rounded-lg shadow-lg hover:bg-pink-500 cursor-pointer '
+    onClick={()=>{
+      const id=index+1
+      const title=product.product_title
+      const price=product.product_price
+      const images=product.product_images
+      const pr_type="physical"
+
+      if(earth?.auth?.authenticated){
+        dispatch(add_to_cart(id,title,price,images,pr_type))
+      } else {
+        router.push('/auth/login')
+      }
+    }
+    }
+    >Add to Cart
+    </div>}
+  </div>
+
+  </Box>
+
+}
 

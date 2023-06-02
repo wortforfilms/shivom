@@ -19,7 +19,7 @@ const TransitionScreen: React.FC = () => {
     <div className={`transition-screen ${animationFinished ? 'fade-out' : ''}`}>
       <div className='flex flex-col gap-2'>
 
-      <h1 className='thin-head text-center'>Sh{"iv"}om</h1>
+      <h1 className='thin-head text-center'>𑀰{"४"}ॐ</h1>
       {/* <video muted autoPlay controls={false} loop
             
             className="  w-full w-full sm:w-full  p-0 sm:p-2 mt-8

@@ -12,6 +12,7 @@ import { useEffect, useState } from "react"
 import { MdOutlineResetTv } from "react-icons/md"
 import { LakshmiList } from "../../components/games/list/LakshmiList"
 import { Ganeshlist } from "../../components/games/list/Ganeshlist"
+import { Brahmi } from "@/components/classes/brahmi"
 
 
 // 196.9 trillion
@@ -112,7 +113,11 @@ return ()=>{
     {view==="ganesh"  && <Ganeshlist gcategory={gcategory} setGame={setGame}/>}
 
     {
-      view==="help" && <div><Gameplay/></div>
+      view==="help" && q==="ganesh" && <div><Brahmi/></div>
+    }
+
+{
+      view==="help" && q!=="ganesh" && <div><Gameplay/></div>
     }
 
 

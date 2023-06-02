@@ -92,24 +92,32 @@ const { width, height } = useWindowSize()
 <Aaj />
 </div>
 
-<RingNakshatra/>
+{/* <RingNakshatra/> */}
+<div className="flex flex-row flex-wrap gap-2">
 
-<Image
-    src="/img/indian2.png"
+{
+  ['east','north','south','vedic'].map((dir,index)=>{
+    return  <Image
+    key={index}
+    src={`/cc/${dir}_india.png`}
     alt="astro chart"
     width={100}
     height={100}
     priority
     unoptimized
-quality={100}
-    className="w-full  invert  justify-start  m-auto"
+    quality={100}
+    className="w-full  invert w-full sm:w-[48%] justify-start  m-auto"
     />
+  })
+}
+  </div>
+
 
 <ObjectInfo data={vedic_for_user} label="User Yoga"/>
 
-<Zodiac/>
-<ZodiacPosition/>
 <ZodiacCalculator user={user} setSunSign={setSunSign}/>
+{/* <Zodiac/>
+<ZodiacPosition/>
 <MoonSignCalculator user={user}/>
 <Image
     src="/img/astrological_chart.png"
@@ -120,7 +128,7 @@ quality={100}
     unoptimized
 quality={100}
     className="w-1/2  rounded-full  justify-start opacity-50 m-auto"
-    />
+    /> */}
 
 
 
@@ -609,9 +617,9 @@ var [panch,setPunch] = useState(obj.calculate(new Date(user.dob)));
 
   return <div   className="flex flex-col gap-2">
   <h1>
-  Janm
+  Birth-Janm
   </h1>
-<div className="flex flex-col flex-wrap  gap-4 text-center p-4 w-80 rounded-lg shadow-lg bg-white mt-4 mb-4">
+<div className="flex flex-col flex-wrap  gap-1 text-center p-4 w-80 rounded-lg shadow-lg bg-white  mb-4">
 
 {Object.keys(panch).map((hea,index)=>{
   return <div  key={index}  className="flex flex-row justify-start gap-4  w-auto text-center">
@@ -636,9 +644,9 @@ var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
 
   return <div   className="flex flex-col gap-2">
   <h1>
-  VartamAn
+  Present-VartamAn
   </h1>
-  <div className="flex flex-col flex-wrap  gap-4 text-center p-4 w-80 rounded-lg shadow-lg bg-white mt-4 mb-4">
+  <div className="flex flex-col flex-wrap  gap-1 text-center p-4 w-80 rounded-lg shadow-lg bg-white  mb-4">
 
 {Object.keys(vartamaan).map((hea,index)=>{
   return <div  key={index}  className="flex flex-row justify-start gap-4  w-auto text-center">

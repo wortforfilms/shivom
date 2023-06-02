@@ -24,8 +24,8 @@ export const HeaderButtons = (props: any) => {
           // router.push(`?q=${section.tag}`)
           setSection(section.tag);
         }}
-        className={`text-xs cursor-pointer ${sec === section.tag ? "bg-yellow-300 ring-2 ring-white" : "bg-white"} hover:bg-blue-800 hover:text-white font-bold  shadow-lg rounded-lg w-100 p-1 `}>
-        <div className='text-xl m-auto text-center'>{section.emoji}</div>
+        className={`text-xs cursor-pointer ${sec === section.tag ? "bg-yellow-300 ring-2 ring-white" : "bg-white"}  hover:bg-blue-800 hover:text-white font-bold  shadow-lg rounded-lg w-100 p-1 `}>
+        <div className={`text-xl ${section.label==='Vedic'  && "-rotate-90"} m-auto text-center`}>{section.emoji}</div>
         <div className='font-bold'>{section.label}</div>
       </div>;
     })}

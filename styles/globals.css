@@ -153,14 +153,25 @@ body {
 }
 
 .compass-north {
-  position: absolute;
+  /* position: absolute;
   top: -50%;
   left: 50%;
   width: 10px;
   height: 50%;
   background-color: #ff0000;
   transform: translateX(-50%);
-  z-index: -2;
+  z-index: -2; */
+
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 30px 20px 0 20px;
+  border-color: red transparent transparent transparent;
+  z-index: 1;
 }
 
 

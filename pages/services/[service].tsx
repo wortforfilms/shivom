@@ -418,7 +418,7 @@ export const VedicCoarses=()=>{
 
 
 
-return <div className="p-6 mt-6 ">
+return <div className="p-1 sm:p-6 mt-6 ">
             <div className={heading}>{vedic.Introduction}</div>
 <div className="p-2 flex flex-col gap-4">
 

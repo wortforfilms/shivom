@@ -16,8 +16,6 @@ import { useEffect, useState } from 'react'
 import { Kosh } from '../components/Kosh'
 import { ProductList } from '../components/catalogue/ProductList'
 import { Communication } from '../components/landing/Communication'
-
-import { Game } from '../components/games/Game'
 import { GameBanner } from '@/components/games/GameBanner'
 import { Brahmi } from '@/components/classes/brahmi'
 import { HeaderButtons } from '../layout/HeaderButtons'
@@ -31,7 +29,7 @@ import { Box } from '@/elements/box'
 
 import HindiAlphabetChart from '@/lib/akshar/hindi'
 import { useRouter } from 'next/router'
-import MApp from '@/canvas/model'
+
 
 
 // before active after
@@ -72,7 +70,7 @@ export default function Home(props: any) {
           <GameBanner />
         </div>}
 
-      {section === "ecommerce" && <div className='mt-12' id="ecommerce">
+      {section === "ecommerce" && <div className='mt-6' id="ecommerce">
         <ProductList earth={earth}/>
       </div>}
       {section === "games" && <>
@@ -84,16 +82,10 @@ export default function Home(props: any) {
         </Box>
         }
       {section === "astronomy" && <>
- 
-
           <Zodiacs />
-
-
-     
       </>
       }
       {section === "vedic_classes" && <>
-        {/* <MApp /> */}
         <VedicCoarses/>
         <HindiAlphabetChart/>
 
@@ -115,7 +107,6 @@ export default function Home(props: any) {
       <Doshas />
       <Process />
       <SocialBar />
-      {/* <Sh4omBanner/> */}
       <Sh4omBanner0/>
       </>}
     </main>

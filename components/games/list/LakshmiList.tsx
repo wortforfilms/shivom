@@ -2,8 +2,11 @@ import { gold } from "@/sty";
 import { nFormatter } from "@/util/numberFormatter/nFormatter";
 import { faker } from "@faker-js/faker";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 export const LakshmiList = (props: any) => {
+  const {initialReduxState}=props
+  const earth:typeof initialReduxState=useSelector(state=>state)
   const { category, setGame } = props;
   const router = useRouter();
   return <div className="flex flex-row invert  flex-wrap justify-start gap-4 p-4">
@@ -18,10 +21,19 @@ export const LakshmiList = (props: any) => {
 
         <div className="text-xs text-yellow-700 p-2">Current Box: </div>
         {nFormatter(faker.datatype.number({ min: 99, max: 999999 }))}
-        <div className="p-2 bg-gray-700 text-white rounded-lg mt-8 mb-4 shadow-lg shadow-green-500"
+        <div className="p-2 bg-gray-700 text-white rounded-lg mt-8 mb-4 shadow-lg hover:bg-red-500 shadow-green-500"
           onClick={() => {
-            setGame(ver.label);
-            router.push(`/kreedA/game/${ver.label}`);
+            if(earth?.kosh?.yantra!==undefined && earth?.kosh?.yantra>0){
+console.log("first")
+setGame(ver.label);
+router.push(`/kreedA/game/${ver.label}`);
+} else {
+  console.log("second")
+  router.push(`/kosh`);
+      
+              // alert(`Tracing Yantra", ${earth?.kosh?.yantra}`)
+
+            }
           }}
         >PLAY NOW</div>
       </div>;

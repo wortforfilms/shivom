@@ -13,10 +13,23 @@ const create_doc=async(pmt:any)=>{
 
 
 const create_book=async(pmt:any)=>{
-
   const {data,error}=await supabase.from('sochen').select('*').eq('search',pmt)
   return {data,error}
 }
+
+
+// const 
+// pmt create book scorpio and others
+// story of 12 zodiacs
+// 
+// sell book 
+// cover 
+// designs 
+// puppetier to call 
+// {stable defusion}
+// {focus}
+// {wealthcare generation}
+// 
 
 const create_answer=async(pmt:any)=>{
   const DEFAULT_PARAMS = {
@@ -67,7 +80,14 @@ const create_answer=async(pmt:any)=>{
 
 }
 
-
+// RAshi
+//  rAshi
+// raasi
+//  id device {}-{material}-{crypt}-{""}
+// {}-{}-{}-{}
+// me mine our us
+// I V We
+// {}
 const Constalation=()=>{
   const router=useRouter()
   const {rashi}=router.query
