@@ -99,7 +99,7 @@ export const ProductList = (props:any) => {
         }
         return <div key={index} className='bg-white p-2 w-full  flex flex-col justify-between'>
          
-<ProductCard product={product} earth={earth} type="column"/>
+<ProductCard product={product} earth={earth} type="Card" index={index}/>
         </div>;
       })}
 

@@ -29,6 +29,7 @@ import { Box } from '@/elements/box'
 
 import HindiAlphabetChart from '@/lib/akshar/hindi'
 import { useRouter } from 'next/router'
+import PostDesigner from '@/elements/insta'
 
 
 
@@ -64,7 +65,7 @@ export default function Home(props: any) {
       <HeaderButtons setSection={setSection} section={section} />
 
       {!section && <Banner/> }
-
+{/* <PostDesigner/> */}
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
           <GameBanner />

@@ -86,6 +86,40 @@ const { width, height } = useWindowSize()
 </div>
 </div>
 <ProfileStatus user={user}/>
+<div className="w-full">
+
+{
+  [
+    // {label:"Positions",icon:""},
+    // {label:"Charts",icon:""},
+    // {label:"Horoscopes",icon:""},
+    // {label:"Predictions",icon:""},
+    // {label:"Compatibility",icon:""},
+    // {label:"Love",icon:""},
+    // {label:"Health",icon:""},
+    // {label:"Money",icon:""},
+{label:"Natal Chart Readings",description: "Provide detailed and personalized natal chart interpretations for users, including insights into their personality traits, life path, and potential challenges.",icon:""},
+{label:"Compatibility Reports",description: "Offer compatibility reports that analyze the astrological compatibility between two individuals, providing insights into their relationship dynamics and areas of harmony or conflict.",icon:""},
+{label:"Daily, Weekly, or Monthly Horoscopes",description: "Deliver customized horoscope readings to users based on their sun sign or natal chart, offering astrological predictions, guidance, and advice for specific time periods.",icon:""},
+{label:"Tarot Card Readings",description: "Integrate tarot card reading services into your astrology app, allowing users to receive virtual tarot readings and gain insights into their current situations or future prospects.",icon:""},
+{label:"Transit Reports",description: "Provide users with transit reports that highlight significant astrological transits and their potential influences on their lives, helping them navigate important periods of change or opportunity.",icon:""},
+{label:"Progressed Chart Analysis",description: "Offer progressed chart readings, which analyze how an individual's natal chart has evolved over time, providing insights into personal growth, life cycles, and major turning points.",icon:""},
+{label:"Birth Chart Compatibility",description: "Provide users with a detailed analysis of their compatibility with others based on their birth charts, including romantic compatibility, friendship compatibility, and professional compatibility.",icon:""},
+{label:"Astrological Forecasting",description: "Offer advanced forecasting services that utilize techniques such as solar return charts, planetary transits, and progressions to provide users with detailed predictions and insights for the future.",icon:""},
+{label:"Astrology Courses and Workshops",description: "Provide paid astrology courses, workshops, or webinars conducted by experienced astrologers, allowing users to deepen their knowledge and understanding of astrology.",icon:""},
+{label:"Premium Features",description: "Offer additional premium features within your astrology app, such as ad-free experiences, personalized notifications, extended access to archives, or exclusive content.",icon:""},
+
+].map((sec,index)=>{
+    return <div key={index}>
+      <h3>{sec.label}</h3>
+      <div>{sec.description}</div>
+      </div>
+  })
+}
+
+</div>
+
+
 <div className="flex flex-col  sm:flex-row justify-around ">
 
 <Janm user={user}/>

@@ -11,7 +11,6 @@ const create_doc=async(pmt:any)=>{
   return {data,error}
 }
 
-
 const create_book=async(pmt:any)=>{
   const {data,error}=await supabase.from('sochen').select('*').eq('search',pmt)
   return {data,error}
@@ -52,29 +51,26 @@ const create_answer=async(pmt:any)=>{
     body: JSON.stringify(params_)
   };
 
-  const fetch_open = async () => {
+  const fetch_answer = async () => {
     await fetch('https://api.openai.com/v1/completions', requestOptions).then(res => res.json()).then(data => {
-      create_res(pmt, data, "ad").then(res => {
+      create_res(pmt, data, "book").then(res => {
         if (res && res.data && res.data[0].response) {
           console.log('created answer', res);
-  
           return res.data[0];
         }
       });
     }).catch(error => {
       console.log(error);
-
     });
   };
 
   await find_res(pmt).then(res => {
     if (res && res.existing_res && res.existing_res.length > 0 && res?.existing_res[0]?.response?.choices && res?.existing_res[0]?.response?.choices[0]?.text) {
-      console.log('found synopsis', res);
-      console.log('found synopsis play ext', res?.existing_res[0]?.response?.choices[0]?.text);
+      console.log('found answer', res);
       return res.existing_res[0].response;
     } else {
       console.log("local not found");
-      fetch_open();
+      fetch_answer();
     }
   });
 

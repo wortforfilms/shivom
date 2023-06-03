@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import { faker } from "@faker-js/faker"
-import { brahmi } from "@/components/classes/brahmi"
+import {  brahmiVyajana } from "@/components/classes/brahmi"
 import Confetti from "react-confetti"
 import{motion} from 'framer-motion'
 import { Timer } from "../Timer"
@@ -9,7 +9,7 @@ import { Timer } from "../Timer"
 export const Vyanjana=()=>{
 
 
-  const [set,setSet]=useState<any>(faker.helpers.arrayElements(brahmi().filter(i=>i[2]!=='fi'||null),4))
+  const [set,setSet]=useState<any>(faker.helpers.arrayElements(brahmiVyajana().filter(i=>i[2]!=='fi'||null),4))
   const [a,setA]=useState<any>(faker.helpers.arrayElement(set))
   const [success,setSuccess]=useState<any>(null)
   const [wrong,setWrong]=useState<any>(null)
@@ -69,7 +69,7 @@ export const Vyanjana=()=>{
         setSuccess(true)
         setWrong(false)
 
-        setSet(faker.helpers.arrayElements(brahmi().filter(i=>i[2]!=='fi'||''),4))
+        setSet(faker.helpers.arrayElements(brahmiVyajana().filter(i=>i[2]!=='fi'||''),4))
         setScore((s:any)=>s+5)
       } else {
         setWrong(true)

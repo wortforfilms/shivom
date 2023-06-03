@@ -22,6 +22,7 @@ export const create_res=async(_pmt:any,res:any,type:any)=>{
 }
 
 
+
 export const get_q=async(role:any, setDescription:any)=> {
 const pmt=`Create a list of 8 questions for my interview with a ${role}:`
     // const{role}=props

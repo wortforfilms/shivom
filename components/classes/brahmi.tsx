@@ -275,6 +275,651 @@ export const brahmi = () => {
   return __dic;
 };
 
+
+export const brahmiSwar = () => {
+
+  const Brahmi = [
+    "𑀅",
+    "𑀆",
+    "𑀇",
+    "𑀈",
+    "𑀉",
+    "𑀊",
+    "𑀋",
+    "𑀌",
+    "𑀍",
+    "𑀎",
+    "𑀏",
+    "𑀐",
+    "",
+    "",
+    "𑀑",
+    "𑀒",
+    "𑀓",
+    "𑀔",
+    "𑀕",
+    "𑀖",
+    "𑀗",
+    "𑀘",
+    "𑀙",
+    "𑀚",
+    "𑀛",
+    "𑀜",
+    "𑀝",
+    "𑀞",
+    "𑀟",
+    "𑀠",
+    "𑀡",
+    "𑀢",
+    "𑀣",
+    "𑀤",
+    "𑀥",
+    "𑀦",
+    "fi",
+    "𑀧",
+    "𑀨",
+    "𑀩",
+    "𑀪",
+    "𑀫",
+    "𑀬",
+    "𑀭",
+    "fi",
+    "𑀮",
+    "fi",
+    "fi",
+    "𑀯",
+    "𑀰",
+    "𑀱",
+    "𑀲",
+    "𑀳",
+    "fi",
+    "fi",
+    "fi",
+    "𑀸",
+    "𑀹",
+    "𑀺",
+    "𑀻",
+    "𑀼",
+    "𑀽",
+    "𑀾",
+    "𑀿",
+    "𑁀",
+    "𑁁",
+    "𑁂",
+    "𑁃",
+    "𑁄",
+    "𑁅",
+    "𑁆",
+    "𑁆",
+    "",
+    "𑁋",
+    "𑁌",
+    "𑁍",
+    "fi",
+    "𑁒",
+    "𑁓",
+    "𑁔",
+    "𑁕",
+    "𑁖",
+    "𑁗",
+    "𑁘",
+    "𑁙",
+    "𑁚",
+    "𑁛",
+    "𑁜",
+    "𑁝",
+    "𑁞",
+    "𑁟",
+    "𑁠",
+    "𑁡",
+    "𑁢",
+    "𑁣",
+    "𑁤",
+    "𑁥",
+    "𑁦",
+    "𑁧",
+    "𑁨",
+    "𑁩",
+    "𑁪",
+    "𑁫",
+    "𑁬",
+    "𑁭",
+    "𑁮",
+    "𑁯",
+  ];
+
+
+
+
+  const __dic = Brahmi.map((letter, index) => {
+    const brindex = index + 2309;
+    const bnindex = index + 2437;
+    const pnindex = index + 2565;
+    const enindex = index + 2565;
+    const gjindex = index + 2693;
+    const tlindex = index + 2949;
+    const tuindex = index + 3077;
+    const mlindex = index + 3333;
+    const arindex = index + 1569;
+    const knindex = index + 3205;
+    const tbindex = index + 3888;
+
+    // return Brahmi[brindex]
+
+    const hindi_for_brahmi = String.fromCharCode(brindex);
+    const bangla_for_brahmi = String.fromCharCode(bnindex);
+    const punjabi_for_brahmi = String.fromCharCode(pnindex);
+    const english_for_brahmi = String.fromCharCode(enindex);
+    const gujrati_for_brahmi = String.fromCharCode(gjindex);
+    const tamil_for_brahmi = String.fromCharCode(tlindex);
+    const telegu_for_brahmi = String.fromCharCode(tuindex);
+    const malayaalam_for_brahmi = String.fromCharCode(mlindex);
+    const arabic_for_brahmi = String.fromCharCode(arindex);
+    const kannad_for_brahmi = String.fromCharCode(knindex);
+    const tibbetian_for_brahmi = String.fromCharCode(tbindex);
+
+    return [
+      hindi_for_brahmi,
+      hindi_for_brahmi,
+      letter,
+      bangla_for_brahmi,
+      punjabi_for_brahmi,
+      gujrati_for_brahmi,
+      tamil_for_brahmi,
+      telegu_for_brahmi,
+      malayaalam_for_brahmi,
+      arabic_for_brahmi,
+      kannad_for_brahmi,
+      tibbetian_for_brahmi,
+    ];
+  });
+
+  return __dic.slice(0,12);
+};
+
+export const brahmiVyajana = () => {
+
+  const Brahmi = [
+    "𑀅",
+    "𑀆",
+    "𑀇",
+    "𑀈",
+    "𑀉",
+    "𑀊",
+    "𑀋",
+    "𑀌",
+    "𑀍",
+    "𑀎",
+    "𑀏",
+    "𑀐",
+    "",
+    "",
+    "𑀑",
+    "𑀒",
+    "𑀓",
+    "𑀔",
+    "𑀕",
+    "𑀖",
+    "𑀗",
+    "𑀘",
+    "𑀙",
+    "𑀚",
+    "𑀛",
+    "𑀜",
+    "𑀝",
+    "𑀞",
+    "𑀟",
+    "𑀠",
+    "𑀡",
+    "𑀢",
+    "𑀣",
+    "𑀤",
+    "𑀥",
+    "𑀦",
+    "fi",
+    "𑀧",
+    "𑀨",
+    "𑀩",
+    "𑀪",
+    "𑀫",
+    "𑀬",
+    "𑀭",
+    "fi",
+    "𑀮",
+    "fi",
+    "fi",
+    "𑀯",
+    "𑀰",
+    "𑀱",
+    "𑀲",
+    "𑀳",
+    "fi",
+    "fi",
+    "fi",
+    "𑀸",
+    "𑀹",
+    "𑀺",
+    "𑀻",
+    "𑀼",
+    "𑀽",
+    "𑀾",
+    "𑀿",
+    "𑁀",
+    "𑁁",
+    "𑁂",
+    "𑁃",
+    "𑁄",
+    "𑁅",
+    "𑁆",
+    "𑁆",
+    "",
+    "𑁋",
+    "𑁌",
+    "𑁍",
+    "fi",
+    "𑁒",
+    "𑁓",
+    "𑁔",
+    "𑁕",
+    "𑁖",
+    "𑁗",
+    "𑁘",
+    "𑁙",
+    "𑁚",
+    "𑁛",
+    "𑁜",
+    "𑁝",
+    "𑁞",
+    "𑁟",
+    "𑁠",
+    "𑁡",
+    "𑁢",
+    "𑁣",
+    "𑁤",
+    "𑁥",
+    "𑁦",
+    "𑁧",
+    "𑁨",
+    "𑁩",
+    "𑁪",
+    "𑁫",
+    "𑁬",
+    "𑁭",
+    "𑁮",
+    "𑁯",
+  ];
+
+
+
+
+  const __dic = Brahmi.map((letter, index) => {
+    const brindex = index + 2309;
+    const bnindex = index + 2437;
+    const pnindex = index + 2565;
+    const enindex = index + 2565;
+    const gjindex = index + 2693;
+    const tlindex = index + 2949;
+    const tuindex = index + 3077;
+    const mlindex = index + 3333;
+    const arindex = index + 1569;
+    const knindex = index + 3205;
+    const tbindex = index + 3888;
+
+    // return Brahmi[brindex]
+
+    const hindi_for_brahmi = String.fromCharCode(brindex);
+    const bangla_for_brahmi = String.fromCharCode(bnindex);
+    const punjabi_for_brahmi = String.fromCharCode(pnindex);
+    const english_for_brahmi = String.fromCharCode(enindex);
+    const gujrati_for_brahmi = String.fromCharCode(gjindex);
+    const tamil_for_brahmi = String.fromCharCode(tlindex);
+    const telegu_for_brahmi = String.fromCharCode(tuindex);
+    const malayaalam_for_brahmi = String.fromCharCode(mlindex);
+    const arabic_for_brahmi = String.fromCharCode(arindex);
+    const kannad_for_brahmi = String.fromCharCode(knindex);
+    const tibbetian_for_brahmi = String.fromCharCode(tbindex);
+
+    return [
+      hindi_for_brahmi,
+      hindi_for_brahmi,
+      letter,
+      bangla_for_brahmi,
+      punjabi_for_brahmi,
+      gujrati_for_brahmi,
+      tamil_for_brahmi,
+      telegu_for_brahmi,
+      malayaalam_for_brahmi,
+      arabic_for_brahmi,
+      kannad_for_brahmi,
+      tibbetian_for_brahmi,
+    ];
+  });
+
+  return __dic.slice(13,53);
+};
+
+export const brahmiAnka = () => {
+
+  const Brahmi = [
+    "𑀅",
+    "𑀆",
+    "𑀇",
+    "𑀈",
+    "𑀉",
+    "𑀊",
+    "𑀋",
+    "𑀌",
+    "𑀍",
+    "𑀎",
+    "𑀏",
+    "𑀐",
+    "",
+    "",
+    "𑀑",
+    "𑀒",
+    "𑀓",
+    "𑀔",
+    "𑀕",
+    "𑀖",
+    "𑀗",
+    "𑀘",
+    "𑀙",
+    "𑀚",
+    "𑀛",
+    "𑀜",
+    "𑀝",
+    "𑀞",
+    "𑀟",
+    "𑀠",
+    "𑀡",
+    "𑀢",
+    "𑀣",
+    "𑀤",
+    "𑀥",
+    "𑀦",
+    "fi",
+    "𑀧",
+    "𑀨",
+    "𑀩",
+    "𑀪",
+    "𑀫",
+    "𑀬",
+    "𑀭",
+    "fi",
+    "𑀮",
+    "fi",
+    "fi",
+    "𑀯",
+    "𑀰",
+    "𑀱",
+    "𑀲",
+    "𑀳",
+    "fi",
+    "fi",
+    "fi",
+    "𑀸",
+    "𑀹",
+    "𑀺",
+    "𑀻",
+    "𑀼",
+    "𑀽",
+    "𑀾",
+    "𑀿",
+    "𑁀",
+    "𑁁",
+    "𑁂",
+    "𑁃",
+    "𑁄",
+    "𑁅",
+    "𑁆",
+    "𑁆",
+    "",
+    "𑁋",
+    "𑁌",
+    "𑁍",
+    "fi",
+    "𑁒",
+    "𑁓",
+    "𑁔",
+    "𑁕",
+    "𑁖",
+    "𑁗",
+    "𑁘",
+    "𑁙",
+    "𑁚",
+    "𑁛",
+    "𑁜",
+    "𑁝",
+    "𑁞",
+    "𑁟",
+    "𑁠",
+    "𑁡",
+    "𑁢",
+    "𑁣",
+    "𑁤",
+    "𑁥",
+    "𑁦",
+    "𑁧",
+    "𑁨",
+    "𑁩",
+    "𑁪",
+    "𑁫",
+    "𑁬",
+    "𑁭",
+    "𑁮",
+    "𑁯",
+  ];
+
+
+
+
+  const __dic = Brahmi.map((letter, index) => {
+    const brindex = index + 2309;
+    const bnindex = index + 2437;
+    const pnindex = index + 2565;
+    const enindex = index + 2565;
+    const gjindex = index + 2693;
+    const tlindex = index + 2949;
+    const tuindex = index + 3077;
+    const mlindex = index + 3333;
+    const arindex = index + 1569;
+    const knindex = index + 3205;
+    const tbindex = index + 3888;
+
+    // return Brahmi[brindex]
+
+    const hindi_for_brahmi = String.fromCharCode(brindex);
+    const bangla_for_brahmi = String.fromCharCode(bnindex);
+    const punjabi_for_brahmi = String.fromCharCode(pnindex);
+    const english_for_brahmi = String.fromCharCode(enindex);
+    const gujrati_for_brahmi = String.fromCharCode(gjindex);
+    const tamil_for_brahmi = String.fromCharCode(tlindex);
+    const telegu_for_brahmi = String.fromCharCode(tuindex);
+    const malayaalam_for_brahmi = String.fromCharCode(mlindex);
+    const arabic_for_brahmi = String.fromCharCode(arindex);
+    const kannad_for_brahmi = String.fromCharCode(knindex);
+    const tibbetian_for_brahmi = String.fromCharCode(tbindex);
+
+    return [
+      hindi_for_brahmi,
+      hindi_for_brahmi,
+      letter,
+      bangla_for_brahmi,
+      punjabi_for_brahmi,
+      gujrati_for_brahmi,
+      tamil_for_brahmi,
+      telegu_for_brahmi,
+      malayaalam_for_brahmi,
+      arabic_for_brahmi,
+      kannad_for_brahmi,
+      tibbetian_for_brahmi,
+    ];
+  });
+
+  return __dic.slice(-10);
+};
+
+export const brahmiMAtrA = () => {
+
+  const Brahmi = [
+    "𑀅",
+    "𑀆",
+    "𑀇",
+    "𑀈",
+    "𑀉",
+    "𑀊",
+    "𑀋",
+    "𑀌",
+    "𑀍",
+    "𑀎",
+    "𑀏",
+    "𑀐",
+    "",
+    "",
+    "𑀑",
+    "𑀒",
+    "𑀓",
+    "𑀔",
+    "𑀕",
+    "𑀖",
+    "𑀗",
+    "𑀘",
+    "𑀙",
+    "𑀚",
+    "𑀛",
+    "𑀜",
+    "𑀝",
+    "𑀞",
+    "𑀟",
+    "𑀠",
+    "𑀡",
+    "𑀢",
+    "𑀣",
+    "𑀤",
+    "𑀥",
+    "𑀦",
+    "fi",
+    "𑀧",
+    "𑀨",
+    "𑀩",
+    "𑀪",
+    "𑀫",
+    "𑀬",
+    "𑀭",
+    "fi",
+    "𑀮",
+    "fi",
+    "fi",
+    "𑀯",
+    "𑀰",
+    "𑀱",
+    "𑀲",
+    "𑀳",
+    "fi",
+    "fi",
+    "fi",
+    "𑀸",
+    "𑀹",
+    "𑀺",
+    "𑀻",
+    "𑀼",
+    "𑀽",
+    "𑀾",
+    "𑀿",
+    "𑁀",
+    "𑁁",
+    "𑁂",
+    "𑁃",
+    "𑁄",
+    "𑁅",
+    "𑁆",
+    "𑁆",
+    "",
+    "𑁋",
+    "𑁌",
+    "𑁍",
+    "fi",
+    "𑁒",
+    "𑁓",
+    "𑁔",
+    "𑁕",
+    "𑁖",
+    "𑁗",
+    "𑁘",
+    "𑁙",
+    "𑁚",
+    "𑁛",
+    "𑁜",
+    "𑁝",
+    "𑁞",
+    "𑁟",
+    "𑁠",
+    "𑁡",
+    "𑁢",
+    "𑁣",
+    "𑁤",
+    "𑁥",
+    "𑁦",
+    "𑁧",
+    "𑁨",
+    "𑁩",
+    "𑁪",
+    "𑁫",
+    "𑁬",
+    "𑁭",
+    "𑁮",
+    "𑁯",
+  ];
+
+
+
+
+  const __dic = Brahmi.map((letter, index) => {
+    const brindex = index + 2309;
+    const bnindex = index + 2437;
+    const pnindex = index + 2565;
+    const enindex = index + 2565;
+    const gjindex = index + 2693;
+    const tlindex = index + 2949;
+    const tuindex = index + 3077;
+    const mlindex = index + 3333;
+    const arindex = index + 1569;
+    const knindex = index + 3205;
+    const tbindex = index + 3888;
+
+    // return Brahmi[brindex]
+
+    const hindi_for_brahmi = String.fromCharCode(brindex);
+    const bangla_for_brahmi = String.fromCharCode(bnindex);
+    const punjabi_for_brahmi = String.fromCharCode(pnindex);
+    const english_for_brahmi = String.fromCharCode(enindex);
+    const gujrati_for_brahmi = String.fromCharCode(gjindex);
+    const tamil_for_brahmi = String.fromCharCode(tlindex);
+    const telegu_for_brahmi = String.fromCharCode(tuindex);
+    const malayaalam_for_brahmi = String.fromCharCode(mlindex);
+    const arabic_for_brahmi = String.fromCharCode(arindex);
+    const kannad_for_brahmi = String.fromCharCode(knindex);
+    const tibbetian_for_brahmi = String.fromCharCode(tbindex);
+
+    return [
+      hindi_for_brahmi,
+      hindi_for_brahmi,
+      letter,
+      bangla_for_brahmi,
+      punjabi_for_brahmi,
+      gujrati_for_brahmi,
+      tamil_for_brahmi,
+      telegu_for_brahmi,
+      malayaalam_for_brahmi,
+      arabic_for_brahmi,
+      kannad_for_brahmi,
+      tibbetian_for_brahmi,
+    ];
+  });
+
+  return __dic.slice(54,70);
+};
+
 const shArdA = [
   "𑆀	",
   "𑆁	",
