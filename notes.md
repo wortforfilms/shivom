@@ -32,3 +32,25 @@ let filterProductList = (filterType: string, filterPrice: number): Product[] => 
 
     return filteredProductList;
 }
+
+search bar util
+associated ai
+associated in_form_at_ion
+i_on=>form=>fields
+
+biom:{
+    hand:->front->back
+    ankle:->front->back{health_w_chart}
+    face:->{planet-charts}
+    full_body:->{}
+    
+}
+
+
+
+find_issue:{
+    dosh:['¿?']
+    upAya:['']
+    external_a[ipi]:request
+    ipi->
+}

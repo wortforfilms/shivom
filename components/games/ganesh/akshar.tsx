@@ -16,6 +16,16 @@ export const Akshar=()=>{
   const [score,setScore]=useState<any>(0)
   const { width, height } = useWindowSize()
 
+  const word=[a,a]
+
+  
+
+  const [matrix,setMatrix]=useState([
+    [],
+    [],
+    []
+  ])
+
   useEffect(() => {
     let mount=true
     if(mount){
@@ -44,7 +54,6 @@ export const Akshar=()=>{
       recycle={false}
       
     />}
-
   <div className="w-[80%] h-auto text-9xl scale-125 p-6 m-auto text-center bg-white shadow-lg">
 {a[2]}
   </div>

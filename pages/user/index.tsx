@@ -11,6 +11,7 @@ import { useSelector } from "react-redux"
 import { MhahPanchang } from 'mhah-panchang';
 import useWindowSize from "react-use/lib/useWindowSize"
 import  Confetti  from "react-confetti"
+import { MangalDosh } from "@/data/dosh"
 
 const User=(props:any)=>{
 
@@ -85,6 +86,23 @@ const { width, height } = useWindowSize()
 <UserRaasi zod={'Cancer'}/>
 </div>
 </div>
+
+{/* // mornning mars {MangalDosh}venus{"shukras","shukras","shoecross"} */}
+{/* meeting broadcaster */}
+{/* blind equations */}
+{/* shiv satya soorya */}
+{/* {}-{}-{}-{}-{} */}
+{/* //en g l is h */}
+{/* hl fl phl chl kl chhl skull school vidyAlaya  */}
+{/* find the tuner for your child make them good human first */}
+{/* {open secrets of cosmos} from  osmosis to cosmosis */}
+{/* sh_el_l */}
+{/* python java script type script font phone web book text */}
+{/* am a zone */}
+{/* hkd:d_ixi_om */}
+{/* words and exposures */}
+{/* ::: */}
+{/* mantra */}
 <ProfileStatus user={user}/>
 <div className="w-full">
 

@@ -45,7 +45,7 @@ export const MAtrA=()=>{
       
     />}
 
-  <div className="w-[80%] h-auto text-9xl scale-125 p-6 m-auto text-center bg-white shadow-lg">
+  <div className="w-[80%] h-auto text-9xl scale-125 mb-8 p-6 m-auto text-center bg-white shadow-lg">
 {a[2]}
   </div>
   <div>

@@ -9,7 +9,9 @@ const Satelite=()=>{
   // essay: {}
   // gravity temprature light
   // ancient ["Indian","Mayan","Egyptian","Calender"] science  
- 
+ // 12 July {Time & Path} 2023
+ // find route qualities 
+ // find route doshA
   return <>
   {satelite}
   </>

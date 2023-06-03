@@ -63,8 +63,16 @@ const [level, setLevel]=useState<any>('Easy')
       })}
     </div>
 
+
   <div className="w-[80%] h-auto text-9xl  p-6 mb-4 m-auto text-center bg-white shadow-lg">
+    <hr className="relative h-1 top-0 w-96 border-2 border-blue-500"/>
+    <hr className="relative h-1 top-10 w-96 border-2 border-green-500"/>
+    <hr className="relative h-1 top-24 w-96 border-2 border-red-500"/>
+    <hr className="relative h-1 top-32 w-96 border-2 border-sky-500"/>
+    <div className="-mt-3">
+
 {a[2]}
+    </div>
   </div>
   <div>
 
