@@ -9,7 +9,7 @@ import { BsBack } from 'react-icons/bs';
 import { FaBackward } from 'react-icons/fa';
 
 const ChatMessage = ( message:any ) => {
-  console.log(message)
+  console.log(message,'-----.   message')
   return (
     <div className="chat-message">
       <div className="message-sender">{message.sender}</div>
@@ -44,18 +44,17 @@ const Chat: React.FC = () => {
   return (
     <div className="chat">
       <div className='h-12'></div>
-   
       <div className='w-96 h-[90vh] m-auto bg-white shadow-lg'>
 <div className='h-12 w-full bg-gray-400'>
   <div className='p-2'
   onClick={()=>{
-    router.back()
+    router.push(`/?sect=astrology`)
   }}
   >
 
 <FaBackward className='p-1 text-3xl font-bold hover:text-white'/>
   </div>
-  <div><Communication/></div>
+  {/* <div><Communication/></div> */}
 </div>
       <div className="chat-messages h-[80%] bg-gray-300">
         {messages.map((message:any, index:number) => (

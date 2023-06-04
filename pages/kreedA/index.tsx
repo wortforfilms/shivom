@@ -13,7 +13,35 @@ import { MdOutlineResetTv } from "react-icons/md"
 import { LakshmiList } from "../../components/games/list/LakshmiList"
 import { Ganeshlist } from "../../components/games/list/Ganeshlist"
 import { Brahmi } from "@/components/classes/brahmi"
+import App from "next/app"
 
+// frame work ˘¿? /?¿÷ nno divide 
+// kera chaira char A sill silk'
+// public 
+// issue
+// noname 
+// unkn own 
+// uk eu : jupitor stAr
+// daheja ¿? dahaija 
+var Language=()=>{
+  var [lan,setLan]=useState<any>(
+    [
+      {lng:"",lat:"",lang:""}
+
+    ]
+  )
+
+  return <>
+  <Layout cosmos={lan}/>
+  </>
+}
+
+const Layout=(props:any)=>{
+  return <>
+  <App/>
+  </>
+
+}
 
 // 196.9 trillion
 // per year

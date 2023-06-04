@@ -5,6 +5,7 @@ import { brahmi } from "@/components/classes/brahmi"
 import Confetti from "react-confetti"
 import{motion} from 'framer-motion'
 import { Timer } from "../Timer"
+import { LetterPad } from "./LetterPad"
 
 export const Akshar=()=>{
 
@@ -54,9 +55,8 @@ export const Akshar=()=>{
       recycle={false}
       
     />}
-  <div className="w-[80%] h-auto text-9xl scale-125 p-6 m-auto text-center bg-white shadow-lg">
-{a[2]}
-  </div>
+ <LetterPad a={a}/>
+
   <div>
 
 

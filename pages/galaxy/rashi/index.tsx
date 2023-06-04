@@ -132,7 +132,7 @@ const depth = 2 * radius
   return (
     <div
       ref={tagCloudRef}
-      className='tag-cloud w-full sm:w-72  p-2'
+      className='tag-cloud  p-2'
       onMouseMove={ev => {
         if (tagCloudRef?.current) {
           const rect = tagCloudRef.current.getBoundingClientRect()
@@ -142,6 +142,7 @@ const depth = 2 * radius
       }}
       style={{
         position: 'relative',
+        scale:50,
         width: `${2 * radius}px`,
         height: `${2 * radius}px`
       }}

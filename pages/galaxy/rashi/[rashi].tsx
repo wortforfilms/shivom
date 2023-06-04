@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { create_sochen } from "@/q/c/sochen"
 import { supabase } from "@/lib/Store"
 import { create_res, find_res } from "@/action"
+import { BiArrowBack } from "react-icons/bi"
 
 const create_doc=async(pmt:any)=>{
 
@@ -98,6 +99,7 @@ const Constalation=()=>{
 
 
   //  calender 
+  
   const [details,setDetails]=useState({
     Information:"About Aeries",
     Location:'',
@@ -146,19 +148,27 @@ const Constalation=()=>{
   }, [])
   
 
-  return <div className="p-4">
+  return <div className="p-4 w-full h-[90vh]">
     <div className="h-12"></div>
+  <div className="flex flex-row justify-between  p-2">
+
+  <BiArrowBack className="text-5xl"
+  onClick={()=>{
+    router.back()
+  }}
+  />
 <h1>
   {rashi}
   </h1>
+  </div>
 
 <NakApp/>
-
+{/* <AkImages/> */}
   </div>
 }
 
 
-const akImages=()=>{
+const AkImages=()=>{
   return <>
   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
   <circle cx="50" cy="50" r="45" fill="white" stroke="black" />

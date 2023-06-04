@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 export const SwarnGranthi = (props: any) => {
   const { recharges, kosh,  setStep, setAmount } = props;
   return <div className='p-2 bg-white m-auto'>
-    <h1 className='text-3xl p-2 mb-12  text-center font-extrabold'>
+    <h1 className='text-3xl mb-2  text-center font-extrabold'>
       Activate your {"DixOm"}
     </h1>
     <div className='flex flex-row flex-wrap justify-around gap-4 m-auto'>

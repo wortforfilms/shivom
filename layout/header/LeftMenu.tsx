@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
+import { AiOutlineFieldString } from 'react-icons/ai';
+import { BiCalendarExclamation } from 'react-icons/bi';
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 import { FaAddressCard, FaBahai, FaCartArrowDown, FaFileContract, FaHome, FaServicestack, FaShippingFast, FaSuperpowers, FaTerminal } from 'react-icons/fa';
 
@@ -26,6 +28,18 @@ const left = [
     icon: <FaCartArrowDown/>,
     image: "",
     link: "/docs/catalogue"
+  },
+  {
+    label: "Calender",
+    icon: <BiCalendarExclamation/>,
+    image: "",
+    link: "/calender"
+  },
+  {
+    label: "Amrut",
+    icon: <AiOutlineFieldString/>,
+    image: "",
+    link: "/ras"
   },
   {
     label: "Services",

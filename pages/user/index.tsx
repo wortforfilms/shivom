@@ -83,7 +83,7 @@ const { width, height } = useWindowSize()
 <div className="flex flex-row flex-wrap gap-4">
 
 <UserZodiac zod={sunsign}/>
-<UserRaasi zod={'Cancer'}/>
+{panch?.Raasi && <UserRaasi zod={`${panch?.Raasi?.name_en_UK}`}/>}
 </div>
 </div>
 
@@ -108,14 +108,6 @@ const { width, height } = useWindowSize()
 
 {
   [
-    // {label:"Positions",icon:""},
-    // {label:"Charts",icon:""},
-    // {label:"Horoscopes",icon:""},
-    // {label:"Predictions",icon:""},
-    // {label:"Compatibility",icon:""},
-    // {label:"Love",icon:""},
-    // {label:"Health",icon:""},
-    // {label:"Money",icon:""},
 {label:"Natal Chart Readings",description: "Provide detailed and personalized natal chart interpretations for users, including insights into their personality traits, life path, and potential challenges.",icon:""},
 {label:"Compatibility Reports",description: "Offer compatibility reports that analyze the astrological compatibility between two individuals, providing insights into their relationship dynamics and areas of harmony or conflict.",icon:""},
 {label:"Daily, Weekly, or Monthly Horoscopes",description: "Deliver customized horoscope readings to users based on their sun sign or natal chart, offering astrological predictions, guidance, and advice for specific time periods.",icon:""},

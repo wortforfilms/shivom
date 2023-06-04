@@ -99,15 +99,14 @@ const router=useRouter()
   </div>
 
       </div>
+
     {step!=="shift" && <div className="w-1/2 m-auto">
-    
        <Image
 src={"/img/om-71gQJPwz8gL._UL1500_2000x.png"}
 alt="coins"
 width={100}
 height={100}
-className='m-auto w-72   h-auto'
-
+className="m-auto w-72   h-auto"
 />
 </div>}
 
