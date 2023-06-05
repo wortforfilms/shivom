@@ -7,6 +7,8 @@ import { currencies } from "./currencies"
 import { countries } from "./countries"
 import { continent_switch } from "./continent_switch"
 import { flags } from "./flags"
+import { country_lang } from "./country_lang"
+import { languages_ } from "./languages_"
 
 
   export const ContinentSelector=(props:any)=>{
@@ -43,6 +45,8 @@ import { flags } from "./flags"
     </div>
 
    {continent && <CountrySelector country={country} setCountry={setCountry} continent={continent} setContinent={setContinent}/>}
+    {country && <LanguageSelector country={country} />}
+
     </div>
   }
 
@@ -130,3 +134,53 @@ import { flags } from "./flags"
 }
     </div>
   }
+
+  export const LanguageSelector=(props:any)=>{
+    const {country}=props
+    const [languages,setLanguages]=useState<any>()
+    useEffect(() => {
+      let mount=true
+      if(mount){
+        console.log("first",country, country_lang.filter(i=>i.country.includes(country)))
+        setLanguages(country_lang.filter(i=>i.country.includes(country)))
+      }
+    
+      return () => {
+        mount=false
+      }
+    }, [country])
+    
+    return <div className="">
+      <h3>Choose your language</h3>
+      <div className="flex flex-row flex-wrap gap-2">
+{languages && languages[0]?.languages.map((ln:any,index:number)=>{
+  return <div key={index} className="p-2 rounded-lg shadow-lg">
+    {/* {ln} */}
+    {languages_.filter(i=>i[1].includes(ln))[0]}
+    </div>
+})}
+</div>
+    </div>
+  }
+  // export const LanguageSelector=()=>{
+  //   const [langs,setLangs]=useState<any>([])
+
+
+  //   return  <div className="p-4 m-auto flex flex-col justify-around">
+  //   {JSON.stringify(langs)}
+  //     <select multiple onChange={(e:any)=>{
+  //       console.log(e.target.value)
+  //       if(langs.includes(e.target.value)){
+  //         setLangs(langs.filter((i:any)=>i[0]!==e.target.value))
+  //       } else {
+    
+  //         setLangs((s:any)=>[e.target.value,...s])
+  //       }
+  //     }}
+  //     className="p-2 w-[90%] m-auto "
+  //     >
+    
+
+  //     </select>
+  //     </div> 
+  // } 

@@ -1,26 +1,60 @@
 import { supabase } from "@/lib/Store"
 import { useEffect, useState } from "react"
-import { BiCircleQuarter } from "react-icons/bi"
+import { BiBook, BiCircleQuarter } from "react-icons/bi"
 import { BsTranslate } from "react-icons/bs"
 import { FcFeedIn } from "react-icons/fc"
 import NakApp from "../galaxy/rashi"
-import { success } from "@/components/toast"
-import {useNetworkState} from 'react-use'
-import { useOnScreen } from "@/hook/useOnScreen"
+import { errorT, notify, success } from "@/components/toast"
+import { faker } from "@faker-js/faker"
+import { useRouter } from "next/router"
+import { languages_ } from "@/constants/earth/languages_"
 
-const feed_am=async(d:any)=>{
-  const {data,error}=await supabase.from('').select('*').insert([{
-    word:d[0],
-    type:d[1],
-    language:'sanskrut',
-    translition:{en:d[2]},
-    translation:{en:d[3]},
 
-  }])
+const  get_shabda=async()=>{
+  const {data,error}=await supabase.from('अमृत').select('*').neq('type','sent.')
+  return {data,error}
 }
+
+const  get_amar=async()=>{
+  const {data,error}=await supabase.from('अमृत').select('*').neq('type','sent.')
+  return {data,error}
+}
+
 const Ras=()=>{
 
 const [stp,setStp]=useState<any>('')
+const [mala,setMala]=useState<any>(null)
+const router=useRouter()
+const {st}=router.query
+
+useEffect(() => {
+  let mount=true
+  if(mount &&  st){
+    setStp(st)
+  }
+
+  return () => {
+    mount=false
+  }
+}, [st])
+
+
+useEffect(() => {
+  let mount=true
+  if(mount){
+    get_amar().then(res=>{
+      console.log("first",res)
+      setMala(res.data)
+    }).catch((error)=>console.log(error))
+  }
+
+  return () => {
+    mount=false
+  }
+}, [])
+
+
+
   return <div className="p-4 min-h-[90vh] h-full">
     <div className="h-12"></div>
     <div className="flex flex-row gap-4 text-center mb-4">
@@ -29,7 +63,8 @@ const [stp,setStp]=useState<any>('')
       [
         {label:"Create",icon:<BiCircleQuarter/>},
         {label:"Translate",icon:<BsTranslate/>},
-        {label:"Feed",icon:<FcFeedIn/>}
+        {label:"Feed",icon:<FcFeedIn/>},
+        {label:"AmarmAlaa",icon:<BiBook/>}
 
     ].map((step,index)=>{
         return <div key={index} className={`${stp===step.label?"bg-gray-300 ":"bg-white"} p-2 cursor-pointer hover:bg-yellow-300 rounded-t-lg`}
@@ -43,6 +78,21 @@ const [stp,setStp]=useState<any>('')
     </div>
 
   {stp==='' &&  <NakApp/>}
+  {stp==='AmarmAlaa' &&  <div>
+    
+    <div className="flex gap-2 flex-row flex-wrap">
+    {
+      mala && mala.length>0 && faker.helpers.arrayElements(mala,27).map((ma:any,index:number)=>{
+        return <div key={index} className="p-2 bg-white shadow-lg w-100">
+          {ma.string}--{ma.type} 
+          <hr/>
+          {ma.translitions[0].en}
+          <hr/>
+          {ma.translations[0].en}
+          </div>
+      })
+    }
+    </div></div>}
   {stp==='Translate' &&  <Translate/>}
   {stp==='Feed' && <Feeder />}
   {stp==='Create' && <PostCreator/>}
@@ -63,14 +113,37 @@ const PostCreator=()=>{
   </div>
   </div>
 }
+
+
 const Feeder=(props:any)=>{
 const {earth}=props
 
   const [processed,setProcessed]=useState<any>('')
+
   const auto_save=async(deviceId:any)=>{
     const {data,error}=await supabase.from('post').select('*').eq('device_id',deviceId)
     return {data,error}
   }
+  const check_entry=async(d:any)=>{
+    const {data,error}=await supabase.from('अमृत').select('*').eq(`string, ${d[0]}`).eq(``)
+    return {data,error}
+  }
+
+  const save=async(d:any)=>{
+
+    const {data,error}=await supabase.from('अमृत').insert([{
+      string:d[0],
+      type:d[1],
+      language:'sanskrut',
+      translitions:[{en:d[2]}],
+      translations:[{en:d[3]}],
+      notes:[d[4]]
+    }
+    ]).select('*')
+    return {data,error}
+  }
+
+
 
   useEffect(() => {
     let mount=true
@@ -106,15 +179,30 @@ onChange={(e:any)=>{
   }))
 }}
 />
-<div className="w-100 text-center text-white p-2 bg-pink-500 rounded-lg shadow-lg">
+<div className="w-100 text-center text-white p-2 bg-pink-500 rounded-lg shadow-lg"
+onClick={()=>{
+  processed.map((li:any)=>{
+    save(li).then(res=>{
+      // notify('success adding')
+      console.log('--=>',res)
+    }).catch(error=>{
+      console.log(error)
+      // errorT("unsuccess")
+    }
+      )
+  })
+}}
+>
     Enter      
 </div>
 </div>
 }
 
+
 const Translate=(props:any)=>{
   const [string,setString]=useState<any>('')
   const [results,setResults]=useState<any>('')
+  const [processing,setProcessing]=useState(false)
 
   const create_feed=async(str:any)=>{
 
@@ -123,6 +211,11 @@ const Translate=(props:any)=>{
     }).then(res=>res.json()).then(data=>{
       console.log(data,'---=>')
     })
+  }
+
+  const find_from_amar=async(str:any)=>{
+    const {data,error}=await supabase.from('अमृत').select('*').textSearch('translitions -> en',str)
+    return {data,error}
   }
 
   // nont_any
@@ -147,6 +240,18 @@ const Translate=(props:any)=>{
   // {"learnsannskrit.cc"}
   // \\  {}
 
+  useEffect(() => {
+    let mount=true
+    if(mount && string.length>1){
+      find_from_amar(string)
+    }
+  
+    return () => {
+      mount=false
+    }
+  }, [string])
+  
+
 
   return <div className="p-2 mb-6 w-full bg-white shadow-lg">
     <div className="flex flex-row justify-between">
@@ -161,17 +266,23 @@ const Translate=(props:any)=>{
     </select>
     </div>
     <div>
-      to:<select>
+      to:<select className="w-[50vw] overflow-hidden">
       {
-        ["English","Sanskrut","Hindi"].map((lng,index)=>{
-          return <option key={index}>{lng}</option>
+        [...languages_].map((lng,index)=>{
+          return <option key={index} className="flex flex-row flex-wrap gap-2">{lng.map((hi,den)=>{
+            return <div key={den}>{hi}</div>
+          })}</option>
         })
       }
     </select>
     </div>
     </div>
 <div className="flex flex-col sm:flex-row gap-4">
-    <input className="w-full bg-gray-300 mt-2 p-1" placeholder="Search here"/>
+    <input className="w-full bg-gray-300 mt-2 p-1" placeholder="Search here"
+    onChange={(e:any)=>{
+      setString(e.target.value)
+    }}
+    />
     <div className="w-100 p-2 bg-blue-500 text-white mt-4 text-center rounded-lg shadow-lg">Translate</div>
 </div>
 {
@@ -192,3 +303,12 @@ const Translate=(props:any)=>{
 
   </div>
 }
+
+// float window
+// message of success dissapearence vibration 
+// sound buzzer success sound
+// zoom -> success 
+// wrong -> 
+// transition time {}
+// 
+// 

@@ -77,6 +77,11 @@ const create_answer=async(pmt:any)=>{
 
 }
 
+const connect_amar_maalaa=async()=>{
+const {data,error}=await supabase.from("अमृत").select().textSearch()
+  return {data,error}
+}
+
 // RAshi
 //  rAshi
 // raasi

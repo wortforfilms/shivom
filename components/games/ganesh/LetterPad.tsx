@@ -1,6 +1,6 @@
 
 export const LetterPad = (props: any) => {
-  const { a } = props;
+  const { a , success} = props;
   return <div className="w-[80%] h-auto text-9xl scale-125 p-6 m-auto text-center bg-white shadow-lg">
     <hr className="relative h-1 top-0 w-full border-2 border-blue-500" />
     <hr className="relative h-1 top-6 w-full border-2 border-green-500" />
@@ -9,6 +9,9 @@ export const LetterPad = (props: any) => {
     <div className="relative -mt-4 z-10">
 
       {a[2]}</div>
+     {success && <div className="relative -mt-32 animate-ping text-green-400 z-10">
+
+{a[2]}</div>}
   </div>;
 };
 
