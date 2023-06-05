@@ -23,7 +23,7 @@ export const LoginForm = () => {
     }
   },[form_state])
 
-  return <motion.div  drag className='w-full mt-12 flex flex-col sm:flex-row gap-2 p-2 justify-around'>
+  return <motion.div   className='w-full mt-12 flex flex-col sm:flex-row gap-2 p-2 justify-around'>
 
    <FormDesign form={login_form} validation={login_schema} label="" setFormState={setFormState} setLoading={setSubmitted} action_type="Login"/>
 

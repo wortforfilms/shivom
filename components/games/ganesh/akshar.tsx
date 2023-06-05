@@ -224,7 +224,7 @@ const Comp_t=(props:any)=>{
   return <div>
      <LetterPad a={a} success={success}/>
 
-<div className="h-12 mb-12">
+<div className="h-12 ">
 
 <Timer/>
 
