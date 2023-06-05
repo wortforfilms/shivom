@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { BiCalendar, BiHome } from 'react-icons/bi';
 import { BsCart, BsRainbow, BsWallet } from 'react-icons/bs';
-import { FaWallet } from 'react-icons/fa';
+import { FaSignLanguage, FaWallet } from 'react-icons/fa';
 import { FiHome } from 'react-icons/fi';
 
 export const Cart = (props:any) => {
@@ -49,11 +49,12 @@ label:"Home",
 icon:<BiHome/>,
 link:"/"
     },
+    // {
+    //   label:"Calendar",
+    //   icon:<BiCalendar/>,
+    //   link:"/calender"
+    // },  
     {
-      label:"Calendar",
-      icon:<BiCalendar/>,
-      link:"/calender"
-    },  {
       label:"Kosh",
       icon:<BsRainbow/>,
       link:"/kosh"
@@ -61,6 +62,11 @@ link:"/"
       label:"Cart",
       icon:<BsCart/>,
       link:"/cart"
+    },  {
+      label:"Language",
+      icon:<FaSignLanguage/>,
+      link:  '/device/language'
+
     }
   ]
   return <div className=' px-8 w-100 flex -mt-1 flex-row gap-4 sm:gap-8'>

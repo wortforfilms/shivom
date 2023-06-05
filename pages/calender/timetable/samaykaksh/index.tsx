@@ -19,7 +19,13 @@
 // avatar kali
 // machine with emotion
 // 
+const TT =()=>{
+  return <div>
+    Native Calculation
+  </div>
+}
 
+export default TT
 // author honesty
 // {e}-{E}-{´}-{´}
 // is-s-u-e:{inset}-{ˆ˜˜ß´†}={INSET}-{˜Í´ˇ}

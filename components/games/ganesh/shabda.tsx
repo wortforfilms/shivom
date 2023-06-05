@@ -5,7 +5,7 @@ import { brahmi } from "@/components/classes/brahmi"
 import Confetti from "react-confetti"
 import{motion} from 'framer-motion'
 import { Timer } from "../Timer"
-import { LetterPad } from "./LetterPad"
+import { LetterPad, WordPad } from "./LetterPad"
 
 
 // fetch word with length limit
@@ -17,18 +17,24 @@ import { LetterPad } from "./LetterPad"
 
 export const Shabda=()=>{
   const [word,setWord]=useState<any>(faker.helpers.arrayElements(brahmi().filter(i=>i[2]!=='fi'||null),4))
+
+
   const [set,setSet]=useState<any>(faker.helpers.arrayElements(brahmi().filter(i=>i[2]!=='fi'||null),4))
 
-  const [a,setA]=useState<any>(faker.helpers.arrayElement(set))
+  const [a,setA]=useState<any>(set[0])
+  const [b,setB]=useState<any>(set[1])
   const [success,setSuccess]=useState<any>(null)
   const [wrong,setWrong]=useState<any>(null)
   const [score,setScore]=useState<any>(0)
   const { width, height } = useWindowSize()
 
+  
+
   useEffect(() => {
     let mount=true
     if(mount){
       setA(faker.helpers.arrayElement(set))
+      setB(faker.helpers.arrayElement(set))
     }
     return () => {
       mount=false
@@ -53,8 +59,9 @@ const [level, setLevel]=useState<any>('Easy')
       recycle={false}
       
     />}
+<div className="flex flex-row justify-between p-4">
 
-    <div className="flex flex-row justify-start gap-4 mb-2 ">
+    <div className="flex flex-row justify-start gap-4 mb-12 ">
       {['Easy','Pro','Expert'].map((lev,index)=>{
         return <div key={index} className={`text-xs bg-white ${lev===level && "bg-yellow-300"} p-1 rounded-lg hover:bg-sky-500 cursor-pointer`}
         onClick={()=>{
@@ -63,9 +70,14 @@ const [level, setLevel]=useState<any>('Easy')
         >{lev}</div>
       })}
     </div>
+<>
+Hint
+</>
+</div>
 
+    {/* <LetterPad a={a}/> */}
+    <WordPad a={a} b={b}  />
 
-    <LetterPad a={a}/>
 
   <div>
 

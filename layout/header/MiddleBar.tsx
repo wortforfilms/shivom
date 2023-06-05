@@ -1,7 +1,7 @@
 import useOnClickOutside from '@/hook/useOnClickOutside';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
-import { FaAccusoft, FaCircleNotch, FaHome, FaListAlt, FaRegGrinBeamSweat, FaSearchengin, FaServicestack, FaSpaceShuttle, FaTerminal, FaThemeco, FaUnlink, FaUserCircle } from 'react-icons/fa';
+import { FaAccusoft, FaCircleNotch, FaHome, FaListAlt, FaRegGrinBeamSweat, FaSearchengin, FaServicestack, FaSignLanguage, FaSpaceShuttle, FaTerminal, FaThemeco, FaUnlink, FaUserCircle } from 'react-icons/fa';
 
 import { motion } from 'framer-motion';
 import { BsSearchHeart } from 'react-icons/bs';
@@ -47,6 +47,7 @@ export const tm = [
       },
     ]
   },
+  ,  
 
   // {
   //   label: "Catalogue",
@@ -228,7 +229,7 @@ export const MiddleBar = () => {
   return <div className='sm:ml-4 -mt-1 flex flex-row gap-2 text-md   justify-between w-100 sm:w-[90vw] '>
 
     {!search ? <div className='w-full flex flex-row gap-8 justify-between'>
-      {tm.map((me, index) => {
+      {tm.map((me:any, index) => {
         return <motion.div key={index}
 
           // id={`${me.label.toLowerCase()}`}
@@ -243,7 +244,7 @@ export const MiddleBar = () => {
         >{me.label}
           {me?.sub && sub_open && sub_open === me.link &&
             <div ref={ref} className='absolute w-auto h-100 mt-4 px-2 rounded-lg bg-black shadow-lg text-gray-800'>
-              {me.sub.map((sub: any, index) => {
+              {me.sub.map((sub: any, index:number) => {
                 return <div key={index} className='flex flex-row gap-4 p-2 hover:underline'
                   onClick={() => {
                     router.push(sub.link, '', { scroll: true });
@@ -256,7 +257,23 @@ export const MiddleBar = () => {
             </div>}
         </motion.div>
       })}
-      <BsSearchHeart className='text-5xl font-bold text-white p-2 -mt-2 -ml4'
+
+<motion.div
+whileHover={{scale:.95}}
+whileTap={{scale:1.1}}
+onClick={()=>{
+  router.push
+  ('/device/language')
+}}
+>
+
+<FaSignLanguage  className='text-5xl font-bold text-white p-2 -mt-2 -ml-4'
+
+/>
+</motion.div>
+
+
+      <BsSearchHeart className='text-5xl font-bold text-white p-2 -mt-2 -ml-4'
         onClick={() => {
           setSearch(true)
         }}

@@ -2,6 +2,7 @@
 // import { Form } from "@/display/forms"
 import { useEffect, useState } from "react";
 import * as yup from 'yup'
+import { MixLinks } from "./login";
 // import { MixLink } from "../../display/element/MixLink";
 const forgot_form_schema=[
   {
@@ -27,6 +28,7 @@ console.log("first",state)
   },[state])
   return  <div className="flex flex-col justify-around mx-auto p-2  w-full h-[90vh] sm:w-72">
 {/* <InputDeviceInfo/> */}
+<MixLinks/>
     </div>
 
 }

@@ -13,3 +13,4 @@ export const t_b='bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 r
 export const gold='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-900 via-yellow-200 to-yellow-600'
 export const silver='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900'
 export const active_head='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-300 to-gray-900 ring-2 ring-white'
+export const link=`text-sm font-bold p-2 text-center underline text-sky-700 hover:text-green-700`

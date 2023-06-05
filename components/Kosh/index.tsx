@@ -8,6 +8,7 @@ import { ShiftShaper } from "./ShiftShaper";
 import { SwarnGranthi } from "./SwarnGranthi";
 import { gold } from "@/sty";
 import { motion } from "framer-motion";
+import { errorT, notify } from "../toast";
 
 
 
@@ -62,9 +63,14 @@ export const Kosh = (props:any) => {
   const [rechargeAmount,setRechargeAmount]=useState<number>(0)
   const [your,setYour]=useState('all')
   // const [idea,]=useState()
+
+
 const router=useRouter()
   useEffect(()=>{
     if(earth?.auth?.authenticated){
+      get_user_kosh(earth?.auth?.user?.id).then(res=>{
+        notify(`${res.data[0]}`)
+      }).catch(error=>errorT(`${error}`))
       return 
     } else {
       router.push('/auth/login')

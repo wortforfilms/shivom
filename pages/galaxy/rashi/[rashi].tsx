@@ -119,7 +119,11 @@ const Constalation=()=>{
   // on keyboardmacwindowandroidios
   // signn]al   evolution devolutionn
   // measure onnn u u U ¨ ¨ 1 :["","",""]
-  // 
+  // 5k what why who how when
+  // list of stories  
+  // folk and native 
+  // stories
+  //  https://en.wikipedia.org/wiki/Pisces_(constellation)
 
   useEffect(() => {
     let mount=true

@@ -1,3 +1,4 @@
+import { errorT, notify } from '@/components/toast';
 import { AutoAvatar } from '@/elements/avatar';
 import useOnClickOutside from '@/hook/useOnClickOutside';
 import { IconLabel } from '@/lib/calender';
@@ -5,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import { BiLogOut } from 'react-icons/bi';
+import { BsSave2Fill } from 'react-icons/bs';
 import { FaRegistered, FaUserCircle } from 'react-icons/fa';
 import { FcSettings } from 'react-icons/fc';
 import { useSelector } from 'react-redux';
@@ -26,6 +28,17 @@ const right = [
 
 const aright = [
   {
+    label: "Save Screen",
+    icon: <BsSave2Fill/>,
+    image: "",
+    link: "",
+    action:()=>{
+      
+      console.log('start canvasing')
+  
+    }
+  },
+  {
     label: "Profile",
     icon: <FaUserCircle/>,
     image: "",
@@ -44,7 +57,6 @@ const aright = [
     link: "/auth/logout"
   }
 ];
-
 
 export const RightMenu = (props:any) => {
   const {initialReduxState}=props
@@ -81,8 +93,34 @@ const router=useRouter()
           (l, index) => {
             return <div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
             onClick={()=>{
-              router.push(l.link)
-              setrfOpen(false)
+              if(l.label==="Save Screen" && l.action){
+                l.action()
+                const proc=async()=>{
+
+                  await fetch(`/api/file/pdf_create?url=http://localhost:3000${router.asPath}`).then(res=>res.json()).then(data=>{
+                    console.log('created',data)
+                    notify("Pdf exported")
+
+                    const url=window.URL.createObjectURL(new Blob(data.data))
+                    var link = document.createElement('a');
+
+                    link.href = url;
+                    
+                    link.download = 'file.pdf';
+                    
+                    link.dispatchEvent(new MouseEvent('click'));
+                                      setrfOpen(false)
+                  }).catch((error)=>{
+                    errorT(error)
+                  })
+                }
+                proc()
+
+              } else {
+
+                router.push(l.link)
+                setrfOpen(false)
+              }
             }}
             >
               
@@ -120,7 +158,25 @@ const router=useRouter()
   </div>;
 };
 
-
+// device canvas
+// draw
+// nuiversal
+// 4rs_allAh_Ho_akbar
+// brAhmi_news_samAchAr
+// samA 4 
+// s__––__ {option: buttons}
+// `¡™£¢∞§¶•ªº–≠
+// œ∑´®†¥¨ˆøπ
+// åß∂ƒ©˙∆˚¬
+// ≈√∫˜˜µ˜˜√≈cÇC¸zZ¸deep undo 
+// ≤≥÷¯˘¿,./<>?
+// moon cycle :: 
+// Patent: await
+// {}-{nnon: maninfest:}
+// {ideators}-{moon}
+// cckkddpp
+// dp cp ep –––———–––___---
+// 
 
 // input fields
 // templates

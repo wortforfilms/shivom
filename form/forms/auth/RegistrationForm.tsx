@@ -8,7 +8,7 @@ import useWindowSize from 'react-use/lib/useWindowSize'
 
 
 
-export const UserRegistrationForm = () => {
+export const UserRegistrationForm:any = () => {
 
   const [form_state, setFormState]=useState<any>(null)
   const [submitted,setSubmitted]=useState<boolean>(false)
@@ -29,7 +29,7 @@ export const UserRegistrationForm = () => {
 
 
 const router=useRouter()
-  return <div className='w-full mt-2 flex flex-col sm:flex-row flex-wrap gap-2 h-100 mb-24 justify-around'>
+  return <div className='w-full mt-2 flex flex-col sm:flex-row flex-wrap gap-2 h-100 mb-6 justify-around'>
   { submitted?<div className=' m-auto h-[90vh]'>
     <SuccessCard 
     message={"You are successfuly registered."} 

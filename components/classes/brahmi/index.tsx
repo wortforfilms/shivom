@@ -1,6 +1,8 @@
 import { alphabetData } from "@/lib/akshar/hindi";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { shArdA } from "../shArdA";
+import { LetterMatter } from "./LetterMatter";
 export const brahmi = () => {
 
   const Brahmi = [
@@ -920,110 +922,6 @@ export const brahmiMAtrA = () => {
   return __dic.slice(54,70);
 };
 
-const shArdA = [
-  "𑆀	",
-  "𑆁	",
-  "𑆂	",
-  "𑆃	",
-  "𑆄	",
-  "𑆅	",
-  "𑆆	",
-  "𑆇	",
-  "𑆈	",
-  "𑆉	",
-  "𑆊	",
-  "𑆋	",
-  "𑆌	",
-  "𑆍	",
-  "𑆎	",
-  "",
-  "",
-  "𑆏",
-  "𑆐	",
-  "𑆑	",
-  "𑆒	",
-  "𑆓	",
-  "𑆔	",
-  "𑆕	",
-  "𑆖	",
-  "𑆗	",
-  "𑆘	",
-  "𑆙	",
-  "𑆚	",
-  "𑆛	",
-  "𑆜	",
-  "𑆝	",
-  "𑆞	",
-  "𑆟",
-  "𑆠	",
-  "𑆡	",
-  "𑆢	",
-  "𑆣	",
-  "𑆤	",
-  "",
-  "𑆥	",
-  "𑆦	",
-  "𑆧	",
-  "𑆨	",
-  "𑆩	",
-  "𑆪	",
-  "𑆫	",
-  "",
-  "𑆬	",
-  "",
-  "𑆭	",
-  "𑆮	",
-  "𑆯",
-  "𑆰	",
-  "𑆱	",
-  "𑆲	",
-  "","","","",
-  "𑆳	",
-  "𑆴	",
-  "𑆵	",
-  "𑆶	",
-  "𑆷	",
-  "𑆸	",
-  "𑆹	",
-  "𑆺	𑆻	",
-  "𑆼	",
-  "𑆽	𑆾	",
-  "𑆿",
-  "𑇀	",
-  "𑇁	 ",
-  "𑇂 	 ",
-  "𑇃 	",
-  "𑇄	",
-  "𑇅	",
-  "𑇆	",
-  "𑇇	",
-  "𑇈	",
-  "𑇉	",
-  "𑇊	",
-  "𑇋	",
-  "𑇌	",
-  "𑇍",
-  "𑇎	",
-  "𑇏",
-  "","","","","","","","","","","","","",
-  "𑇐	",
-  "𑇑	",
-  "𑇒	",
-  "𑇓	",
-  "𑇔	",
-  "𑇕	",
-  "𑇖	",
-  "𑇗	",
-  "𑇘	",
-  "𑇙	",
-  "𑇚	",
-  "𑇛	",
-  "𑇜	",
-  "𑇝	",
-  "𑇞	",
-  "𑇟",
-]
-
 export const Brahmi = () => {
   const [br, setBr] = useState<any>([]);
 
@@ -1073,76 +971,5 @@ export const Brahmi = () => {
     </div>
   );
 };
-
-// pukAr
-// mere desh ki dharateE earth Ee´´ 
-// leaflet brahmi braahmi brAhmi 
-// prakrut NLP
-// prakruta 
-// {""}-{""}
-// Natural Language Processing 
-// version on hand 
-// on jelly {} find Indian Jelly Fishes
-// gum
-// clue glue 
-// 
-
-export const LetterMatter = (props: any) => {
-  const { letter, k } = props;
-  const [matter, setMatter] = useState("");
-  const [matter1, setMatter1] = useState("");
-  const [antimatter, setAntiMatter] = useState("-1");
-  const [matter3, setMatter3] = useState("");
-  const [matter4, setMatter4] = useState("");
-
-  const languages = [
-    "hindi",
-    "bangla",
-    "punjabi",
-    "gujrati",
-    "tamil",
-    "telegu",
-    "malyalam",
-    "arabic",
-    "kannada",
-    "tibetian",
-  ]
-
-  return (
-    <div className="text-center w-full mb-4  bg-white hover:bg-orange-500 hover:text-white cursor-pointer flex flex-col flex-wrap mx-auto p-2 rounded-lg shadow-xl">
-
-
-      <div className="flex flex-row  flex-wrap gap-2">
-
-        {
-          languages.map((ln, index) => {
-            return <div key={index} className="flex flex-col m-auto justify-between">
-              <div className="uppercase text-xs font-bold mt-2 p-2">
-                {ln}:
-              </div>
-              <div className="text-5xl p-2">{letter[index === 0 ? 0 : index + 2]}</div>
-            </div>
-          }
-
-          )
-        }
-      </div>
-
-
-
-
-      {/* <div className="w-full  text-xs text-left flex flex-wrap p-2">
-        <div dangerouslySetInnerHTML={{ __html: matter }} />
-        <div dangerouslySetInnerHTML={{ __html: matter1 }} />
-        <div dangerouslySetInnerHTML={{ __html: antimatter }} />
-        <div dangerouslySetInnerHTML={{ __html: matter3 }} />
-        <div dangerouslySetInnerHTML={{ __html: matter4 }} />
-      </div> */}
-    </div>
-  );
-};
-
-
-
 
 

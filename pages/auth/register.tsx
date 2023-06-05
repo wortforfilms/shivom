@@ -3,7 +3,8 @@ import { useRouter } from "next/router"
 import { useEffect } from "react"
 import { BsEmojiWink } from "react-icons/bs"
 import { useSelector } from "react-redux"
-
+import Image from "next/image"
+import { MixLinks } from "./login"
 const Register =(props:any)=>{
 
   const {initialReduxState}=props
@@ -27,26 +28,17 @@ const Register =(props:any)=>{
 
   return <div className="p-4 max-w-2xl m-auto">
     <div className="h-8"></div>
-
+    <Image
+src="/img/om-71gQJPwz8gL._UL1500_2000x.png"
+alt="logo"
+width={100}
+height={100}
+className="w-48 p-2 m-auto mt-4 -mb-12"
+    />
   
 <UserRegistrationForm/>
 
-Nome
-      -form-input-schema-fields-type
-    Logy
-      -mediA_@media
-      <input type="search" placeholder="Ask!!"/>
-      I and my shadows
-      -__U ¨¨u\|» {<BsEmojiWink/>} 
-
-      "User Shadows :: Rahu Ketu"<br/>
-      // concern -medical
-      // detected::predicted::probable::
-      // cure:: food _{"asv"}
-      // G V
-      
-       physical financial intelectual social
-// get   
+<MixLinks/>  
   </div>
 }
 

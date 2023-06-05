@@ -1,9 +1,12 @@
 import { supabase } from "@/lib/Store"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { BiCircleQuarter } from "react-icons/bi"
 import { BsTranslate } from "react-icons/bs"
 import { FcFeedIn } from "react-icons/fc"
 import NakApp from "../galaxy/rashi"
+import { success } from "@/components/toast"
+import {useNetworkState} from 'react-use'
+import { useOnScreen } from "@/hook/useOnScreen"
 
 const feed_am=async(d:any)=>{
   const {data,error}=await supabase.from('').select('*').insert([{
@@ -61,9 +64,31 @@ const PostCreator=()=>{
   </div>
 }
 const Feeder=(props:any)=>{
-
+const {earth}=props
 
   const [processed,setProcessed]=useState<any>('')
+  const auto_save=async(deviceId:any)=>{
+    const {data,error}=await supabase.from('post').select('*').eq('device_id',deviceId)
+    return {data,error}
+  }
+
+  useEffect(() => {
+    let mount=true
+    const ti=()=>setInterval(()=>{
+      // auto_save(earth?.device?.id)
+      success('times for information')
+    },12000)
+    if(mount ){
+
+      // ti()
+    }
+  
+    return () => {
+      mount=false
+      clearInterval(ti())
+    }
+  }, [])
+  
 
  
 
@@ -100,6 +125,28 @@ const Translate=(props:any)=>{
     })
   }
 
+  // nont_any
+  // astro_samaya_{mesh:maish} rAma raMA 
+  // roop : 
+  // tense _ present _past _future
+  // shabda roop
+  // mAtrA akshara 
+  // $sSÍß ¢››ÆÚ»»
+  // {countries:[country language currency]}
+  // {string []}
+  // {kavach}
+  // {}{}{}
+  // {}{}
+  // {}
+  // |»«
+  // |.≥˘under lookup|
+  // lookup ::
+  // versionnn:: shrirAma
+  // ziva 
+  // treat as guest
+  // {"learnsannskrit.cc"}
+  // \\  {}
+
 
   return <div className="p-2 mb-6 w-full bg-white shadow-lg">
     <div className="flex flex-row justify-between">
@@ -124,7 +171,6 @@ const Translate=(props:any)=>{
     </div>
     </div>
 <div className="flex flex-col sm:flex-row gap-4">
-
     <input className="w-full bg-gray-300 mt-2 p-1" placeholder="Search here"/>
     <div className="w-100 p-2 bg-blue-500 text-white mt-4 text-center rounded-lg shadow-lg">Translate</div>
 </div>
