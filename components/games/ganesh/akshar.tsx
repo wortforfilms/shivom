@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import { faker } from "@faker-js/faker"
-import { brahmi } from "@/components/classes/brahmi"
+import { Brahmiplate, brahmi, brahmiSwar, brahmiVyajana } from "@/components/classes/brahmi"
 import Confetti from "react-confetti"
 import{AnimatePresence, motion} from 'framer-motion'
 import { Timer } from "../Timer"
-import { LetterPad } from "./LetterPad"
+import { LetterPad, WordPad } from "./LetterPad"
 import { supabase } from "@/lib/Store"
 import { context } from "react-three-fiber"
+import { LetterMatter } from "@/components/classes/brahmi/LetterMatter"
+import { alphabetData } from "@/lib/akshar/hindi"
+import { Comp_t } from "./swar"
 
 
 const create_game=async()=>{
@@ -33,7 +36,7 @@ const reduce_mantra=async(userId:any,numb:number)=>{
 export const Akshar=()=>{
 
 
-  const [set,setSet]=useState<any>(faker.helpers.arrayElements(brahmi().filter(i=>i[2]!=='fi'||null),4))
+  const [set,setSet]=useState<any>(faker.helpers.arrayElements([...brahmiSwar(),...brahmiVyajana()].filter(i=>i[2]!=='fi'||null),4))
   const [a,setA]=useState<any>(faker.helpers.arrayElement(set))
   const [success,setSuccess]=useState<any>(null)
   const [wrong,setWrong]=useState<any>(null)
@@ -95,7 +98,7 @@ if (navigator.vibrate) {
       navigator.vibrate(1000);
       setTimeout(()=>{
         setSuccess(false)
-      },4000)
+      },5000)
   }
       }
     
@@ -135,10 +138,28 @@ if (navigator.vibrate) {
 
 
   return <div className=" w-[100vw]  h-[90vh] overflow-hidden">
-      <div className="text-sm p-2 mb-6">
+      <div className="text-sm p-2 mb-6 flex flex-row justify-between">
+        <div>
+
     Select the hindi letter for brahmi<br/>
   score:{score}<hr/>
+        </div>
+    <motion.div className="text-5xl cursor-pointer hover:bg-gray-300 rounnded-full   p-2"
+  onClick={()=>{
+    toggle(!mute)
+  }}
+  >{mute?'🔊':'🔇'}</motion.div>
+
+<motion.div className="text-5xl invert cursor-pointer hover:bg-gray-300 rounnded-full   p-2"
+  onClick={()=>{
+    toggle(!mute)
+  }}
+  >{mute?'📳':'📳'}</motion.div>
     </div>
+
+    
+
+
      {success && <Confetti
       //  drawShape={ctx => {
       //   ctx.beginPath()
@@ -186,18 +207,38 @@ if (navigator.vibrate) {
      <AnimatePresence initial={false} 
     //  custom={direction}
      >
+{success && <div className="m-auto text-center">
+<motion.div 
+animate={{opacity:[0,1,0,1,0,1,0,1]}}
 
-<Comp_t a={a}
-success={success}  set={set}  setSuccess={setSuccess} setWrong={setWrong} setSet={setSet} setScore={setScore}
-/>
+className="flex flex-col">
+  <div className="flex flex-row justify-between gap-4 p-4">
+
+                <div className="text-5xl font-thin">
+                  {alphabetData && alphabetData.filter(i=>i.alphabet===a[1])[0]?.alphabet ? alphabetData.filter(i=>i.alphabet===a[1])[0].alphabet : "nf"}
+                  </div>
+                <motion.div 
+                animate={{opacity:[0,1]}}
+                // transition={{delay:1}}
+                className="text-9xl scale-150 mt-12 p-2">{alphabetData && alphabetData.filter(i=>i.alphabet===a[1])[0]?.alphabet ? alphabetData.filter(i=>i.alphabet===a[1])[0].emoji : "nf"}</motion.div>
+                <div className="text-3xl -ml-4 p-2">{alphabetData && alphabetData.filter(i=>i.alphabet===a[1])[0]?.alphabet ? alphabetData.filter(i=>i.alphabet===a[1])[0].word : "nf"}</div>
+  </div>
+                <motion.div 
+                 animate={{opacity:[0,1]}}
+                 transition={{delay:1}}
+                className="text-7xl font-extrabold p-2 mt-4">{alphabetData && alphabetData.filter(i=>i.alphabet===a[1])[0]?.alphabet ? alphabetData.filter(i=>i.alphabet===a[1])[0].word.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-2309]!==undefined?Brahmiplate[i.charCodeAt(0)-2309]:i.charCodeAt(0)<2309?i:i.charCode(0)}`) : "nf"}</motion.div>
+
+  </motion.div>
+              </div>
+
+  }
+{!success && <Comp_t a={a}
+success={success}  set={set} in={[...brahmiSwar(),...brahmiVyajana()]}  setSuccess={setSuccess} setWrong={setWrong} setSet={setSet} setScore={setScore}
+/>}
 
   </AnimatePresence>
 
-  <motion.div className="text-7xl cursor-pointer hover:bg-gray-300 rounnded-full  absolute bottom-2 left-2 p-4"
-  onClick={()=>{
-    toggle(!mute)
-  }}
-  >{mute?'🔊':'🔇'}</motion.div>
+
 
  {success && <motion.div 
   animate={{opacity:[0,1,0,1,0,0,1,0,1,0],scale:[.95,1.5]}}
@@ -219,59 +260,4 @@ success={success}  set={set}  setSuccess={setSuccess} setWrong={setWrong} setSet
   </div>
 }
 
-const Comp_t=(props:any)=>{
-  const {a, success, list, set, item, setSuccess, setWrong, setSet, setScore}=props
-  return <div>
-     <LetterPad a={a} success={success}/>
 
-<div className="h-12 ">
-
-<Timer/>
-
-</div>
-
-<motion.div variants={list} className="flex flex-row gap-4">
-{
-set.map((al:any,index:number)=>{
-  
-  return <motion.div 
-  variants={item}
-  whileHover={{scale:.95}}
-  whileTap={{scale:1.1}}
-  
-  key={index} className={`w-32 h-32 m-auto ${success && al[2]!==a[2] && 'hidden' } text-center text-7xl p-2 cursor-pointer hover:bg-yellow-300 bg-white shadow-lg`}
-  onClick={()=>{
-
-    if(al[2]===a[2]){
-
-      setSuccess(true)
-
-      setTimeout(()=>{
-
-        setWrong(false)
-
-        setSet(faker.helpers.arrayElements(brahmi().filter(i=>i[2]!=='fi'||''),4))
-        setScore((s:any)=>s+5)
-      },5000)
-    } else {
-      setWrong(true)
-      setSuccess(false)
-      setScore((s:any)=>s-2)
-      setTimeout(()=>{
-
-        setWrong(false)
-      },2000)
-
-
-    }
-    
-  }}
-  >
-    {al[0]}
-    
-    </motion.div>
-})
-}
-</motion.div>
-  </div>
-}

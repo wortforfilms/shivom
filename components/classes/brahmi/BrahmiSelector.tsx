@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { shArdA } from "../shArdA";
 import { brahmi } from ".";
-import { LetterMatter } from "./LetterMatter";
+
 import { LetterSelector } from "./LetterSelector";
 
 

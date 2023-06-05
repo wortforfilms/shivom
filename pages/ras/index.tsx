@@ -8,6 +8,7 @@ import { errorT, notify, success } from "@/components/toast"
 import { faker } from "@faker-js/faker"
 import { useRouter } from "next/router"
 import { languages_ } from "@/constants/earth/languages_"
+import { Brahmiplate } from "@/components/classes/brahmi"
 
 
 const  get_shabda=async()=>{
@@ -79,12 +80,19 @@ useEffect(() => {
 
   {stp==='' &&  <NakApp/>}
   {stp==='AmarmAlaa' &&  <div>
-    
+    <div className="flex flex-row gap-2 mb-2">
+    {
+      ['Zoo.','Bot.','Phy.','Chem.'].map((wrd,index)=>{
+        return <div key={index} className="text-sm bg-gray-700 text-white shadow-lg rounded-lg p-2 ">{wrd}</div>
+      })
+    }</div>
     <div className="flex gap-2 flex-row flex-wrap">
     {
       mala && mala.length>0 && faker.helpers.arrayElements(mala,27).map((ma:any,index:number)=>{
         return <div key={index} className="p-2 bg-white shadow-lg w-100">
           {ma.string}--{ma.type} 
+          <hr/>
+          {ma.string.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-2309]!==undefined?Brahmiplate[i.charCodeAt(0)-2309]:i.charCodeAt(0)<2309?i:i.charCode(0)}`)}
           <hr/>
           {ma.translitions[0].en}
           <hr/>
