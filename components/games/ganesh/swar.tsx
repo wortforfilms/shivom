@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import { faker } from "@faker-js/faker"
-import { Brahmiplate, brahmi, brahmiSwar, brahmiVyajana } from "@/components/classes/brahmi"
+import { Brahmiplate, brahmi, brahmiSwar, brahmiVyajana, brahmi_shift } from "@/components/classes/brahmi"
 import Confetti from "react-confetti"
 import { AnimatePresence, motion } from 'framer-motion'
 import { Timer } from "../Timer"
@@ -209,7 +209,7 @@ export const Swar = () => {
           <motion.div
             animate={{ opacity: [0, 1] }}
             transition={{ delay: 1 }}
-            className="text-7xl font-extrabold p-2 mt-4">{alphabetData && alphabetData.filter(i => i.alphabet === a[1])[0]?.alphabet ? alphabetData.filter(i => i.alphabet === a[1])[0].word.split('').map((i: any, index: number) => `${Brahmiplate[i.charCodeAt(0) - 2309] !== undefined ? Brahmiplate[i.charCodeAt(0) - 2309] : i.charCodeAt(0) < 2309 ? i : i.charCode(0)}`) : "nf"}</motion.div>
+            className="text-7xl font-extrabold p-2 mt-4">{alphabetData && alphabetData.filter(i => i.alphabet === a[1])[0]?.alphabet ? alphabetData.filter(i => i.alphabet === a[1])[0].word.split('').map((i: any, index: number) => `${Brahmiplate[i.charCodeAt(0) -brahmi_shift] !== undefined ? Brahmiplate[i.charCodeAt(0) -brahmi_shift] : i.charCodeAt(0) < brahmi_shift ? i : i.charCode(0)}`) : "nf"}</motion.div>
 
         </motion.div>
       </div>

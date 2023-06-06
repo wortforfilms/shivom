@@ -11,7 +11,7 @@ export const Brahmiplate = [
   "𐨏",
   "𑀁",
  ' ँ',
-String.fromCodePoint(56324),
+String.fromCharCode(55356, 57091),
   "𑀅",
   "𑀆",
   "𑀇",
@@ -826,7 +826,7 @@ export const brahmiMAtrA = () => {
   return __dic.slice(54,70);
 };
 
-const shift=2303
+export const brahmi_shift=2303
 
 export const Brahmi = () => {
   const [br, setBr] = useState<any>([]);
@@ -870,7 +870,7 @@ export const Brahmi = () => {
 
 
 
-              <div className="font-thin text-3xl m-auto">{alphabetData && alphabetData[index]?.word ? alphabetData[index].word.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-shift]!==undefined?Brahmiplate[i.charCodeAt(0)-shift]:i.charCodeAt(0)<shift?i:i?.charCodeAt(0)}`) : "nf"}</div>
+              <div className="font-thin text-3xl m-auto">{alphabetData && alphabetData[index]?.word ? alphabetData[index].word.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-brahmi_shift]!==undefined?Brahmiplate[i.charCodeAt(0)-brahmi_shift]:i.charCodeAt(0)<brahmi_shift?i:i?.charCodeAt(0)}`) : "nf"}</div>
               <LetterMatter letter={letter} k={index} />
             </div>
           );
