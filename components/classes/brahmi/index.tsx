@@ -7,11 +7,11 @@ import { range } from "@/util/createRange";
 
 export const Brahmiplate = [
   String.fromCharCode(56319),
-  String.fromCharCode(56320),
+  'धॢ',
   "𐨏",
   "𑀁",
+  '𑀅𑀂',
  ' ँ',
-String.fromCharCode(55356, 57091),
   "𑀅",
   "𑀆",
   "𑀇",
@@ -844,7 +844,9 @@ export const Brahmi = () => {
   }, []);
 
   const router = useRouter()
-
+  // alert( "𑀁".charCodeAt(0).toString(16) )
+  // alert( "𑀁".codePointAt(0).toString(16) )
+  // alert( "\xd804" )
   return (
     <div id="brahmi_classes" className="flex flex-col md:flex-row flex-wrap overflow-y-scroll min-h-[90vh] w-full  mt-4 gap-2">
       {br &&

@@ -13,6 +13,10 @@ const DeviceLanguage=(props:any)=>{
 var nala=null
 const [device,setDevice]=useState<any>(nala)
 
+const [deviceId, setDeviceId]=useState<any>(null)
+const [alert,setAlert]=useState<any>(()=>{
+  []
+})
 
   return <div className="min-h-[90vh] h-full">
     <div className="h-12"></div>

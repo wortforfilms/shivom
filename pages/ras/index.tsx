@@ -9,6 +9,7 @@ import { faker } from "@faker-js/faker"
 import { useRouter } from "next/router"
 import { languages_ } from "@/constants/earth/languages_"
 import { Brahmiplate } from "@/components/classes/brahmi"
+import { FaAlgolia } from "react-icons/fa"
 
 
 const  get_shabda=async()=>{
@@ -65,14 +66,15 @@ useEffect(() => {
         {label:"Create",icon:<BiCircleQuarter/>},
         {label:"Translate",icon:<BsTranslate/>},
         {label:"Feed",icon:<FcFeedIn/>},
-        {label:"AmarmAlaa",icon:<BiBook/>}
+        {label:"AmarmAlaa",icon:<BiBook/>},
+        {label:"Algo-liå¬ˆ/* Ò dne ¿doe */",icon:<FaAlgolia/>}
 
     ].map((step,index)=>{
-        return <div key={index} className={`${stp===step.label?"bg-gray-300 ":"bg-white"} p-2 cursor-pointer hover:bg-yellow-300 rounded-t-lg`}
+        return <div key={index} className={`${stp===step.label?"bg-gray-300 ":"bg-white"} p-2 cursor-pointer hover:bg-yellow-300 text-center rounded-t-lg`}
         onClick={()=>{setStp(step.label)}}
         >
-        <div className="text-3xl p-1 text-center">{step.icon}</div>
-          <div className="text-xs">{step.label}</div>
+        <div className="text-3xl p-1 text-center m-auto">{step.icon}</div>
+          <div className="text-xs text-center">{step.label}</div>
         </div>
       })
     }
@@ -221,6 +223,10 @@ const Translate=(props:any)=>{
     })
   }
 
+  // apply nominate vote suggest
+  // { hr wrong ¿?  :: best_for_you}
+  // {kudali_behaviour_{test_{replace}}}
+  // {target_customer-not-guest:: ?÷/¿ bause cause because }
   const find_from_amar=async(str:any)=>{
     const {data,error}=await supabase.from('अमृत').select('*').textSearch('translitions -> en',str)
     return {data,error}
@@ -274,12 +280,12 @@ const Translate=(props:any)=>{
     </select>
     </div>
     <div>
-      to:<select className="w-[50vw] overflow-hidden">
+      to:<select className="w-48 overflow-hidden">
       {
-        [...languages_].map((lng,index)=>{
-          return <option key={index} className="flex flex-row flex-wrap gap-2">{lng.map((hi,den)=>{
-            return <div key={den}>{hi}</div>
-          })}</option>
+        ...languages_.map((lng:any,index:number)=>{
+          console.log('---=.>',lng)
+          return <option key={index} className="flex flex-row flex-wrap gap-2">
+            {lng.name}</option>
         })
       }
     </select>
