@@ -81,6 +81,7 @@ useEffect(() => {
     </div>
 
   {stp==='' &&  <NakApp/>}
+  {stp==='' &&  <NakApp/>}
   {stp==='AmarmAlaa' &&  <div>
     <div className="flex flex-row gap-2 mb-2">
     {

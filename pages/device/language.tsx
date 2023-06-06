@@ -29,3 +29,13 @@ const [alert,setAlert]=useState<any>(()=>{
 }
 
 export default DeviceLanguage
+
+export const view_chakra=(props:any)=>{
+  const {doc,str}=props
+  return <div className={`flex flex-col sm:flex-row `}>
+{str.split('').map((i:any,j:number)=>{
+  return <div key={j}{...i}></div>
+})}
+  </div> 
+
+}

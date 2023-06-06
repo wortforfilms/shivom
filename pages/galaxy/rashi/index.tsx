@@ -1,7 +1,9 @@
 import { representations_nakshastra } from "@/data/nakshatra"
 import React from "react"
 
-const texts: string[] = Object.keys(representations_nakshastra)
+const input_texts=["om"]
+
+const texts: string[] = Object.keys(input_texts)
 
 const computePosition = (
   idx: number,
