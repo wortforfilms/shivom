@@ -833,13 +833,13 @@ export const Brahmi = () => {
   const router = useRouter()
 
   return (
-    <div id="brahmi_classes" className="flex flex-col flex-wrap overflow-y-scroll min-h-[90vh] w-full mt-4 gap-2">
+    <div id="brahmi_classes" className="flex flex-col md:flex-row flex-wrap overflow-y-scroll min-h-[90vh] w-full  mt-4 gap-2">
       {br &&
         br.map((letter: any, index: number) => {
           return (
             <div
               key={index}
-              className="text-center w-full  mb-4 bg-white flex flex-row flex-wrap mx-auto p-2 rounded-lg shadow-xl"
+              className="text-center w-full md:w-[48%]  mb-4 bg-white flex flex-row flex-wrap mx-auto p-2 rounded-lg shadow-xl"
               onClick={() => {
                 router.push(`/engine/letter/${letter[2]}`)
               }}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import { faker } from "@faker-js/faker"
 import { Brahmiplate, brahmi, brahmiSwar, brahmiVyajana } from "@/components/classes/brahmi"
@@ -263,12 +263,31 @@ success={success}  set={set}  setSuccess={setSuccess} setWrong={setWrong} setSet
 
 export const Comp_t=(props:any)=>{
   const {a, success, list, set, item, setSuccess, setWrong, setSet, setScore}=props
+  const audioRef = useRef<any>(null);
+
+  const playSuccessAudio = () => {
+    new Audio('/sound/game/service-bell-ring.mp3').play();
+  }
+
+  const playFailAudio = () => {
+    new Audio('/sound/game/wrong-answer.mp3').play();
+  }
+  // useSound
+  const play = () => {
+    if (audioRef.current) {
+      audioRef?.current?.play()
+    } else {
+      // Throw error
+    }
+  }
+
   return <div>
      <LetterPad a={a} success={success}/>
 
 <div className="h-12 ">
 
 <Timer/>
+
 
 </div>
 <AnimatePresence>
@@ -290,7 +309,7 @@ set.map((al:any,index:number)=>{
     if(al[2]===a[2]){
 
       setSuccess(true)
-
+playSuccessAudio()
       setTimeout(()=>{
 
         setWrong(false)
@@ -300,6 +319,8 @@ set.map((al:any,index:number)=>{
       },5000)
     } else {
       setWrong(true)
+playFailAudio()
+
       setSuccess(false)
       setScore((s:any)=>s-2)
       setTimeout(()=>{
