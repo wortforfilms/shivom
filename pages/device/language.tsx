@@ -19,10 +19,7 @@ const [device,setDevice]=useState<any>(nala)
 
   <ContinentSelector/>
   <hr/>
- 
-  {/* // extension
-  //  
-    <BrahmiSelector/> */}
+
 
   </div>
 }

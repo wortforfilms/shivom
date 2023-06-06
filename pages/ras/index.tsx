@@ -92,7 +92,7 @@ useEffect(() => {
         return <div key={index} className="p-2 bg-white shadow-lg w-100">
           {ma.string}--{ma.type} 
           <hr/>
-          {ma.string.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-2309]!==undefined?Brahmiplate[i.charCodeAt(0)-2309]:i.charCodeAt(0)<2309?i:i.charCode(0)}`)}
+          {ma.string.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-2303]!==undefined?Brahmiplate[i.charCodeAt(0)-2303]:i.charCodeAt(0)<2303?i:i.charCode(0)}`)}
           <hr/>
           {ma.translitions[0].en}
           <hr/>

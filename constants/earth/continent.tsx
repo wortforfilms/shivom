@@ -14,6 +14,8 @@ import { languages_ } from "./languages_"
   export const ContinentSelector=(props:any)=>{
     const [continent,setContinent]=useState<any>(continent_switch[2])
     const [country,setCountry]=useState<any>(null)
+    const [languages,setLanguages]=useState<any>()
+    const [selected_languages,setSelectedLanguages]=useState<any>()
 
     const [location,setLocation]=useState<any>([])
 
@@ -45,7 +47,7 @@ import { languages_ } from "./languages_"
     </div>
 
    {continent && <CountrySelector country={country} setCountry={setCountry} continent={continent} setContinent={setContinent}/>}
-    {country && <LanguageSelector country={country} />}
+    {country && <LanguageSelector country={country} languages={languages} setLanguages={setLanguages} selected_languages={selected_languages} setSelectedLanguages={setSelectedLanguages} />}
 
     </div>
   }
@@ -136,8 +138,7 @@ import { languages_ } from "./languages_"
   }
 
   export const LanguageSelector=(props:any)=>{
-    const {country}=props
-    const [languages,setLanguages]=useState<any>()
+    const {country, languages, setLanguages, selected_languages, setSelectedLanguages}=props
     useEffect(() => {
       let mount=true
       if(mount){
@@ -154,7 +155,12 @@ import { languages_ } from "./languages_"
       <h3>Choose your language</h3>
       <div className="flex flex-row flex-wrap gap-2">
 {languages && languages[0]?.languages.map((ln:any,index:number)=>{
-  return <div key={index} className="p-2 rounded-lg shadow-lg">
+  return <div key={index} className="p-2 rounded-lg shadow-lg hover:bg-yellow-300 cursor-pointer"
+  onClick={()=>{
+    console.log(selected_languages,'---=<')
+    setSelectedLanguages((s:any)=>s?[ln,...s]:[ln])
+  }}
+  >
     {/* {ln} */}
     {languages_.filter(i=>i[1].includes(ln))[0]}
     </div>
@@ -162,25 +168,3 @@ import { languages_ } from "./languages_"
 </div>
     </div>
   }
-  // export const LanguageSelector=()=>{
-  //   const [langs,setLangs]=useState<any>([])
-
-
-  //   return  <div className="p-4 m-auto flex flex-col justify-around">
-  //   {JSON.stringify(langs)}
-  //     <select multiple onChange={(e:any)=>{
-  //       console.log(e.target.value)
-  //       if(langs.includes(e.target.value)){
-  //         setLangs(langs.filter((i:any)=>i[0]!==e.target.value))
-  //       } else {
-    
-  //         setLangs((s:any)=>[e.target.value,...s])
-  //       }
-  //     }}
-  //     className="p-2 w-[90%] m-auto "
-  //     >
-    
-
-  //     </select>
-  //     </div> 
-  // } 

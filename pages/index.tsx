@@ -71,9 +71,7 @@ export default function Home(props: any) {
           <GameBanner />
         </div>}
 
-      {section === "ecommerce" && <div className='mt-6' id="ecommerce">
-        <ProductList earth={earth}/>
-      </div>}
+      {section === "ecommerce" &&  <ProductList earth={earth}/>}
       {section === "games" && <>
         <GameBanner />
       </>}

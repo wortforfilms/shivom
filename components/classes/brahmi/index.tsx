@@ -3,7 +3,15 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { shArdA } from "../shArdA";
 import { LetterMatter } from "./LetterMatter";
+import { range } from "@/util/createRange";
+
 export const Brahmiplate = [
+  String.fromCharCode(56319),
+  String.fromCharCode(56320),
+  "𐨏",
+  "𑀁",
+ ' ँ',
+String.fromCodePoint(56324),
   "𑀅",
   "𑀆",
   "𑀇",
@@ -16,6 +24,7 @@ export const Brahmiplate = [
   "𑀎",
   "𑀏",
   "𑀐",
+// 𑀁
   "",
   "",
   "𑀑",
@@ -112,6 +121,9 @@ export const Brahmiplate = [
   "𑁮",
   "𑁯",
 ];
+
+export const BrahmiAlg=range(56320,56431).map(i=>String.fromCharCode(i))
+
 export const brahmi = () => {
 
 
@@ -157,7 +169,7 @@ export const brahmi = () => {
     "𑀣",
     "𑀤",
     "𑀥",
-    "𑀦",
+    "",
     "fi",
     "𑀧",
     "𑀨",
@@ -232,17 +244,17 @@ export const brahmi = () => {
   ];
 
   const __dic = Brahmiplate.map((letter, index) => {
-    const brindex = index + 2309;
-    const bnindex = index + 2437;
-    const pnindex = index + 2565;
-    const enindex = index + 2565;
-    const gjindex = index + 2693;
-    const tlindex = index + 2949;
-    const tuindex = index + 3077;
-    const mlindex = index + 3333;
-    const arindex = index + 1569;
-    const knindex = index + 3205;
-    const tbindex = index + 3888;
+    const brindex = index + 2304-1;
+    const bnindex = index + 2432-1;
+    const pnindex = index + 2560-1;
+    const enindex = index + 2560-1;
+    const gjindex = index + 2688-1;
+    const tlindex = index + 2944-1;
+    const tuindex = index + 3072-1;
+    const mlindex = index + 3328-1;
+    const arindex = index + 1564-1;
+    const knindex = index + 3200-1;
+    const tbindex = index + 3883-1;
 
     // return Brahmi[brindex]
 
@@ -316,7 +328,7 @@ export const brahmiSwar = () => {
     "𑀣",
     "𑀤",
     "𑀥",
-    "𑀦",
+    "",
     "fi",
     "𑀧",
     "𑀨",
@@ -477,7 +489,7 @@ export const brahmiVyajana = () => {
     "𑀣",
     "𑀤",
     "𑀥",
-    "𑀦",
+    "",
     "fi",
     "𑀧",
     "𑀨",
@@ -691,7 +703,7 @@ export const brahmiMAtrA = () => {
     "𑀣",
     "𑀤",
     "𑀥",
-    "𑀦",
+    "",
     "fi",
     "𑀧",
     "𑀨",
@@ -814,6 +826,7 @@ export const brahmiMAtrA = () => {
   return __dic.slice(54,70);
 };
 
+const shift=2303
 
 export const Brahmi = () => {
   const [br, setBr] = useState<any>([]);
@@ -852,11 +865,12 @@ export const Brahmi = () => {
               <div className="flex flex-col flex-wrap p-2 text-center overflow-y-auto mx-auto">
 
                 <div className="text-9xl font-bold text-gray-600">{letter[2]}</div>
+                <div className="text-xl font-thin text-gray-600">{letter[2]?.charCodeAt(1)}</div>
               </div>
 
 
 
-              <div className="font-thin text-3xl m-auto">{alphabetData && alphabetData[index]?.word ? alphabetData[index].word.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-2309]!==undefined?Brahmiplate[i.charCodeAt(0)-2309]:i.charCodeAt(0)<2309?i:i.charCode(0)}`) : "nf"}</div>
+              <div className="font-thin text-3xl m-auto">{alphabetData && alphabetData[index]?.word ? alphabetData[index].word.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-shift]!==undefined?Brahmiplate[i.charCodeAt(0)-shift]:i.charCodeAt(0)<shift?i:i?.charCodeAt(0)}`) : "nf"}</div>
               <LetterMatter letter={letter} k={index} />
             </div>
           );

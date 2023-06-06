@@ -8,6 +8,16 @@ interface HindiAlphabet {
 }
 
 export const alphabetData: HindiAlphabet[] = [
+  { alphabet: 'अࣿ', word: 'बिभर्ते', emoji: '⭐️' },
+  { alphabet: 'अ', word: 'अमर', emoji: '⭐️' },
+  { alphabet: 'आँ', word: 'आँख', emoji: '👁️' },
+  { alphabet: 'अं', word: 'अंगूर', emoji: '🍇' },
+  { alphabet: 'ः', word: 'सः', emoji: '👽' },
+  { alphabet: 'ऄ', word: 'ऄमार्ग', emoji: '🚀' },
+
+
+
+
   { alphabet: 'अ', word: 'अमर', emoji: '⭐️' },
   { alphabet: 'आ', word: 'आकाश', emoji: '🌌' },
   { alphabet: 'इ', word: 'इंद्रधनुष', emoji: '🌈' },

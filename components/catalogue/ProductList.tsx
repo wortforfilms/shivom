@@ -5,8 +5,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-
 export const ProductList = (props:any) => {
 
   const {initialReduxState}=props
@@ -89,7 +87,7 @@ export const ProductList = (props:any) => {
 
   const dispatch=useDispatch()
 
-  return <div className='w-full  p-2 flex flex-col sm:flex-row flex-wrap justify-around  gap-2 overflow-auto'>
+  return <div className='w-full min-h-[90vh] p-2 flex flex-col sm:flex-row flex-wrap justify-around  gap-2 overflow-auto'>
 
       {product_list.map((product: any, index: number) => {
         const _item={
@@ -97,7 +95,7 @@ export const ProductList = (props:any) => {
            title:product.product_title,
             images:product.product_images, pr_type:"physical goods", data:"data", variance:[{price:product.product_price}]
         }
-        return <div key={index} className='bg-white p-2 w-full  flex flex-col justify-between'>
+        return <div key={index} className='bg-white p-2 w-full md:w-[48%]  flex flex-col justify-between'>
          
 <ProductCard product={product} earth={earth} type="Card" index={index}/>
         </div>;
