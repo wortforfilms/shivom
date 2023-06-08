@@ -1,10 +1,7 @@
 
 import { ContinentSelector } from "@/constants/earth/continent"
 import { useEffect, useState } from "react"
-
-import { Aaj, Janm, Utsav } from "../user"
-import { dispatch } from "d3"
-
+// import { dispatch } from "d3"
 import { getLocationOrigin } from "next/dist/shared/lib/utils"
 
 
@@ -17,30 +14,108 @@ var nala=null
 const [device,setDevice]=useState<any>(nala)
 // const []
 const [deviceId, setDeviceId]=useState<any>(null)
+const [location,setLocation]=useState<any>(null)
 const [alert,setAlert]=useState<any>(()=>{
   []
 })
 
-// chakra_::
-// element plates
-// floting plates
-// static plates
+useEffect(() => {
+  let mount = true;
+  if (mount) {
+    if (navigator.permissions && navigator.permissions.query) {
+      const _onGetCurrentLocation = () => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log("found permission run");
+          const marker = {
+            lat: JSON.stringify(position.coords.latitude),
+            lng: JSON.stringify(position.coords.longitude),
+            alt: position.coords.altitude,
+            speed: position.coords.speed,
+            heading: position.coords.heading,
+          };
+          setLocation({ lat: marker.lng, lng: marker.lat });
+          console.log(location)
+
+        });
+      };
+
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          const permission = result.state;
+          console.log(
+            "found permission run detect",
+            permission,
+            navigator.geolocation
+          );
+          if (permission === "granted" || permission === "prompt") {
+            _onGetCurrentLocation();
+          }
+          if (permission === "denied") {
+            alert("set location permission first");
+          }
+        });
+    }
+  }
+  return () => {
+    setLocation({lng:'', lat:''});
+    mount = false;
+  };
+}, []);
+
+const _onGetCurrentLocation = () => {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    console.log("found permission run");
+    const marker = {
+      lat: JSON.stringify(position.coords.latitude),
+      lng: JSON.stringify(position.coords.longitude),
+      alt: position.coords.altitude,
+      speed: position.coords.speed,
+      heading: position.coords.heading,
+    };
+    setLocation({ lat: marker.lng, lng: marker.lat });
+    console.log(marker)
+  });
+};
+
+// -. jal thal  vAyu
+// wa_ter  h2o thal land vAyu airco2nh
+// 
 
 useEffect(() => {
   let mount=true
   if(mount){
 
+
+
     const device=navigator
+    navigator.permissions
+    .query({ name: "geolocation" })
+    .then(function (result) {
+      const permission = result.state;
+      console.log(
+        "found permission run detect",
+        permission,
+        navigator.geolocation
+      );
+      if (permission === "granted" || permission === "prompt") {
+        _onGetCurrentLocation();
+      }
+      if (permission === "denied") {
+        alert("set location permission first");
+      }
+    });
     setDevice(device)
-    console.log(device.mediaDevices)
-    console.log(device.geolocation.getCurrentPosition(()=>{
+    // console.log(device.mediaDevices)
+    // console.log(device.geolocation.getCurrentPosition((coordinates)=>{
       // getMoonSign(new Date())
       getLocationOrigin()
-    }))
+      // console.log(coordinates)
+    // }))
     // dispatch(update_device_visit(device))
     // Devops
     //
-    dispatch()
+    // dispatch()
   }
 
 
@@ -49,14 +124,6 @@ useEffect(() => {
   }
 }, [])
 
-// caste schedule
-// {}-{}-{}
-// tribe schedule
-// native schedule
-// give take
-// rent {} {}
-// scheduler
-// 
 
   return <div className="min-h-[90vh] w-full h-full">
     <div className="h-12"></div>
@@ -67,13 +134,7 @@ useEffect(() => {
     {/* <Vartmaan/> */}
     {/* VratmAna */}
     {/* VrutamAa */}
-    <div className="flex flex-row">
-
-    <Aaj/>
-    {earth?.auth?.authenticated ? <Janm/>:<div>Enter Device Birth Date</div>}
-    </div>
-    <Utsav/>
-    Nav i gat or
+  
 
 {'ଓ'.charCodeAt(0)}
   <ContinentSelector/>

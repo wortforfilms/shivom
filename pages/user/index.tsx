@@ -759,7 +759,7 @@ export const Utsav=(props:any)=>{
 
   var obj = new MhahPanchang();
 
-var [utsava,setUtsava]=useState<any>(range(0,(600)).map(str=>{
+var [utsava,setUtsava]=useState<any>(range(0,(6)).map(str=>{
   
   return addHours(new Date(),str)
 }))

@@ -39,6 +39,7 @@ const Banner: React.FC = (props:any) => {
 quality={100}
     className="w-full  rounded-full opacity-25 justify-start   "
     />
+      <div className='absolute flex flex-col justify-center text-sm scale-50 sm:scale-100 -top-24 m-auto -right-32 sm:right-40 '><NakApp/></div>
 
 <Image
     // src="/img/astrology-circle-orance-dots.png"
@@ -51,7 +52,6 @@ quality={100}
 quality={100}
     className="absolute m-auto w-full  rounded-full border-4 border-gray-300  justify-start animate-spin-slow  "
     />
-      <div className='absolute text-sm scale-75 -top-24 m-auto -right-32 sm:right-40 '><NakApp/></div>
 
      {earth?.auth?.authenticated ? <div className="content bg-white shadow-lg bg-opacity-[98%] p-6 text-center">
         <div className={heading}>{aibannner.title}</div>

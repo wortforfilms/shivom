@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { motion } from "framer-motion"
 import { heading } from "@/sty"
 import { Box } from "@/elements/box"
-import { Aaj } from "../user"
+import { Aaj, Janm, Utsav } from "../user"
 
 interface DateTime {
   year: number;
@@ -134,6 +134,13 @@ const CalenderView=(props:any)=>{
   return  <div className="max-w-5xl m-auto p-4">
     <div className="h-12"></div>
     {/* <div>{vedicYear}</div> */}
+    <div className="flex flex-row">
+
+<Aaj/>
+{earth?.auth?.authenticated ? <Janm/>:<div>Enter Device Birth Date</div>}
+</div>
+<Utsav/>
+{/* Nav i gat or */}
     <Aaj/>
     <div className="flex flex-col sm:flex-row">
     <Image
