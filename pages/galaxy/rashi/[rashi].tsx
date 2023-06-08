@@ -18,7 +18,11 @@ const create_book=async(pmt:any)=>{
 }
 
 
-// const 
+// 
+// asi shi
+// rA ra
+// const m  {÷/÷¿shift cycle suspension}
+// {:-:} 
 // pmt create book scorpio and others
 // story of 12 zodiacs
 // 
@@ -29,7 +33,9 @@ const create_book=async(pmt:any)=>{
 // {stable defusion}
 // {focus}
 // {wealthcare generation}
-// 
+// {html domain cdn aws godaddy bigrock google }
+// {navigator::health}
+// {}
 
 const create_answer=async(pmt:any)=>{
   const DEFAULT_PARAMS = {

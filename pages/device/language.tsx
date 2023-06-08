@@ -1,11 +1,10 @@
-import { Brahmi } from "@/components/classes/brahmi"
-import { BrahmiSelector } from "@/components/classes/brahmi/BrahmiSelector"
+
 import { ContinentSelector } from "@/constants/earth/continent"
 import { useEffect, useState } from "react"
-import { FcNightLandscape } from "react-icons/fc"
+
 import { Aaj, Janm, Utsav } from "../user"
 import { dispatch } from "d3"
-import { update_device_visit } from "@/q/u/device"
+
 import { getLocationOrigin } from "next/dist/shared/lib/utils"
 
 
@@ -70,7 +69,8 @@ useEffect(() => {
     {/* VrutamAa */}
     <div className="flex flex-row">
 
-    <Aaj/>{earth?.auth?.authenticated && <Janm/>}
+    <Aaj/>
+    {earth?.auth?.authenticated ? <Janm/>:<div>Enter Device Birth Date</div>}
     </div>
     <Utsav/>
     Nav i gat or

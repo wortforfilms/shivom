@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import { faker } from "@faker-js/faker"
-import { Brahmiplate, brahmi, brahmiSwar, brahmiVyajana } from "@/components/classes/brahmi"
+import { Brahmiplate,  brahmiSwar, brahmiVyajana } from "@/components/classes/brahmi"
 import Confetti from "react-confetti"
 import{AnimatePresence, motion} from 'framer-motion'
-import { Timer } from "../Timer"
-import { LetterPad, WordPad } from "./LetterPad"
+
 import { supabase } from "@/lib/Store"
-import { context } from "react-three-fiber"
-import { LetterMatter } from "@/components/classes/brahmi/LetterMatter"
+
 import { alphabetData } from "@/lib/akshar/hindi"
 import { Comp_t } from "./swar"
 

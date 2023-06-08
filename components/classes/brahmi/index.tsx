@@ -5,6 +5,8 @@ import { shArdA } from "../shArdA";
 import { LetterMatter } from "./LetterMatter";
 import { range } from "@/util/createRange";
 
+
+// Hh˙n-anumaan 
 export const Brahmiplate = [
   '√',
   '¿',
@@ -179,6 +181,13 @@ export const Hinglish=[
 
 
 export const BrahmiAlg=range(56320,56431).map(i=>String.fromCharCode(i))
+
+// surrogate key¿?
+// iamfree
+// from¿
+// form nirAkAra
+// silicon
+// 
 
 const __dic = Brahmiplate.map((letter, index) => {
   const brindex = index + 2304-1;
@@ -543,11 +552,8 @@ export const BrahmiItems = () => {
                 <div className="text-2xl p-2">{alphabetData && alphabetData[index]?.alphabet ? alphabetData[index].word : "nf"}</div>
               </div>
               <div className="flex flex-row flex-wrap p-2 text-center overflow-y-auto mx-auto">
-
                 <div className="text-9xl font-bold text-gray-600">{letter[2]}</div>
               </div>
-
-
 
               <div className="thin-head">{shArdA[index + 3]}</div>
               <LetterMatter letter={letter} k={index} />
@@ -558,4 +564,7 @@ export const BrahmiItems = () => {
   );
 };
 
+
+// books -> {:::}
+// 
 

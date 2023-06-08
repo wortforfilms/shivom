@@ -51,7 +51,7 @@ quality={100}
 quality={100}
     className="absolute m-auto w-full  rounded-full border-4 border-gray-300  justify-start animate-spin-slow  "
     />
-
+      <div className='absolute text-sm scale-75 -top-24 m-auto -right-32 sm:right-40 '><NakApp/></div>
 
      {earth?.auth?.authenticated ? <div className="content bg-white shadow-lg bg-opacity-[98%] p-6 text-center">
         <div className={heading}>{aibannner.title}</div>
@@ -77,7 +77,6 @@ quality={100}
         router.push('/user')
       }}
       >{aibannner.unauth_action.label}</div>
-      <div className='absolute text-sm scale-75 -top-64 m-auto -right-48 sm:-right-32 '><NakApp/></div>
       </div>}
     </div>
   );
@@ -111,3 +110,26 @@ const Lense=()=>{
 //  data meta  u i game {}
 // houses of planets
 // {}-{}-{}-{}-{}
+
+// https://signin.aws.amazon.com/
+// signin?redirect_uri=https%3A%2-->F%2-->Fap-southeast-1.console.aws.amazon.com%2-->F
+// polly%2-->Fhome%2-->FSynthesizeSpeech%3Fregion%3Dap-southeast-1
+//%2-->6state%3DhashArgs%2-->523
+//%2-->6isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser
+// %2-->Fpolly
+// &forceMobileApp=0
+// &code_challenge=IO1
+// Iw
+// LTyKn
+// Fr9
+// MLog_ad7sMRcY9KgDI5QX1JZs_HNIuas
+// Surrogate {key=key}
+// &code_challenge_method=SHA-256
+// ¿? blame
+// issue
+// as color are we have tower 2 focus 1 {aim society}{anxiety free society}{cultural society}{;;:AR}
+// {ux:externals}
+// design modes
+// ux horizontal verticle
+// square press technique
+// 
