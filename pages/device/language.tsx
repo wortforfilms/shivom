@@ -1,8 +1,12 @@
 import { Brahmi } from "@/components/classes/brahmi"
 import { BrahmiSelector } from "@/components/classes/brahmi/BrahmiSelector"
 import { ContinentSelector } from "@/constants/earth/continent"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FcNightLandscape } from "react-icons/fc"
+import { Aaj, Janm, Utsav } from "../user"
+import { dispatch } from "d3"
+import { update_device_visit } from "@/q/u/device"
+import { getLocationOrigin } from "next/dist/shared/lib/utils"
 
 
 
@@ -12,15 +16,66 @@ const DeviceLanguage=(props:any)=>{
   const earth:typeof initialReduxState=useState()
 var nala=null
 const [device,setDevice]=useState<any>(nala)
-
+// const []
 const [deviceId, setDeviceId]=useState<any>(null)
 const [alert,setAlert]=useState<any>(()=>{
   []
 })
 
-  return <div className="min-h-[90vh] h-full">
-    <div className="h-12"></div>
+// chakra_::
+// element plates
+// floting plates
+// static plates
 
+useEffect(() => {
+  let mount=true
+  if(mount){
+
+    const device=navigator
+    setDevice(device)
+    console.log(device.mediaDevices)
+    console.log(device.geolocation.getCurrentPosition(()=>{
+      // getMoonSign(new Date())
+      getLocationOrigin()
+    }))
+    // dispatch(update_device_visit(device))
+    // Devops
+    //
+    dispatch()
+  }
+
+
+  return () => {
+    mount=false
+  }
+}, [])
+
+// caste schedule
+// {}-{}-{}
+// tribe schedule
+// native schedule
+// give take
+// rent {} {}
+// scheduler
+// 
+
+  return <div className="min-h-[90vh] w-full h-full">
+    <div className="h-12"></div>
+    {
+      JSON.stringify(!!device && device)
+    }
+    {JSON.stringify(device)}
+    {/* <Vartmaan/> */}
+    {/* VratmAna */}
+    {/* VrutamAa */}
+    <div className="flex flex-row">
+
+    <Aaj/>{earth?.auth?.authenticated && <Janm/>}
+    </div>
+    <Utsav/>
+    Nav i gat or
+
+{'ଓ'.charCodeAt(0)}
   <ContinentSelector/>
   <hr/>
 

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Image from 'next/image'
 import { motion } from 'framer-motion';
+import NakApp from '@/pages/galaxy/rashi';
 
 const  aibannner={
   title:"Let SH{4}om A.I. Discover Your Unique Planet Energies",
@@ -76,6 +77,7 @@ quality={100}
         router.push('/user')
       }}
       >{aibannner.unauth_action.label}</div>
+      <div className='absolute text-sm scale-75 -top-64 m-auto -right-48 sm:-right-32 '><NakApp/></div>
       </div>}
     </div>
   );

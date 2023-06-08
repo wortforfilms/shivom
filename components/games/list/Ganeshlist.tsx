@@ -14,6 +14,7 @@ export const Ganeshlist = (props: any) => {
       return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
         <div className="text-7xl p-2 ">{ver.icon}</div>
         <h1>{ver.label} </h1>
+        <h1>{ver.label.replace('')} </h1>
         <div className="text-xs font-bold p-1">{ver.duration}</div>
         <div>
           <div className="text-xs text-yellow-700 p-2">Leaderboard: </div>
@@ -45,3 +46,6 @@ className="w-12 rounded-full "
     })}
   </div>;
 };
+
+// सनाथीकृ
+// 

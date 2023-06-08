@@ -14,10 +14,6 @@ export const alphabetData: HindiAlphabet[] = [
   { alphabet: 'अं', word: 'अंगूर', emoji: '🍇' },
   { alphabet: 'ः', word: 'सः', emoji: '👽' },
   { alphabet: 'ऄ', word: 'ऄमार्ग', emoji: '🚀' },
-
-
-
-
   { alphabet: 'अ', word: 'अमर', emoji: '⭐️' },
   { alphabet: 'आ', word: 'आकाश', emoji: '🌌' },
   { alphabet: 'इ', word: 'इंद्रधनुष', emoji: '🌈' },
@@ -99,11 +95,3 @@ const HindiAlphabetChart: React.FC = () => {
 };
 
 export default HindiAlphabetChart;
-
-
-
-// शोधन	n.	zodhana	removal[of dirt]	
-// अपगम	m.	apagama	move-out[appartment]	
-// विशेषाभिधान	m.	vizeSAbhidhAna	compilation[list]	
-// अभाव	m.	abhAva	absence[non-existence]	
-// उच्चारण	n.	uccAraNa	articulation[speech]	

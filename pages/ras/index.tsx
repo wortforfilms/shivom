@@ -10,8 +10,11 @@ import { useRouter } from "next/router"
 import { languages_ } from "@/constants/earth/languages_"
 import { Brahmiplate } from "@/components/classes/brahmi"
 import { FaAlgolia } from "react-icons/fa"
+import { shArdA } from "@/components/classes/shArdA"
 
-
+const communicator='@'
+const restriction=[{issue:"",conndition:"",blaim:'',resolve:()=>{}}]
+const fix=[{commits:[{issue:"",resolve:()=>{},fix:"¿?"},{},{}]}]
 const  get_shabda=async()=>{
   const {data,error}=await supabase.from('अमृत').select('*').neq('type','sent.')
   return {data,error}
@@ -88,7 +91,10 @@ useEffect(() => {
       ['Zoo.','Bot.','Phy.','Chem.'].map((wrd,index)=>{
         return <div key={index} className="text-sm bg-gray-700 text-white shadow-lg rounded-lg p-2 ">{wrd}</div>
       })
-    }</div>
+    }
+     {'𑖀'.charCodeAt(1)}
+    
+    </div>
     <div className="flex gap-2 flex-row flex-wrap">
     {
       mala && mala.length>0 && faker.helpers.arrayElements(mala,27).map((ma:any,index:number)=>{
@@ -96,6 +102,8 @@ useEffect(() => {
           {ma.string}--{ma.type} 
           <hr/>
           {ma.string.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-2303]!==undefined?Brahmiplate[i.charCodeAt(0)-2303]:i.charCodeAt(0)<2303?i:i.charCode(0)}`)}
+          <hr/>
+          {ma.string.split('').map((i:any,index:number)=>`${shArdA[i.charCodeAt(0)-2303]!==undefined?shArdA[i.charCodeAt(0)-2303]:i.charCodeAt(0)<2303?i:i.charCode(0)}`)}
           <hr/>
           {ma.translitions[0].en}
           <hr/>
@@ -112,15 +120,67 @@ useEffect(() => {
 }
 
 export default Ras
+// NOBMl_el_IC_EN_S_ES
+// sd:notowedbyme
+// action-=measure
 
 const PostCreator=()=>{
+
+  var AudioContext = window.AudioContext;
+var audioCtx = new AudioContext();
+
+var oscillatorNode = audioCtx.createOscillator();
+var oscillatorGainNode = audioCtx.createGain();
+var finish = audioCtx.destination;
+
+var distortionGainNode = audioCtx.createGain();
+var distortionNode = audioCtx.createWaveShaper();
+var sampleRate:number
+function makeDistortionCurve(amount:any) {
+    var k = amount,
+        n_samples = typeof sampleRate === 'number' ? sampleRate : 44100,
+        curve = new Float32Array(n_samples),
+        deg = Math.PI / 180,
+        i = 0,
+        x;
+    for ( ; i < n_samples; ++i ) {
+        x = i * 2 / n_samples - 1;
+        curve[i] = (3 + k)*Math.atan(Math.sinh(x*0.25)*5) / (Math.PI + k * Math.abs(x));
+    }
+    return curve;
+}
+
+distortionNode.curve = makeDistortionCurve(420);
+
+oscillatorNode.connect(oscillatorGainNode);
+oscillatorGainNode.connect(distortionGainNode);
+distortionGainNode.connect(distortionNode);
+distortionNode.connect(finish);
+
+console.log(oscillatorNode)
+
+
   return <div className="w-full flex flex-col gap-2 bg-gray-400 p-2">
-  <input className="w-full p-2 " placeholder="Enter title"/>
-  <textarea className="w-full p-2  " rows={16}/>
+  {/* <input className="w-full p-2 " placeholder="Enter title"/> */}
+  <textarea className="w-full p-2  " rows={16}
+  placeholder="Talk"
+  />
   <div className="flex flex-row gap-2 justify-around">
-  <div className="bg-orange-600 text-white shadow-lg rounded-lg p-1">Preview</div>
-  <div className="bg-green-600 text-white shadow-lg rounded-lg p-1">Save</div>
-  <div className="bg-gray-600 text-white shadow-lg rounded-lg p-1">Release</div>
+  <div className="bg-orange-600 text-white shadow-lg rounded-lg p-1"
+  onClick={()=>{
+    oscillatorNode?.start(0);
+  }}
+  >Preview</div>
+  <div className="bg-green-600 text-white shadow-lg rounded-lg p-1"
+  onClick={()=>{
+    oscillatorNode.disconnect(0)
+  }}
+  >Save</div>
+  <div className="bg-gray-600 text-white shadow-lg rounded-lg p-1"
+  onClick={()=>{
+    oscillatorNode?.stop(0)
+  }}
+  >Release</div>
   </div>
   </div>
 }
@@ -284,7 +344,7 @@ const Translate=(props:any)=>{
       to:<select className="w-48 overflow-hidden">
       {
         ...languages_.map((lng:any,index:number)=>{
-          console.log('---=.>',lng)
+          // console.log('---=.>',lng)
           return <option key={index} className="flex flex-row flex-wrap gap-2">
             {lng.name}</option>
         })
@@ -318,6 +378,28 @@ const Translate=(props:any)=>{
 
   </div>
 }
+
+const patra=(number:number)=>{
+
+  
+} 
+
+// ekarth
+// dviearth
+// triearth
+// chaturth
+// puncham
+// shashThi
+//  saptam
+// ashtak
+// navAgrah
+// dashme
+// ek a a dashi
+// dv aa dashi
+//  tryodashi
+//  chaudas
+// amavasya
+// purnima
 
 // float window
 // message of success dissapearence vibration 

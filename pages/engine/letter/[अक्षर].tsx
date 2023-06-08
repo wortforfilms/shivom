@@ -21,6 +21,7 @@ const अक्ष =()=>{
       </h1>
       <h1 className="p-2 text-xl rotate-[270deg]  text-center bg-white rounded-lg">
       {अक्षर}
+
       </h1>
 </div>
 {

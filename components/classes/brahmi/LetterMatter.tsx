@@ -23,15 +23,18 @@ export const LetterMatter = (props: any) => {
 
   const languages = [
     "hindi",
+    "oriya",
     "bangla",
     "punjabi",
     "gujrati",
+    'shArdA',
     "tamil",
     "telegu",
     "malyalam",
     "arabic",
     "kannada",
     "tibetian",
+    'burmese'
   ];
 
   return (
@@ -43,9 +46,10 @@ export const LetterMatter = (props: any) => {
         {languages.map((ln, index) => {
           return <div key={index} className="flex flex-col m-auto justify-between">
             <div className="uppercase text-xs font-bold mt-2 p-2">
-              {ln}:
+              {ln?ln:'nf'}:
             </div>
             <div className="text-5xl p-2">{letter[index === 0 ? 0 : index + 2]}</div>
+            <div className="text-[6px] text-gray-500 p-2">{letter[index === 0 ? 0 : index + 2].charCodeAt(0)?letter[index === 0 ? 0 : index + 2].charCodeAt(0):"f"}</div>
           </div>;
         }
 

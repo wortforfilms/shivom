@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import { faker } from "@faker-js/faker"
-import { Brahmiplate, brahmi, brahmiSwar, brahmiVyajana, brahmi_shift } from "@/components/classes/brahmi"
+import { Brahmiplate,  brahmiSwar,  brahmi_shift } from "@/components/classes/brahmi"
 import Confetti from "react-confetti"
 import { AnimatePresence, motion } from 'framer-motion'
 import { Timer } from "../Timer"
-import { LetterPad, WordPad } from "./LetterPad"
+import { LetterPad } from "./LetterPad"
 import { supabase } from "@/lib/Store"
-
 import { alphabetData } from "@/lib/akshar/hindi"
 
 
@@ -15,7 +14,6 @@ const create_game = async () => {
   const { data, error } = await supabase.from('kreedA').select('*')
   return { data, error }
 }
-
 
 const add_mantra = async (userId: any, numb: number,t:any) => {
   const tr={t,a:numb}
@@ -32,9 +30,58 @@ const reduce_mantra = async (userId: any, numb: number) => {
   return { data, error }
 }
 
+export function getVoices() {
+  let voices = speechSynthesis.getVoices();
+  if(!voices.length){
+    // some time the voice will not be initialized so we can call spaek with empty string
+    // this will initialize the voices 
+    let utterance = new SpeechSynthesisUtterance("");
+
+    // utterance.addEventListener("boundary", (event) => {
+    //   // const { charIndex, charLength } = event;
+    //   // setHighlightSection({ from: charIndex, to: charIndex + charLength });
+    // });
+
+    speechSynthesis.speak(utterance);
+    voices = speechSynthesis.getVoices();
+  }
+  return voices;
+}
+
+export function speak(text:any, voice:any, rate:any, pitch:any, volume:any) {
+  // create a SpeechSynthesisUtterance to configure the how text to be spoken 
+
+  let speakData = new SpeechSynthesisUtterance();
+  speakData.volume = volume; // From 0 to 1
+  speakData.rate = rate; // From 0.1 to 10
+  speakData.pitch = pitch; // From 0 to 2
+  speakData.text = text;
+  speakData.lang = 'hi-IN';
+  speakData.voice = voice;
+  console.log("start speaking")
+  // pass the SpeechSynthesisUtterance to speechSynthesis.speak to start speaking 
+  speechSynthesis.speak(speakData);
+
+}
 
 
-export const Swar = () => {
+export function pauseSpeak(){
+  speechSynthesis.pause()
+}
+
+export function stopSpeak(){
+  speechSynthesis.cancel()
+}
+
+export function resumeSpeak(){
+  speechSynthesis.resume()
+}
+
+
+
+
+
+export const Swar = (props:any) => {
 
   const [set, setSet] = useState<any>(faker.helpers.arrayElements([...brahmiSwar()].filter(i => i[2] !== 'fi' || null), 4))
   const [a, setA] = useState<any>(faker.helpers.arrayElement(set))
@@ -43,15 +90,6 @@ export const Swar = () => {
   const [score, setScore] = useState<any>(0)
   const { width, height } = useWindowSize()
 
-  const word = [a, a]
-
-
-
-  const [matrix, setMatrix] = useState([
-    [],
-    [],
-    []
-  ])
 
   useEffect(() => {
     let mount = true
@@ -88,7 +126,7 @@ export const Swar = () => {
   useEffect(() => {
     let mount = true
     if (mount && success) {
-
+      setSpeaking(true)
       // enable vibration support
       navigator.vibrate = navigator.vibrate;
       console.log("first", navigator)
@@ -106,77 +144,48 @@ export const Swar = () => {
     }
   }, [success])
 
-  useEffect(() => {
-    let mount = true
-    if (mount && success) {
-      const success_sound = document.createElement("success_audio") as HTMLAudioElement
-      success_sound.src = '/sound/game/success_sound.mp4'
-      success_sound.play
-    }
+  const [start_speaking, setSpeaking] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [speach, setSpeach] = useState<any>(alphabetData.filter(i => i.alphabet === a[1])[0]?.word);
 
-    return () => {
-      mount = false
-    }
-  }, [success])
+ 
+// @ speak set voice
+useEffect(()=>{
+  let mount =true
+  // console.log("---=> start", speach)
+  if(mount && start_speaking && speach && success){
+  console.log("---=> start found")
 
+    if ('speechSynthesis' in window) {
+      let voices = getVoices();
+  console.log("---=> start speak")
 
-  const list = {
-    hidden: {
-      opacity: 0,
-      transition: { when: "afterChildren" }
+      let rate = 1.0, pitch = 1.3, volume = .5;
+      let text = "The line producer narrator welcomes you..";
+      // console.log(voices[32],'---=>', voices[20])
+      speak(speach, voices[32], rate, pitch, volume);
+      setTimeout(()=>{ // speak after 2 seconds 
+        rate = 0.9; pitch = 1.5, volume = 0.5;
+        text = speach;
+        speak(text, voices[32], rate, pitch, volume );
+      }, 2000);
+    }else{
+      console.log(' Speech Synthesis Not Supported 😞'); 
     }
   }
-
-  const item = {
-    hidden: {
-      opacity: 0,
-      transition: { duration: 2 }
-    }
+  return ()=>{
+    mount=false
+    setSpeach(null)
+    // stopSpeak()
   }
+},[speach, start_speaking, success])
 
 
 
   return <div className=" w-[100vw] max-w-3xl m-auto  h-[90vh] overflow-hidden">
   <GameHeader mute={mute} toggle={toggle} score={score}/>
 
-
-
-
     {success && <Confetti
-      //  drawShape={ctx => {
-      //   ctx.beginPath()
-      //   for(let i = 0; i < 20; i++) {
-      //     const angle = 0.35 * i
-      //     const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
-      //     const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
-      //     const z = (0.2 + (1.5 * angle)) * Math.tan(angle)
-      //     ctx.lineTo(x,y)
-      //   }
-      //   ctx.stroke()
-      //   ctx.closePath()
-      // }}
-
-
-      // drawShape={context=>{
-      //         // Set the drawing properties
-      // context.lineWidth = 2;
-      // context.strokeStyle = "black";
-      // context.fillStyle = "black";
-      // context.font = "40px Arial";
-
-      // // Draw the Om symbol
-      // context.beginPath();
-      // context.arc(100, 100, 80, 0, 2 * Math.PI); // Outer circle
-      // context.moveTo(55, 115);
-      // context.lineTo(145, 115); // Horizontal line
-      // context.moveTo(55, 165);
-      // context.lineTo(145, 165); // Lower horizontal line
-      // context.stroke();
-
-      // context.fillText("ॐ", 75, 155); // Om symbol text
-
-      // context.closePath();
-      // }}
       width={width}
       height={height}
       numberOfPieces={score * 5}
@@ -184,12 +193,9 @@ export const Swar = () => {
       initialVelocityY={120}
       className="absolute w-full h-full"
       recycle={false}
-
     />}
 
-    <AnimatePresence initial={false}
-    //  custom={direction}
-    >
+    <AnimatePresence initial={false}>
       {success && <div className="m-auto text-center">
         <motion.div
           animate={{ opacity: [0, 1, 0, 1, 0, 1, 0, 1] }}
@@ -260,15 +266,10 @@ export const Comp_t = (props: any) => {
 
   return <div>
     <LetterPad a={a} success={success} />
-
     <div className="h-12 ">
-
       <Timer />
-
-
     </div>
     <AnimatePresence>
-
       <motion.div variants={list} className="flex flex-row gap-4 p-4">
         {
           set.map((al: any, index: number) => {

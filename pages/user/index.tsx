@@ -12,6 +12,10 @@ import { MhahPanchang } from 'mhah-panchang';
 import useWindowSize from "react-use/lib/useWindowSize"
 import  Confetti  from "react-confetti"
 import { MangalDosh } from "@/data/dosh"
+import { range } from "@/util/createRange"
+import { json } from "d3"
+import { onlyUnique } from "@/util/unique"
+import { Brahmiplate } from "@/components/classes/brahmi"
 
 const User=(props:any)=>{
 
@@ -43,6 +47,7 @@ const info={
   mahurat:""
 }
 
+// create a video feed with sound 
 
 var obj = new MhahPanchang();
 
@@ -652,6 +657,11 @@ const qs=[
 "Can you suggest any specific practices or rituals that would be beneficial for this person based on their Kundali?",
 ]
 
+
+const r_ang_e=2816-2304
+const r_ang_e_=2816-2432
+
+
 export  const  Janm=(props:any)=>{
   const {user}=props
   var obj = new MhahPanchang();
@@ -686,54 +696,228 @@ export const Aaj=(props:any)=>{
 
 var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
 
-  return <div   className="flex flex-col gap-2">
+
+  return <div   className="flex flex-col  w-full gap-2">
   <h1>
   Present-VartamAn
   </h1>
   <div className="flex flex-col flex-wrap  gap-1 text-center p-4 w-80 rounded-lg shadow-lg bg-white  mb-4">
 
 {Object.keys(vartamaan).map((hea,index)=>{
-  return <div  key={index}  className="flex flex-row justify-start gap-4  w-auto text-center">
+
+  // console.log("name",hea, vartamaan)
+  return <div  key={index}  className="flex flex-row justify-start gap-4  w-full text-center">
     <div className="text-sm font-bold">{hea}:</div>
     <div>  {Object.values(vartamaan)[index].name}</div>
     <div>  {Object.values(vartamaan)[index].name_en_IN}</div>
+    <div>  {Object.values(vartamaan)[index]?.name?.split('').map((i:any)=>{
+      // console.log(`${i}`.charCodeAt(0),"code")
+      return String.fromCharCode(`${i}`.charCodeAt(0)-r_ang_e)
+    })}</div>
+       <div>  {Object.values(vartamaan)[index]?.name?.split('').map((i:any)=>{
+      // console.log(`${i}`.charCodeAt(0),"code")
+      return String.fromCharCode(`${i}`.charCodeAt(0)-r_ang_e_)
+    })}</div>
     <div>  {Object.values(vartamaan)[index].name_en_UK}</div>
     </div>
 })}</div>
   </div>
 }
 
+// webid ¬ÒllL 
+// brahmi dictionary
+// let's create nAlandA  takxshilA sArnAtha
+// precission {}
+// 
+// bhagna split('') ['c','d'].reducer(a,b=>change(String.charAtCode(`{a}`.charAt(0))))
 
+export function addHours(date:any, hours:any) {
+  date.setTime(date.getTime() + hours * 60 * 60 * 1000);
+  return date;
+}
+
+// listen to the sound 
+
+// audiology
+
+// au_ranga_jeb¿?jaib pocket¿?
+// co compressors hkd dixit ¿ two parallels of time \\
+// dimension cofidense bhAshA 
+//   actions()=.{holistic_roi}{rent}
+// space_on_rent
+// product_::<>production::algo::
+// rythm ÷¿?-/–—_-=≠+±≠=+±k˚K::gravity_apple_newtone
+// shukra_old_newtone
+// I.P.R.=> {}
+// vesahe_film_solutions_private_limited
+// daant dAnta dAttAnsh 
+// khane ke dikhane ke :{organs : body parts}
+// 
+// moolaDhArA dharA maldhArA
+// 
 export const Utsav=(props:any)=>{
-
 
   var obj = new MhahPanchang();
 
+var [utsava,setUtsava]=useState<any>(range(0,(600)).map(str=>{
+  
+  return addHours(new Date(),str)
+}))
 
-var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
-var [utsava,setUtsava]=useState<any>("annimations")
-
+// aapko bataaye apkaa  achchaa samay
 // 
 
-  return <div   className="flex flex-col gap-2">
+const Ayanamsa= utsava.map((i:any)=>obj.calculate(i)).map((i:any)=>{
+  return  i?.Ayanamsa.name
+}).filter(onlyUnique)
+
+const Tithies= utsava.map((i:any)=>obj.calculate(i)).map((i:any)=>{
+  return  `${i?.Tithi?.name}`
+}).filter(onlyUnique)
+
+const Nakshatra=utsava.map((i:any)=>obj.calculate(i)).map((i:any)=>{
+  return  i?.Nakshatra?.name
+}).filter(onlyUnique)
+
+const Karna=utsava.map((i:any)=>obj.calculate(i)).map((i:any)=>{
+  return  i?.Karna?.name
+}).filter(onlyUnique)
+
+const Yoga=utsava.map((i:any)=>obj.calculate(i)).map((i:any)=>{
+  return  i?.Yoga?.name
+}).filter(onlyUnique)
+
+const Raasi=utsava.map((i:any)=>obj.calculate(i)).map((i:any)=>{
+  return  i?.Raasi?.name
+}).filter(onlyUnique)
+
+  return <div   className="flex flex-col gap-2 bg-orange-300 p-6">
   <h1>
   Utsav
   </h1>
-<div className="flex flex-row flex-wrap justify-around gap-4 text-center p-4 rounded-lg shadow-lg bg-white mt-8 mb-8">
 
-{vartamaan && Object.keys(vartamaan).map((hea,index)=>{
-  return <div  key={index}  className="flex flex-col  m-auto text-center">
-    <div className="thin-subhead">{hea}:</div>
-    <div>  {Object.values(vartamaan)[index]?.name}</div>
-    <div>  {Object.values(vartamaan)[index]?.name_en_IN}</div>
-    <div>  {Object.values(vartamaan)[index]?.name_en_UK}</div>
-    </div>
-})}
+  <div className="flex flex-row flex-wrap gap-2">
+    {Tithies.length}<hr/>
+
+  {
+    Tithies.map((str:any,index:number)=>{
+      return <div key={index} className="p-2">
+        {StringS(str,r_ang_e)}{StringB(str,r_ang_e)}</div>
+    })
+  }
+  </div>
+
+  <div className="flex flex-row flex-wrap bg-white gap-2">
+{Nakshatra.length}
+  {
+    Nakshatra.map((str:any,index:number)=>{
+      return <div key={index} className="p-2">{StringS(str,r_ang_e)}{StringB(str,r_ang_e)}</div>
+    })
+  }
+  </div>
+
+  <div className="flex flex-row flex-wrap gap-2">
+{Karna.length}
+  {
+    Karna.map((str:any,index:number)=>{
+      return <div key={index} className="p-2">{StringS(str,r_ang_e)}{StringB(str,r_ang_e)}</div>
+    })
+  }
+  </div>
+
+  <div className="flex flex-row flex-wrap bg-white gap-2">
+{Yoga.length}
+  {
+    Yoga.map((str:any,index:number)=>{
+      return <div key={index} className="p-2">{StringS(str,r_ang_e)}{StringB(str,r_ang_e)}</div>
+    })
+  }
+  </div>
+
+  <div className="flex flex-row flex-wrap gap-2">
+{Raasi.length}
 {
-  utsava.tithi
+  Raasi.map((str:any,index:number)=>{
+    return <div key={index} className="p-2">
+      {StringS(str,r_ang_e)}
+      {StringB(str,r_ang_e)}
+      
+      </div>
+  })
+}
+</div>
+<div className="flex flex-row flex-wrap gap-2">
+{Ayanamsa.length}
+{
+  Ayanamsa.map((str:any,index:number)=>{
+    return <div key={index} className="p-2">{JSON.stringify(str)}</div>
+  })
+}
+</div>
+
+<div className="flex flex-col flex-wrap justify-around gap-4 text-center p-4 rounded-lg   mt-8 mb-8">
+
+{
+  utsava.map((samaya:any,index:number)=>{
+  const _samaya=obj.calculate(samaya)
+   return <div key={index}>
+    {index+1}
+    <SamayaS range={r_ang_e} _samaya={_samaya}/>
+   
+   </div>
+  })
   
 }
+</div>
+
 
 </div>
-  </div>
+
+}
+
+export const StringB=(str:any,range:any)=>{
+  return str.split('').map((i:any)=>String.fromCharCode(`${i}`.charCodeAt(0)-range)).join('').replaceAll('ब','व')
+}
+
+export const StringM=(str:any,range:any)=>{
+  return str.split('').map((i:any)=>`${Brahmiplate[(`${i}`.charCodeAt(0)-range)-2303]}, ${String.fromCharCode(`${i}`.charCodeAt(0)-range)}`)
+}
+
+export const StringS=(str:any,range:any)=>{
+  return str.split('').map((i:any)=>`${Brahmiplate[(`${i.replaceAll('ब','व')}`.charCodeAt(0)-range)-2303]}`)
+}
+
+
+const SamayaS=(props:any)=>{
+  const{_samaya, range}=props
+  return <div className="bg-white flex flex-row justify-between  p-2">
+ 
+  {/* <div>{_samaya.Tithi.name}</div> */}
+   <div>  {_samaya.Tithi.name.split('').map((i:any)=>{
+
+    return String.fromCharCode(`${i}`.charCodeAt(0)-range)
+  })}</div>
+      <div>  {_samaya.Paksha.name.split('').map((i:any)=>{
+
+return String.fromCharCode(`${i}`.charCodeAt(0)-range)
+})}</div>
+   <div>  {_samaya.Ayanamsa.name}</div>
+   <div>  {_samaya.Nakshatra.name.split('').map((i:any)=>{
+return String.fromCharCode(`${i}`.charCodeAt(0)-range)
+})}</div>
+   <div>  {_samaya.Day.name.split('').map((i:any)=>{
+return String.fromCharCode(`${i}`.charCodeAt(0)-range)
+})}</div>
+<div>  {_samaya.Yoga.name.split('').map((i:any)=>{
+return String.fromCharCode(`${i}`.charCodeAt(0)-range)
+})}</div>
+<div>  {_samaya.Karna.name.split('').map((i:any)=>{
+return String.fromCharCode(`${i}`.charCodeAt(0)-range)
+})}</div>
+<div>  {_samaya.Raasi.name.split('').map((i:any)=>{
+return String.fromCharCode(`${i}`.charCodeAt(0)-range)
+})}</div>
+
+
+ </div>
 }

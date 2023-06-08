@@ -138,17 +138,12 @@ const Constalation=()=>{
 
       const process_soch=async()=>{
         const {data,error}=await supabase.from('sochen').select('*').eq('pmt',pmt)
-
         if(data.length>0){
-
           return {data,error} 
         } else {
           create_answer(pmt)
         }
       }
-
-      // create_sochen(data,search)
-
     }
   
     return () => {

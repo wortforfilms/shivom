@@ -48,10 +48,6 @@ export const LetterSelector = (props: any) => {
 
         )}
       </div>
-
-
-
-
     </div>
   );
 };
