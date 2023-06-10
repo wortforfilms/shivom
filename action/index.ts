@@ -3,7 +3,7 @@ import { onlyUnique } from "@/util/unique"
 // import { supabase } from "@/lib/Store"
 
 export const find_res=async(_pmt:any)=>{
-    const {data:existing_res,error}=await supabase.from('openai').select('*').eq('prompt',_pmt).order('created_at',{ascending:false})
+    const {data:existing_res,error}=await supabase.from('sochen').select('*').eq('soch',_pmt).order('created_at',{ascending:false})
 
 if(error){
     console.log(error,'error in fetching')
@@ -13,14 +13,13 @@ return {existing_res,error}
 
 
 export const create_res=async(_pmt:any,res:any,type:any)=>{
-    const{data,error}=await supabase.from('openai').insert([{
-        prompt:_pmt,
-        response:res,
+    const{data,error}=await supabase.from('sochen').insert([{
+        soch:_pmt,
+        data:res,
         type:type
     }]).select('*')
     return{data,error}
 }
-
 
 
 export const get_q=async(role:any, setDescription:any)=> {

@@ -4,7 +4,10 @@ import { useEffect, useState } from "react"
 import { create_sochen } from "@/q/c/sochen"
 import { supabase } from "@/lib/Store"
 import { create_res, find_res } from "@/action"
-import { BiArrowBack } from "react-icons/bi"
+import { BiArrowBack, BiLoader } from "react-icons/bi"
+import { UserZodiac } from "@/pages/user"
+import { errorT } from "@/components/toast"
+import { motion } from "framer-motion"
 
 const create_doc=async(pmt:any)=>{
 
@@ -37,12 +40,15 @@ const create_book=async(pmt:any)=>{
 // {navigator::health}
 // {}
 
-const create_answer=async(pmt:any)=>{
+// plate index
+// platform
+
+const create_answer=async(pmt:any, setLoading:any,setDetails:any)=>{
   const DEFAULT_PARAMS = {
     "model": "text-davinci-003",
     "prompt": pmt,
     "temperature": 0.8,
-    "max_tokens": 256,
+    "max_tokens": 786,
     "top_p": 1,
     "frequency_penalty": 0,
     "presence_penalty": 0
@@ -60,26 +66,52 @@ const create_answer=async(pmt:any)=>{
 
   const fetch_answer = async () => {
     await fetch('https://api.openai.com/v1/completions', requestOptions).then(res => res.json()).then(data => {
-      create_res(pmt, data, "book").then(res => {
-        if (res && res.data && res.data[0].response) {
+      create_res(pmt, data, "info").then(res => {
+
+        if (res && res.data && res.data[0]) {
           console.log('created answer', res);
+          setDetails(res.data)
+          setLoading(false)
           return res.data[0];
         }
       });
     }).catch(error => {
-      console.log(error);
+      setLoading(false)
+      errorT(`${error}`);
+
     });
   };
+
+
 
   await find_res(pmt).then(res => {
     if (res && res.existing_res && res.existing_res.length > 0 && res?.existing_res[0]?.response?.choices && res?.existing_res[0]?.response?.choices[0]?.text) {
       console.log('found answer', res);
+      setDetails(res.existing_res)
+      setLoading(false)
       return res.existing_res[0].response;
     } else {
       console.log("local not found");
       fetch_answer();
     }
   });
+
+}
+
+const get_costellation_info=async(con:any, setLoading:any,setInfo:any)=>{
+  const pmt=`information of ${con}`
+const {data,error}=await supabase.from('sochen').select('*').eq('soch',pmt)
+
+if(data && data.legth>0){
+  setInfo(data)
+} else {
+  const url=``
+  await fetch(`/api/collect/${con}`).then(res=>{
+    console.log("first",res)
+  }).catch(error=>{
+    console.log(error)
+  })
+}
 
 }
 
@@ -111,7 +143,7 @@ const Constalation=()=>{
 
   //  calender 
   
-  const [details,setDetails]=useState({
+  const [details,setDetails]=useState<any>({
     Information:"About Aeries",
     Location:'',
     Mentions:'',
@@ -136,20 +168,26 @@ const Constalation=()=>{
   // stories
   //  https://en.wikipedia.org/wiki/Pisces_(constellation)
 
+  const [loading,setLoading]=useState(false)
+
   useEffect(() => {
     let mount=true
     if(mount){
-
+      setLoading(true)
       const pmt=`Describe ${rashi} in detail with mythology, vedic history, mentions and location details.`
-
+      // soch data author_id type
       const process_soch=async()=>{
-        const {data,error}=await supabase.from('sochen').select('*').eq('pmt',pmt)
+        const {data,error}=await supabase.from('sochen').select('*').eq('soch',pmt)
         if(data.length>0){
+          setDetails(data)
+          setLoading(false)
           return {data,error} 
         } else {
-          create_answer(pmt)
+          create_answer(pmt, setLoading, setDetails)
         }
       }
+      process_soch()
+
     }
   
     return () => {
@@ -157,9 +195,16 @@ const Constalation=()=>{
     }
   }, [])
   
+  if(loading){
+    return <div className=" h-[90vh] w-full p-8">
+      <BiLoader className=" py-6 text-center animate-spin-fast text-9xl mt-32"/>
+      </div>
+  }
 
-  return <div className="p-4 w-full h-[90vh]">
-    <div className="h-12"></div>
+  return <motion.div 
+  animate={{opacity:[0,1],x:[10,0]}}
+  className="p-4 w-full h-full min-h-[90vh]">
+    <div className="h-8"></div>
   <div className="flex flex-row justify-between  p-2">
 
   <BiArrowBack className="text-5xl"
@@ -171,10 +216,17 @@ const Constalation=()=>{
   {rashi}
   </h1>
   </div>
-
-<NakApp/>
+<UserZodiac zod={rashi}/>
+{!loading && details && <div className="flex flex-col gap-2 ">
+  {details[1]?.data?.choices[0]?.text.split('\n').map((a:any,index:number)=>{
+    return <motion.div 
+    animate={{opacity:[0,1], transition:{delay:index*.1}}}
+    key={index} className="fade-up-in">{a}</motion.div>
+  })}
+  </div>}
+{/* <NakApp/> */}
 {/* <AkImages/> */}
-  </div>
+  </motion.div>
 }
 
 

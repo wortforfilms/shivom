@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { shArdA } from "../shArdA";
 import { LetterMatter } from "./LetterMatter";
 import { range } from "@/util/createRange";
+import ZoomableGraph from "@/canvas/graph";
 
 
 // Hh˙n-anumaan 
@@ -426,6 +427,7 @@ export const brahmi_shift=2303
 
 export const Brahmi = () => {
   const [br, setBr] = useState<any>([]);
+  const [section, setSection] = useState<any>([]);
 
   useEffect(() => {
     let mount = true;
@@ -445,36 +447,115 @@ export const Brahmi = () => {
   // {}-={}-={}
   // -=_+–≠—±
   // 
-  return (
-    <div id="brahmi_classes" className="flex flex-col md:flex-row flex-wrap overflow-y-scroll min-h-[90vh] w-full  mt-4 gap-2">
-      {br &&
-        br.map((letter: any, index: number) => {
-          return (
-            <div
-              key={index}
-              className="text-center w-full md:w-[48%]  mb-4 bg-white flex flex-row flex-wrap mx-auto p-2 rounded-lg shadow-xl"
-              onClick={() => {
-                router.push(`/engine/letter/${letter[2]}`)
-              }}
-            >
-              <div className="flex flex-col">
-                {alphabetData && alphabetData[index]?.alphabet ? alphabetData[index].alphabet : "nf"}
-                <div className="text-7xl p-2">{alphabetData && alphabetData[index]?.alphabet ? alphabetData[index].emoji : "nf"}</div>
-                <div className="text-2xl p-2">{alphabetData && alphabetData[index]?.alphabet ? alphabetData[index].word : "nf"}</div>
-              </div>
-              <div className="flex flex-col flex-wrap p-2 text-center overflow-y-auto mx-auto">
-                <div className="text-9xl font-bold text-gray-600">{letter[2]?letter[2]:"nf"}</div>
-                <div className="text-[6px] font-thin text-gray-600">{letter[2]?.charCodeAt(1)?letter[2]?.charCodeAt(1):'nf'}</div>
-              </div>
-              <div className="font-thin text-3xl m-auto">{alphabetData && alphabetData[index]?.word ? alphabetData[index].word.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-brahmi_shift]!==undefined?Brahmiplate[i.charCodeAt(0)-brahmi_shift]:i.charCodeAt(0)<brahmi_shift?i:i?.charCodeAt(0)}`) : "nf"}</div>
-              <LetterMatter letter={letter} k={index} />
-            </div>
-          );
-        })}
-    </div>
+  return (<>
+  
+  <Cover/>
+  {section==="intro" && <Intro br={br} />}
+  </>
   );
 };
+const nodes = [
+  { id: 'A', x: 100, y: 100 },
+  { id: 'B', x: 200, y: 200 },
+  { id: 'C', x: 300, y: 300 },
+  { id: 'D', x: 600, y: 300 },
+  { id: 'E', x: 900, y: 800 },
+  { id: 'F', x: 100, y: 600 },
+];
 
+const links = [
+  { source: 'A', target: 'B' },
+  { source: 'B', target: 'C' }
+];
+
+export const Cover=(props:any)=>{
+  return <div className="w-full h-full min-h-[90vh]">
+    <div>
+    "heading","accessibility"
+    <input 
+    type="search"
+    className="w-full p-4 rounded-lg bg-white shadow-lg"
+    onChange={(e:any)=>{
+      const unicode=e.target.value
+      const unhide_hind="jumbu_shambhu"     
+      alert(`${e.target.value}`.charCodeAt(1))
+    }}/>
+    </div>
+    <div className="w-full flex flex-col mt-12 flex-wrap h-full mb-48">
+
+    <ZoomableGraph width={800} height={600} nodes={nodes} links={links}  />
+      {[
+
+// parent
+[9788,9788,4],
+[9789,9790,4],
+// phase asv=cedent descendent
+[9790,9799,10],
+[9800,9805,10],
+[9806,9811,10],
+
+[9812,9817,10],
+[9818,9822,10],
+[9823,9823,10],
+[9824,9829,10],
+[9830,9839,10],
+[9840,9849,10],
+
+
+// where cosmos teaches you
+// prakruti se keekhain
+// brahmi se seekhain
+// prakrut
+// prakrut se brahmi
+// ¿brahmini antar
+// indus valley ke suljhe rahasya
+
+
+].map((comb,index)=>{
+return  <div className={`flex ${index!==1||3?"flex-row-reverse":"flex-row"} h-100 flex-wrap mb-4 gap-2`} key={index}>
+
+{
+  range(comb[0],comb[1]).map((nn,n)=>{
+    return <div key={n} className={`w-100 text-center text-5xl h-12 m-auto p-4 bg-white`}>{String.fromCharCode(nn)}</div>
+  })
+}
+{['bhanu','chandraghatA','phase','male','female','white','black'][index]}
+</div>
+})}
+    </div>
+  </div>
+}
+
+export const Intro=(props:any)=>{
+  const {br}=props
+  const router=useRouter()
+return  <div id="brahmi_classes" className="flex flex-col md:flex-row flex-wrap overflow-y-scroll min-h-[90vh] w-full  mt-4 gap-2">
+{br &&
+  br.map((letter: any, index: number) => {
+    return (
+      <div
+        key={index}
+        className="text-center w-full md:w-[48%]  mb-4 bg-white flex flex-row flex-wrap mx-auto p-2 rounded-lg shadow-xl"
+        onClick={() => {
+          router.push(`/engine/letter/${letter[2]}`)
+        }}
+      >
+        <div className="flex flex-col">
+          {alphabetData && alphabetData[index]?.alphabet ? alphabetData[index].alphabet : "nf"}
+          <div className="text-7xl p-2">{alphabetData && alphabetData[index]?.alphabet ? alphabetData[index].emoji : "nf"}</div>
+          <div className="text-2xl p-2">{alphabetData && alphabetData[index]?.alphabet ? alphabetData[index].word : "nf"}</div>
+        </div>
+        <div className="flex flex-col flex-wrap p-2 text-center overflow-y-auto mx-auto">
+          <div className="text-9xl font-bold text-gray-600">{letter[2]?letter[2]:"nf"}</div>
+          <div className="text-[6px] font-thin text-gray-600">{letter[2]?.charCodeAt(1)?letter[2]?.charCodeAt(1):'nf'}</div>
+        </div>
+        <div className="font-thin text-3xl m-auto">{alphabetData && alphabetData[index]?.word ? alphabetData[index].word.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-brahmi_shift]!==undefined?Brahmiplate[i.charCodeAt(0)-brahmi_shift]:i.charCodeAt(0)<brahmi_shift?i:i?.charCodeAt(0)}`) : "nf"}</div>
+        <LetterMatter letter={letter} k={index} />
+      </div>
+    );
+  })}
+</div>
+}
 export const Chart=(props:any)=>{
 
   const {x,y,letters}=props

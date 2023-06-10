@@ -27,6 +27,7 @@ colors:{
 },
       animation:{
         'spin-slow': 'spin 24s linear infinite',
+        'spin-fast': 'spin 6s linear infinite',
         wiggle: 'wiggle 1s ease-in-out infinite',
       },
       backgroundOpacity: ['active'],

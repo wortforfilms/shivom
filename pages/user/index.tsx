@@ -238,7 +238,7 @@ export const UserZodiac=(props:any)=>{
   return <div className="flex flex-col w-32 m-auto bg-white rounded-lg shadow-lg gap2  justify-around flex-wrap">
     <div className="relative left-0 text-5xl -mt-4">🌞</div>
     {
-      sunsign.filter(i=>i===zod.toLowerCase()).map((str,index)=>{
+      sunsign?.filter(i=>i===zod?.toLowerCase()).map((str,index)=>{
         return <div key={index} className={`${gold} shadow-lg m-4 rounded-full ring-4 ring-orange-200` }>
 <Image
     src={`/img/zodiac/${str}.png`}
@@ -268,7 +268,7 @@ export const UserRaasi=(props:any)=>{
       sunsign.filter(i=>i===zod.toLowerCase()).map((str,index)=>{
         return <div key={index} className={`${gold} shadow-lg m-4 rounded-full ring-4 ring-orange-200` }>
 <Image
-    src={`/img/zodiac/${str}.png`}
+    src={`/img/zodiac/${str.toLowerCase()}.png`}
     alt="astro chart"
     width={100}
     height={100}
@@ -666,7 +666,7 @@ export  const  Janm=(props:any)=>{
   const {user}=props
   var obj = new MhahPanchang();
 
-var [panch,setPunch] = useState(obj.calculate(new Date(user.dob)));
+var [panch,setPunch] = useState(obj.calculate(new Date(user?.dob)));
 
 
   return <div   className="flex flex-col gap-2">
@@ -706,7 +706,7 @@ var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
 {Object.keys(vartamaan).map((hea,index)=>{
 
   // console.log("name",hea, vartamaan)
-  return <div  key={index}  className="flex flex-row justify-start gap-4  w-full text-center">
+  return <div  key={index}  className="flex flex-row justify-start gap-4 overflow-hidden w-full text-center">
     <div className="text-sm font-bold">{hea}:</div>
     <div>  {Object.values(vartamaan)[index].name}</div>
     <div>  {Object.values(vartamaan)[index].name_en_IN}</div>

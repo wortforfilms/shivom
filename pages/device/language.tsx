@@ -4,7 +4,35 @@ import { useEffect, useState } from "react"
 // import { dispatch } from "d3"
 import { getLocationOrigin } from "next/dist/shared/lib/utils"
 
+function convertToDms(dd:any, isLng:boolean) {
+  var dir = dd < 0
+    ? isLng ? 'W' : 'S'
+    : isLng ? 'E' : 'N';
 
+  var absDd = Math.abs(dd);
+  var deg = absDd | 0;
+  var frac = absDd - deg;
+  var min = (frac * 60) | 0;
+  var sec = frac * 3600 - min * 60;
+  // Round it to 2 decimal points.
+  sec = Math.round(sec * 100) / 100;
+  return deg + "°" + min + "'" + sec + '"' + dir;
+}
+
+const _onGetCurrentLocation = (setLocation:any) => {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    console.log("found permission run");
+    const marker = {
+      lat: JSON.stringify(position.coords.latitude),
+      lng: JSON.stringify(position.coords.longitude),
+      alt: position.coords.altitude,
+      speed: position.coords.speed,
+      heading: position.coords.heading,
+    };
+    setLocation({ lat: marker.lng, lng: marker.lat });
+    console.log(marker, convertToDms(marker.lat,true), convertToDms(marker.lng,false))
+  });
+};
 
 const DeviceLanguage=(props:any)=>{
   
@@ -12,6 +40,7 @@ const DeviceLanguage=(props:any)=>{
   const earth:typeof initialReduxState=useState()
 var nala=null
 const [device,setDevice]=useState<any>(nala)
+const [bluetooth,setBluetooth]=useState<any>(nala)
 // const []
 const [deviceId, setDeviceId]=useState<any>(null)
 const [location,setLocation]=useState<any>(null)
@@ -37,6 +66,8 @@ useEffect(() => {
           console.log(location)
 
         });
+
+        navigator.cookieEnabled
       };
 
       navigator.permissions
@@ -63,20 +94,7 @@ useEffect(() => {
   };
 }, []);
 
-const _onGetCurrentLocation = () => {
-  navigator.geolocation.getCurrentPosition(function (position) {
-    console.log("found permission run");
-    const marker = {
-      lat: JSON.stringify(position.coords.latitude),
-      lng: JSON.stringify(position.coords.longitude),
-      alt: position.coords.altitude,
-      speed: position.coords.speed,
-      heading: position.coords.heading,
-    };
-    setLocation({ lat: marker.lng, lng: marker.lat });
-    console.log(marker)
-  });
-};
+
 
 // -. jal thal  vAyu
 // wa_ter  h2o thal land vAyu airco2nh
@@ -85,9 +103,6 @@ const _onGetCurrentLocation = () => {
 useEffect(() => {
   let mount=true
   if(mount){
-
-
-
     const device=navigator
     navigator.permissions
     .query({ name: "geolocation" })
@@ -99,7 +114,7 @@ useEffect(() => {
         navigator.geolocation
       );
       if (permission === "granted" || permission === "prompt") {
-        _onGetCurrentLocation();
+        _onGetCurrentLocation(setLocation);
       }
       if (permission === "denied") {
         alert("set location permission first");

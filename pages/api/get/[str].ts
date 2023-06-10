@@ -11,9 +11,10 @@ const handler = async (req: any, res: any) => {
     if (req.method === "GET") {
 
         const {str}=req.query
-
+// 
         // const str = req.query.str;
         console.log('start collection with params======>',str)
+        
         const web=`https://www.learnsanskrit.cc/translate?search=${str}&dir=es`
 
         try {
@@ -27,13 +28,10 @@ const handler = async (req: any, res: any) => {
                 "User-Agent":
                     "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36",
             });
-
             const lists: any = []
             const tltext: any=[]
             const tlhtml: any=[]
-
             const _url=web
-
             const url_to_collect = _url
             await page.goto(url_to_collect, { waitUntil: "domcontentloaded" });
             const response = await page.content();

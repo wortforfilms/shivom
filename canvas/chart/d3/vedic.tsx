@@ -61,7 +61,9 @@
 // export default NakshatraChart;
 export {}
 
-export const sunsign=[ "aries","cancer","gemini","leo","libre","capricorn","gold","pisces","sagittarius","scorpio","tarius","virgo"]
+export const sunsign=[ 
+  "aries",
+  "cancer","gemini","leo","libra","capricorn","aquarius","pisces","sagittarius","scorpio","taurus","virgo"]
 
 
 

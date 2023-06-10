@@ -218,7 +218,7 @@ export const Translate=(props:any)=>{
     }
   }, [string])
   
-
+const [text,setText]=useState<any>()
 
   return <div className="p-2 mb-6 w-full bg-white shadow-lg">
     <div className="flex flex-row justify-between">
@@ -268,6 +268,22 @@ export const Translate=(props:any)=>{
   </div>
 }
 
+<textarea placeholder="here enter" className="w-full" rows={11} onChange={(e:any)=>{
+  setText(e.target.value)
+console.log(e.target.value)
+}}/>
+<div className="flex flex-row flex-wrap gap-2">{text?.split('')?.map((i:any,index:number)=>{
+  
+  console.log(`${i}`.charCodeAt(0)-54019, `${i}`.charCodeAt(0))
+
+  // create pairs
+  // surrogated mechaninsm
+  // 2303
+  // 56325
+  // 55300
+
+  return  index%2?String.fromCharCode(`${i}`.charCodeAt(1)!==32?`${i}`.charCodeAt(0)-(54015-(`${i}`.charCodeAt(0)%2?-1:1)):32):''
+  })}</div>
   </div>
 }
 

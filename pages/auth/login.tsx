@@ -37,15 +37,16 @@ const Login =(props:any)=>{
   const videoRef = useRef<any>(null);
   // 
   return <div className="p-4 h-[100vh] w-full ">
-    <Image
+  
+    <LoginForm/>
+<MixLinks/>
+<Image
 src="/img/om-71gQJPwz8gL._UL1500_2000x.png"
 alt="logo"
 width={100}
 height={100}
 className="w-48 p-2 m-auto mt-12 -mb-24"
     />
-    <LoginForm/>
-<MixLinks/>
     </div>
 
 }

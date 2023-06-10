@@ -7,7 +7,7 @@ export const HeaderButtons = (props: any) => {
   const router = useRouter();
   return <>
 
-<div className='flex flex-row overflow-x-scroll w-full gap-2'>
+<div className='flex flex-row  overflow-x-scroll w-full gap-2'>
 {[
       { emoji: "🚀", label: "Astronomy", icon: "", image: "", link: "/#astronomy", tag: "astronomy" },
       { emoji: "🪐", label: "Astrology", icon: "", image: "", link: "/#astrology", tag: "astrology" },

@@ -28,17 +28,18 @@ const Register =(props:any)=>{
 
   return <div className="p-4 max-w-2xl m-auto">
     <div className="h-8"></div>
-    <Image
+  
+  
+<UserRegistrationForm/>
+
+<MixLinks/>  
+<Image
 src="/img/om-71gQJPwz8gL._UL1500_2000x.png"
 alt="logo"
 width={100}
 height={100}
 className="w-48 p-2 m-auto mt-4 -mb-12"
     />
-  
-<UserRegistrationForm/>
-
-<MixLinks/>  
   </div>
 }
 
