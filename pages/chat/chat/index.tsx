@@ -1,11 +1,11 @@
 
-import { Communication } from '@/components/landing/Communication';
+
 import { range } from '@/util/createRange';
 import { faker } from '@faker-js/faker';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { BiSend } from 'react-icons/bi';
-import { BsBack } from 'react-icons/bs';
+
 import { FaBackward } from 'react-icons/fa';
 
 const ChatMessage = ( message:any ) => {
@@ -32,7 +32,7 @@ const Chat: React.FC = () => {
         content:  faker.random.words()
       }
     })
-  ); // Replace with your chat message state
+  )
 
   const handleSendMessage = (message:any) => {
     // Handle sending a new message
@@ -57,9 +57,14 @@ const Chat: React.FC = () => {
   {/* <div><Communication/></div> */}
 </div>
       <div className="chat-messages h-[80%] bg-gray-300">
-        {messages.map((message:any, index:number) => (
-          <ChatMessage key={index} message={message} />
-        ))}
+        {messages.map((message:any, index:number) => {
+console.log(message,'--=<>')
+if(messages){
+
+  return <ChatMessage key={index} message={message.message} />
+}
+        }
+        )}
       </div>
       <div className="chat-input">
         {/* Add input field and send button */}

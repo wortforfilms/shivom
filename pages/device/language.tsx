@@ -1,8 +1,9 @@
 
-import { ContinentSelector } from "@/constants/earth/continent"
-import { useEffect, useState } from "react"
+import { ContinentSelector } from "@/constants/earth/continent";
+import { useEffect, useState } from "react";
 // import { dispatch } from "d3"
-import { getLocationOrigin } from "next/dist/shared/lib/utils"
+import { getLocationOrigin } from "next/dist/shared/lib/utils";
+import { Dial } from ".";
 
 function convertToDms(dd:any, isLng:boolean) {
   var dir = dd < 0
@@ -19,6 +20,15 @@ function convertToDms(dd:any, isLng:boolean) {
   return deg + "°" + min + "'" + sec + '"' + dir;
 }
 
+const get_address=async(cords:any)=>{
+  console.log(cords,'--=> cords')
+  const url=`https://nominatim.openstreetmap.org/reverse?lat=${cords.lat}&lon=${cords.lng}&zoom=18&format=json`
+  await fetch(url).then(res=>res.json()).then(data=>{
+    console.table(data)
+  }).catch(error=>console.log("Error",error))
+
+}
+
 const _onGetCurrentLocation = (setLocation:any) => {
   navigator.geolocation.getCurrentPosition(function (position) {
     console.log("found permission run");
@@ -29,8 +39,12 @@ const _onGetCurrentLocation = (setLocation:any) => {
       speed: position.coords.speed,
       heading: position.coords.heading,
     };
-    setLocation({ lat: marker.lng, lng: marker.lat });
-    console.log(marker, convertToDms(marker.lat,true), convertToDms(marker.lng,false))
+    if(marker){
+
+      setLocation({ lat: marker.lng, lng: marker.lat });
+    }
+    // setLo
+    console.log(marker)
   });
 };
 
@@ -44,6 +58,8 @@ const [bluetooth,setBluetooth]=useState<any>(nala)
 // const []
 const [deviceId, setDeviceId]=useState<any>(null)
 const [location,setLocation]=useState<any>(null)
+const [spread_loc,setSpreadLoc]=useState({lat:convertToDms(location?.lat,true), lng:convertToDms(location?.lng,false)})
+
 const [alert,setAlert]=useState<any>(()=>{
   []
 })
@@ -63,7 +79,10 @@ useEffect(() => {
             heading: position.coords.heading,
           };
           setLocation({ lat: marker.lng, lng: marker.lat });
-          console.log(location)
+      get_address({ lat: marker.lng, lng: marker.lat })
+          
+          console.log(location, spread_loc)
+
 
         });
 
@@ -98,7 +117,13 @@ useEffect(() => {
 
 // -. jal thal  vAyu
 // wa_ter  h2o thal land vAyu airco2nh
+// cavas dials for speed with  acceleration
 // 
+// cavas :;
+// labels numbers <> ø˜øø∫∫˜µµµÂÂÂ˜˜¨¨ÆÚ
+// magic of  apple or curse of apple
+// ¿? ˜¨¨:
+//  
 
 useEffect(() => {
   let mount=true
@@ -149,7 +174,14 @@ useEffect(() => {
     {/* <Vartmaan/> */}
     {/* VratmAna */}
     {/* VrutamAa */}
-  
+    <div className="flex  flex-row justify-around  p-1">
+
+  <Dial maxValue={80}  value={20} radius={80} strokeWidth={2}/>
+  <Dial maxValue={80}  value={10} radius={80} strokeWidth={2}/>
+  <Dial maxValue={80}  value={50} radius={80} strokeWidth={2}/>
+  <Dial maxValue={80}  value={20} radius={80} strokeWidth={2}/>
+    </div>
+ 
 
 {'ଓ'.charCodeAt(0)}
   <ContinentSelector/>
@@ -170,3 +202,12 @@ export const view_chakra=(props:any)=>{
   </div> 
 
 }
+
+
+// feed planets texture 
+// snowball structure vs HKD
+// expand:shrink{compression capability}
+// {switch capability}
+// {serve:[];[biom]}
+// {corrector:JUPIToR}
+// 

@@ -206,7 +206,7 @@ Conclusion:"This course structure provides a progressive pathway for students to
 }
 
 
-const brahmi_education=[
+export const brahmi_education=[
   {
     level: "introduction", chapters: 2, coarse: {
       index: {
@@ -417,6 +417,13 @@ Reamark:"The true value lies in leveraging the cultural and historical aspects o
   }, lessons: [] } },
 ]
 
+// create  book in few  clicks
+// sattu uttsava
+//  
+export  const  brahmi_books=[
+
+
+]
 
 export const VedicCoarses=()=>{
 

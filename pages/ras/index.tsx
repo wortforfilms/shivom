@@ -16,7 +16,9 @@ import { range } from "@/util/createRange"
 import { GrKeyboard } from "react-icons/gr"
 
 const communicator='@'
-const restriction=[{issue:"",conndition:"",blaim:'',resolve:()=>{}}]
+const restriction=[{issue:"",conndition:"",blaim:'',resolve:(git:any)=>{task:"commit before push => build before push CI/CD"}}]
+// ccid->kdh
+// aadhaa 
 const fix=[{commits:[{issue:"",resolve:()=>{},fix:"¿?"},{},{}]}]
 const  get_shabda=async()=>{
   const {data,error}=await supabase.from('अमृत').select('*').neq('type','sent.')
@@ -32,9 +34,14 @@ const Ras=()=>{
 
 const [stp,setStp]=useState<any>('')
 const [mala,setMala]=useState<any>(null)
+const [recent_entries,setRecentEnteries]=useState<any>(null)
+// note: @smart move
+// \\ ::: 
 const router=useRouter()
 const {st}=router.query
 
+// shiv ling
+// uqn :: 
 useEffect(() => {
   let mount=true
   if(mount &&  st){
@@ -69,7 +76,7 @@ const [filters,setFilters]=useState<any>(null)
 
     {
       [
-        {label:"Create",icon:<BiCircleQuarter/>},
+        // {label:"Create",icon:<BiCircleQuarter/>},
         {label:"Translate",icon:<BsTranslate/>},
         {label:"Feed",icon:<FcFeedIn/>},
         {label:"AmarmAlaa",icon:<BiBook/>},
@@ -90,7 +97,6 @@ const [filters,setFilters]=useState<any>(null)
 
  {stp==="Calculator" && <div className="flex flex-row">
   <Calculator/>
-  {/* <Graph/> */}
   </div>
   }
    {stp==="Keyboard" && <div className="flex flex-row">
@@ -98,7 +104,7 @@ const [filters,setFilters]=useState<any>(null)
   </div>
   }
   {stp==='' &&  <NakApp/>}
-  {stp==='' &&  <NakApp/>}
+  {/* {stp==='' &&  <NakApp/>} */}
   {stp==='AmarmAlaa' &&  <div>
     <div className="flex flex-row gap-2 mb-2">
     {
@@ -114,7 +120,28 @@ const [filters,setFilters]=useState<any>(null)
      {'𑖀'.charCodeAt(1)}
     
     </div>
-    <div className="flex gap-2 flex-row flex-wrap">
+    {
+      mala?.map((res:any,index:number)=>{
+if(res.translitions[0].en.includes('Bot'))
+        return res.translitions[0].en
+
+      })
+    }
+        {
+      mala?.map((res:any,index:number)=>{
+if(res.translitions[0].en.includes('Bot'))
+        return res.translitions[0].br
+
+      })
+    }
+        {
+      mala?.map((res:any,index:number)=>{
+if(res.translitions[0].en.includes('['))
+        return res.translations[0].en
+
+      })
+    }
+    <div className="flex gap-2 flex-row  h-100 overflow-y-scroll">
     {
       mala && mala.length>0 && faker.helpers.arrayElements(mala,27).map((ma:any,index:number)=>{
         return <div key={index} className="p-2 bg-white shadow-lg w-100">
@@ -130,7 +157,9 @@ const [filters,setFilters]=useState<any>(null)
           </div>
       })
     }
-    </div></div>}
+    </div>
+    
+    </div>}
   {stp==='Translate' &&  <Translate/>}
   {stp==='Feed' && <Feeder />}
   {stp==='Create' && <PostCreator/>}

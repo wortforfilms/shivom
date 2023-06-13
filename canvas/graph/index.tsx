@@ -8,6 +8,8 @@ interface GraphProps {
   links: { source: string; target: string }[];
 }
 
+// version. 0.0.0.01
+// 
 const ZoomableGraph: React.FC<GraphProps> = ({ width, height, nodes, links }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const viewRef = useRef<SVGGElement>(null);
@@ -71,7 +73,7 @@ const ZoomableGraph: React.FC<GraphProps> = ({ width, height, nodes, links }) =>
     // Create the slide view
     const viewContainer = svg.append('g')
       .attr('class', 'slide-view')
-      .attr('transform', `translate(${width - 210}, ${height - 160})`);
+      .attr('transform', `translate(${width - 1210}, ${height - 2160})`);
 
     const viewBackground = viewContainer.append('rect')
       .attr('class', 'view-background')
@@ -126,5 +128,9 @@ const ZoomableGraph: React.FC<GraphProps> = ({ width, height, nodes, links }) =>
 
   return <svg ref={svgRef} width={width} height={height}></svg>;
 };
+
+// scan to estabilish action on router 
+// {....}(Pπ∏)-{;}-{accessibility}
+// 
 
 export default ZoomableGraph;

@@ -5,6 +5,7 @@ import { shArdA } from "../shArdA";
 import { LetterMatter } from "./LetterMatter";
 import { range } from "@/util/createRange";
 import ZoomableGraph from "@/canvas/graph";
+import BookDesigner from "@/canvas/book";
 
 
 // Hh˙n-anumaan 
@@ -482,7 +483,7 @@ export const Cover=(props:any)=>{
     }}/>
     </div>
     <div className="w-full flex flex-col mt-12 flex-wrap h-full mb-48">
-
+<BookDesigner/>
     <ZoomableGraph width={800} height={600} nodes={nodes} links={links}  />
       {[
 

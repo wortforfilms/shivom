@@ -185,6 +185,9 @@ export const Translate=(props:any)=>{
     return {data,error}
   }
 
+  // doc in line
+  // calender circular
+  // {su-dail}{outerk}
   // nont_any
   // astro_samaya_{mesh:maish} rAma raMA 
   // roop : 
@@ -206,6 +209,8 @@ export const Translate=(props:any)=>{
   // treat as guest
   // {"learnsannskrit.cc"}
   // \\  {}
+
+  // shabda roop:{rtl:[],ltr:[],btt;[],ttb;[],btne;[],btnw:[],netb:[],setb:[]}
 
   useEffect(() => {
     let mount=true

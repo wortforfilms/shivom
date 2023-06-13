@@ -28,9 +28,10 @@ const Planet=()=>{
   // best friend 
  
   // 
-  return <>
+  return <div>
+    <div  className="h-12"></div>
   {planet}
-  </>
+  </div>
 
 } 
 

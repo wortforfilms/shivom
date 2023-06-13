@@ -73,8 +73,39 @@
               }
           }
       },
+
       {
-        "id": 2,
+          "id": 2,
+          "name": "Venus",
+          "diameter": 12104,
+          "mass": 4.87,
+          "gravity": 8.9,
+          "density": 5243,
+          "rotationPeriod": -5832.5,
+          "lengthOfDay": 2802,
+          "distanceFromParent": 108200000,
+          "orbitalPeriod": 224.7,
+          "orbitalVelocity": 35,
+          "orbitalInclination": 3.4,
+          "axialTilt": 177.4,
+          "orbitPositionOffset": 155,
+          "meanTemperature": 464,
+          "surfaceTemps": {
+              "min": 655,
+              "mean": 735,
+              "max": 1100
+          },
+          "rings": false,
+          "satellites": [],
+          "_3d": {
+              "textures": {
+                  "base": "/assets/textures/venus.jpg",
+                  "topo": "/assets/textures/venus_topo.jpg"
+              }
+          }
+      },
+      {
+        "id": 3,
         "name": "Earth",
         "diameter": 12756,
         "mass": 5.97,
@@ -133,37 +164,6 @@
             }
         }
     },
-      {
-          "id": 3,
-          "name": "Venus",
-          "diameter": 12104,
-          "mass": 4.87,
-          "gravity": 8.9,
-          "density": 5243,
-          "rotationPeriod": -5832.5,
-          "lengthOfDay": 2802,
-          "distanceFromParent": 108200000,
-          "orbitalPeriod": 224.7,
-          "orbitalVelocity": 35,
-          "orbitalInclination": 3.4,
-          "axialTilt": 177.4,
-          "orbitPositionOffset": 155,
-          "meanTemperature": 464,
-          "surfaceTemps": {
-              "min": 655,
-              "mean": 735,
-              "max": 1100
-          },
-          "rings": false,
-          "satellites": [],
-          "_3d": {
-              "textures": {
-                  "base": "/assets/textures/venus.jpg",
-                  "topo": "/assets/textures/venus_topo.jpg"
-              }
-          }
-      },
-     
       {
           "id": 4,
           "name": "Mars",
