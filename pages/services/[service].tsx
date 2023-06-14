@@ -1,5 +1,6 @@
+import { Brahmiplate } from "@/components/classes/brahmi"
 import { Box } from "@/elements/box"
-import { heading } from "@/sty"
+import { gold, heading } from "@/sty"
 import { useRouter } from "next/router"
 
 const Service = () => {
@@ -33,7 +34,13 @@ export default Service
 
 const Education=()=>{
   return <div>
-  {brahmi_education.map((level, index) => {
+ <BrahmiEducation/>
+</div>
+}
+
+export const BrahmiEducation=()=>{
+  return <>
+   {brahmi_education.map((level, index) => {
     return <div key={index} className="p-2 mt-4 rounded-lg shadow-lg  bg-white">
       <h2 className="uppercase">
         {level.level}
@@ -43,11 +50,11 @@ const Education=()=>{
         return <div key={index} className="snakeCase text-sm  p-1">
           {/* {c.q} */}
           <List header={c.q} data={c.d} />
+          <BookList header={c.q} data={c.d} />
         </div>
       })}
     </div>
-  })}
-</div>
+  })}</>
 }
 
 const BrahmiKaavya=()=>{
@@ -156,6 +163,47 @@ const List = (props: any) => {
         })
       }
     </div>
+  </div>
+
+}
+
+const BookList = (props: any) => {
+  const { header, data } = props
+
+  return <div className='flex h-100 flex-row'>
+    <div className="p-2 mb-2 h-32 text-center font-bold">
+      <div className="absolute p-2 opacity-75  text-7xl">{Brahmiplate[17]}{Brahmiplate[8]}{Brahmiplate[6]}</div>
+    </div>
+    
+    <div className={`${gold} w-1/2  h-100 p-2`}>
+    <h1 className="text-3xl bg-orange-500/50 mt-48 m-auto p-2">
+      {header}
+      </h1>
+      <h2 className="text-sm p-2">Ideator Coder: Hemant Kumar Dixit</h2>
+      <h2 className="text-sm p-2">Author: Ved VyAs</h2>
+    </div>
+    <div className="bg-gray-300 w-1/2">
+
+    <div className="p-1 flex flex-col gap-4">
+
+      {
+        data.map((d: any, index: number) => {
+          return <li key={index}>
+            {d}
+      <div className="flex flex-row justify-around">
+
+            {[{type:"sample-book-chapters",matter:"email"},{type:"e-book",matter:"email"},{type:'physical-book',matter:"address"}].map((i,index)=>{
+              return <div key={index} className="w-1/4">
+  
+  {i.type}</div>
+            })}
+      </div>
+            </li>
+        })
+      }
+    </div>
+    </div>
+
   </div>
 
 }

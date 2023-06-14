@@ -6,6 +6,7 @@ import { LetterMatter } from "./LetterMatter";
 import { range } from "@/util/createRange";
 import ZoomableGraph from "@/canvas/graph";
 import BookDesigner from "@/canvas/book";
+import { BrahmiEducation } from "@/pages/services/[service]";
 
 
 // Hh˙n-anumaan 
@@ -449,12 +450,17 @@ export const Brahmi = () => {
   // -=_+–≠—±
   // 
   return (<>
-  
-  <Cover/>
-  {section==="intro" && <Intro br={br} />}
+  <BrahmiEducation/>
+  {/* <Cover/> */}
+  {/* {section==="intro" && <Intro br={br} />} */}
   </>
   );
 };
+
+// unrig veda 
+// purAN shAstra
+// {}-{}-{}-{"data documentation"}
+// 
 const nodes = [
   { id: 'A', x: 100, y: 100 },
   { id: 'B', x: 200, y: 200 },

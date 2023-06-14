@@ -10,12 +10,13 @@ const handler = async (req: any, res: any) => {
 
     if (req.method === "GET") {
 
-        const {str}=req.query
+        const {url}=req.query
 // 
+console.log("first  reached")
         // const str = req.query.str;
-        console.log('start collection with params======>',str)
+        // console.log('start collection with params======>',str)
         
-        const web=`https://wikipedia/translate?search=${str}&dir=es`
+        const web=url
 
         try {
             const browser = await puppeteer.launch({

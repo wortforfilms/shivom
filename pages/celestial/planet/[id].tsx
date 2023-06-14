@@ -3,6 +3,7 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 import universal from '@/data/solar.json'
 import { ObjectDisplay } from "@/components/landing/Planets"
+import { InteractiveSphere, SphereApp } from "@/elements/3d/sphere"
 
 
 const Planet=()=>{
@@ -30,12 +31,12 @@ const Planet=()=>{
     <div>{index + 1}. {pl}</div>
   <div className="text-7xl p-2">{String.fromCharCode(9788+3+index)}</div>
 
-  <Image src={universal.planets[index]._3d.textures.base} alt="image"
+  <Image src={universal.planets[index]._3d.textures.base} alt="planet image"
   width={100} height={100} className="h-100"
   /></div>
 
-<div className="w-full flex flex-row flex-wrap">
-  <ObjectDisplay object={universal.planets[index]}/>
+<div className="w-96 flex flex-row flex-wrap">
+  <ObjectDisplay object={universal.planets.filter(i=>i.name.toLowerCase()===id&&id.toLowerCase())[0]}/>
   </div>
   </div>;
 })}

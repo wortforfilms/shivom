@@ -128,6 +128,29 @@ const {data,error}=await supabase.from("अमृत").select().textSearch()
 // me mine our us
 // I V We
 // {}
+
+
+export const get_snapshot=async(wrd:any)=>{
+  const  word=`${wrd}`
+  const meta=`constellation`
+  const  url=word && `https://en.wikipedia.org/wiki/${`${word}_(${meta})`}`
+
+  const {data,error}=await supabase.from('sochen').select('*').eq('soch',url)
+
+  if(data && data.length>0){
+    console.log('first found wiki snap')
+  } else {
+    if(wrd){
+
+      await fetch(`/api/collect?url=${url}`).then(res=>res.json()).then(data=>console.log(data,'------2@')).catch(error=>console.log(error))
+    }
+
+  }
+
+
+
+}
+
 const Constalation=()=>{
   const router=useRouter()
   const {rashi}=router.query
@@ -170,15 +193,53 @@ const Constalation=()=>{
 
   const [loading,setLoading]=useState(false)
 
+  // find write questions
+  // create a new coding interface which is native
+  // symbol democratization
+  // rule of universal upliftment
+  // humanity 
+  // ethics  and strength of bi-polar society
+  // greatness of multipolar instances 
+  // historical polar shifts
+  // panchjanjJa sound
+  // visual asserts
+  // tech productions
+  // call them back
+  // researches and experiments
+  // {}-{}-{}
+  // tours_
+  // jOIN the tour
+  // facalities charges 
+  // data:: iterpolation to locals
+  // native structures 
+  // primitive structures
+  // Hardware to measure
+  // Ifra-structure_cost
+  // processing cost  
+  // algorythm_charges
+  // patent?¿ idea invention processes
+  // // Every work here is protected by law of prakrut
+  // // Everything is temporary. Think big Dream big  work  hard and be focused 
+  // // {}:{}:{}
+  // // b KratiVrat
+  // // sAmagrI:4snoball 10million$
+  // // upgrade ;:; GPU  CPU  
+  // // Time + photone 
+  // // {}-{}-{}
+  // //  
+
+
   useEffect(() => {
     let mount=true
     if(mount){
       setLoading(true)
       const pmt=`Describe ${rashi} in detail with mythology, vedic history, mentions and location details.`
       // soch data author_id type
+      get_snapshot(rashi)
+      // 
       const process_soch=async()=>{
         const {data,error}=await supabase.from('sochen').select('*').eq('soch',pmt)
-        if(data.length>0){
+        if(data?.length>0){
           setDetails(data)
           setLoading(false)
           return {data,error} 
