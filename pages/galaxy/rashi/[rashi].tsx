@@ -142,7 +142,10 @@ export const get_snapshot=async(wrd:any)=>{
   } else {
     if(wrd){
 
-      await fetch(`/api/collect?url=${url}`).then(res=>res.json()).then(data=>console.log(data,'------2@')).catch(error=>console.log(error))
+      await fetch(`/api/collect?url=${url}`).then(res=>res.json()).then(data=>{
+        console.log(data,'------2@')
+      console.log(data.html[1])
+      }).catch(error=>console.log(error))
     }
 
   }

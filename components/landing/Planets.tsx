@@ -3,6 +3,7 @@ import { Kundali0 } from "@/components/kundli";
 import { useRouter } from 'next/router';
 import universal from '@/data/solar.json'
 import Image from 'next/image'
+import { baseS3 } from "@/pages/celestial/planet/[id]";
 export const Planets = () => {
   const router = useRouter();
   // const  planets=universal.planets.slice()
@@ -43,7 +44,7 @@ export const Planets = () => {
           <div>{index + 1}. {pl}</div>
         <div className="text-7xl p-2">{String.fromCharCode(9788+3+index)}</div>
 
-        <Image src={universal.planets[index]._3d.textures.base} alt="image"
+        <Image src={`${baseS3}${universal.planets[index]._3d.textures.base}`} alt="image"
         width={100} height={100} className="h-100"
         /></div>
 
