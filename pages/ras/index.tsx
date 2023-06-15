@@ -117,10 +117,10 @@ const [filters,setFilters]=useState<any>(null)
         >{wrd}</div>
       })
     }
-     {'𑖀'.charCodeAt(1)}
+     {/* {'𑖀'.charCodeAt(1)} */}
     
     </div>
-    {
+    {/* {
       mala?.map((res:any,index:number)=>{
 if(res.translitions[0].en.includes('Bot'))
         return res.translitions[0].en
@@ -140,7 +140,7 @@ if(res.translitions[0].en.includes('['))
         return res.translations[0].en
 
       })
-    }
+    } */}
     <div className="flex gap-2 flex-row  h-100 overflow-y-scroll">
     {
       mala && mala.length>0 && faker.helpers.arrayElements(mala,27).map((ma:any,index:number)=>{

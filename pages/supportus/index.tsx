@@ -50,7 +50,7 @@ const Support=()=>{
 
   return <div className="text-center mb-24 max-w-3xl m-auto">
     <div className="h-16 "></div>
-    <HeaderButtons/>
+    {/* <HeaderButtons/> */}
     Support Us
 <div className="text-xl p-4 mt-4 font-extrabold m-auto text-center">Buy me murugan kAjal</div>
 {/* <div>Buy us co</div> */}

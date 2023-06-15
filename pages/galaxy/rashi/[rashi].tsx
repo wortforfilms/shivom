@@ -8,17 +8,9 @@ import { BiArrowBack, BiLoader } from "react-icons/bi"
 import { UserZodiac } from "@/pages/user"
 import { errorT } from "@/components/toast"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
-const create_doc=async(pmt:any)=>{
 
-  const {data,error}=await supabase.from('sochen').select('*').eq('search',pmt)
-  return {data,error}
-}
-
-const create_book=async(pmt:any)=>{
-  const {data,error}=await supabase.from('sochen').select('*').eq('search',pmt)
-  return {data,error}
-}
 
 
 // 
@@ -128,7 +120,16 @@ const {data,error}=await supabase.from("अमृत").select().textSearch()
 // me mine our us
 // I V We
 // {}
+const create_rashi_sooch=async(url:string,data:any)=>{
+  const {data:rashi,error}=await supabase.from('sochen').select('*').insert([{
+    soch:`fetch ${url}`,
+    type:"wiki fetch",
+    data:data
+  }])
 
+  return {rashi,error}
+}
+// https://en.wikipedia.org/wiki/{Aries}_(constellation)#/media/File:{Aries_IAU}.svg
 
 export const get_snapshot=async(wrd:any)=>{
   const  word=`${wrd}`
@@ -144,7 +145,8 @@ export const get_snapshot=async(wrd:any)=>{
 
       await fetch(`/api/collect?url=${url}`).then(res=>res.json()).then(data=>{
         console.log(data,'------2@')
-      console.log(data.html[1])
+
+      console.log(data.html[1].split(' '))
       }).catch(error=>console.log(error))
     }
 
@@ -280,7 +282,18 @@ const Constalation=()=>{
   {rashi}
   </h1>
   </div>
+  <div className="flex flex-row bg-black  p-4">
+
 <UserZodiac zod={rashi}/>
+{rashi && <Image
+src={`/assets/${rashi}_IAU.svg`}
+alt="raasi"
+width={100}
+height={100}
+className="w-[70%] invert  h-auto"
+/>}
+</div>
+
 {!loading && details && <div className="flex flex-col gap-2 ">
   {details[1]?.data?.choices[0]?.text.split('\n').map((a:any,index:number)=>{
     return <motion.div 

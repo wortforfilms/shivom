@@ -1,6 +1,6 @@
 import { Brahmiplate } from "@/components/classes/brahmi"
 import { Box } from "@/elements/box"
-import { gold, heading } from "@/sty"
+import { gold, heading, silver } from "@/sty"
 import { useRouter } from "next/router"
 
 const Service = () => {
@@ -167,22 +167,42 @@ const List = (props: any) => {
 
 }
 
+export const hindi_to_brahmi=(str:any)=>{
+  const s=str.split('').map((i:any)=>{
+    return Brahmiplate[i.charCodeAt(0)-2303]
+  })
+  return s.join('')
+}
 const BookList = (props: any) => {
   const { header, data } = props
 
-  return <div className='flex h-100 flex-row'>
-    <div className="p-2 mb-2 h-32 text-center font-bold">
-      <div className="absolute p-2 opacity-75  text-7xl">{Brahmiplate[17]}{Brahmiplate[8]}{Brahmiplate[6]}</div>
-    </div>
+  return <div className='flex h-100 flex-col sm:flex-row'>
+    {/* <div className="p-2 mb-2 h-32 text-center  font-bold">
+    </div> */}
     
-    <div className={`${gold} w-1/2  h-100 p-2`}>
-    <h1 className="text-3xl bg-orange-500/50 mt-48 m-auto p-2">
+    <div className={`${gold} w-full sm:w-1/2  h-100 p-2`}>
+      <div className={`p-2 opacity-90 mt-24 right-2 flex flex-col ${silver} w-[85%] sm:w-[70%] rounded-lg shadow-lg shadow-pink-300 m-auto text-center text-7xl`}>
+        
+        {/* {Brahmiplate[17]}{Brahmiplate[8]}{Brahmiplate[6]} */}
+        {/* {hindi_to_brahmi('सियाराम')} */}
+        {/* {hindi_to_brahmi('अखंड भारत')} */}
+        <div>
+          {hindi_to_brahmi('अहं')}
+          </div>
+        <div className="text-3xl">
+          {hindi_to_brahmi('ब्रह्मास्मि')}
+          </div>
+          <div className="text-3xl">
+          {hindi_to_brahmi('सरस्वती गणेश लक्ष्मी')}
+          </div>
+        </div>
+    <h1 className="text-3xl bg-orange-500/50 mt-24 sm:mt-48 m-auto p-2">
       {header}
       </h1>
       <h2 className="text-sm p-2">Ideator Coder: Hemant Kumar Dixit</h2>
       <h2 className="text-sm p-2">Author: Ved VyAs</h2>
     </div>
-    <div className="bg-gray-300 w-1/2">
+    <div className="bg-gray-300 w-full sm:w-1/2">
 
     <div className="p-1 flex flex-col gap-4">
 

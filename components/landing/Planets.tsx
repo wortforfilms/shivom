@@ -31,7 +31,6 @@ export const Planets = () => {
 
     <h2 id="planet" className='text-3xl  p-8 font-bold'>Planets</h2>
     <div className='flex flex-row flex-wrap justify-around gap-2 w-full h-full'>
-
       {Object.values(Kundali0).map((pl, index) => {
         return <div key={index}
           onClick={() => {
@@ -41,11 +40,14 @@ export const Planets = () => {
 
         >
           <div className="flex flex-row">
-          <div>{index + 1}. {pl}</div>
+          <div>
+            {/* {index + 1}.  */}
+            {pl}
         <div className="text-7xl p-2">{String.fromCharCode(9788+3+index)}</div>
+            </div>
 
         <Image src={`${baseS3}${universal.planets[index]._3d.textures.base}`} alt="image"
-        width={100} height={100} className="h-100"
+        width={100} height={100} className="h-100 w-full rounded-full "
         /></div>
 
       <div className="w-full flex flex-row flex-wrap">
@@ -56,7 +58,7 @@ export const Planets = () => {
     </div>
 
 
-<div className="flex flex-row flex-wrap justify-around gap-1">
+{/* <div className="flex flex-row flex-wrap justify-around gap-1">
     <div className="thin-subhead">PLANET'S COMPARITIVE MASSES
     <DoughnutChart data={Object.values(Kundali0).map((i,index)=>universal.planets[index].mass)} labels={Object.values(Kundali0)}/>
     </div>
@@ -69,7 +71,7 @@ export const Planets = () => {
     <div className="thin-subhead">PLANET'S COMPARITIVE ORBITAL PERIOD
     <DoughnutChart data={Object.values(Kundali0).map((i,index)=>universal.planets[index].orbitalPeriod)} labels={Object.values(Kundali0)}/>
     </div>
-</div>
+</div> */}
   </div>;
 };
 
@@ -88,7 +90,7 @@ export const ObjectDisplay=(props:any)=>{
   return <div className="flex flex-col p-2 flex-wrap gap-2">
 {
   headers.slice(0,9).map((header,index)=>{
-    return <div key={index} className={`flex flex-row gap-2 ${index%2?"bg-gray-200":"bg-white"}`}>
+    return <div key={index} className={`flex flex-row justify-between gap-2 ${index%2?"bg-gray-200":"bg-white"}`}>
       <div className="text-xs p-1 font-bold">{header}:</div>
       <div className="text-xs m-auto">{JSON.stringify(values[header])}</div>
       
