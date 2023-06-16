@@ -50,8 +50,8 @@ const qs = [
      },
 ]
 
-const houses=[
-{    "First House":"The First House or Lagna is the House of the self, and it comprises the Zodiac sign into which the person was born. For example, if a person was born on the 4th of April, their Lagna or Ascendant sign will be Aries or Mesh Rashi. This House is responsible for your physical appearance, personality, health, characteristics, and understanding of the world."},
+export const houses=[
+    {"First House":"The First House or Lagna is the House of the self, and it comprises the Zodiac sign into which the person was born. For example, if a person was born on the 4th of April, their Lagna or Ascendant sign will be Aries or Mesh Rashi. This House is responsible for your physical appearance, personality, health, characteristics, and understanding of the world."},
     
     {"Second House":"The Second House is of Possessions, Income, or Dhan. This House takes care of a person's worldly possessions and organs like the tongue, eyes, nose, and mouth. People suffering from illnesses of the organs under the Second House should get in touch with astrologers for perfect remedies. You can get in touch with astrologers through InstaAstro's website."},
     
@@ -75,3 +75,33 @@ const houses=[
 
     {"Twelfth House":"Lastly, the Twelfth House consists of spiritual journeys, the unconscious mind, and separation from loved ones. It is believed that usually, this separation comes in the form of death. To walk on your spiritual path, your Twelfth House should consist of auspicious elements."},
 ]
+
+
+const service_workers='graha akshatra typescript for humaninty'
+// the truth indus indic ad indicaa
+// evidence {}civilization
+// culture is not your freind¿?
+// when /÷/÷///÷÷?¿
+// {;;;___:::}
+// {m}-{b}-{a}
+// google contribution
+// leaflet contribution
+// {}
+// pole {} democracy
+// demo : crazy¿? sane insane insAna
+// rules: {}-{}-{}-{}-{}
+// groups: {knowledge streams}
+// shaivAits::: observation on lingam
+// vaishavaits::: observation  on heavens ¿?
+// krishna_bhakts::: observation onn love  bliss¿/¿?? karma sadAchAr ee I 
+// N : i I L ˜ˆ¬ ˜Ò ˜ˆÒ 
+// apple : saiba say_b  
+// focus :  
+// 
+// create_poll_post=()=>{
+// notifications
+// poll
+// create_poll
+// {to_make_india{iyaa}_no_1}
+// ['houses and structure']
+// }

@@ -6,27 +6,7 @@ import Image from 'next/image'
 import { baseS3 } from "@/pages/celestial/planet/[id]";
 export const Planets = () => {
   const router = useRouter();
-  // const  planets=universal.planets.slice()
-  // symbols on fork 
-  // ∑„wW-yyYY¥¥ÁÁ
-  // mmMMÂÂµµ 
-  // nnnNNN˜˜˜˜˜˜
-  // VM.m{IAMJUPIToR}
-  // doc on  port export for me  distributed by me 
-  // samar par  amrutmAlA
-  //  amrut  Mal;a   mAla  mAAlAA maalaa Mal  mn
-  //   man  ki talaash 
-  // pasad ki kraati
-  // krAnti vruta
-  // hemant sankalp
-  // mere saath shapath vishwa aham braham  bhram aham
-  // eko satya ek onnkAra
-  // 1 omkaar 1 om kArya :: 
-  //  samaya  kAAla  hA hA hA 
-  // {:::}-{:::}-{:::}
-  // {}-{}-{service_for_code_view}
-  // {rent;offer;sale;service::""}
-  // -{""}
+
   return <div className="w-full">
 
     <h2 id="planet" className='text-3xl  p-8 font-bold'>Planets</h2>
@@ -75,30 +55,22 @@ export const Planets = () => {
   </div>;
 };
 
-// placeholder design
-// tools brush  element radius shape 
-//  {;;;:::native_nature}
-//  {;;;:::native_nature}
-// path celestial
-// 1 `00 10 1299  12,99,000 ;;:876 
-// 2 '01 00  
+
 
 export const ObjectDisplay=(props:any)=>{
   const {object}=props
-  const headers=Object.keys(object)
-  const values=Object.assign(object)
-  return <div className="flex flex-col p-2 flex-wrap gap-2">
+  const headers=Object?.keys(object)
+  const values=Object?.assign(object)
+  return <div className="flex flex-col w-full p-2 flex-wrap gap-2">
 {
   headers.slice(0,9).map((header,index)=>{
     return <div key={index} className={`flex flex-row justify-between gap-2 ${index%2?"bg-gray-200":"bg-white"}`}>
       <div className="text-xs p-1 font-bold">{header}:</div>
-      <div className="text-xs m-auto">{JSON.stringify(values[header])}</div>
+      <div className="text-xs ">{JSON.stringify(values[header])}</div>
       
       </div>
   })
 }
 
-    {/* 
-    <div>{value}</div> */}
   </div>
 }

@@ -703,6 +703,15 @@ var [vartamaan,setVartamaan] = useState(obj.calculate(new Date()));
   </h1>
   <div className="flex flex-col flex-wrap  gap-1 text-center p-4 w-80 rounded-lg shadow-lg bg-white  mb-4">
 
+{/* {JSON.stringify(vartamaan.Raasi.name_en_UK)} */}
+
+{vartamaan.Raasi.name_en_UK && <Image
+src={`/assets/${vartamaan.Raasi.name_en_UK}_IAU.svg`}
+alt="raasi"
+width={100}
+height={100}
+className="w-[100%]   h-auto"
+/>}
 {Object.keys(vartamaan).map((hea,index)=>{
 
   // console.log("name",hea, vartamaan)

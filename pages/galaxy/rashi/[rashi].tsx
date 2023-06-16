@@ -9,6 +9,9 @@ import { UserZodiac } from "@/pages/user"
 import { errorT } from "@/components/toast"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Aries from "@/elements/3d/constellations/Aries"
+import SVGApp from "@/elements/3d/constellations/Ariessvg"
+// import Ashwini from "@/elements/3d/constellations/Ashwini"
 
 
 
@@ -293,7 +296,10 @@ height={100}
 className="w-[70%] invert  h-auto"
 />}
 </div>
+<Aries/>
+{/* <SVGApp rashi={rashi}/> */}
 
+{/* <Ashwini/> */}
 {!loading && details && <div className="flex flex-col gap-2 ">
   {details[1]?.data?.choices[0]?.text.split('\n').map((a:any,index:number)=>{
     return <motion.div 

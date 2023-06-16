@@ -76,11 +76,9 @@ const [filters,setFilters]=useState<any>(null)
 
     {
       [
-        // {label:"Create",icon:<BiCircleQuarter/>},
         {label:"Translate",icon:<BsTranslate/>},
         {label:"Feed",icon:<FcFeedIn/>},
         {label:"AmarmAlaa",icon:<BiBook/>},
-        // {label:"Algo-liå¬ˆ/* Ò dne ¿doe */",icon:<FaAlgolia/>},
         {label:"Calculator",icon:<FcCalculator/>},
         {label:"Keyboard",icon:<GrKeyboard/>}
 

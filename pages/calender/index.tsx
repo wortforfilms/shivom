@@ -133,7 +133,7 @@ const CalenderView=(props:any)=>{
   const earth:typeof initialReduxState=useSelector(state=>state)
   return  <div className="max-w-5xl m-auto p-4">
     <div className="h-12"></div>
-    {/* <div>{vedicYear}</div> */}
+    <div>{vedicYear}</div>
     <div className="flex flex-row">
 
 <Aaj/>

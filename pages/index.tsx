@@ -22,7 +22,7 @@ import { HeaderButtons } from '../layout/HeaderButtons'
 import { Team } from '../components/list/Team'
 import { useSelector } from 'react-redux'
 import Services from './services'
-import { VedicCoarses } from './services/[service]'
+
 import Banner from '@/elements/banner'
 import { Sh4omBanner0 } from '@/elements/headless/banner'
 import { Box } from '@/elements/box'
@@ -30,6 +30,8 @@ import { Box } from '@/elements/box'
 import HindiAlphabetChart from '@/lib/akshar/hindi'
 import { useRouter } from 'next/router'
 import PostDesigner from '@/elements/insta'
+import { VedicCoarses } from '@/data/VedicCoarses'
+import { Houses } from '@/components/landing/Houses'
 
 
 
@@ -101,6 +103,7 @@ export default function Home(props: any) {
       <Testemonials />
       <AboutUs />
       <Technology />
+      <Houses/>
       <Planets />
       <Nakshatras />
       <Doshas />
