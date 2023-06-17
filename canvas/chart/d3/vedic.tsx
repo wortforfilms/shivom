@@ -63,9 +63,19 @@ export {}
 
 export const sunsign=[ 
   "aries",
-  "cancer","gemini","leo","libra","capricorn","aquarius","pisces","sagittarius","scorpio","taurus","virgo"]
+  "cancer","gemini","leo","libra","capricorn","aquarius","pisces","sagittarius","scorpio","taurus","virgo","ophiuchus"]
 
 
+  // camera dom on envery  planet  
+  // likn
+  // link
+  // laghu deergh
+  // _|_ ::: __ ˇt†T  
+  // error for bhArat error for IndiA 
+  // {Democracy}
+  // {}
+  // true  false
+  // 
 
 // Found 7 entries
 // Your results for parallal:

@@ -1,10 +1,10 @@
 import { Kundali0 } from "@/components/kundli"
-import Image from "next/image"
+
 import { useRouter } from "next/router"
 import universal from '@/data/solar.json'
 import { ObjectDisplay } from "@/components/landing/Planets"
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import { SphereApp } from "@/elements/3d/sph"
 
 export const  baseS3='https://oxraxkhonksvlrvpwsnc.supabase.co/storage/v1/object/public'
@@ -18,7 +18,7 @@ const Planet=()=>{
   const [width,setWidth]=useState<any>(universal?.planets?.filter(i=>i.name.toLowerCase()===id)[0]?.diameter)
 
 
-  return <div className="h-[100vh] w-full bg-white p-2">
+  return <div className="h-[100vh] w-full bg-black   p-2">
   <h1 className="text-xl text-center font-bold uppercase">
     {
       id
@@ -27,7 +27,7 @@ const Planet=()=>{
 
 <div className="flex flex-col sm:flex-row justify-around gap-2">
 
-<div className='flex flex-row flex-wrap justify-around gap-2 w-full h-full'>
+<div className='right-4 flex flex-row flex-wrap justify-around gap-2 w-full h-100'>
 
 {Object.values(Kundali0).filter(i=>i===id).map((pl, index) => {
   return <div key={index}
@@ -57,7 +57,7 @@ const Planet=()=>{
 <div className='flex flex-row flex-wrap m-auto -mt-24  sm:mt-0 justify-around gap-2 w-full h-[70vh]'>
 
 
-<SphereApp texture={`${baseS3}${universal.planets[universal?.planets?.filter(i=>i?.name.toLowerCase()===id&&id.toLowerCase())[0]?.id-1]?._3d?.textures?.base}`} radius={2}/>
+<SphereApp texture={`${baseS3}${universal.planets[universal?.planets?.filter(i=>i?.name.toLowerCase()===id&&id.toLowerCase())[0]?.id-1]?._3d?.textures?.base}`} height="70vh"  width="100%" radius={2}/>
 
 
 

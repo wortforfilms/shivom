@@ -1,4 +1,4 @@
-import { Brahmiplate } from "@/components/classes/brahmi";
+import { Brahmiplate } from "@/components/classes/brahmi/Brahmiplate";
 
 
 export const hindi_to_brahmi = (str: any) => {

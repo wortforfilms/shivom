@@ -10,33 +10,7 @@ import { errorT } from "@/components/toast"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Aries from "@/elements/3d/constellations/Aries"
-import SVGApp from "@/elements/3d/constellations/Ariessvg"
-// import Ashwini from "@/elements/3d/constellations/Ashwini"
 
-
-
-
-// 
-// asi shi
-// rA ra
-// const m  {÷/÷¿shift cycle suspension}
-// {:-:} 
-// pmt create book scorpio and others
-// story of 12 zodiacs
-// 
-// sell book 
-// cover 
-// designs 
-// puppetier to call 
-// {stable defusion}
-// {focus}
-// {wealthcare generation}
-// {html domain cdn aws godaddy bigrock google }
-// {navigator::health}
-// {}
-
-// plate index
-// platform
 
 const create_answer=async(pmt:any, setLoading:any,setDetails:any)=>{
   const DEFAULT_PARAMS = {
@@ -115,14 +89,7 @@ const {data,error}=await supabase.from("अमृत").select().textSearch()
   return {data,error}
 }
 
-// RAshi
-//  rAshi
-// raasi
-//  id device {}-{material}-{crypt}-{""}
-// {}-{}-{}-{}
-// me mine our us
-// I V We
-// {}
+
 const create_rashi_sooch=async(url:string,data:any)=>{
   const {data:rashi,error}=await supabase.from('sochen').select('*').insert([{
     soch:`fetch ${url}`,
@@ -132,7 +99,7 @@ const create_rashi_sooch=async(url:string,data:any)=>{
 
   return {rashi,error}
 }
-// https://en.wikipedia.org/wiki/{Aries}_(constellation)#/media/File:{Aries_IAU}.svg
+
 
 export const get_snapshot=async(wrd:any)=>{
   const  word=`${wrd}`
@@ -289,7 +256,7 @@ const Constalation=()=>{
 
 <UserZodiac zod={rashi}/>
 {rashi && <Image
-src={`/assets/${rashi}_IAU.svg`}
+src={`/assets/${`${rashi}`.toLowerCase()}_IAU.svg`}
 alt="raasi"
 width={100}
 height={100}
@@ -319,6 +286,7 @@ const AkImages=()=>{
   <circle cx="50" cy="50" r="45" fill="white" stroke="black" />
   <path d="M50 10 L90 50 L50 90 L10 50 Z" fill="black" />
 </svg>
+
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
   <circle cx="200" cy="200" r="195" fill="black" />
   <circle cx="200" cy="200" r="2" fill="white" />

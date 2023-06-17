@@ -1,5 +1,6 @@
 
 
+import { supabase } from '@/lib/Store';
 import { range } from '@/util/createRange';
 import { faker } from '@faker-js/faker';
 import { useRouter } from 'next/router';
@@ -7,6 +8,28 @@ import React, { useState } from 'react';
 import { BiSend } from 'react-icons/bi';
 
 import { FaBackward } from 'react-icons/fa';
+
+const get_messages=async(userId:any)=>{
+  const {data,error}=await supabase.from('संदेश').select('*').eq('sender',userId)
+  return {data,error}
+}
+
+
+const get_public_messages=async()=>{
+  const {data,error}=await supabase.from('संदेश').select('*').eq('type',"public")
+  return {data,error}
+}
+
+const create_public_messages=async(data:any,userId:any)=>{
+  const {data:mesg,error}=await supabase.from('संदेश').select('*').insert([{
+    data:data,
+    sender:userId,
+    type:"public"
+  }])
+  return {data,error}
+}
+
+
 
 const ChatMessage = ( message:any ) => {
   console.log(message,'-----.   message')

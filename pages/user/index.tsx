@@ -15,7 +15,7 @@ import { MangalDosh } from "@/data/dosh"
 import { range } from "@/util/createRange"
 import { json } from "d3"
 import { onlyUnique } from "@/util/unique"
-import { Brahmiplate } from "@/components/classes/brahmi"
+import { Brahmiplate } from "@/components/classes/brahmi/Brahmiplate"
 
 const User=(props:any)=>{
 
@@ -241,7 +241,7 @@ export const UserZodiac=(props:any)=>{
       sunsign?.filter(i=>i===zod?.toLowerCase()).map((str,index)=>{
         return <div key={index} className={`${gold} shadow-lg m-4 rounded-full ring-4 ring-orange-200` }>
 <Image
-    src={`/img/zodiac/${str}.png`}
+    src={`/img/zodiac/${str.toLowerCase()}.png`}
     alt="astro chart"
     width={100}
     height={100}
@@ -568,7 +568,9 @@ const MoonSignCalculator = (props:any) => {
   );
 };
 
-
+// DLF
+// Cyber 24-25 26-27
+//  
 
 const vedic_for_user={
   Information:'Vedic astronomical algorithms are a set of mathematical calculations and formulas used in Vedic astrology to determine the positions of celestial bodies, calculate planetary movements, and analyze astrological charts. These algorithms are based on ancient Vedic texts, such as the Vedanga Jyotisha, which provide guidelines and principles for astronomical calculations. Here are some key aspects and components of Vedic astronomical algorithms:',

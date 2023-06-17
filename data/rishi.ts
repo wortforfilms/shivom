@@ -19,6 +19,22 @@ export const rishi=[
   "Saunaka"
 ]
 
+export const raashi_naam=[
+  "मेष",
+  "वृषभ",
+  "मिथुन",
+  "कर्क",
+  "सिंह",
+  "कन्या",
+  "तुला",
+  "वृश्चिक",
+  "धनु",
+  "मकर",
+  "कुंभ",
+  "मीन",
+  "भाग्य"
+]
+
 // list of saptrishi sages ,their expertise and achievments.
 
 // Saptarishi Sages:

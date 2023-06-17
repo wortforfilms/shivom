@@ -50,7 +50,6 @@ export const BrahmiEducation=()=>{
       <div className="p-1 mt-2 mb-2">{level.coarse.index.Introduction}</div>
       {level.coarse && level.coarse.index && level.coarse.index.matter && level.coarse.index.matter.map((c: any, index: number) => {
         return <div key={index} className="snakeCase text-sm  p-1">
-          {/* {c.q} */}
           <List header={c.q} data={c.d} />
           <BookList header={c.q} data={c.d} />
         </div>
@@ -205,16 +204,35 @@ const BookList = (props: any) => {
 
       {
         data.map((d: any, index: number) => {
+// check if exist
+// link if present
+// create manuscript 
+// create chapters list
+// create descriptive chapter
+// attach images
+// align credits
+// create open base
+
+// upi<>upi
+//   storage:::
+//   used:::
+//  individual group contact
+// c_on_t act ion
+// {ct}{spa}
+//  conntact manager 
+//  push scan {}
+
+
           return <li key={index}>
             {d}
-      <div className="flex flex-row justify-around">
+      {/* <div className="flex flex-row justify-around">
 
             {[{type:"sample-book-chapters",matter:"email"},{type:"e-book",matter:"email"},{type:'physical-book',matter:"address"}].map((i,index)=>{
               return <div key={index} className="w-1/4">
   
   {i.type}</div>
             })}
-      </div>
+      </div> */}
             </li>
         })
       }

@@ -1,4 +1,5 @@
-import { Brahmiplate, Hinglish } from "@/components/classes/brahmi"
+import { Hinglish } from "@/components/classes/brahmi/Hinglish"
+import { Brahmiplate } from "@/components/classes/brahmi/Brahmiplate"
 import { representations_nakshastra } from "@/data/nakshatra"
 import React from "react"
 

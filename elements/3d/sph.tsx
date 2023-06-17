@@ -30,7 +30,7 @@ const Sphere=(props:any)=>{
    return(
       <mesh visible castShadow ref={ref}>
       {/* <CameraController/> */}
-      <OrbitControls />
+      {/* <OrbitControls /> */}
 
       <ambientLight />
          <pointLight position={[10, 10, 10]} />
@@ -44,10 +44,10 @@ const Sphere=(props:any)=>{
    )
 }
  export  function SphereApp(props:any){
-  const {texture, radius}=props
+  const {texture, radius, height, width}=props
 
    return (
-      <Canvas className="h-full" style={{height:'100%'}}>
+      <Canvas className="h-full w-64" style={{height: height?height:'100%', width:width?width:"180px"}}>
          <ambientLight />
          <Sphere texture={texture} radius={radius}/>
       </Canvas>

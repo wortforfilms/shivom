@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import useWindowSize from "react-use/lib/useWindowSize"
 import { faker } from "@faker-js/faker"
-import {  Brahmiplate, brahmiVyajana } from "@/components/classes/brahmi"
+import {  brahmiVyajana } from "@/components/classes/brahmi"
+import { Brahmiplate } from "@/components/classes/brahmi/Brahmiplate"
 import Confetti from "react-confetti"
 import{AnimatePresence, motion} from 'framer-motion'
 

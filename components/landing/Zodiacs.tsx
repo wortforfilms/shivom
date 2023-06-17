@@ -7,6 +7,10 @@ import Element_ from "./Element";
 import Compass from "../tool/Compass";
 import Gyroscope from "../tool/Gyroscope";
 import GyroHome from "../tool";
+import { Nakshatras } from "./Nakshatras";
+import { Nakshatra } from "../kundli";
+import { raashi_naam } from "@/data/rishi";
+import { hindi_to_brahmi } from "@/util/hindi_to_brahmi";
 export const zods = [
   {
     sign: "♈",
@@ -64,8 +68,6 @@ export const zods = [
 
 
 export const astro=[
-{sh:"  Found 76 entries"},
-{sh:"Your results for astron:"},
 {sh:"खगोलशास्त्र	n.	khagolazAstra	astronomy	BV"},
 {sh:"अभिजित्	m.	abhijit	Vega[Alpha Lyrae - Astron.]	"},
 {sh:"नक्षत्रविद्या	f.	nakSatravidyA	astronomy	"},
@@ -521,6 +523,11 @@ const router=useRouter()
         </div>
         <div className=' text-md text-center'>
           {ss.label}
+        </div>
+        <div className=' text-md text-center'>
+          {raashi_naam[index]}<br/>
+          {hindi_to_brahmi(raashi_naam[index])}
+          {/* {Object.values(Nakshatra)[index*2]} */}
         </div>
       </motion.div>;
     })}

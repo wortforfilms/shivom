@@ -5,6 +5,19 @@ import { faker } from "@faker-js/faker";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { Hinglish } from "@/components/classes/brahmi/Hinglish";
+
+
+export const hinglish_to_hindi=(str:string)=>{
+  return str.replaceAll('ksh','क्ष')
+  .replaceAll('tra','त्र')
+  .replaceAll('jJa','ज्ञ')
+  .replaceAll('sw','स्व')
+  .replaceAll('k','क')
+  .replaceAll('kh','ख')
+  .replaceAll('g','ग')
+  .replaceAll('gh','घ')
+}
 export const Ganeshlist = (props: any) => {
   const { gcategory, setGame } = props;
   const router = useRouter();
@@ -14,7 +27,8 @@ export const Ganeshlist = (props: any) => {
       return <div key={index} className={`rounded-lg text-center m-auto  shadow-lg w-56 h-100 ${gold} p-2`}>
         <div className="text-7xl p-2 ">{ver.icon}</div>
         <h1>{ver.label} </h1>
-        <h1>{ver.label.replace('')} </h1>
+        <h1>{hinglish_to_hindi(ver.label)}</h1>
+        {/* <h1>{ver.label.replace('')} </h1> */}
         <div className="text-xs font-bold p-1">{ver.duration}</div>
         <div>
           <div className="text-xs text-yellow-700 p-2">Leaderboard: </div>
