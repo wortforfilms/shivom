@@ -1,8 +1,11 @@
 import { create_res, find_res } from "@/action"
 import { errorT } from "@/components/toast"
 import { supabase } from "@/lib/Store"
+import { range } from "@/util/createRange"
 import { faker } from "@faker-js/faker"
 import Image from "next/image"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 import { BiSupport } from "react-icons/bi"
 import { GrNew } from "react-icons/gr"
 import { MdPropane } from "react-icons/md"
@@ -62,9 +65,65 @@ const list=[
 "Brahma Nirmaan: Paving the Way for India's Superpower Status",
 ]
 
+const vlist=[
+ "The Power of Vedic Mindset: India's Path to Superpower Status",
+ "Reviving Ancient Wisdom: The Key to India's Journey towards Greatness",
+ "Unleashing the Vedic Potential: India's Quest for Superpower Status",
+ "Harnessing the Spirit of Vedas: India's Rise on the Global Stage",
+ "India's Vedic Renaissance: Transforming the Nation for Superpower Status",
+ "The Vedic Way: Guiding India's Journey to Greatness",
+ "The Resurgence of Vedic Values: India's Roadmap to Superpower Status",
+ "Awakening the Vedic Mind: India's Path to Global Influence",
+ "Vedic Wisdom in Modern Times: India's Evolution towards Superpower Status",
+ "The Vedic Paradigm: India's Catalyst for Economic and Cultural Empowerment",
+ "Vedic Heritage, Global Leadership: India's Quest for Superpower Status",
+ "Embracing Vedic Consciousness: India's Road to Greatness",
+ "The Vedic Mindset: Igniting India's Potential for Superpower Status",
+ "Vedic Visionaries: Shaping India's Future as a Global Leader",
+ "Reimagining India: Reviving the Vedic Mindset for Superpower Aspirations",
+ "Vedic Renaissance: India's Cultural Revival on the Path to Greatness",
+ "Unearthing Vedic Principles: India's Journey to Superpower Status",
+ "India's Vedic Resurgence: Redefining the Nation's Destiny",
+ "Vedic Civilization Revisited: India's Pursuit of Superpower Status",
+ "The Vedic DNA of India: Nurturing Greatness for Global Impact",
+ "Vedic Wisdom for a New India: Fueling the Superpower Aspirations",
+ "The Vedic Soul of India: Charting the Course to Superpower Status",
+ "India's Vedic Heritage: Illuminating the Path to Greatness",
+ "Vedic Mindset and Global Competitiveness: India's Roadmap to Superpower Status",
+ "The Vedic Renaissance: Unleashing India's Potential for Global Influence",
+ "Vedic Principles for Economic Empowerment: India's Rise to Superpower Status",
+ "Vedic Education for a Stronger India: Building the Foundation for Greatness",
+ "Nurturing Vedic Entrepreneurship: India's Drive towards Superpower Status",
+ "Vedic Values and Sustainable Development: India's Journey to Greatness",
+ "Vedic Philosophy and Leadership: India's Path to Superpower Status",
+ "Vedic Mindfulness: Cultivating Resilience on India's Road to Greatness",
+ "Vedic Traditions and Environmental Stewardship: India's Pathway to Superpower Status",
+ "India's Vedic Legacy: Enriching the World through Cultural Diplomacy",
+ "Vedic Health and Wellness: Empowering India's Journey to Superpower Status",
+ "Vedic Architecture: Shaping India's Infrastructure for Global Prominence",
+ "Vedic Spirituality and Inner Transformation: India's Quest for Superpower Status",
+ "Vedic Wisdom for Sustainable Governance: India's Pathway to Greatness",
+ "Vedic Arts and Culture: Showcasing India's Rich Heritage on the World Stage",
+ "Vedic Science and Technological Innovation: Propelling India towards Superpower Status",
+ "Vedic Philosophy in Governance: India's Drive for Efficient and Inclusive Systems",
+ "Vedic Agriculture and Food Security: Nourishing India's Superpower Ambitions",
+ "Vedic Wisdom for Social Harmony: India's Journey to Greatness",
+ "Vedic Literature: India's Intellectual Arsenal on the Path to Superpower Stat",
+ "Vedic Yoga and Wellness: Empowering Individuals on India's Road to Greatness",
+ "Vedic Astronomy and Space Exploration: India's Cosmic Quest for Superpower Status",
+ "Vedic Music and Performing Arts: Showcasing India's Cultural Splendor Worldwide",
+ "Vedic Philosophy and Sustainable Development: India's Blueprint for Greatness",
+ "Vedic Ethics and Corporate Governance: India's Drive towards Superpower Status",
+ "Vedic Philosophy in Education: Nurturing India's Future Leaders for Global Impact",
+ "Vedic Wisdom and National Security: Safeguarding India's Superpower Aspirations",
+
+]
+
 
 
 const Blog=()=>{
+
+  const router=useRouter()
 
   return <div className="p-4">
     <div className="h-12"></div>
@@ -73,6 +132,7 @@ const Blog=()=>{
       <div>
         Blogs 
         </div>
+        <PromotionalPost/>
         <div className="flex flex-row text-xl mt-2 gap-2">
       <GrNew/>
       <MdPropane/>
@@ -80,15 +140,44 @@ const Blog=()=>{
       </div></div>
 
     <h1 className="p-2 mt-8">Recent</h1>
+
     <div className="flex flex-row flex-wrap justify-around  gap-1">
     {
       list.map((l,index)=>{
-        return <div key={index} className="w-full  sm:w-56 p-2 shadow-lg bg-white">
+        return <div key={index} className="w-full  sm:w-56 p-2 shadow-lg bg-white"
+        onClick={()=>{
+          router.push(`/chat/blog/${1}`)
+        }}
+        >
           <Image
           width={100}
           height={100}
           alt="blog"
-          src={`/blog/${faker.helpers.arrayElement([1,2,3,4,5,6])}.jpeg`}
+          src={`/blog/${index<48?index+1:index-47}.jpeg`}
+
+          // src={`/blog/${faker.helpers.arrayElement(range(1,18))}.jpeg`}
+          className="w-full "
+          />
+          <div className="font-bold text-xl">{l}</div>
+          <div  className="text-xs underline">Author: "Hemant Kumar  Dixit"</div>
+          </div>
+      })
+    }
+    </div>
+    <div className="flex flex-row flex-wrap justify-around  gap-1">
+    {
+      vlist.map((l,index)=>{
+        return <div key={index} className="w-full  sm:w-56 p-2 shadow-lg bg-white"
+        onClick={()=>{
+          router.push(`/chat/blog/${1}`)
+        }}
+        >
+          <Image
+          width={100}
+          height={100}
+          alt="blog"
+          src={`/blog/${index<48?index+1:index-47}.jpeg`}
+          // src={`/blog/${faker.helpers.arrayElement(range(1,22))}.jpeg`}
           className="w-full "
           />
           <div className="font-bold text-xl">{l}</div>
@@ -172,3 +261,62 @@ const create_blog_from_prompt=async(pmt:any, setLoading:any,setDetails:any)=>{
   });
 
 }
+
+
+const pp={
+  matter:`
+  🌟 Exciting Announcement! 🌟
+
+📣 Introducing "Harnessing the Potential: India's Journey to Superpower Status by Reviving Brahmi" 📣
+
+India, the land of diverse cultures and ancient wisdom, is embarking on an extraordinary journey towards superpower status. Join us as we unveil a groundbreaking initiative that revives the power of Brahmi, an ancient script with immense potential to shape India's future!
+
+🔮 "Harnessing the Potential: India's Journey to Superpower Status by Reviving Brahmi" 🔮
+
+🌐 Discover how the revival of Brahmi can:
+✅ Preserve India's cultural identity
+✅ Foster linguistic unity and understanding
+✅ Promote education and literacy
+✅ Boost cultural tourism and global appeal
+✅ Embrace technology for a digital age
+✅ Ignite intellectual pursuits and academic research
+✅ Facilitate cultural diplomacy and international collaborations
+
+📚 Uncover the treasure trove of ancient wisdom hidden within Brahmi, encompassing fields such as astronomy, mathematics, medicine, philosophy, and more! 🌌💡
+
+🌍 Be part of a historic movement that bridges the past with the future, where heritage meets modernity, and tradition paves the way to superpower status. 🚀
+
+🗓️ Save the date: [Event Date]
+🕒 Time: [Event Time]
+📍 Location: [Event Venue]
+
+📢 Spread the word and join us on this remarkable journey to revive Brahmi and propel India towards its destined superpower status! Together, we can make history and shape the future of our beloved nation! 🇮🇳💪
+
+Stay tuned for more updates and details on how you can be part of this momentous initiative. Let's harness the power of Brahmi and unlock India's true potential!
+
+#BrahmiRevival #IndiaSuperpower #HeritageMeetsModernity #JourneyToGreatness
+  `
+}
+
+
+
+const PromotionalPost: React.FC = () => {
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    setFadeIn(true);
+  }, []);
+
+  return (
+    <div className={`promotional-post ${fadeIn ? 'fade-in' : ''}`}>
+      <div className="post-content">
+        <h2>Harnessing the Potential:</h2>
+        <h2>India's Journey to Superpower Status</h2>
+        <p>Reviving Brahmi</p>
+        <p>Discover how the power of Brahmi can propel India towards superpower status, preserving cultural heritage while embracing modernity.</p>
+        <a href="#" className="cta-button">Learn More</a>
+        <div className="text-xs" dangerouslySetInnerHTML={{__html:pp.matter}}/>
+      </div>
+    </div>
+  );
+};
