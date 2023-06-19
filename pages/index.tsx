@@ -32,6 +32,7 @@ import { useRouter } from 'next/router'
 import PostDesigner from '@/elements/insta'
 import { VedicCoarses } from '@/data/VedicCoarses'
 import { Houses } from '@/components/landing/Houses'
+import Blog, { RecommededPost, ShowcasedPost } from './blog'
 
 
 
@@ -68,6 +69,8 @@ export default function Home(props: any) {
 
       {!section && <Banner/> }
 {/* <PostDesigner/> */}
+<ShowcasedPost/>
+
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
           <GameBanner />
@@ -97,6 +100,7 @@ export default function Home(props: any) {
       {section === "boards" && <Team />}
       {section === "kosha" && <Kosh />}
       {section === "services" && <Services />}
+      {section === "blog" && <Blog />}
       
       {!earth?.auth?.authenticated && <>
       <Questions />

@@ -13,10 +13,10 @@ export const Doshas = () => {
             router.push(`/celestial/dosh/${nak}`);
           }}
           className='bg-white p-2 shadow-lg hover:bg-yellow-300 cursor-pointer'>
-          <a className='font-bold text-gray-600 text-md'>
+          <a className='font-bold text-red-600 text-md'>
             {Object.keys(Dosh)[index]}:
           </a>
-          <div className='px-2 font-thin'>
+          <div className='px-2 '>
             {nak}
             </div>
           </div>;

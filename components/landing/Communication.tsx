@@ -27,7 +27,7 @@ export const Communication = () => {
           { name: 'Text',tool:"Chat", icon: <BsFillChatFill /> },
           { name: 'Audio', tool:"Talk", icon: <FiPhoneCall /> },
           { name: 'Video', tool:"Live", icon: <FaVideo /> },
-          { name: 'Blog', tool:"Blog", icon: <FaBlog /> },
+          
         ].map((mes, index) => {
           return <motion.div key={index} 
           animate={{opacity:[0,1]}}

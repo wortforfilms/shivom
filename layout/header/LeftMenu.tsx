@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 import { AiOutlineFieldString } from 'react-icons/ai';
 import { BiCalendarExclamation } from 'react-icons/bi';
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
-import { FaAddressCard, FaBahai, FaCartArrowDown, FaFileContract, FaHome, FaServicestack, FaShippingFast, FaSuperpowers, FaTerminal } from 'react-icons/fa';
+import { FaAddressCard, FaBahai, FaBlog, FaCartArrowDown, FaFileContract, FaHome, FaServicestack, FaShippingFast, FaSuperpowers, FaTerminal } from 'react-icons/fa';
 
 
 
@@ -34,6 +34,12 @@ const left = [
     icon: <BiCalendarExclamation/>,
     image: "",
     link: "/calender"
+  },
+  {
+    label: "Blogs",
+    icon: <FaBlog/>,
+    image: "",
+    link: "/blog"
   },
   {
     label: "Amrut",

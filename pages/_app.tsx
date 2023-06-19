@@ -118,10 +118,7 @@ if(loading){
           {/* <TransitionScreen/> */}
 <TopBar/>
 
-
 <Component {...props.pageProps} />
-
-
 
 <motion.div 
       whileHover={{scale:.95}}

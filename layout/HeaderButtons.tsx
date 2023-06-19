@@ -16,6 +16,7 @@ export const HeaderButtons = (props: any) => {
       { emoji: "🎲", label: "Games", icon: "", image: "", link: "/#games", tag: "games" },
       { emoji: "☪𓁭", label: "Brahmi", icon: "", image: "", link: "/#brahmi_classes", tag: "brahmi_classes" },
       { emoji: "🔱", label: "Vedic", icon: "", image: "", link: "/#vedic_classes", tag: "vedic_classes" },
+      { emoji: "📝", label: "Blogs", icon: "", image: "", link: "/blog", tag: "blog" },
       { emoji: "🧿", label: "Boards", icon: "", image: "", link: "", seat_conditions: "", tag: "boards" },
       { emoji: "🌈", label: "Kosha", icon: "", image: "", link: "", seat_conditions: "", tag: "kosha" },
     ].map((section, index) => {
