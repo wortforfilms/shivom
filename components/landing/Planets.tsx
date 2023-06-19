@@ -20,7 +20,7 @@ export const Planets = () => {
           onClick={() => {
             router.push(`/celestial/planet/${pl}`);
           }}
-          className={`bg-white p-2 shadow-lg h-full flex flex-col  w-full sm:w-100 uppercase hover:bg-black hover:text-white cursor-pointer `} >
+          className={`bg-white p-2 shadow-lg h-full flex flex-col  w-full sm:w-64 uppercase hover:bg-black hover:text-white cursor-pointer `} >
           <div className="flex flex-row w-100">
             <div>
               {pl}

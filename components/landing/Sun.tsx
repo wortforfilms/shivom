@@ -17,19 +17,14 @@ export const Sun = () => {
       onClick={() => {
         router.push(`/galaxy/star/${"sun"}`);
       }}
-      className={`bg-white p-2 shadow-lg h-full flex flex-col uppercase hover:bg-black hover:text-white cursor-pointer `}
+      className={`bg-white p-2 shadow-lg w-full sm:w-64 h-full flex flex-col uppercase hover:bg-black hover:text-white cursor-pointer `}
 
     >
       <div className="flex flex-row">
         <div>
-          {/* {index + 1}.  */}
           {"SUN"}
           <div className="text-7xl p-2">{String.fromCharCode(9788)}</div>
         </div>
-
-        {/* <Image src={`${baseS3}${universal.planets[index]._3d.textures.base}`} alt="image"
-        width={100} height={100} className="h-100 w-full rounded-full "
-        /> */}
         <div className='flex flex-row flex-wrap m-auto -mt-4  sm:mt-0 justify-around gap-2 w-100 h-100'>
           <SphereApp texture={`${baseS3}${universal.parent._3d.textures.base}`} height={"190px"} radius={2} />
         </div>

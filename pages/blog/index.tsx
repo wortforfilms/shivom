@@ -379,16 +379,16 @@ export const RecentPost=()=>{
   }, [])
   const router=useRouter()
   
-return <div className="flex flex-row overflow-x-scroll ">
+return <div className="flex flex-row overflow-x-scroll w-full">
   {
     recent?.map((re:any,index:number)=>{
-      return <div key={index} className="w-32 p-1">
+      return <div key={index} className="w-48 p-1">
         <Image 
         src={re.image}
         alt="post image"
         width={100}
         height={75}
-        className="w-32 h-24 "
+        className="w-48 h-auto "
         />
         <div className="text-xs"
         onClick={()=>{
@@ -474,7 +474,11 @@ return <div className="flex flex-row overflow-x-scroll ">
     return <div className="flex flex-row gap-2 overflow-x-scroll  mt-6  mb-6 w-full h-auto">
       {
         recent?.map((re:any,index:number)=>{
-          return <div key={index} className="w-32  bg-white rounded-lg shadow-lg">
+          return <div key={index} className="w-32  bg-white hover:shadow-xl cursor-pointer rounded-lg shadow-lg"
+          onClick={()=>{
+            router.push(`/blog/${re.title}`)
+          }}
+          >
             <Image 
             src={re.image}
             alt="post image"
@@ -483,9 +487,7 @@ return <div className="flex flex-row overflow-x-scroll ">
             className="w-64 h-100 "
             />
             <div className="text-xs p-2"
-            onClick={()=>{
-              router.push(`/blog/${re.title}`)
-            }}
+      
             >{re.title}</div>
           </div>
         })
@@ -493,18 +495,6 @@ return <div className="flex flex-row overflow-x-scroll ">
     </div>
       }
 
-// gyaan vaapees
-
-//  
-
-
-// https://media-bom1-1.cdn.whatsapp.net/v/
-// 
-// t62.36145-24/34895856_889578078773971_5687640355800171057_n.enc?
-// ccb=11-4
-// &oh=01_AdRASaqltIyEJ9CGG4fFbwiksLzNoilp93rykGD4xVpbZQ
-// &oe=64661135
-// &hash=X3gUAiCs4AuqXI2RlJhq3Pz-_VPSaXc_vlcjjM0dWlE%3D
-//  &_nc_cat=105
-// &mms-type=thumbnail-document
-// &__wa-mms=
+// 1-1 b-a-y
+//  b-a-i
+// mum bai

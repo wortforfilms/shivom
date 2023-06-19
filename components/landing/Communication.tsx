@@ -8,26 +8,21 @@ import { ObjectInfo } from '@/elements/object_display';
 export const Communication = () => {
 
 
-
+// info@kidzania.in
 
   const router=useRouter()
-  return <div className='flex flex-col bg-white shadow-lg w-full h-full min-h-[90vh] mb-12 bg-gray-300 mt-6'>
+  return <div className='flex flex-col bg-white shadow-lg w-full h-100 min-h-[90vh] mb-12 bg-gray-300 mt-6'>
   
     <div className='p-4  thin-head  text-center text-gray-600'>Communicate with experts in the way you like!!</div>
    <div className="flex flex-col sm:flex-row justify-between">
-
     <div className='flex flex-col justify-between m-auto'>
     <div className='flex flex-col sm:flex-row gap-2'>
-
-      <div className='flex flex-row gap-4 -mt-2 sm:mt-0 w-full sm:w-1/2 p-2 '
-  
-      >
-
+      <div className='flex flex-row gap-4 -mt-2 sm:mt-0 w-full sm:w-1/2 p-2 ' >
         {[
           { name: 'Text',tool:"Chat", icon: <BsFillChatFill /> },
           { name: 'Audio', tool:"Talk", icon: <FiPhoneCall /> },
           { name: 'Video', tool:"Live", icon: <FaVideo /> },
-          
+
         ].map((mes, index) => {
           return <motion.div key={index} 
           animate={{opacity:[0,1]}}

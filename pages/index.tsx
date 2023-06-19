@@ -29,10 +29,9 @@ import { Box } from '@/elements/box'
 
 import HindiAlphabetChart from '@/lib/akshar/hindi'
 import { useRouter } from 'next/router'
-import PostDesigner from '@/elements/insta'
 import { VedicCoarses } from '@/data/VedicCoarses'
 import { Houses } from '@/components/landing/Houses'
-import Blog, { RecommededPost, ShowcasedPost } from './blog'
+import Blog, { ShowcasedPost } from './blog'
 
 
 
@@ -69,7 +68,7 @@ export default function Home(props: any) {
 
       {!section && <Banner/> }
 {/* <PostDesigner/> */}
-<ShowcasedPost/>
+{!section  && <ShowcasedPost/>}
 
         {!section && <div className='flex flex-col  w-full justify-around gap-4'>
           <ProductForm />
@@ -102,7 +101,7 @@ export default function Home(props: any) {
       {section === "services" && <Services />}
       {section === "blog" && <Blog />}
       
-      {!earth?.auth?.authenticated && <>
+      {!earth?.auth?.authenticated && section==="astrology" && <>
       <Questions />
       <Testemonials />
       <AboutUs />
