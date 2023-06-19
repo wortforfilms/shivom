@@ -73,7 +73,6 @@ const __dic = Brahmiplate.map((letter, index) => {
   ];
 });
 export const brahmi = () => {
-
   return __dic;
 };
 
@@ -390,6 +389,8 @@ return  <div id="brahmi_classes" className="flex flex-col md:flex-row flex-wrap 
   })}
 </div>
 }
+
+
 export const Chart=(props:any)=>{
 
   const {x,y,letters}=props

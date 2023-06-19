@@ -47,6 +47,7 @@ console.log(data)
     <div className='flex flex-col mb-24'>
 
       <div className='h-12'></div>
+
       <div><FaBackward className='p-2 text-5xl'
       onClick={()=>router.back()}
       /></div>
@@ -65,7 +66,7 @@ console.log(data)
       <h1>{id}</h1>
       <div>Author: {"Hemant Kumar Dixit"}</div>
       <PostStat />
-  
+   
       </div>
       {/* <PromotionalPost/> */}
 
@@ -75,6 +76,19 @@ console.log(data)
       {blog.content.split('\n\n').map((li,index)=>{
         return <div  key={index}>{li}<br/></div>
       })}
+    </div>
+    <div>
+
+<Ask_me/>
+<div className='p-2 text-xs m-auto text-center'>
+  Unlock ChatGPT::Bard::Rudra::
+  </div>
+
+<div className='text-xs p-2 m-auto text-center'>
+Host a live session on topic
+</div>
+
+<PostComment/>
     </div>
 
     <h1 className="p-2 mt-4">Recent</h1>
@@ -86,3 +100,49 @@ console.log(data)
 
   )
   }
+
+  export const btn="p-2 bg-pink-500 text-white shadow-lg m-auto w-100 px-2 rounded-lg  mt-2 mb-2"
+  const Ask_me=()=>{
+
+    const get_answser=()=>{
+      // viberation  of vibyour
+      // baijAihapiaalaa
+      // test=>{}
+      // take the test   
+      // resolve on
+      const pmt='text'
+
+    }
+
+
+
+    return <div  className='m-auto  flex flex-col '>
+    <textarea rows={3} className='w-[90%] rounded-lg m-auto p-2 mt-12 text-xs border-2 border-gray-300 ' placeholder='Add Comment'/>
+    <button className={btn}>Comment</button>
+    </div>
+  }
+
+
+  const PostComment=()=>{
+
+    const get_post_comments=()=>{
+      // viberation  of vibyour
+      // baijAihapiaalaa
+      // test=>{}
+      // take the test   
+      // resolve on
+      const pmt='text'
+
+    }
+
+
+
+    return <div  className='m-auto  flex flex-col '>
+    <textarea rows={6} className='w-[90%] rounded-lg m-auto p-2 mt-12 text-xs border-2 border-gray-300 ' placeholder='Ask if curious'/>
+    <button className={btn}>Ask</button>
+    </div>
+  }
+
+
+
+ 

@@ -32,7 +32,7 @@ const  get_amar=async()=>{
 
 const Ras=()=>{
 
-const [stp,setStp]=useState<any>('')
+const [stp,setStp]=useState<any>('AmarmAlaa')
 const [mala,setMala]=useState<any>(null)
 const [recent_entries,setRecentEnteries]=useState<any>(null)
 // note: @smart move
@@ -101,7 +101,6 @@ const [filters,setFilters]=useState<any>(null)
   <Graph/>
   </div>
   }
-  {stp==='' &&  <NakApp/>}
   {/* {stp==='' &&  <NakApp/>} */}
   {stp==='AmarmAlaa' &&  <div>
     <div className="flex flex-row gap-2 mb-2">
@@ -109,36 +108,17 @@ const [filters,setFilters]=useState<any>(null)
       ['Zoo.','Bot.','Phy.','Chem.'].map((wrd,index)=>{
         return <div key={index} className="text-sm bg-gray-700 text-white shadow-lg rounded-lg p-2 "
         onClick={()=>{
-          setFilters((s:any)=>s?[wrd,...s]:[wrd])
+          get_tagged(wrd).then(data=>{
+            setMala(data)
+          }).catch(error=>console.log(error))
 
         }}
         >{wrd}</div>
       })
     }
-     {/* {'𑖀'.charCodeAt(1)} */}
     
     </div>
-    {/* {
-      mala?.map((res:any,index:number)=>{
-if(res.translitions[0].en.includes('Bot'))
-        return res.translitions[0].en
-
-      })
-    }
-        {
-      mala?.map((res:any,index:number)=>{
-if(res.translitions[0].en.includes('Bot'))
-        return res.translitions[0].br
-
-      })
-    }
-        {
-      mala?.map((res:any,index:number)=>{
-if(res.translitions[0].en.includes('['))
-        return res.translations[0].en
-
-      })
-    } */}
+ <div className="text-xs font-bold p-2 bg-gray-200 ">AmarmAla</div>
     <div className="flex gap-2 flex-row  h-100 overflow-y-scroll">
     {
       mala && mala.length>0 && faker.helpers.arrayElements(mala,27).map((ma:any,index:number)=>{
@@ -156,12 +136,13 @@ if(res.translitions[0].en.includes('['))
       })
     }
     </div>
-    
+ <div className="text-xs font-bold p-2 bg-gray-200 ">Recent</div>
+
+    <Recent/>
     </div>}
   {stp==='Translate' &&  <Translate/>}
   {stp==='Feed' && <Feeder />}
   {stp==='Create' && <PostCreator/>}
-
   </div>
 }
 
@@ -265,6 +246,52 @@ const Graph=()=>{
   </div>
 }
 
+
+const get_recent=async()=>{
+  const {data,error}=await supabase.from('अमृत').select('*').order('created_at',{ascending:false})
+  return {data,error}
+}
+
+const get_tagged=async(filter:string)=>{
+  const {data,error}=await supabase.from('अमृत').select('*').textSearch('translations->en',filter).order('created_at',{ascending:false}).limit(7)
+  return {data,error}
+}
+
+const Recent=()=>{
+  const [mala,setMala]=useState<any>(null)
+  useEffect(() => {
+    let mount=true
+    if(mount){
+      get_recent().then(res=>{
+        console.log("first",res)
+        setMala(res.data)
+      }).catch((error)=>console.log(error))
+    }
+  
+    return () => {
+      mount=false
+    }
+  }, [])
+
+
+  return   <div className="flex gap-2 flex-row  h-100 overflow-y-scroll">
+  {
+    mala && mala.length>0 && faker.helpers.arrayElements(mala,27).map((ma:any,index:number)=>{
+      return <div key={index} className="p-2 bg-white shadow-lg w-100">
+        {ma.string}--{ma.type} 
+        <hr/>
+        {ma?.string?.split('').map((i:any,index:number)=>`${Brahmiplate[i.charCodeAt(0)-2303]!==undefined?Brahmiplate[i.charCodeAt(0)-2303]:i.charCodeAt(0)<2303?i:i.charCode(0)}`)}
+        <hr/>
+        {ma.string.split('').map((i:any,index:number)=>`${shArdA[i.charCodeAt(0)-2303]!==undefined?shArdA[i.charCodeAt(0)-2303]:i.charCodeAt(0)<2303?i:i.charCode(0)}`)}
+        <hr/>
+        {ma.translitions[0].en}
+        <hr/>
+        {ma.translations[0].en}
+        </div>
+    })
+  }
+  </div>
+}
 // =><≠
 // 
 
