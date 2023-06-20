@@ -9,10 +9,16 @@ const [book,setBook]=useState({
   book_id:0,
   sku:"a",
   book_title:"",
+  book_category:"",
+  book_collection:"",
   book_images:[],
-  book_description:"",
-  book_technical:[],
-  book_precautions:[]
+  book_covers:[],
+  book_introduction:"",
+  book_manuscript:"",
+  book_index:{},
+  book_chapters:[],
+  book_meta:[],
+  book_glossary:[]
 })
 
 

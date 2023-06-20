@@ -11,7 +11,10 @@ const Admin=(props:any)=>{
       comments:[],
       current_status:"online",
       current_route:'/blog/{}',
-      history:[{time:"",route:""}]
+      history:[{time:"",route:""}],
+      notify:()=>{},
+      block:()=>{},
+      
     }
   ])
 
@@ -34,11 +37,11 @@ return
 
   return <div className="bg-white p-2 h-full min-h-[90vh]">
     <div className="h-12"></div>
-<div className="flex flex-row w-full gap-2">
+<div className="">
 
   {
     matter.map((ut:any,index:number)=>{
-      return <div key={index}>
+      return <div key={index} className="flex flex-row  w-full gap-2">
         {
           Object.keys(ut).map((he,ader)=>{
             return <div key={ader} className="text-[8px] sm:text-xs uppercase p-1">{he}</div>

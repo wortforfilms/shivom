@@ -6,7 +6,7 @@ import { LetterMatter } from "./LetterMatter";
 import { range } from "@/util/createRange";
 import ZoomableGraph from "@/canvas/graph";
 import BookDesigner from "@/canvas/book";
-import { BrahmiEducation } from "@/pages/services/[service]";
+import { BrahmiEducation } from "@/components/classes/brahmi/BrahmiEducation";
 import { Brahmiplate } from "./Brahmiplate";
 
 
@@ -269,18 +269,9 @@ export const Brahmi = () => {
   }, []);
 
   const router = useRouter()
-  // alert( "𑀁".charCodeAt(0).toString(16) )
-  // alert( "𑀁".codePointAt(0).toString(16) )
-  // alert( "\xd804" )
-  // {}-={}-={}
-  // -=_+–≠—±
-  // 
-  return (<>
-  <BrahmiEducation/>
-  {/* <Cover/> */}
-  {/* {section==="intro" && <Intro br={br} />} */}
-  </>
-  );
+
+  return <BrahmiEducation/>
+
 };
 
 // unrig veda 

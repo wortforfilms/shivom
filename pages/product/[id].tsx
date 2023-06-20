@@ -5,7 +5,7 @@ const Product=()=>{
   
   const router=useRouter()
   const {id}=router.query
-const [product,setProduct]=useState({
+  const [product,setProduct]=useState({
   product_id:0,
   sku:"a",
   product_title:"",

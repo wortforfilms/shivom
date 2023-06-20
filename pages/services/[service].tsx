@@ -1,9 +1,10 @@
 import Book from "@/elements/3d/bookmock"
 import { gold, silver } from "@/sty"
 import { useRouter } from "next/router"
-import { brahmi_education } from "../../data/brahmi_education"
 import { List } from "../../elements/List"
 import { hindi_to_brahmi } from "../../util/hindi_to_brahmi"
+import { BrahmiEducation } from "../../components/classes/brahmi/BrahmiEducation"
+import { supabase } from "@/lib/Store"
 
 const Service = () => {
   const router = useRouter()
@@ -38,24 +39,6 @@ const Education=()=>{
   return <div>
  <BrahmiEducation/>
 </div>
-}
-
-export const BrahmiEducation=()=>{
-  return <>
-   {brahmi_education.map((level, index) => {
-    return <div key={index} className="p-2 mt-4 rounded-lg shadow-lg  bg-white">
-      <h2 className="uppercase">
-        {level.level}
-      </h2>
-      <div className="p-1 mt-2 mb-2">{level.coarse.index.Introduction}</div>
-      {level.coarse && level.coarse.index && level.coarse.index.matter && level.coarse.index.matter.map((c: any, index: number) => {
-        return <div key={index} className="snakeCase text-sm  p-1">
-          <List header={c.q} data={c.d} />
-          <BookList header={c.q} data={c.d} />
-        </div>
-      })}
-    </div>
-  })}</>
 }
 
 const BrahmiKaavya=()=>{
@@ -151,8 +134,13 @@ const Mantra = () => {
   </div>
 }
 
-const BookList = (props: any) => {
+export const BookList = (props: any) => {
   const { header, data } = props
+
+  const find_chapter=async(title:string)=>{
+    const {data:chapter_list,error}=await supabase.from('post').select('*').eq('type','chapter').eq('title',title)
+    return {chapter_list,error}
+  }
 
   // १०-३३
   return <div className='flex h-100 flex-col sm:flex-row'>
@@ -161,10 +149,6 @@ const BookList = (props: any) => {
     
     <div className={`${gold} w-full sm:w-1/2  h-100 p-2`}>
       <div className={`p-2 opacity-90 mt-24 right-2 flex flex-col ${silver} w-[85%] sm:w-[70%] rounded-lg shadow-lg shadow-pink-300 m-auto text-center text-7xl`}>
-        
-        {/* {Brahmiplate[17]}{Brahmiplate[8]}{Brahmiplate[6]} */}
-        {/* {hindi_to_brahmi('सियाराम')} */}
-        {/* {hindi_to_brahmi('अखंड भारत')} */}
         <div>
           {hindi_to_brahmi('अहं')}
           </div>
@@ -174,23 +158,9 @@ const BookList = (props: any) => {
           <div className="text-3xl">
           {hindi_to_brahmi('सरस्वती गणेश लक्ष्मी')}
           </div>
-          {/* <div className="text-3xl">
-          {hindi_to_brahmi('अक्षरानामकारोस्मि द्वंद्व: सामासिकस्य च')}
-          </div> */}
-              {/* <div className="text-3xl">
-          {hindi_to_brahmi('नर मादा किन्नर')}
-          </div>
-
-          <div className="text-3xl">
-          {hindi_to_brahmi('ही शी दे')}
-          </div> */}
           <div className="text-3xl">
           {hindi_to_brahmi('ॐ')}
           </div>
-          {/* <div className="text-3xl">
-          {hindi_to_brahmi('ओम')}
-          </div> */}
-
         </div>
     <h1 className="text-3xl bg-orange-500/50 mt-4 sm:mt-16 m-auto p-2">
       {header}
@@ -198,53 +168,27 @@ const BookList = (props: any) => {
       <h2 className="text-sm p-2">Ideator Coder: Hemant Kumar Dixit</h2>
       <h2 className="text-sm -mt-6 p-2">Author: Ved VyAs</h2>
     </div>
-    <div className="bg-gray-300 w-full sm:w-1/2">
+    <div className="bg-gray-300 w-full flex flex-col m-auto sm:w-1/2">
 
-    <div className="p-1 flex flex-col gap-4">
+    <div className="p-4 flex flex-col gap-4 font-mono">
 
       {
         data.map((d: any, index: number) => {
-// check if exist
-// link if present
-// create manuscript 
-// create chapters list
-// create descriptive chapter
-// attach images
-// align credits
-// create open base
 
-// upi<>upi
-//   storage:::
-//   used:::
-//  individual group contact
-// c_on_t act ion
-// {ct}{spa}
-//  conntact manager 
-//  push scan {}
-
-
+          find_chapter(d).then((res)=>{
+            if(res && res.chapter_list.length>0){
+              console.log("processed chapters list found",data)
+            } else [
+              console.log("first process chapters")
+            ]
+          })
           return <li key={index}>
             {d}
-      {/* <div className="flex flex-row justify-around">
-
-            {[{type:"sample-book-chapters",matter:"email"},{type:"e-book",matter:"email"},{type:'physical-book',matter:"address"}].map((i,index)=>{
-              return <div key={index} className="w-1/4">
-  
-  {i.type}</div>
-            })}
-      </div> */}
             </li>
         })
       }
     </div>
-    {/* <Book
-          style={{ width: 500, height: 600, background: 'white' }}
-          bookCovers={{
-            front: '/img/image-4.jpeg',
-            back: '/img/images-5.jpeg',
-            spine: '/img/images-8.jpeg'
-          }}
-    /> */}
+
     </div>
 
   </div>
@@ -253,3 +197,4 @@ const BookList = (props: any) => {
 
 
 
+// post-type  total_views  total-likes rating pr_post_type shared_by  doc-id post_id liked_by viewed_by 

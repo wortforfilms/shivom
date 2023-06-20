@@ -7,6 +7,7 @@ import { supabase } from '@/lib/Store'
 import { errorT, notify } from '@/components/toast'
 import { range } from '@/util/createRange'
 import Image from 'next/image'
+import { PostStatsBar } from '@/elements/pop/stats_bar'
 
 
 export default function Blog() {
@@ -65,8 +66,8 @@ console.log(data)
 
       <h1>{id}</h1>
       <div>Author: {"Hemant Kumar Dixit"}</div>
-      <PostStat />
-   
+      {/* <PostStat /> */}
+   <PostStatsBar />
       </div>
       {/* <PromotionalPost/> */}
 

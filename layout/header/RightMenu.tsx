@@ -9,6 +9,7 @@ import { BiLogOut } from 'react-icons/bi';
 import { BsSave2Fill } from 'react-icons/bs';
 import { FaRegistered, FaUserCircle } from 'react-icons/fa';
 import { FcSettings } from 'react-icons/fc';
+import { MdAdminPanelSettings } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 
 const right = [
@@ -153,6 +154,21 @@ const router=useRouter()
         })}
 
 
+{
+  earth?.auth?.user?.username==="forfilmcoin@gmail.com" && <div  className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
+  onClick={()=>{
+    router.push('/admin')
+  }}
+  >
+    
+    <div className='text-gray-600  text-2xl rounded-full p-1'>
+      <MdAdminPanelSettings/>
+      </div>
+      <div className='my-auto'>
+        Admin
+        </div>
+  </div>
+}
       </motion.div>}
 
   </div>;

@@ -12,6 +12,7 @@ import { getTokenCookie } from '@/lib/auth/auth-cookies';
 import { login } from '@/store/auth/action';
 import { errorT } from '@/components/toast';
 import { t_b, top_bar } from '@/sty';
+import { PostStatsPop } from '@/elements/pop/stat';
 
 
 
@@ -68,7 +69,7 @@ const dispatch=useDispatch()
 
 }
    <RightMenu/>
-   
+   {earth?.panel?.post_stat_panel && <PostStatsPop earth={earth}/>}
   </nav>;
 };
 
