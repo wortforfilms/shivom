@@ -1,7 +1,6 @@
 
 import { ContinentSelector } from "@/constants/earth/continent";
 import { useEffect, useState } from "react";
-// import { dispatch } from "d3"
 import { getLocationOrigin } from "next/dist/shared/lib/utils";
 import { Dial } from ".";
 
@@ -81,7 +80,7 @@ useEffect(() => {
           setLocation({ lat: marker.lng, lng: marker.lat });
       get_address({ lat: marker.lng, lng: marker.lat })
           
-          console.log(location, spread_loc)
+          // console.log(location, spread_loc, '--->  loc')
 
 
         });
@@ -114,17 +113,6 @@ useEffect(() => {
 }, []);
 
 
-
-// -. jal thal  vAyu
-// wa_ter  h2o thal land vAyu airco2nh
-// cavas dials for speed with  acceleration
-// 
-// cavas :;
-// labels numbers <> ø˜øø∫∫˜µµµÂÂÂ˜˜¨¨ÆÚ
-// magic of  apple or curse of apple
-// ¿? ˜¨¨:
-//  
-
 useEffect(() => {
   let mount=true
   if(mount){
@@ -146,16 +134,7 @@ useEffect(() => {
       }
     });
     setDevice(device)
-    // console.log(device.mediaDevices)
-    // console.log(device.geolocation.getCurrentPosition((coordinates)=>{
-      // getMoonSign(new Date())
       getLocationOrigin()
-      // console.log(coordinates)
-    // }))
-    // dispatch(update_device_visit(device))
-    // Devops
-    //
-    // dispatch()
   }
 
 
@@ -167,23 +146,15 @@ useEffect(() => {
 
   return <div className="min-h-[90vh] w-full h-full">
     <div className="h-12"></div>
-    {
-      JSON.stringify(!!device && device)
-    }
-    {JSON.stringify(device)}
-    {/* <Vartmaan/> */}
-    {/* VratmAna */}
-    {/* VrutamAa */}
-    <div className="flex  flex-row justify-around  p-1">
+   
 
-  <Dial maxValue={80}  value={20} radius={80} strokeWidth={2}/>
-  <Dial maxValue={80}  value={10} radius={80} strokeWidth={2}/>
-  <Dial maxValue={80}  value={50} radius={80} strokeWidth={2}/>
-  <Dial maxValue={80}  value={20} radius={80} strokeWidth={2}/>
+    <div className="flex  flex-row justify-around  p-1">
+  <Dial maxValue={80}  value={20} radius={50} strokeWidth={2}/>
+  <Dial maxValue={80}  value={10} radius={50} strokeWidth={2}/>
+  <Dial maxValue={80}  value={50} radius={50} strokeWidth={2}/>
+  <Dial maxValue={80}  value={20} radius={50} strokeWidth={2}/>
     </div>
  
-
-{'ଓ'.charCodeAt(0)}
   <ContinentSelector/>
   <hr/>
 
@@ -203,11 +174,6 @@ export const view_chakra=(props:any)=>{
 
 }
 
-
-// feed planets texture 
-// snowball structure vs HKD
-// expand:shrink{compression capability}
-// {switch capability}
-// {serve:[];[biom]}
-// {corrector:JUPIToR}
+// current location
+// leap year month day hour degree minute second direction
 // 

@@ -39,12 +39,12 @@ export const Dial: React.FC<DialProps> = ({ value, maxValue, radius, strokeWidth
   const dashOffset = circumference - (value / maxValue) * circumference;
 
   return (
-    <svg width={radius * 2} height={radius * 2}>
+    <svg width={radius * 2} height={radius * 2} className="shadow-lg rounded-full">
       <circle
         cx={radius}
         cy={radius}
         r={radius - strokeWidth / 2}
-        fill="none"
+        fill="white"
         stroke="#ccc"
         strokeWidth={strokeWidth}
       />
@@ -72,3 +72,6 @@ export const Dial: React.FC<DialProps> = ({ value, maxValue, radius, strokeWidth
   );
 };
 
+// bhushan 
+// shekhar
+// avinash  
