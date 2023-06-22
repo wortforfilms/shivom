@@ -29,7 +29,6 @@ const Banner: React.FC = (props:any) => {
     <div className="banner flex flex-row bg-gray-200 h-full sm:h-full mt-8 md:h-96 flex justify-center items-center">
       
           <Image
-    // src="/img/astrology-circle-orance-dots.png"
     src={aibannner.bg_image} 
     alt="astro chart"
     width={100}
@@ -42,7 +41,6 @@ quality={100}
       <div className='absolute flex flex-col justify-center text-sm scale-50 sm:scale-100 -top-24 m-auto -right-32 sm:right-40 '><NakApp/></div>
 
 <Image
-    // src="/img/astrology-circle-orance-dots.png"
     src={'/cc/raashi_dail.png'} 
     alt="astro chart"
     width={100}
@@ -52,8 +50,18 @@ quality={100}
 quality={100}
     className="absolute m-auto w-full  rounded-full border-4 border-gray-300  justify-start animate-spin-slow  "
     />
+    </div>
+  );
+};
 
-     {earth?.auth?.authenticated ? <div className="content bg-white shadow-lg bg-opacity-[98%] p-6 text-center">
+export default Banner;
+
+// paper matrix song poem design equation task
+
+export const  GetStarted=(props:any)=>{
+  const {earth,router}=props
+  return <div className=' m-auto flex flex-col  mb-2 sm:mb-4  w-full'>
+       {earth?.auth?.authenticated ? <div className=" bg-white shadow-lg bg-opacity-[98%] p-6  text-center">
         <div className={heading}>{aibannner.title}</div>
         <p className={information}>{aibannner.info}</p>
         {earth?.auth?.authenticated?<div className="cta-button cursor-pointer bg-red-500 hover:bg-red-600 text-white text-lg px-8 py-4 rounded-full transition-colors duration-300" 
@@ -70,7 +78,7 @@ quality={100}
       >
          {aibannner.unauth_action.label}
         </a>}
-      </div>:<div className='absolute text-xl sm:text-7xl text-center font-extrabold'>𑀰{"४"}ॐ
+      </div>:<div className='text-xl sm:text-7xl text-center font-extrabold'>𑀰{"४"}ॐ
       <div 
       className={`${silver} p-2`}
       onClick={()=>{
@@ -78,13 +86,8 @@ quality={100}
       }}
       >{aibannner.unauth_action.label}</div>
       </div>}
-    </div>
-  );
-};
-
-export default Banner;
-
-// paper matrix song poem design equation task
+  </div>
+}
  
 
 const Lense=()=>{

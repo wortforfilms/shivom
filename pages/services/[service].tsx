@@ -134,8 +134,10 @@ const Mantra = () => {
   </div>
 }
 
-export const BookList = (props: any) => {
+export const BookBox = (props: any) => {
   const { header, data } = props
+
+
 
   const find_chapter=async(title:string)=>{
     const {data:chapter_list,error}=await supabase.from('post').select('*').eq('type','chapter').eq('title',title)
@@ -143,11 +145,11 @@ export const BookList = (props: any) => {
   }
 
   // १०-३३
-  return <div className='flex h-100 flex-col sm:flex-row'>
+  return <div className={`flex h-100 flex-col sm:flex-row bg-[url('/book/cover/Interdisciplinary_Collaboration.jpeg')]`}>
     {/* <div className="p-2 mb-2 h-32 text-center  font-bold">
     </div> */}
     
-    <div className={`${gold} w-full sm:w-1/2  h-100 p-2`}>
+    <div className={`${gold} w-full sm:w-1/2  h-100 p-2 `}>
       <div className={`p-2 opacity-90 mt-24 right-2 flex flex-col ${silver} w-[85%] sm:w-[70%] rounded-lg shadow-lg shadow-pink-300 m-auto text-center text-7xl`}>
         <div>
           {hindi_to_brahmi('अहं')}
@@ -161,6 +163,10 @@ export const BookList = (props: any) => {
           <div className="text-3xl">
           {hindi_to_brahmi('ॐ')}
           </div>
+          <div className="text-3xl">
+          {hindi_to_brahmi('बुद्धम शरणम गच्छामी')}
+          </div>
+
         </div>
     <h1 className="text-3xl bg-orange-500/50 mt-4 sm:mt-16 m-auto p-2">
       {header}
@@ -168,7 +174,7 @@ export const BookList = (props: any) => {
       <h2 className="text-sm p-2">Ideator Coder: Hemant Kumar Dixit</h2>
       <h2 className="text-sm -mt-6 p-2">Author: Ved VyAs</h2>
     </div>
-    <div className="bg-gray-300 w-full flex flex-col m-auto sm:w-1/2">
+    <div className={`bg-gray-300 w-full flex flex-col m-auto sm:w-1/2  `}>
 
     <div className="p-4 flex flex-col gap-4 font-mono">
 

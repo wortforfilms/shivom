@@ -1,24 +1,17 @@
 import { getLoginSession } from '../../../lib/auth/auth'
 import { findUserFromAuth } from "@/lib/auth/action/findUserFromAuth"
 
-
 export default async function user(req:any, res:any) {
-  console.log(
-    req.cookies,'---req', req.headers?.cookie
-  )
+  console.log(req.cookies,'---req', req.headers?.cookie)
   try {
     if(req.cookies && req.headers?.cookie){
 
       const session = await getLoginSession(req)
-
         if(session && session.meessage!=="no user found"){
-          
           const una=session.user[0].username
           if(session.user[0].username){
-            
-            
+            console.log("first token user found")
             const user = (session && (await findUserFromAuth(una))) ?? null
-            
             return res.status(200).json({ user })
           }
       }
@@ -30,3 +23,21 @@ export default async function user(req:any, res:any) {
     return  res.status(500).end('Authentication token giving error, please refresh to resolve. 🚀')
   }
 }
+
+
+// domais
+//  storage partners
+
+// {}::{}
+// 10Trillion
+// counter  ressession
+// europe  {}
+// hi cloud
+// romania
+//  tazakistan
+// turkey
+// vasudhaivkutumbkam
+// we all exist  in different times
+// how to time
+//  dial earth
+// the moon language

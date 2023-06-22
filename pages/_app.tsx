@@ -19,12 +19,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Transition } from '@headlessui/react'
 import TransitionScreen from '@/elements/transition'
 import { Box } from '@/elements/box'
+import { setTokenCookie } from '@/lib/auth/auth-cookies'
 // import 'regenerator-runtime/runtime'
 
 const update_existing_device=async(tantra:any)=>{
   const {data,error}=await supabase.from('युक्ति').update([{
-    status:"Online",
-  }]).eq('id',tantra)
+    current_status:"Online",
+  }]).eq('ice',tantra)
 
   return {data,error}
 }
@@ -37,7 +38,9 @@ const trans_device=async(data:any, nav:any)=>{
       nav
     }]
 
-  }]) 
+  }]).select('*')
+
+  console.log(dev,'selection')
   return {dev,error}
 }
 
@@ -73,18 +76,20 @@ function App({ Component, ...rest }: AppProps) {
       let mount=true
       if(mount){
         const tantra=localStorage.getItem('युक्ति')
-        if(tantra){
+        if(tantra && tantra!==undefined){
+          console.log("first tatra  found", tantra)
           update_existing_device(tantra)
         } else {
           const i_c=shortid.generate()
           const data={i_c}
           trans_device(data, navigator).then((res:any)=>{
-            if(res && res.data){
-              localStorage.setItem('युक्ति',res.data.ice)
-              dispatch(update_device(res.data))
+            if(res && res.dev && res.dev[0].ice){
+              console.log("first tantra created")
+              localStorage.setItem('युक्ति',res.dev[0].ice)
+              dispatch(update_device(res.dev[0]))
             }
             console.log(res,'device data')
-          })
+          }).catch(error=>console.log(error))
         }
       }
     
@@ -140,3 +145,11 @@ if(loading){
 
 
 export default wrapper.withRedux(App)
+
+
+
+// devices 
+// send devices
+// track  devices
+// share  view 
+// route->

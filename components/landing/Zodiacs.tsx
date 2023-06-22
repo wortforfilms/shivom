@@ -518,16 +518,29 @@ const router=useRouter()
         router.push(`/galaxy/rashi/${ss.label}`)
       }}
       >
-        <div className={`text-5xl p-2 hover:${'bg-gray-300'} rounded-lg`}>
+        {/* <div className={`text-5xl p-2 hover:${'bg-gray-300'} rounded-lg`}>
           {ss.sign}
-        </div>
+        </div> */}
+
+        <Image
+            // src="/img/astrology-circle-orance-dots.png"
+    src={`/img/zodiac/${ss.label.toLowerCase()}.png`}
+
+            // src="/img/astrological_chart.png"
+            alt="astro chart"
+            width={100}
+            height={100}
+            priority
+            unoptimized
+            quality={100}
+            className=" w-24 sm:w-24   h-auto m-auto rounded-full invert  "
+        />
         <div className=' text-md text-center'>
           {ss.label}
         </div>
         <div className=' text-md text-center'>
-          {raashi_naam[index]}<br/>
+          {raashi_naam[index]}--
           {hindi_to_brahmi(raashi_naam[index])}
-          {/* {Object.values(Nakshatra)[index*2]} */}
         </div>
       </motion.div>;
     })}

@@ -23,7 +23,7 @@ import { Team } from '../components/list/Team'
 import { useSelector } from 'react-redux'
 import Services from './services'
 
-import Banner from '@/elements/banner'
+import Banner, { GetStarted } from '@/elements/banner'
 import { Sh4omBanner0 } from '@/elements/headless/banner'
 import { Box } from '@/elements/box'
 
@@ -66,7 +66,12 @@ export default function Home(props: any) {
       <div className='h-12'></div>
       <HeaderButtons setSection={setSection} section={section} />
 
-      {!section && <Banner/> }
+      {!section && <div className='flex flex-col m-auto'>
+        <Banner/>
+        <GetStarted earth={earth} router={router}/>
+      </div>
+       }
+
 {/* <PostDesigner/> */}
 {!section  && <ShowcasedPost/>}
 

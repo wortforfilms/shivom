@@ -18,6 +18,7 @@ const Product=()=>{
 
   return <div>
 [id]
+<div>{product.product_title}</div>
   </div>
 }
 

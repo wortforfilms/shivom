@@ -13,7 +13,7 @@ const nextConfig = {
     NEXT_PUBLIC_SUPABASE_URL: "https://oxraxkhonksvlrvpwsnc.supabase.co",
     // Open_Ai_Key:"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",
     // Open_Ai_Key:"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",
-    Open_Ai_Key:"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",
+    Open_Ai_Key:"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",
     TOKEN_SECRET: "bharatIndiabharatIndiabharatIndiabharatIndia",
 
   },

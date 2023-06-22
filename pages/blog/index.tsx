@@ -15,15 +15,15 @@ import {  MdReportProblem } from "react-icons/md"
 
 export const list=[
 {set:"brahmi",topic:"The Indian Dream: Unleashing the Power of Brahmi"},
-{set:"brahmi",topic:"Harnessing the Potential: India's Journey to Superpower Status"},
+{set:"brahmi",topic:"Harnessing the Potential: India's Journey to helping World in overcoming reccession"},
 {set:"brahmi",topic:"The Brahmi Revolution: India's Path to Global Influence"},
 {set:"brahmi",topic:"India's Rise: Empowering the Nation through Brahmi"},
 {set:"brahmi",topic:"Building Blocks of a Superpower: India's Brahmically-Driven Growth"},
 {set:"brahmi",topic:"Unleashing India's Brain Power: The Role of Brahmi"},
-{set:"brahmi",topic:"The Brahmastra of Progress: India's Quest for Superpower Status"},
+{set:"brahmi",topic:"The Brahmastra of Progress: India's Quest for helping World in overcoming reccession"},
 {set:"brahmi",topic:"India's Intellectual Resurgence: Brahmi as a Catalyst"},
 {set:"brahmi",topic:"Brahmify India: Unlocking the Nation's Potential"},
-{set:"brahmi",topic:"Brahma Bharat: India's Ascent to Superpower Status"},
+{set:"brahmi",topic:"Brahma Bharat: India's Ascent to helping World in overcoming reccession"},
 {set:"brahmi",topic:"A New Era Dawns: India's Brahmi-Powered Transformation"},
 {set:"brahmi",topic:"Brahmi 2.0: Paving the Way for India's Global Dominance"},
 {set:"brahmi",topic:"India's Brainwave: Harnessing Brahmi for Success"},
@@ -33,85 +33,85 @@ export const list=[
 {set:"brahmi",topic:"Innovate, Create, Dominate: India's Brahmically-Driven Future"},
 {set:"brahmi",topic:"Unleashing India's Intellectual Powerhouse: The Brahmi Renaissance"},
 {set:"brahmi",topic:"India's Brain Trust: Leveraging Brahmi for Global Influence"},
-{set:"brahmi",topic:"Breaking Barriers: How Brahmi is Propelling India towards Superpower Status"},
+{set:"brahmi",topic:"Breaking Barriers: How Brahmi is Propelling India towards helping World in overcoming reccession"},
 {set:"brahmi",topic:"Building a Knowledge Economy: India's Brahmically-Fueled Growth"},
 {set:"brahmi",topic:"Mind Over Matter: India's Transformation through Brahmi"},
 {set:"brahmi",topic:"The Power Within: India's Ascendance with Brahmi"},
 {set:"brahmi",topic:"India Unleashed: The Brahmi Revolution"},
-{set:"brahmi",topic:"Rise of the Brain Nation: India's Journey to Superpower Status"},
+{set:"brahmi",topic:"Rise of the Brain Nation: India's Journey to helping World in overcoming reccession"},
 {set:"brahmi",topic:"Advancing India: The Brahmically-Driven Paradigm Shift"},
 {set:"brahmi",topic:"Brahma Shakti: Fueling India's Superpower Ambitions"},
 {set:"brahmi",topic:"India's Intellectual Awakening: Embracing the Power of Brahmi"},
 {set:"brahmi",topic:"The Brahma Code: India's Blueprint for Global Dominance"},
-{set:"brahmi",topic:"Intellectually Empowered: India's Road to Superpower Status through Brahmi"},
+{set:"brahmi",topic:"Intellectually Empowered: India's Road to helping World in overcoming reccession through Brahmi"},
 {set:"brahmi",topic:"The Brahma Factor: India's Rise on the Global Stage"},
 {set:"brahmi",topic:"India 2.0: Unlocking the Potential with Brahmi"},
 {set:"brahmi",topic:"Knowledge Revolution: India's Transformation with Brahmi at the Core"},
-{set:"brahmi",topic:"The Brahma Trail: India's Journey towards Superpower Status"},
+{set:"brahmi",topic:"The Brahma Trail: India's Journey towards helping World in overcoming reccession"},
 {set:"brahmi",topic:"India's Intellectual Arsenal: The Brahmi Advantage"},
-{set:"brahmi",topic:"Intellectual Renaissance: India's Pathway to Superpower Status"},
+{set:"brahmi",topic:"Intellectual Renaissance: India's Pathway to helping World in overcoming reccession"},
 {set:"brahmi",topic:"Brahma Bharati: India's Brain-Driven Rise to Power"},
 {set:"brahmi",topic:"The Brain Trust: India's Brahmi-Powered Ascendance"},
-{set:"brahmi",topic:"Mastering Minds, Conquering Frontiers: India's Quest for Superpower Status"},
+{set:"brahmi",topic:"Mastering Minds, Conquering Frontiers: India's Quest for helping World in overcoming reccession"},
 {set:"brahmi",topic:"India Unleashed: The Power of Brahmi"},
 {set:"brahmi",topic:"Brahma Bindu: India's Journey to Becoming a Superpower"},
 {set:"brahmi",topic:"Rise of the Brahmi Nation: India's Roadmap to Global Prominence"},
-{set:"brahmi",topic:"The Brahma Shift: India's Transition to Superpower Status"},
+{set:"brahmi",topic:"The Brahma Shift: India's Transition to helping World in overcoming reccession"},
 {set:"brahmi",topic:"Intellectual Evolution: The Brahmically-Fueled Growth of India"},
 {set:"brahmi",topic:"Mind Power: Unleashing India's Potential through Brahmi"},
 {set:"brahmi",topic:"Brahma Yug: India's Era of Superpower Dominance"},
 {set:"brahmi",topic:"Empowering a Nation: India's Brahmically-Driven Development"},
 {set:"brahmi",topic:"Rise of the Intellectual Giant: India's Journey with Brahmi"},
 {set:"brahmi",topic:"Transforming India: The Brahmi Revolution and Superpower Aspirations"},
-{set:"brahmi",topic:"Brahma Nirmaan: Paving the Way for India's Superpower Status"},
-{set:"vedic",topic:"The Power of Vedic Mindset: India's Path to Superpower Status"},
+{set:"brahmi",topic:"Brahma Nirmaan: Paving the Way for India's helping World in overcoming reccession"},
+{set:"vedic",topic:"The Power of Vedic Mindset: India's Path to helping World in overcoming reccession"},
 {set:"vedic",topic:"Reviving Ancient Wisdom: The Key to India's Journey towards Greatness"},
-{set:"vedic",topic:"Unleashing the Vedic Potential: India's Quest for Superpower Status"},
+{set:"vedic",topic:"Unleashing the Vedic Potential: India's Quest for helping World in overcoming reccession"},
 {set:"vedic",topic:"Harnessing the Spirit of Vedas: India's Rise on the Global Stage"},
-{set:"vedic",topic:"India's Vedic Renaissance: Transforming the Nation for Superpower Status"},
+{set:"vedic",topic:"India's Vedic Renaissance: Transforming the Nation for helping World in overcoming reccession"},
 {set:"vedic",topic:"The Vedic Way: Guiding India's Journey to Greatness"},
-{set:"vedic",topic:"The Resurgence of Vedic Values: India's Roadmap to Superpower Status"},
+{set:"vedic",topic:"The Resurgence of Vedic Values: India's Roadmap to helping World in overcoming reccession"},
 {set:"vedic",topic:"Awakening the Vedic Mind: India's Path to Global Influence"},
-{set:"vedic",topic:"Vedic Wisdom in Modern Times: India's Evolution towards Superpower Status"},
+{set:"vedic",topic:"Vedic Wisdom in Modern Times: India's Evolution towards helping World in overcoming reccession"},
 {set:"vedic",topic:"The Vedic Paradigm: India's Catalyst for Economic and Cultural Empowerment"},
-{set:"vedic",topic:"Vedic Heritage, Global Leadership: India's Quest for Superpower Status"},
+{set:"vedic",topic:"Vedic Heritage, Global Leadership: India's Quest for helping World in overcoming reccession"},
 {set:"vedic",topic:"Embracing Vedic Consciousness: India's Road to Greatness"},
-{set:"vedic",topic:"The Vedic Mindset: Igniting India's Potential for Superpower Status"},
+{set:"vedic",topic:"The Vedic Mindset: Igniting India's Potential for helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Visionaries: Shaping India's Future as a Global Leader"},
 {set:"vedic",topic:"Reimagining India: Reviving the Vedic Mindset for Superpower Aspirations"},
 {set:"vedic",topic:"Vedic Renaissance: India's Cultural Revival on the Path to Greatness"},
-{set:"vedic",topic:"Unearthing Vedic Principles: India's Journey to Superpower Status"},
+{set:"vedic",topic:"Unearthing Vedic Principles: India's Journey to helping World in overcoming reccession"},
 {set:"vedic",topic:"India's Vedic Resurgence: Redefining the Nation's Destiny"},
-{set:"vedic",topic:"Vedic Civilization Revisited: India's Pursuit of Superpower Status"},
+{set:"vedic",topic:"Vedic Civilization Revisited: India's Pursuit of helping World in overcoming reccession"},
 {set:"vedic",topic:"The Vedic DNA of India: Nurturing Greatness for Global Impact"},
 {set:"vedic",topic:"Vedic Wisdom for a New India: Fueling the Superpower Aspirations"},
-{set:"vedic",topic:"The Vedic Soul of India: Charting the Course to Superpower Status"},
+{set:"vedic",topic:"The Vedic Soul of India: Charting the Course to helping World in overcoming reccession"},
 {set:"vedic",topic:"India's Vedic Heritage: Illuminating the Path to Greatness"},
-{set:"vedic",topic:"Vedic Mindset and Global Competitiveness: India's Roadmap to Superpower Status"},
+{set:"vedic",topic:"Vedic Mindset and Global Competitiveness: India's Roadmap to helping World in overcoming reccession"},
 {set:"vedic",topic:"The Vedic Renaissance: Unleashing India's Potential for Global Influence"},
-{set:"vedic",topic:"Vedic Principles for Economic Empowerment: India's Rise to Superpower Status"},
+{set:"vedic",topic:"Vedic Principles for Economic Empowerment: India's Rise to helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Education for a Stronger India: Building the Foundation for Greatness"},
-{set:"vedic",topic:"Nurturing Vedic Entrepreneurship: India's Drive towards Superpower Status"},
+{set:"vedic",topic:"Nurturing Vedic Entrepreneurship: India's Drive towards helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Values and Sustainable Development: India's Journey to Greatness"},
-{set:"vedic",topic:"Vedic Philosophy and Leadership: India's Path to Superpower Status"},
+{set:"vedic",topic:"Vedic Philosophy and Leadership: India's Path to helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Mindfulness: Cultivating Resilience on India's Road to Greatness"},
-{set:"vedic",topic:"Vedic Traditions and Environmental Stewardship: India's Pathway to Superpower Status"},
+{set:"vedic",topic:"Vedic Traditions and Environmental Stewardship: India's Pathway to helping World in overcoming reccession"},
 {set:"vedic",topic:"India's Vedic Legacy: Enriching the World through Cultural Diplomacy"},
-{set:"vedic",topic:"Vedic Health and Wellness: Empowering India's Journey to Superpower Status"},
+{set:"vedic",topic:"Vedic Health and Wellness: Empowering India's Journey to helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Architecture: Shaping India's Infrastructure for Global Prominence"},
-{set:"vedic",topic:"Vedic Spirituality and Inner Transformation: India's Quest for Superpower Status"},
+{set:"vedic",topic:"Vedic Spirituality and Inner Transformation: India's Quest for helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Wisdom for Sustainable Governance: India's Pathway to Greatness"},
 {set:"vedic",topic:"Vedic Arts and Culture: Showcasing India's Rich Heritage on the World Stage"},
-{set:"vedic",topic:"Vedic Science and Technological Innovation: Propelling India towards Superpower Status"},
+{set:"vedic",topic:"Vedic Science and Technological Innovation: Propelling India towards helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Philosophy in Governance: India's Drive for Efficient and Inclusive Systems"},
 {set:"vedic",topic:"Vedic Agriculture and Food Security: Nourishing India's Superpower Ambitions"},
 {set:"vedic",topic:"Vedic Wisdom for Social Harmony: India's Journey to Greatness"},
 {set:"vedic",topic:"Vedic Literature: India's Intellectual Arsenal on the Path to Superpower Stat"},
 {set:"vedic",topic:"Vedic Yoga and Wellness: Empowering Individuals on India's Road to Greatness"},
-{set:"vedic",topic:"Vedic Astronomy and Space Exploration: India's Cosmic Quest for Superpower Status"},
+{set:"vedic",topic:"Vedic Astronomy and Space Exploration: India's Cosmic Quest for helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Music and Performing Arts: Showcasing India's Cultural Splendor Worldwide"},
 {set:"vedic",topic:"Vedic Philosophy and Sustainable Development: India's Blueprint for Greatness"},
-{set:"vedic",topic:"Vedic Ethics and Corporate Governance: India's Drive towards Superpower Status"},
+{set:"vedic",topic:"Vedic Ethics and Corporate Governance: India's Drive towards helping World in overcoming reccession"},
 {set:"vedic",topic:"Vedic Philosophy in Education: Nurturing India's Future Leaders for Global Impact"},
 {set:"vedic",topic:"Vedic Wisdom and National Security: Safeguarding India's Superpower Aspirations"},
 ]
@@ -240,14 +240,14 @@ const pp={
   matter:`
   🌟 Exciting Announcement! 🌟
 
-📣 Introducing "Harnessing the Potential: India's Journey to Superpower Status by Reviving Brahmi" 📣
+📣 Introducing "Harnessing the Potential: India's Journey to helping World in overcoming reccession by Reviving Brahmi" 📣
 
 India, the land of diverse cultures and ancient wisdom, is embarking on an extraordinary journey towards superpower status. Join us as we unveil a groundbreaking initiative that revives the power of Brahmi, an ancient script with immense potential to shape India's future!
 
-🔮 "Harnessing the Potential: India's Journey to Superpower Status by Reviving Brahmi" 🔮
+🔮 "Harnessing the Potential: India's Journey to helping World in overcoming reccession by Reviving Brahmi" 🔮
 
 🌐 Discover how the revival of Brahmi can:
-✅ Preserve India's cultural identity
+✅ Preserve Indian's across the globe cultural identity
 ✅ Foster linguistic unity and understanding
 ✅ Promote education and literacy
 ✅ Boost cultural tourism and global appeal
@@ -347,7 +347,7 @@ export const PromotionalPost: React.FC = () => {
     <div className={`promotional-post ${fadeIn ? 'fade-in' : ''}`}>
       <div className="post-content">
         <h2>Harnessing the Potential:</h2>
-        <h2>India's Journey to Superpower Status</h2>
+        <h2>India's Journey to helping World in overcoming reccession</h2>
         <p>Reviving Brahmi</p>
         <p>Discover how the power of Brahmi can propel India towards superpower status, preserving cultural heritage while embracing modernity.</p>
         <a href="#" className="cta-button">Learn More</a>

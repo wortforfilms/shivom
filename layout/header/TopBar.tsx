@@ -13,6 +13,7 @@ import { login } from '@/store/auth/action';
 import { errorT } from '@/components/toast';
 import { t_b, top_bar } from '@/sty';
 import { PostStatsPop } from '@/elements/pop/stat';
+import { useRouter } from 'next/router';
 
 
 
@@ -30,10 +31,7 @@ export const refresh_user_session = async (token: any, dispatch: any, earth: any
         dispatch(login(data));
 
       }
-      // if (_data?.message) {
-      //   notify("_data.message")]\
-      
-    });
+    }).catch(error=>console.log(error,'--->device  get/'))
   return f;
 };
 
@@ -45,6 +43,8 @@ const earth:typeof initialReduxState=useSelector(state=>state)
   const [left,setLeft]=useState(false)
   const [right,setRight]=useState(false)
 const dispatch=useDispatch()
+const router=useRouter()
+
     // @ refresh token
     useEffect(() => {
       let mount = true;
@@ -59,7 +59,33 @@ const dispatch=useDispatch()
         mount = false;
       };
     }, []);
+
     // dont change dependencies
+
+      // @ check auth
+  useEffect(() => {
+    let mount = true;
+    if (router.asPath.includes("user")) {
+      if (!earth?.auth?.authenticated) {
+        router.push("/auth/login");
+      } else {
+        return;
+      }
+    }
+
+    if (router.asPath.includes("create")) {
+      if (!earth?.auth?.authenticated) {
+        router.push("/auth/login");
+      } else {
+        return;
+      }
+    }
+
+    return () => {
+      mount = false;
+    };
+  }, [router, earth?.auth]);
+
 
   return <nav className={`fixed  z-50 ${top_bar} w-full h-12 p-2 shadow-lg flex flex-row justify-between`}>
     {left && <LeftPanel/>}

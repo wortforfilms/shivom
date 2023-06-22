@@ -90,7 +90,23 @@ const router=useRouter()
     {rf_open &&
       rf &&  <motion.div
         animate={{ opacity: [0, 1], x: [10, 0] }}
-        className='absolute right-0 h-100 w-48 p-2 mt-2 shadow-lg  rounded-lg bg-white'>{earth?.auth?.authenticated?arf.map(
+        className='absolute right-0 h-100 w-48 p-2 mt-2 shadow-lg  rounded-lg bg-white'>
+          {
+  earth?.auth?.user?.username==="forfilmcoin@gmail.com" && <div  className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
+  onClick={()=>{
+    router.push('/admin')
+  }}
+  >
+    
+    <div className='text-gray-600  text-2xl rounded-full p-1'>
+      <MdAdminPanelSettings/>
+      </div>
+      <div className='my-auto'>
+        Admin
+        </div>
+  </div>
+}
+          {earth?.auth?.authenticated?arf.map(
           (l, index) => {
             return <div key={index} className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
             onClick={()=>{
@@ -154,21 +170,7 @@ const router=useRouter()
         })}
 
 
-{
-  earth?.auth?.user?.username==="forfilmcoin@gmail.com" && <div  className=' flex flex-row gap-4 text-sm p-1 mb-2 hover:bg-gray-300 cursor-pointer'
-  onClick={()=>{
-    router.push('/admin')
-  }}
-  >
-    
-    <div className='text-gray-600  text-2xl rounded-full p-1'>
-      <MdAdminPanelSettings/>
-      </div>
-      <div className='my-auto'>
-        Admin
-        </div>
-  </div>
-}
+
       </motion.div>}
 
   </div>;

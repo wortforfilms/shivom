@@ -12,11 +12,11 @@ const [book,setBook]=useState({
   book_category:"",
   book_collection:"",
   book_images:[],
-  book_covers:[],
+  book_cover:[],
   book_introduction:"",
   book_manuscript:"",
-  book_index:{},
-  book_chapters:[],
+  book_index:[],
+  book_matter:[],
   book_meta:[],
   book_glossary:[]
 })
@@ -24,6 +24,14 @@ const [book,setBook]=useState({
 
   return <div>
 {id}
+<h1>{book.book_title}</h1>
+<div className="flex flex-col gap-2">
+
+<div>{book.book_index.map((bk,index)=>{
+  return <div  key={index}>
+    <div>{index+1}. {bk}</div></div>
+})}</div>
+</div>
   </div>
 }
 
